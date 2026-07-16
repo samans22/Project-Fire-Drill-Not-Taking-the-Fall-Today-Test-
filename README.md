@@ -12,9 +12,7 @@
 
 👉 **[🎮 开始游戏](https://samans22.github.io/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-/）**
 
-> 如果链接无法打开，说明 GitHub Pages 尚未启用。请在仓库 **Settings → Pages** 中将 Source 设为 `main` 分支并保存，等待 1-2 分钟后刷新即可。
-
-### 方式二：直接打开（最快）
+### 方式二：直接打开
 
 1. 下载本仓库 ZIP 文件（点击仓库页面上方绿色的 **Code → Download ZIP**）
 2. 解压后双击 `index.html` 即可用浏览器开始游戏
