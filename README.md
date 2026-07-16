@@ -1,23 +1,114 @@
-# Project Fire Drill — Not Taking the Fall Today
+# 🏢 项目救火办：今日不背锅
 
-A game project under development.
+> 伪装成项目管理后台的职场生存文字游戏 —— 在危机四伏的职场中，你能平安下班吗？
 
-## Description
+---
 
-*Project Fire Drill — Not Taking the Fall Today* is an interactive game experience.
+## 🎮 立即游玩
 
-## Status
+### 方式一：GitHub Pages（推荐）
 
-🚧 Early Development
+点击下方链接即可在浏览器中直接游玩：
 
-## Tech Stack
+👉 **[🎮 开始游戏](https://samans22.github.io/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-/）**
 
-*To be determined*
+> 如果链接无法打开，说明 GitHub Pages 尚未启用。请在仓库 **Settings → Pages** 中将 Source 设为 `main` 分支并保存，等待 1-2 分钟后刷新即可。
 
-## Setup
+### 方式二：直接打开（最快）
 
-*Coming soon*
+1. 下载本仓库 ZIP 文件（点击仓库页面上方绿色的 **Code → Download ZIP**）
+2. 解压后双击 `index.html` 即可用浏览器开始游戏
 
-## License
+### 方式三：克隆到本地
 
-All rights reserved.
+```bash
+git clone https://github.com/samans22/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-.git
+cd Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-
+# 双击 index.html 或用浏览器打开即可
+```
+
+---
+
+## 📖 游戏简介
+
+你是一名项目负责人，正在处理三个棘手的项目之一。每天都会有突发事件通过"项目管理系统"推送给你——客户临时加需求、供应商失联、合规风险爆发、预算被砍……
+
+**你的目标只有一个：在下班前把项目健康度维持在全绿状态，活着走出办公室。**
+
+- 🕐 **10 天**一个项目周期
+- ⏱️ 单局 **3–5 分钟**
+- 🎯 管理 4 项核心指标：**时间 · 预算 · 满意度 · 风险**
+- 📋 20+ 个随机事件，每次选择都会影响后续剧情
+- 🔗 隐藏连锁事件：你的选择会触发新的危机
+- 🏆 11 种不同结局等你解锁
+
+---
+
+## 🎯 核心指标
+
+| 指标 | 说明 | 绿色 | 黄色 | 红色 |
+|------|------|------|------|------|
+| ⏱️ 时间 | 项目剩余时间 | ≥7 | 4-6 | ≤3 |
+| 💰 预算 | 项目可用预算 | ≥7 | 4-6 | ≤3 |
+| 😊 满意度 | 客户满意程度 | ≥7 | 4-6 | ≤3 |
+| ⚠️ 风险 | 项目累积风险 | ≤3 | 4-6 | ≥7 |
+
+> ⚠️ 任一指标归零，或风险拉满，**立即触发失败结局！**
+
+---
+
+## 🕹️ 操作说明
+
+- 点击选项按钮做出决策
+- 观察右侧健康度面板的变化
+- 右下角的群聊消息会透露关键信息
+- 所有进度**自动保存**到浏览器，关闭页面后下次可继续
+- 每次刷出新结局时截图分享给朋友！
+
+---
+
+## 🛠️ 技术栈
+
+纯静态页面，无需任何构建工具或运行环境：
+
+- HTML5 + CSS3（企业后台 UI 伪装风格）
+- 原生 JavaScript（无框架）
+- JSON 驱动的数据系统（事件、角色、结局均可自由扩展）
+- localStorage 存档
+
+---
+
+## 📁 项目结构
+
+```
+├── index.html              # 主页面入口
+├── css/
+│   └── style.css           # 样式（企业后台暗色主题）
+├── js/
+│   ├── main.js             # 游戏主循环
+│   ├── game.js             # 核心状态管理
+│   ├── events.js           # 事件调度系统
+│   ├── ui.js               # UI 渲染模块
+│   └── storage.js          # 存档管理
+│   └── data/
+│       ├── events.json     # 事件数据（20+事件）
+│       ├── characters.json # 角色数据（8个角色）
+│       ├── projects.json   # 项目数据（3个项目包）
+│       ├── themes.json     # 每日主题
+│       └── endings.json    # 结局条件（11种结局）
+└── README.md
+```
+
+---
+
+## 📝 待办 / 后续计划
+
+- [ ] 更多事件与连锁剧情
+- [ ] 音效与 BGM
+- [ ] 移动端适配优化
+- [ ] 成就系统
+- [ ] 更多结局与隐藏彩蛋
+
+---
+
+*Made with ❤️ for all project managers who just want to get home on time.*
