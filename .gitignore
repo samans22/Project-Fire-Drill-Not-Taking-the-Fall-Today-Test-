@@ -1,0 +1,63 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+
+# Unreal Engine
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+*.xcworkspace
+*.xcuserdata
+
+# Godot
+.godot/
+export_presets.cfg
+*.translation
+
+# Visual Studio / Rider
+.vs/
+*.sln.DotSettings.user
+*.csproj.user
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# Assets
+*.blend1
+*.blend2
+*.blend3
+
+# Package managers
+node_modules/
+Packages/
+
+# Misc
+*.log
+*.tmp
+*.cache
