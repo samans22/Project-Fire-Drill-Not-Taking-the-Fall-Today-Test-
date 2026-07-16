@@ -1,0 +1,26 @@
+[
+  {
+    "id": "esg_report",
+    "name": "ESG 年报冲刺",
+    "subtitle": "年底前完成 ESG 报告披露",
+    "tags": ["esg_report"],
+    "description": "为上市公司完成年度 ESG 报告或申奖材料",
+    "keyEvents": ["碳数据口径", "案例缺数据", "供应商回复", "定量表述"]
+  },
+  {
+    "id": "ipo_roadshow",
+    "name": "港股 IPO 路演",
+    "subtitle": "协助企业完成招股及投资者沟通",
+    "tags": ["ipo_roadshow"],
+    "description": "协助企业开展招股及投资者沟通",
+    "keyEvents": ["招股书调整", "基石投资者", "媒体问询", "估值预期"]
+  },
+  {
+    "id": "industry_summit",
+    "name": "百人行业峰会",
+    "subtitle": "筹备大型线下行业会议",
+    "tags": ["industry_summit"],
+    "description": "筹备大型线下会议和嘉宾接待",
+    "keyEvents": ["专属签到码", "座位表", "嘉宾迟到", "会场和物料"]
+  }
+]

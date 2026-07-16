@@ -1,0 +1,79 @@
+[
+  {
+    "id": "all_green",
+    "title": "全绿交付",
+    "condition": { "time_min": 2, "budget_min": 2, "satisfaction_min": 2, "risk_max": 2 },
+    "text": "四项指标全面健康。客户复盘会上，林总罕见地说了句\"大家辛苦了\"。项目准时交付，没有惊喜，也没有惊吓——这大概就是职场最好的结局。",
+    "tag": "全能选手"
+  },
+  {
+    "id": "sick_launch",
+    "title": "带病上线",
+    "condition": { "satisfaction_min": 3, "risk_min": 3 },
+    "text": "客户满意度很高，但你知道水面之下漂着多少技术债和合规隐患。结果漂亮，但每次邮件提示音都让你心头一紧。",
+    "tag": "表面风光"
+  },
+  {
+    "id": "budget_master",
+    "title": "成本控制大师",
+    "condition": { "budget_min": 3, "satisfaction_max": 2 },
+    "text": "项目预算控制得完美无缺，但你听到客户在背后说\"一分钱一分货\"。没有超支，也没有惊喜。",
+    "tag": "铁算盘"
+  },
+  {
+    "id": "crisis_survivor",
+    "title": "危机公关新星",
+    "condition": { "risk_min": 3, "time_min": 1 },
+    "text": "风险值一度飙到临界点，但你硬是在翻车前踩了刹车。没有解决所有问题，但至少阻止了问题变成新闻。",
+    "tag": "危机终结者"
+  },
+  {
+    "id": "overtime_champion",
+    "title": "加班冠军",
+    "condition": { "time_max": 1, "satisfaction_min": 2 },
+    "text": "不计其数的加班换来了项目成功。你工位上的绿植已经枯了，但你已经是公司传说中的\"救火队长\"。",
+    "tag": "永不下班"
+  },
+  {
+    "id": "project_delayed",
+    "title": "项目延期",
+    "condition": { "time_max": 0 },
+    "text": "时间耗尽，项目进入无人愿意提及的\"下一阶段\"。没有人责怪你，但也没有人想接手这个项目了。",
+    "tag": "来日方长"
+  },
+  {
+    "id": "client_lost",
+    "title": "客户换团队",
+    "condition": { "satisfaction_max": 0 },
+    "text": "客户满意度触底，对方发来了一封措辞礼貌的邮件，核心意思只有一句话：\"我们都觉得换一个团队会更好。\"",
+    "tag": "后会无期"
+  },
+  {
+    "id": "compliance_blocked",
+    "title": "合规拦截",
+    "condition": { "risk_min": 4 },
+    "text": "发布前两小时，合规陈老师按下了暂停键。项目被冻结，你松了一口气——至少不是因为你。",
+    "tag": "合规守夜人"
+  },
+  {
+    "id": "auto_pilot",
+    "title": "自动化救场",
+    "condition": { "flags_include": ["auto_pilot"], "time_min": 2 },
+    "text": "你的每一次\"系统自动处理\"选择最终沉淀为可复制的流程。项目结束后，这些自动化方案被推广到全公司。",
+    "tag": "流程救世主"
+  },
+  {
+    "id": "client_referral",
+    "title": "甲方内部推荐",
+    "condition": { "satisfaction_min": 4 },
+    "text": "客户满意度爆表，张总亲自介绍来一个\"更紧急\"的新项目。你看着新项目的需求文档，不知该哭还是该笑。",
+    "tag": "甲方读心术"
+  },
+  {
+    "id": "barely_made_it",
+    "title": "勉强过关",
+    "condition": { "default": true },
+    "text": "项目在你手中晃晃悠悠地走完了全程。不算完美，但在这个办公室里，'完成'本身就是一种成就。",
+    "tag": "幸存者"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "lin_zong",
+    "name": "林总",
+    "title": "高压型领导",
+    "tagline": "这个很简单，今晚能出吗？",
+    "role": "给高回报但时间紧的任务",
+    "avatar": "👔"
+  },
+  {
+    "id": "zhang_zong",
+    "name": "客户张总",
+    "title": "结果导向甲方",
+    "tagline": "过程不用讲，结果要有说服力。",
+    "role": "影响满意度",
+    "avatar": "💼"
+  },
+  {
+    "id": "caiwu_zhou",
+    "name": "财务小周",
+    "title": "预算守门人",
+    "tagline": "没有合规单据，系统过不了。",
+    "role": "触发预算与报销事件",
+    "avatar": "🧮"
+  },
+  {
+    "id": "jishu_zhe",
+    "name": "技术阿哲",
+    "title": "直率技术骨干",
+    "tagline": "能修，但别指望五分钟。",
+    "role": "用时间换低风险方案",
+    "avatar": "🔧"
+  },
+  {
+    "id": "shixi_xu",
+    "name": "实习生小许",
+    "title": "热情新人",
+    "tagline": "我已经帮你发出去了……",
+    "role": "提供随机正负反馈",
+    "avatar": "🌟"
+  },
+  {
+    "id": "gongying_wang",
+    "name": "供应商王姐",
+    "title": "已读不回专家",
+    "tagline": "我们只能按基础版本交付。",
+    "role": "触发现场、物料、制作问题",
+    "avatar": "📦"
+  },
+  {
+    "id": "hegui_chen",
+    "name": "合规陈老师",
+    "title": "证据与口径专家",
+    "tagline": "这句话的依据是什么？",
+    "role": "降低风险但消耗时间",
+    "avatar": "📋"
+  },
+  {
+    "id": "shenmi_qun",
+    "name": "神秘甲方群",
+    "title": "沉默的群聊",
+    "tagline": "【群消息】@所有人 请尽快确认…",
+    "role": "临近下班集中爆发",
+    "avatar": "💬"
+  }
+]
