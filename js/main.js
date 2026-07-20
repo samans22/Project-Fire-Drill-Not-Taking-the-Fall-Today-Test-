@@ -30,9 +30,12 @@ function onChoiceSelected(choiceIndex) {
   autoSave();
   UI.flashSave();
   currentEvent = null;
+}
 
-  // 延迟后继续下一事件
-  setTimeout(() => nextTurn(), 1500);
+// ---------- 全局回调：点击"继续处理"后触发 ----------
+function onContinueClicked() {
+  if (!gameState || gameState.phase !== 'playing') return;
+  nextTurn();
 }
 
 let currentEvent = null;

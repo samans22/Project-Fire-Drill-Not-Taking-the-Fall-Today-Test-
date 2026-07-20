@@ -183,6 +183,7 @@ body {
   transition: all 0.15s;
   font-family: var(--font-sans);
   color: var(--text-primary);
+  position: relative;
 }
 .choice-btn:hover:not(:disabled) {
   border-color: var(--accent);
@@ -191,6 +192,45 @@ body {
 .choice-btn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+/* ----- 选项悬浮提示 ----- */
+.choice-btn[data-hint]:hover::after {
+  content: attr(data-hint);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-sidebar);
+  color: #fbbf24;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+  max-width: 280px;
+  min-width: 140px;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  word-break: break-word;
+}
+.choice-btn[data-hint]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--bg-sidebar) transparent transparent transparent;
+  z-index: 11;
+  pointer-events: none;
+}
+.choice-btn:disabled[data-hint]:hover::after,
+.choice-btn:disabled[data-hint]:hover::before {
+  display: none;
 }
 .feedback-area {
   display: none;
@@ -203,6 +243,21 @@ body {
   color: #166534;
 }
 .feedback-label { font-weight: 600; margin-bottom: 4px; color: var(--green); }
+.feedback-continue-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.feedback-continue-btn:hover { background: #4f46e5; }
 
 /* ---------- 右侧面板 ---------- */
 .right-panel {
@@ -463,6 +518,7 @@ body {
         <div class="feedback-area" id="feedback-area">
           <div class="feedback-label">✓ 已处理</div>
           <div id="feedback-text"></div>
+          <button class="feedback-continue-btn" id="feedback-continue-btn">继续处理 &gt;</button>
         </div>
       </div>
     </main>
@@ -902,6 +958,7 @@ const UI = {
       choicesContainer:  document.getElementById('choices-container'),
       feedbackArea:      document.getElementById('feedback-area'),
       feedbackText:      document.getElementById('feedback-text'),
+      feedbackContinueBtn: document.getElementById('feedback-continue-btn'),
       chatList:          document.getElementById('chat-list'),
       fileEasterEgg:     document.getElementById('file-easter-egg'),
       endingOverlay:     document.getElementById('ending-overlay'),
@@ -957,6 +1014,9 @@ const UI = {
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
       btn.textContent = `${String.fromCharCode(65 + i)}. ${choice.text}`;
+      if (choice.hint) {
+        btn.setAttribute('data-hint', choice.hint);
+      }
       btn.addEventListener('click', () => {
         if (typeof onChoiceSelected === 'function') {
           onChoiceSelected(i);
@@ -975,14 +1035,21 @@ const UI = {
     const btns = this._cache.choicesContainer.querySelectorAll('.choice-btn');
     btns.forEach(b => b.disabled = true);
 
-    // 显示效果标签
-    const effectsStr = [];
-    if (effects.time !== 0) effectsStr.push(`时间 ${effects.time > 0 ? '+' : ''}${effects.time}`);
-    if (effects.budget !== 0) effectsStr.push(`预算 ${effects.budget > 0 ? '+' : ''}${effects.budget}`);
-    if (effects.satisfaction !== 0) effectsStr.push(`满意度 ${effects.satisfaction > 0 ? '+' : ''}${effects.satisfaction}`);
-    if (effects.risk !== 0) effectsStr.push(`风险 ${effects.risk > 0 ? '+' : ''}${effects.risk}`);
-
-    // 短暂延迟后可以继续
+    // 显示"继续处理"按钮
+    if (this._cache.feedbackContinueBtn) {
+      this._cache.feedbackContinueBtn.style.display = 'block';
+      // 移除旧监听器：克隆替换
+      const oldBtn = this._cache.feedbackContinueBtn;
+      const newBtn = oldBtn.cloneNode(true);
+      oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+      this._cache.feedbackContinueBtn = newBtn;
+      newBtn.addEventListener('click', () => {
+        newBtn.style.display = 'none';
+        if (typeof onContinueClicked === 'function') {
+          onContinueClicked();
+        }
+      });
+    }
   },
 
   // ---------- 添加群聊消息 ----------
@@ -1108,9 +1175,12 @@ function onChoiceSelected(choiceIndex) {
   autoSave();
   UI.flashSave();
   currentEvent = null;
+}
 
-  // 延迟后继续下一事件
-  setTimeout(() => nextTurn(), 1500);
+// ---------- 全局回调：点击"继续处理"后触发 ----------
+function onContinueClicked() {
+  if (!gameState || gameState.phase !== 'playing') return;
+  nextTurn();
 }
 
 let currentEvent = null;
@@ -1316,7 +1386,9 @@ async function loadAllData() {
   Events._pool = [
   {
     "eventId": "E001",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "碳减排数据缺口",
     "text": "客户张总要求今晚补充\"碳减排成效\"板块，但业务部门只给出\"效果显著\"四个字。",
     "speaker": "zhang_zong",
@@ -1324,25 +1396,47 @@ async function loadAllData() {
     "choices": [
       {
         "text": "坚持追要原始数据",
-        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
-        "feedback": "你花了大量时间协调各部门，终于拿到了一手数据。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -2
+        },
+        "feedback": "你花了大量时间协调各部门，终于拿到了一手数据。",
+        "hint": "需要投入大量时间，但能彻底解决问题…"
       },
       {
         "text": "用定性表述先顶上",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 1, "risk": 2 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": 2
+        },
         "feedback": "客户对文案很满意，但合规陈老师皱眉了。",
-        "setsFlags": ["data_missing"]
+        "setsFlags": [
+          "data_missing"
+        ],
+        "hint": "客户会很满意，但可能为以后埋下隐患…"
       },
       {
         "text": "参考行业数据并标注测算口径",
-        "effects": { "time": -1, "budget": -1, "satisfaction": 1, "risk": 1 },
-        "feedback": "折中方案，参考了竞品披露口径并加了脚注说明。"
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 1,
+          "risk": 1
+        },
+        "feedback": "折中方案，参考了竞品披露口径并加了脚注说明。",
+        "hint": "各方面影响比较均衡，需要额外花点钱…"
       }
     ]
   },
   {
     "eventId": "E002",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "嘉宾未收到签到码",
     "text": "参会嘉宾表示未收到专属签到码，距签到开始还有2小时。",
     "speaker": "gongying_wang",
@@ -1350,26 +1444,50 @@ async function loadAllData() {
     "choices": [
       {
         "text": "现场人工核验名单",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "增派两人手动核对名单，虽然慢但稳妥。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "增派两人手动核对名单，虽然慢但稳妥。",
+        "hint": "最费时间，但最稳妥…"
       },
       {
         "text": "重新生成专属二维码",
-        "effects": { "time": -1, "budget": -1, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "技术阿哲火速生成新码，嘉宾顺利签到。",
-        "setsFlags": ["qr_verified"]
+        "setsFlags": [
+          "qr_verified"
+        ],
+        "hint": "花点小钱，皆大欢喜…"
       },
       {
         "text": "先直接进场，稍后补登",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "流程上走了捷径，但会后名单对不上会很麻烦。",
-        "setsFlags": ["qr_unverified"]
+        "setsFlags": [
+          "qr_unverified"
+        ],
+        "hint": "最省事，但总觉得哪里不太对…"
       }
     ]
   },
   {
     "eventId": "E003",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "客户口头认可无书面确认",
     "text": "老板称\"客户已经基本认可方案\"，但你发现对方没有任何书面回复。",
     "speaker": "lin_zong",
@@ -1377,24 +1495,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "邮件二次确认",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -2 },
-        "feedback": "发了一封措辞严谨的确认邮件，有据可查。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "发了一封措辞严谨的确认邮件，有据可查。",
+        "hint": "花点时间留个书面证据，更安心…"
       },
       {
         "text": "默认认可并推进",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
-        "feedback": "你决定不等了，先推进再说。但愿对方不会反悔。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
+        "feedback": "你决定不等了，先推进再说。但愿对方不会反悔。",
+        "hint": "最省时间，但万一对方不认账就麻烦了…"
       },
       {
         "text": "群内礼貌 @ 客户",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
-        "feedback": "客户群内回复了\"OK\"，虽然不够正式，但聊胜于无。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
+        "feedback": "客户群内回复了\"OK\"，虽然不够正式，但聊胜于无。",
+        "hint": "比较折中，虽然可能有点尴尬但还算稳妥…"
       }
     ]
   },
   {
     "eventId": "E004",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "五分钟短会通知",
     "text": "林总在工作群里发了一条消息：\"五分钟后开个短会，讨论一下项目进度。\"",
     "speaker": "lin_zong",
@@ -1402,19 +1540,33 @@ async function loadAllData() {
     "choices": [
       {
         "text": "立刻整理进度数据参会",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "你带着最新数据进入会议，林总表示满意。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你带着最新数据进入会议，林总表示满意。",
+        "hint": "做好准备总是好的，能给人留下靠谱的印象…"
       },
       {
         "text": "推说手头有急事，让实习生小许替会",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
-        "feedback": "小许会议纪要写得还行，但林总觉得你不够重视。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "小许会议纪要写得还行，但林总觉得你不够重视。",
+        "hint": "省时间，但领导可能会记住你不在场…"
       }
     ]
   },
   {
     "eventId": "E005",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "预算报销被卡",
     "text": "财务小周发来邮件：\"上个月的活动餐饮报销没有合规单据，系统自动拒绝了。\"",
     "speaker": "caiwu_zhou",
@@ -1422,24 +1574,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "翻找历史邮件补交材料",
-        "effects": { "time": -2, "budget": 1, "satisfaction": 0, "risk": -1 },
-        "feedback": "在已删除邮件里翻出了当时的审批截图，小周勉强放行。"
+        "effects": {
+          "time": -2,
+          "budget": 1,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "在已删除邮件里翻出了当时的审批截图，小周勉强放行。",
+        "hint": "需要花不少时间翻旧账，但能把钱找回来…"
       },
       {
         "text": "自掏腰包先填坑",
-        "effects": { "time": 0, "budget": -1, "satisfaction": 0, "risk": 0 },
-        "feedback": "你默默转了一笔钱，项目预算保住了，但心在滴血。"
+        "effects": {
+          "time": 0,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你默默转了一笔钱，项目预算保住了，但心在滴血。",
+        "hint": "自掏腰包最快，不惊动任何人…"
       },
       {
         "text": "找林总特批",
-        "effects": { "time": -1, "budget": 1, "satisfaction": -1, "risk": 0 },
-        "feedback": "林总签了字，但记住了你\"不按流程办事\"。"
+        "effects": {
+          "time": -1,
+          "budget": 1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "林总签了字，但记住了你\"不按流程办事\"。",
+        "hint": "找领导虽快，但他可能会不太高兴…"
       }
     ]
   },
   {
     "eventId": "E006",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "供应商回复延迟",
     "text": "为ESG报告提供碳排放数据的供应商王姐已经三天没回消息了。",
     "speaker": "gongying_wang",
@@ -1447,25 +1619,47 @@ async function loadAllData() {
     "choices": [
       {
         "text": "连续电话轰炸",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "打了五通电话，王姐终于接了，数据明天给。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "打了五通电话，王姐终于接了，数据明天给。",
+        "hint": "主动出击，虽然有点烦人但有效…"
       },
       {
         "text": "换一个备选供应商",
-        "effects": { "time": -2, "budget": -2, "satisfaction": 0, "risk": -2 },
-        "feedback": "新供应商报价更高但更靠谱，数据质量也有保障。"
+        "effects": {
+          "time": -2,
+          "budget": -2,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "新供应商报价更高但更靠谱，数据质量也有保障。",
+        "hint": "换人虽然贵，但省心很多…"
       },
       {
         "text": "先用去年数据估算",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "去年的数据套上今年的增长率，看起来挺像回事。",
-        "setsFlags": ["estimated_data"]
+        "setsFlags": [
+          "estimated_data"
+        ],
+        "hint": "有数据总比没数据好，先用去年的吧…"
       }
     ]
   },
   {
     "eventId": "E007",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "实习生发错邮件",
     "text": "实习生小许脸红了：\"我把给客户的内部讨论稿发出去了……\"",
     "speaker": "shixi_xu",
@@ -1473,24 +1667,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "立刻邮件撤回 + 电话道歉",
-        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
-        "feedback": "客户表示理解，但以后会更仔细地审核你们的材料。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -2
+        },
+        "feedback": "客户表示理解，但以后会更仔细地审核你们的材料。",
+        "hint": "花时间善后，虽然对方会有点不满但能化解危机…"
       },
       {
         "text": "将错就错，把讨论稿包装成\"超前预览版\"",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "客户觉得你们\"效率很高\"，但讨论稿上的批注让人尴尬。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "客户觉得你们\"效率很高\"，但讨论稿上的批注让人尴尬。",
+        "hint": "包装得巧妙，但讨论稿上的批注不太好解释…"
       },
       {
         "text": "让小许自己去处理",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
-        "feedback": "小许学会了危机处理——虽然学费是你们团队的信用。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
+        "feedback": "小许学会了危机处理——虽然学费是你们团队的信用。",
+        "hint": "让小许学会成长是好事，但学费不便宜…"
       }
     ]
   },
   {
     "eventId": "E008",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "技术阿哲的坏消息",
     "text": "技术阿哲走过来说：\"你上次让我改的那个系统功能，底层代码有问题，需要重写。\"",
     "speaker": "jishu_zhe",
@@ -1498,25 +1712,47 @@ async function loadAllData() {
     "choices": [
       {
         "text": "接受重写，追加开发时间",
-        "effects": { "time": -3, "budget": -1, "satisfaction": 0, "risk": -2 },
-        "feedback": "彻底重构后系统稳定多了，阿哲难得夸你\"做了正确决定\"。"
+        "effects": {
+          "time": -3,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "彻底重构后系统稳定多了，阿哲难得夸你\"做了正确决定\"。",
+        "hint": "长痛不如短痛，彻底解决是最好的选择…"
       },
       {
         "text": "要求阿哲打补丁先撑过去",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "功能暂时能用，但阿哲说\"下次再出问题别找我\"。",
-        "setsFlags": ["tech_debt"]
+        "setsFlags": [
+          "tech_debt"
+        ],
+        "hint": "快速打补丁能撑一阵，但阿哲会记住的…"
       },
       {
         "text": "砍掉这个功能",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 0 },
-        "feedback": "客户问了功能去哪了，你说\"在升级中\"。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "客户问了功能去哪了，你说\"在升级中\"。",
+        "hint": "少个功能没什么，但客户可能会注意到…"
       }
     ]
   },
   {
     "eventId": "E009",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "合规审查驳回",
     "text": "合规陈老师发来邮件：\"对外发布的材料中有三处表述存在合规风险，需要修改。\"",
     "speaker": "hegui_chen",
@@ -1524,25 +1760,47 @@ async function loadAllData() {
     "choices": [
       {
         "text": "逐条修改，确保合规",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -3 },
-        "feedback": "三处修改虽然耗时，但避免了潜在的监管风险。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -3
+        },
+        "feedback": "三处修改虽然耗时，但避免了潜在的监管风险。",
+        "hint": "花时间彻底合规，能减少未来的麻烦…"
       },
       {
         "text": "改两处，保留一处模糊表述",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "陈老师不太满意，但没有再坚持。",
-        "setsFlags": ["compliance_gap"]
+        "setsFlags": [
+          "compliance_gap"
+        ],
+        "hint": "省一半时间，但留了个小尾巴…"
       },
       {
         "text": "请林总出面协调",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
-        "feedback": "林总跟陈老师沟通后，双方各退一步。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
+        "feedback": "林总跟陈老师沟通后，双方各退一步。",
+        "hint": "让领导出面协调，虽然欠人情但能折中解决…"
       }
     ]
   },
   {
     "eventId": "E010",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "招股书数据调整",
     "text": "保荐人要求调整招股书中一组财务数据的呈现方式，但改动会牵连至少五个章节。",
     "speaker": "zhang_zong",
@@ -1550,24 +1808,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "加班逐章修改",
-        "effects": { "time": -3, "budget": 0, "satisfaction": 1, "risk": -2 },
-        "feedback": "熬了一个通宵，招股书终于过审。"
+        "effects": {
+          "time": -3,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": -2
+        },
+        "feedback": "熬了一个通宵，招股书终于过审。",
+        "hint": "加班虽然累，但做出来的东西大家都满意…"
       },
       {
         "text": "只改核心章节，其余加附录说明",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "保荐人勉强接受了折中方案。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "保荐人勉强接受了折中方案。",
+        "hint": "折中省时间，但对方可能不太满意…"
       },
       {
         "text": "请外部咨询公司加急处理",
-        "effects": { "time": -1, "budget": -3, "satisfaction": 1, "risk": -1 },
-        "feedback": "花了大价钱，但专业团队确实快。"
+        "effects": {
+          "time": -1,
+          "budget": -3,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "花了大价钱，但专业团队确实快。",
+        "hint": "花钱买时间和质量，一分钱一分货…"
       }
     ]
   },
   {
     "eventId": "E011",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "神秘甲方群突然活跃",
     "text": "沉默了两个月的神秘甲方群突然弹出消息：\"@所有人 请在今天下班前确认最终版方案，否则合同重新评估。\"",
     "speaker": "shenmi_qun",
@@ -1575,24 +1853,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "立刻调集全组人员赶方案",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 1, "risk": -1 },
-        "feedback": "全组奋战两小时，方案成功发出。甲方回了一个\"收到👍\"。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "全组奋战两小时，方案成功发出。甲方回了一个\"收到👍\"。",
+        "hint": "全员出动是最有效的回应方式…"
       },
       {
         "text": "先回一句\"正在推进\"稳住局面",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "暂时拖住了，但明天一早必须交。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "暂时拖住了，但明天一早必须交。",
+        "hint": "先稳住对方，但明天就要动真格了…"
       },
       {
         "text": "打电话问对方要具体需求",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 0 },
-        "feedback": "对方说不清楚，\"你们专业的应该知道\"。白费了半小时。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "对方说不清楚，\"你们专业的应该知道\"。白费了半小时。",
+        "hint": "想搞清楚需求，但对方也不一定说得清…"
       }
     ]
   },
   {
     "eventId": "E012",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "PPT文件名混乱",
     "text": "客户张总发来邮件：\"请发最终版PPT。\"但你的桌面上有六个版本：最终版、最终版_修改后、最终版_真的不改了、最终版_领导已看_客户未看…",
     "speaker": "zhang_zong",
@@ -1600,24 +1898,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "仔细核对各版本后发送正确版本",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 2, "risk": -1 },
-        "feedback": "花了十分钟比对，确认了真正的最新版。客户很满意。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 2,
+          "risk": -1
+        },
+        "feedback": "花了十分钟比对，确认了真正的最新版。客户很满意。",
+        "hint": "多花点时间仔细核对，体现专业度…"
       },
       {
         "text": "凭直觉选一个最新修改时间的",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "你发了过去，但愿那就是对的。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你发了过去，但愿那就是对的。",
+        "hint": "赌一把，但愿最新的那个真的是最终版…"
       },
       {
         "text": "把六个版本都发给客户让他自己选",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -2, "risk": 0 },
-        "feedback": "客户回了两个字：\"专业。\"——但你听出了讽刺。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -2,
+          "risk": 0
+        },
+        "feedback": "客户回了两个字：\"专业。\"——但你听出了讽刺。",
+        "hint": "把球踢回去最省事，但客户会觉得不专业…"
       }
     ]
   },
   {
     "eventId": "E013",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "CEO临时加需求",
     "text": "林总传达：\"CEO看了项目方案，说'要更有感觉'。\"——没有人知道'感觉'是什么意思。",
     "speaker": "lin_zong",
@@ -1625,24 +1943,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "做三个不同风格的方案让CEO选",
-        "effects": { "time": -3, "budget": -1, "satisfaction": 2, "risk": -1 },
-        "feedback": "CEO选了第三个方案，说了句'就是这个感觉'。"
+        "effects": {
+          "time": -3,
+          "budget": -1,
+          "satisfaction": 2,
+          "risk": -1
+        },
+        "feedback": "CEO选了第三个方案，说了句'就是这个感觉'。",
+        "hint": "多花心思多做几版，总能找到那个感觉…"
       },
       {
         "text": "请林总帮忙确认CEO的偏好",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 0 },
-        "feedback": "林总问了半天，CEO说'你先做出来看看'。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "林总问了半天，CEO说'你先做出来看看'。",
+        "hint": "先问清楚再动手，但对方可能也说不清…"
       },
       {
         "text": "微调配色和字体后重新提交",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 1, "risk": 1 },
-        "feedback": "换了配色和字体，CEO说'好多了'。有时候视觉效果就是'感觉'。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": 1
+        },
+        "feedback": "换了配色和字体，CEO说'好多了'。有时候视觉效果就是'感觉'。",
+        "hint": "视觉上的改动见效快，但不够深入…"
       }
     ]
   },
   {
     "eventId": "E014",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "下班前的系统崩溃",
     "text": "下午5:47，OA系统突然崩溃。技术阿哲说修复需要两小时。而你还有一个必须在系统里提交的审批。",
     "speaker": "jishu_zhe",
@@ -1650,24 +1988,44 @@ async function loadAllData() {
     "choices": [
       {
         "text": "等系统修复后提交",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "等了两个小时，系统终于恢复了。审批安全提交。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "等了两个小时，系统终于恢复了。审批安全提交。",
+        "hint": "等系统恢复虽然慢，但按流程走最安全…"
       },
       {
         "text": "写邮件说明情况，申请补签",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 1 },
-        "feedback": "邮件已发，但林总不喜欢\"因为系统原因\"这种借口。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "邮件已发，但林总不喜欢\"因为系统原因\"这种借口。",
+        "hint": "写邮件说明也不算错，但总觉得不像理由…"
       },
       {
         "text": "让实习生小许盯着，你先下班",
-        "effects": { "time": 1, "budget": 0, "satisfaction": 0, "risk": 2 },
-        "feedback": "你走了，小许守到系统恢复。第二天小许有了新外号：'守夜人'。"
+        "effects": {
+          "time": 1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
+        "feedback": "你走了，小许守到系统恢复。第二天小许有了新外号：'守夜人'。",
+        "hint": "让别人等系统恢复，你按时下班…"
       }
     ]
   },
   {
     "eventId": "E015",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "竞品舆情爆发",
     "text": "合规陈老师紧急通知：友商刚刚因为数据口径问题被监管约谈，媒体正在疯狂挖同类企业的料。",
     "speaker": "hegui_chen",
@@ -1675,134 +2033,246 @@ async function loadAllData() {
     "choices": [
       {
         "text": "立即自检所有对外材料",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -3 },
-        "feedback": "发现了两个潜在隐患并及时修正，躲过一劫。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -3
+        },
+        "feedback": "发现了两个潜在隐患并及时修正，躲过一劫。",
+        "hint": "花时间全面排查，把潜在问题都揪出来…"
       },
       {
         "text": "关注舆情但不主动响应",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "暂时风平浪静，但谁知道明天会怎样？"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "暂时风平浪静，但谁知道明天会怎样？",
+        "hint": "暂时不动作，反正现在风平浪静…"
       },
       {
         "text": "提前准备一份应急预案",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "预案在手，随时应对。陈老师对你的前瞻性表示认可。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "预案在手，随时应对。陈老师对你的前瞻性表示认可。",
+        "hint": "花点时间准备预案，有备无患…"
       }
     ]
   },
   {
     "eventId": "E016",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "合规追问数据来源",
     "text": "合规陈老师发现你之前用定性表述替代了原始数据：\"监管方来函，希望看到具体数字。\"",
     "speaker": "hegui_chen",
     "category": "risk_compliance",
-    "requires": ["data_missing"],
+    "requires": [
+      "data_missing"
+    ],
     "choices": [
       {
         "text": "紧急补做数据收集，亡羊补牢",
-        "effects": { "time": -3, "budget": 0, "satisfaction": 0, "risk": -2 },
-        "feedback": "花了大半天补数据，虽然晚了点，但数据经得起推敲。"
+        "effects": {
+          "time": -3,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "花了大半天补数据，虽然晚了点，但数据经得起推敲。",
+        "hint": "虽然晚了，但亡羊补牢总比什么都不做强…"
       },
       {
         "text": "提供一份测算说明争取时间",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "陈老师不情愿地接过了测算说明，但说'下次不行了'。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "陈老师不情愿地接过了测算说明，但说'下次不行了'。",
+        "hint": "争取时间，但下次可就没那么容易过关了…"
       }
     ]
   },
   {
     "eventId": "E017",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "会后名单对不上",
     "text": "供应商王姐发来核对表：\"之前补登的那些嘉宾，实际签到人数和名单差了两个人。\"",
     "speaker": "gongying_wang",
     "category": "risk_compliance",
-    "requires": ["qr_unverified"],
+    "requires": [
+      "qr_unverified"
+    ],
     "choices": [
       {
         "text": "逐一核对监控和签到记录",
-        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
-        "feedback": "发现是一个嘉宾带了两名助理，但只登记了一人。问题解决。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -2
+        },
+        "feedback": "发现是一个嘉宾带了两名助理，但只登记了一人。问题解决。",
+        "hint": "彻底追查虽然费时且不太愉快，但能解决问题…"
       },
       {
         "text": "按实际到场人数更新名单",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
-        "feedback": "名单更新了，但客户张总问'为什么每次都有这种问题'。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "名单更新了，但客户张总问'为什么每次都有这种问题'。",
+        "hint": "快速更新名单就行，虽然留下了不太好的印象…"
       }
     ]
   },
   {
     "eventId": "E018",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "技术债爆发",
     "text": "技术阿哲面色凝重：\"之前那个补丁撑不住了，系统在生产环境报了一串错误。\"",
     "speaker": "jishu_zhe",
     "category": "time_pressure",
-    "requires": ["tech_debt"],
+    "requires": [
+      "tech_debt"
+    ],
     "choices": [
       {
         "text": "立即停机修复，接受服务中断",
-        "effects": { "time": -3, "budget": -2, "satisfaction": -1, "risk": -2 },
-        "feedback": "系统中断了4小时，但彻底修复后性能反而提升了。"
+        "effects": {
+          "time": -3,
+          "budget": -2,
+          "satisfaction": -1,
+          "risk": -2
+        },
+        "feedback": "系统中断了4小时，但彻底修复后性能反而提升了。",
+        "hint": "停机修复是最彻底的方案，虽然代价不小…"
       },
       {
         "text": "继续打补丁，先恢复服务",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 2 },
-        "feedback": "阿哲翻了个白眼，但还是把服务恢复了。他说这已经是第5个补丁了。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
+        "feedback": "阿哲翻了个白眼，但还是把服务恢复了。他说这已经是第5个补丁了。",
+        "hint": "再打个补丁最省事，但问题只会越来越严重…"
       },
       {
         "text": "切换回旧版本系统",
-        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": 1 },
-        "feedback": "旧系统虽然慢但稳定，客户没注意到切换。"
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "旧系统虽然慢但稳定，客户没注意到切换。",
+        "hint": "退回旧版本是中策，慢但稳…"
       }
     ]
   },
   {
     "eventId": "E019",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "自动化流程解锁",
     "text": "技术阿哲发来消息：\"你之前一直选系统自动处理，我顺便做了个核验模板，以后这类问题可以秒过。\"",
     "speaker": "jishu_zhe",
     "category": "time_pressure",
-    "requires": ["qr_verified"],
+    "requires": [
+      "qr_verified"
+    ],
     "choices": [
       {
         "text": "立即推广使用，感谢阿哲",
-        "effects": { "time": 1, "budget": 0, "satisfaction": 1, "risk": -2 },
+        "effects": {
+          "time": 1,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": -2
+        },
         "feedback": "新模板节省了大量重复劳动，阿哲难得被表扬了一次。",
-        "setsFlags": ["auto_pilot"]
+        "setsFlags": [
+          "auto_pilot"
+        ],
+        "hint": "推广新工具，效率直接起飞…"
       },
       {
         "text": "先测试一下再上线",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "测试通过后，工具正式上线。慢是慢了点，但稳妥。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "测试通过后，工具正式上线。慢是慢了点，但稳妥。",
+        "hint": "先测试再上线，稳妥至上…"
       }
     ]
   },
   {
     "eventId": "E020",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "合规隐患发酵",
     "text": "合规陈老师的预感成真了——之前被模糊处理的那处表述被竞争对手拿来做了文章。",
     "speaker": "hegui_chen",
     "category": "risk_compliance",
-    "requires": ["compliance_gap"],
+    "requires": [
+      "compliance_gap"
+    ],
     "choices": [
       {
         "text": "立即发布澄清声明",
-        "effects": { "time": -2, "budget": -1, "satisfaction": -1, "risk": -3 },
-        "feedback": "声明发出后舆情逐步平息。陈老师说'下次记得一开始就改'。"
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": -3
+        },
+        "feedback": "声明发出后舆情逐步平息。陈老师说'下次记得一开始就改'。",
+        "hint": "公开澄清虽然代价不小，但能彻底平息…"
       },
       {
         "text": "私下联系对方沟通",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
-        "feedback": "对方同意撤稿，但欠了一个人情。"
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "对方同意撤稿，但欠了一个人情。",
+        "hint": "私下解决省事，但欠了人情…"
       },
       {
         "text": "不予回应，静待热度过去",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
-        "feedback": "你赌了一把。希望互联网的金鱼记忆定律还在生效。"
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
+        "feedback": "你赌了一把。希望互联网的金鱼记忆定律还在生效。",
+        "hint": "什么都不做，赌一把互联网的记忆只有三秒…"
       }
     ]
   }

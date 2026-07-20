@@ -29,6 +29,7 @@ const UI = {
       choicesContainer:  document.getElementById('choices-container'),
       feedbackArea:      document.getElementById('feedback-area'),
       feedbackText:      document.getElementById('feedback-text'),
+      feedbackContinueBtn: document.getElementById('feedback-continue-btn'),
       chatList:          document.getElementById('chat-list'),
       fileEasterEgg:     document.getElementById('file-easter-egg'),
       endingOverlay:     document.getElementById('ending-overlay'),
@@ -84,6 +85,9 @@ const UI = {
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
       btn.textContent = `${String.fromCharCode(65 + i)}. ${choice.text}`;
+      if (choice.hint) {
+        btn.setAttribute('data-hint', choice.hint);
+      }
       btn.addEventListener('click', () => {
         if (typeof onChoiceSelected === 'function') {
           onChoiceSelected(i);
@@ -102,14 +106,21 @@ const UI = {
     const btns = this._cache.choicesContainer.querySelectorAll('.choice-btn');
     btns.forEach(b => b.disabled = true);
 
-    // 显示效果标签
-    const effectsStr = [];
-    if (effects.time !== 0) effectsStr.push(`时间 ${effects.time > 0 ? '+' : ''}${effects.time}`);
-    if (effects.budget !== 0) effectsStr.push(`预算 ${effects.budget > 0 ? '+' : ''}${effects.budget}`);
-    if (effects.satisfaction !== 0) effectsStr.push(`满意度 ${effects.satisfaction > 0 ? '+' : ''}${effects.satisfaction}`);
-    if (effects.risk !== 0) effectsStr.push(`风险 ${effects.risk > 0 ? '+' : ''}${effects.risk}`);
-
-    // 短暂延迟后可以继续
+    // 显示"继续处理"按钮
+    if (this._cache.feedbackContinueBtn) {
+      this._cache.feedbackContinueBtn.style.display = 'block';
+      // 移除旧监听器：克隆替换
+      const oldBtn = this._cache.feedbackContinueBtn;
+      const newBtn = oldBtn.cloneNode(true);
+      oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+      this._cache.feedbackContinueBtn = newBtn;
+      newBtn.addEventListener('click', () => {
+        newBtn.style.display = 'none';
+        if (typeof onContinueClicked === 'function') {
+          onContinueClicked();
+        }
+      });
+    }
   },
 
   // ---------- 添加群聊消息 ----------

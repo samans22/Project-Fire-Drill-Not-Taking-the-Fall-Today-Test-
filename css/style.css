@@ -175,6 +175,7 @@ body {
   transition: all 0.15s;
   font-family: var(--font-sans);
   color: var(--text-primary);
+  position: relative;
 }
 .choice-btn:hover:not(:disabled) {
   border-color: var(--accent);
@@ -183,6 +184,45 @@ body {
 .choice-btn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+/* ----- 选项悬浮提示 ----- */
+.choice-btn[data-hint]:hover::after {
+  content: attr(data-hint);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-sidebar);
+  color: #fbbf24;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+  max-width: 280px;
+  min-width: 140px;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  word-break: break-word;
+}
+.choice-btn[data-hint]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--bg-sidebar) transparent transparent transparent;
+  z-index: 11;
+  pointer-events: none;
+}
+.choice-btn:disabled[data-hint]:hover::after,
+.choice-btn:disabled[data-hint]:hover::before {
+  display: none;
 }
 .feedback-area {
   display: none;
@@ -195,6 +235,21 @@ body {
   color: #166534;
 }
 .feedback-label { font-weight: 600; margin-bottom: 4px; color: var(--green); }
+.feedback-continue-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.feedback-continue-btn:hover { background: #4f46e5; }
 
 /* ---------- 右侧面板 ---------- */
 .right-panel {
