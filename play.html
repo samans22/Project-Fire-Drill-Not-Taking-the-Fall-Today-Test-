@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>万象协同项目管理系统 v2.4.1</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+  <style>
+/* ============================================
+   style.css - 项目救火办：今日不背锅
+   低调企业后台风格，伪装成项目看板
+   ============================================ */
+
+/* ---------- CSS 变量 ---------- */
+:root {
+  --bg-primary: #f0f2f5;
+  --bg-card: #ffffff;
+  --bg-sidebar: #1e293b;
+  --bg-chat: #f8f9fa;
+  --text-primary: #1a1a2e;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-sidebar: #e2e8f0;
+  --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --blue-hover: #2563eb;
+  --accent: #6366f1;
+
+  --radius: 8px;
+  --radius-sm: 4px;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 顶部状态栏 ---------- */
+.header {
+  background: var(--bg-sidebar);
+  color: var(--text-sidebar);
+  padding: 0 20px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.header-logo { font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+.header-divider { color: #475569; }
+.header-project { color: #94a3b8; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.header-theme { color: #fbbf24; font-size: 12px; }
+.header-day { color: #94a3b8; }
+.save-indicator {
+  color: #64748b;
+  font-size: 11px;
+  transition: color 0.3s;
+}
+.save-indicator.saved { color: var(--green); }
+
+/* ---------- 主布局 ---------- */
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ---------- 左侧面板 ---------- */
+.sidebar {
+  width: 240px;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.sidebar-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.sidebar .project-item {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: default;
+  border-left: 3px solid transparent;
+  transition: background 0.15s;
+}
+.sidebar .project-item.active {
+  background: #eef2ff;
+  border-left-color: var(--accent);
+  font-weight: 600;
+}
+.sidebar .project-item .proj-name { font-size: 13px; }
+.sidebar .project-item .proj-desc { font-size: 11px; color: var(--text-muted); }
+
+/* ---------- 中间事件卡片 ---------- */
+.content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+.event-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 28px 32px;
+  max-width: 600px;
+  width: 100%;
+  display: none;
+}
+.event-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.event-speaker-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.event-speaker-info { font-size: 13px; }
+.event-speaker-name { font-weight: 600; }
+.event-speaker-title-text { color: var(--text-muted); font-size: 11px; }
+.event-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+.event-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+}
+.choices-container { display: flex; flex-direction: column; gap: 10px; }
+.choice-btn {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+.choice-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: #eef2ff;
+}
+.choice-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.feedback-area {
+  display: none;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #f0fdf4;
+  border-left: 3px solid var(--green);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: #166534;
+}
+.feedback-label { font-weight: 600; margin-bottom: 4px; color: var(--green); }
+
+/* ---------- 右侧面板 ---------- */
+.right-panel {
+  width: 300px;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+/* 健康度仪表板 */
+.health-panel { }
+.health-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.stat-label { width: 55px; flex-shrink: 0; color: var(--text-secondary); }
+.stat-value { width: 28px; text-align: right; font-weight: 600; font-family: var(--font-mono); font-size: 12px; }
+.stat-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.stat-bar-bg .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.bar-fill.green { background: var(--green); }
+.bar-fill.yellow { background: var(--yellow); }
+.bar-fill.red { background: var(--red); }
+.bar-fill.reverse.green { background: var(--red); }
+.bar-fill.reverse.yellow { background: var(--yellow); }
+.bar-fill.reverse.red { background: var(--green); }
+
+/* 群聊面板 */
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.chat-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.chat-msg {
+  padding: 6px 8px;
+  background: var(--bg-chat);
+  border-radius: var(--radius-sm);
+  line-height: 1.5;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.chat-speaker { font-weight: 600; color: var(--accent); }
+
+/* 彩蛋文件名 */
+.file-easter-egg {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  cursor: default;
+}
+
+/* ---------- 底部状态栏 ---------- */
+.footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 0 20px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.footer-left { display: flex; gap: 16px; }
+.footer-right { display: flex; gap: 16px; }
+.footer .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px; }
+.footer .status-dot.green { background: var(--green); }
+.footer .status-dot.yellow { background: var(--yellow); }
+
+/* ---------- 覆盖层（开始界面 & 结局界面） ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+.overlay-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 40px 48px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.overlay-card h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.overlay-card .subtitle {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.overlay-card .ending-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: #eef2ff;
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.overlay-card .ending-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+.btn {
+  padding: 10px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-sans);
+  margin: 4px;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover { background: #4f46e5; }
+.btn-secondary {
+  background: #e2e8f0;
+  color: var(--text-primary);
+}
+.btn-secondary:hover { background: #cbd5e1; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .sidebar { width: 200px; }
+  .right-panel { width: 260px; }
+}
+@media (max-width: 768px) {
+  .main-layout { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; padding: 10px; }
+  .right-panel { width: 100%; }
+  .content { padding: 16px; }
+  .event-card { padding: 20px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ========== 顶部状态栏 ========== -->
+  <header class="header">
+    <div class="header-left">
+      <span class="header-logo">🏢 万象协同 · 项目管理系统</span>
+      <span class="header-divider">|</span>
+      <span class="header-project" id="project-name">加载中...</span>
+      <span id="project-subtitle" style="font-size:11px;color:#64748b;"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-theme" id="theme-text">--</span>
+      <span class="header-day">第 <strong id="day-num">1</strong> 天</span>
+      <span class="save-indicator" id="save-indicator">● 已保存</span>
+    </div>
+  </header>
+
+  <!-- ========== 主布局 ========== -->
+  <div class="main-layout">
+
+    <!-- 左侧面板：项目列表 -->
+    <aside class="sidebar">
+      <div class="sidebar-section-title">📁 我的项目</div>
+      <div class="project-item active">
+        <div class="proj-name" id="sidebar-project-name">ESG 年报冲刺</div>
+        <div class="proj-desc">年底前完成报告披露</div>
+      </div>
+      <div class="project-item">
+        <div class="proj-name">资本市场沟通</div>
+        <div class="proj-desc">Q4 投资者关系维护</div>
+      </div>
+      <div class="project-item">
+        <div class="proj-name">年度行业峰会</div>
+        <div class="proj-desc">3月大型线下活动</div>
+      </div>
+
+      <div style="margin-top:16px;"></div>
+      <div class="sidebar-section-title">📋 今日待办</div>
+      <div style="font-size:12px;color:var(--text-muted);line-height:2;">
+        ☐ 处理突发事件<br>
+        ☐ 维护客户关系<br>
+        ☐ 控制项目预算<br>
+        ☐ 控制合规风险<br>
+        ☐ 平安下班回家
+      </div>
+    </aside>
+
+    <!-- 中间：事件卡片 -->
+    <main class="content">
+      <div class="event-card" id="event-card">
+        <div class="event-card-header">
+          <div class="event-speaker-avatar" id="event-speaker-avatar">📌</div>
+          <div class="event-speaker-info">
+            <div class="event-speaker-name" id="event-speaker">--</div>
+            <div class="event-speaker-title-text">消息来源</div>
+          </div>
+        </div>
+        <div class="event-title" id="event-title">--</div>
+        <div class="event-text" id="event-text">--</div>
+        <div class="choices-container" id="choices-container"></div>
+        <div class="feedback-area" id="feedback-area">
+          <div class="feedback-label">✓ 已处理</div>
+          <div id="feedback-text"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 右侧面板：健康度 + 群聊 -->
+    <aside class="right-panel">
+      <!-- 项目健康度 -->
+      <div class="health-panel">
+        <div class="health-title">📊 项目健康度</div>
+        <div class="stat-row">
+          <span class="stat-label">⏱️ 时间</span>
+          <div class="stat-bar-bg"><div class="bar-fill green" id="time-fill" style="width:100%"></div></div>
+          <span class="stat-value" id="stat-time">10</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">💰 预算</span>
+          <div class="stat-bar-bg"><div class="bar-fill green" id="budget-fill" style="width:100%"></div></div>
+          <span class="stat-value" id="stat-budget">10</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">😊 满意度</span>
+          <div class="stat-bar-bg"><div class="bar-fill green" id="satisfaction-fill" style="width:100%"></div></div>
+          <span class="stat-value" id="stat-satisfaction">10</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">⚠️ 风险</span>
+          <div class="stat-bar-bg"><div class="bar-fill green reverse" id="risk-fill" style="width:0%"></div></div>
+          <span class="stat-value" id="stat-risk">0</span>
+        </div>
+      </div>
+
+      <!-- 群聊消息 -->
+      <div class="chat-panel">
+        <div class="chat-title">💬 项目工作群 <span style="font-weight:400;color:#94a3b8;">(48)</span></div>
+        <div class="chat-list" id="chat-list">
+          <div class="chat-msg"><span class="chat-speaker">系统:</span> 欢迎回来。项目看板已就绪。</div>
+        </div>
+      </div>
+
+      <!-- 彩蛋 -->
+      <div class="file-easter-egg" id="file-easter-egg">📎 最终版.pptx</div>
+    </aside>
+  </div>
+
+  <!-- ========== 底部状态栏 ========== -->
+  <footer class="footer">
+    <div class="footer-left">
+      <span><span class="status-dot green"></span> 数据同步中</span>
+      <span>版本 V17 已保存</span>
+    </div>
+    <div class="footer-right">
+      <span id="clock">--:--</span>
+      <span>距下班: <strong id="countdown">--</strong></span>
+      <button class="btn btn-secondary" id="btn-continue" style="display:none;font-size:11px;padding:3px 10px;">继续游戏</button>
+    </div>
+  </footer>
+
+  <!-- ========== 开始界面 ========== -->
+  <div class="overlay" id="start-overlay">
+    <div class="overlay-card">
+      <h1>🏢 项目救火办</h1>
+      <p style="font-size:20px;font-weight:700;color:var(--accent);margin-bottom:4px;">今日不背锅</p>
+      <p class="subtitle">
+        伪装成项目管理后台的职场生存游戏。<br>
+        处理突发事件，在下班前维持项目「全绿」。
+      </p>
+      <button class="btn btn-primary" id="btn-start-new">🆕 开始新项目</button>
+      <button class="btn btn-secondary" id="btn-start-continue" style="display:none;">📂 继续上次项目</button>
+      <p style="font-size:10px;color:var(--text-muted);margin-top:16px;">
+        单局 3–5 分钟 · 支持随时刷新继续 · 所有数据保存在本地
+      </p>
+    </div>
+  </div>
+
+  <!-- ========== 结局界面 ========== -->
+  <div class="overlay" id="ending-overlay" style="display:none;">
+    <div class="overlay-card">
+      <div class="ending-tag" id="ending-tag"></div>
+      <h1 id="ending-title">--</h1>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-secondary);margin:16px 0;" id="ending-text"></p>
+      <div class="ending-summary" id="ending-summary"></div>
+      <button class="btn btn-primary" id="btn-new-game">🔄 开始新项目</button>
+      <p style="font-size:10px;color:var(--text-muted);margin-top:12px;">
+        截图分享你的「年度项目履历」给朋友！
+      </p>
+    </div>
+  </div>
+
+  <!-- ========== 内嵌脚本 ========== -->
+  <script>
+// ============ storage.js ============
+/**
+ * storage.js - localStorage 存档管理
+ * 负责游戏进度的保存、读取和删除
+ */
+const Storage = {
+  SAVE_KEY: 'fire_drill_save',
+
+  /** 保存游戏状态 */
+  save(state) {
+    try {
+      const data = JSON.stringify(state);
+      localStorage.setItem(this.SAVE_KEY, data);
+      return true;
+    } catch (e) {
+      console.warn('存档失败:', e.message);
+      return false;
+    }
+  },
+
+  /** 读取游戏状态，无存档返回 null */
+  load() {
+    try {
+      const raw = localStorage.getItem(this.SAVE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      console.warn('读档失败:', e.message);
+      return null;
+    }
+  },
+
+  /** 删除存档 */
+  clear() {
+    localStorage.removeItem(this.SAVE_KEY);
+  },
+
+  /** 是否存在存档 */
+  hasSavedGame() {
+    return localStorage.getItem(this.SAVE_KEY) !== null;
+  }
+};
+
+
+// ============ game.js ============
+/**
+ * game.js - 核心游戏状态与逻辑
+ * 管理四项数值、标记、游戏进程、结局判定
+ */
+const Game = {
+  // ---------- 初始状态 ----------
+  createInitialState(project) {
+    return {
+      project: project,                    // 当前项目包对象
+      theme: null,                         // 当日主题（字符串）
+      day: 1,                              // 当前天数
+      maxDays: 10,                         // 最大天数
+      stats: {
+        time: 10,                          // 时间（0=延期）
+        budget: 10,                        // 预算（负=审查）
+        satisfaction: 10,                  // 客户满意度（0=换人）
+        risk: 0                            // 风险值（上限10=翻车）
+      },
+      statsMax: { time: 10, budget: 10, satisfaction: 10, risk: 10 },
+      flags: [],                           // 全局状态标记
+      eventHistory: [],                    // 已触发的事件ID列表
+      choiceHistory: [],                   // 选择记录
+      usedEvents: [],                      // 本轮已用事件ID（防止重复）
+      eventsThisRound: 0,                  // 本轮已处理事件数
+      phase: 'playing',                    // 'playing' | 'ended'
+    };
+  },
+
+  // ---------- 统计值修改 ----------
+  applyEffects(state, effects) {
+    const s = state.stats;
+    s.time        = Math.max(0, Math.min(state.statsMax.time, s.time + (effects.time || 0)));
+    s.budget      = Math.max(0, Math.min(state.statsMax.budget, s.budget + (effects.budget || 0)));
+    s.satisfaction = Math.max(0, Math.min(state.statsMax.satisfaction, s.satisfaction + (effects.satisfaction || 0)));
+    s.risk        = Math.max(0, Math.min(state.statsMax.risk, s.risk + (effects.risk || 0)));
+  },
+
+  // ---------- 设置标记 ----------
+  setFlags(state, flags) {
+    if (!flags) return;
+    flags.forEach(f => {
+      if (!state.flags.includes(f)) state.flags.push(f);
+    });
+  },
+
+  // ---------- 执行选择 ----------
+  executeChoice(state, event, choiceIndex) {
+    const choice = event.choices[choiceIndex];
+    if (!choice) return null;
+
+    this.applyEffects(state, choice.effects);
+    this.setFlags(state, choice.setsFlags);
+
+    const record = {
+      eventId: event.eventId,
+      eventTitle: event.title,
+      choiceIndex,
+      choiceText: choice.text,
+      feedback: choice.feedback,
+      effects: { ...choice.effects },
+      newStats: { ...state.stats }
+    };
+    state.choiceHistory.push(record);
+    state.usedEvents.push(event.eventId);
+    state.eventsThisRound++;
+
+    return record;
+  },
+
+  // ---------- 检查结局条件 ----------
+  checkEnding(state, endings) {
+    const s = state.stats;
+
+    // 致命条件：时间归零
+    if (s.time <= 0) {
+      return endings.find(e => e.id === 'project_delayed') || endings.find(e => e.condition?.default);
+    }
+    // 致命条件：满意度归零
+    if (s.satisfaction <= 0) {
+      return endings.find(e => e.id === 'client_lost') || endings.find(e => e.condition?.default);
+    }
+    // 致命条件：风险爆表
+    if (s.risk >= state.statsMax.risk) {
+      return endings.find(e => e.id === 'compliance_blocked') || endings.find(e => e.condition?.default);
+    }
+
+    // 通关条件：达到最大天数
+    if (state.day >= state.maxDays) {
+      return this.pickBestEnding(state, endings);
+    }
+
+    return null; // 游戏继续
+  },
+
+  /** 根据状态匹配最佳结局 */
+  pickBestEnding(state, endings) {
+    const s = state.stats;
+    let bestScore = -1;
+    let bestEnding = null;
+    const defaults = endings.filter(e => e.condition?.default);
+
+    for (const ending of endings) {
+      if (ending.condition?.default) continue;
+      const c = ending.condition || {};
+      let score = 0;
+      let match = true;
+
+      if (c.time_min !== undefined && s.time < c.time_min) match = false;
+      if (c.time_max !== undefined && s.time > c.time_max) match = false;
+      if (c.budget_min !== undefined && s.budget < c.budget_min) match = false;
+      if (c.budget_max !== undefined && s.budget > c.budget_max) match = false;
+      if (c.satisfaction_min !== undefined && s.satisfaction < c.satisfaction_min) match = false;
+      if (c.satisfaction_max !== undefined && s.satisfaction > c.satisfaction_max) match = false;
+      if (c.risk_min !== undefined && s.risk < c.risk_min) match = false;
+      if (c.risk_max !== undefined && s.risk > c.risk_max) match = false;
+
+      if (c.flags_include) {
+        for (const f of c.flags_include) {
+          if (!state.flags.includes(f)) match = false;
+        }
+      }
+      if (c.flags_exclude) {
+        for (const f of c.flags_exclude) {
+          if (state.flags.includes(f)) match = false;
+        }
+      }
+
+      if (match) {
+        score = s.time + s.budget + s.satisfaction - s.risk;
+        if (score > bestScore) {
+          bestScore = score;
+          bestEnding = ending;
+        }
+      }
+    }
+
+    return bestEnding || defaults[0] || null;
+  },
+
+  // ---------- 推进天数 ----------
+  advanceDay(state) {
+    state.day++;
+  },
+
+  // ---------- 获取健康度颜色等级 ----------
+  getHealthLevel(value, max) {
+    const ratio = value / max;
+    if (ratio >= 0.7) return 'green';
+    if (ratio >= 0.4) return 'yellow';
+    return 'red';
+  }
+};
+
+
+// ============ events.js ============
+/**
+ * events.js - 事件加载、筛选、随机抽取
+ * 负责根据当前状态从事件池中选取合适的事件
+ */
+const Events = {
+  _pool: [],
+  _chainMap: {},   // flag → 后续事件列表
+
+  /** 加载事件 JSON */
+  async load() {
+    try {
+      const res = await fetch('js/data/events.json');
+      this._pool = await res.json();
+      this._buildChainMap();
+      return this._pool.length;
+    } catch (e) {
+      console.error('事件数据加载失败:', e);
+      return 0;
+    }
+  },
+
+  /** 构建连锁事件映射表 */
+  _buildChainMap() {
+    this._chainMap = {};
+    for (const ev of this._pool) {
+      if (ev.requires) {
+        for (const req of ev.requires) {
+          if (!this._chainMap[req]) this._chainMap[req] = [];
+          this._chainMap[req].push(ev);
+        }
+      }
+    }
+  },
+
+  /**
+   * 获取可用于当前状态的事件列表
+   * @param {object} state - 当前游戏状态
+   * @returns {array} 可用事件
+   */
+  getAvailable(state) {
+    const candidates = [];
+
+    for (const ev of this._pool) {
+      // 本轮已用过
+      if (state.usedEvents.includes(ev.eventId)) continue;
+
+      // 项目标签匹配：* 匹配所有，否则至少一个 tag 匹配
+      if (!ev.projectTags.includes('*')) {
+        const projectTags = state.project.tags || [];
+        const hasMatch = ev.projectTags.some(t => projectTags.includes(t));
+        if (!hasMatch) continue;
+      }
+
+      // 前置条件
+      if (ev.requires) {
+        const allMet = ev.requires.every(r => state.flags.includes(r));
+        if (!allMet) continue;
+      }
+
+      candidates.push(ev);
+    }
+
+    return candidates;
+  },
+
+  /**
+   * 优先抽取连锁事件，否则随机抽取普通事件
+   * @param {object} state
+   * @returns {object|null} 事件对象
+   */
+  pickEvent(state) {
+    // 优先：检查是否有可用的连锁事件
+    const chainEvents = this._getChainEvents(state);
+    if (chainEvents.length > 0) {
+      return chainEvents[Math.floor(Math.random() * chainEvents.length)];
+    }
+
+    // 其次：普通可用事件
+    const available = this.getAvailable(state);
+    if (available.length === 0) return null;
+
+    // 按 followUpWeight 加权随机
+    const weighted = [];
+    for (const ev of available) {
+      const weight = ev.followUpWeight || 1;
+      for (let i = 0; i < weight; i++) weighted.push(ev);
+    }
+    return weighted[Math.floor(Math.random() * weighted.length)];
+  },
+
+  /** 获取连锁事件 */
+  _getChainEvents(state) {
+    const result = [];
+    for (const flag of state.flags) {
+      const chain = this._chainMap[flag];
+      if (chain) {
+        for (const ev of chain) {
+          if (!state.usedEvents.includes(ev.eventId)) {
+            result.push(ev);
+          }
+        }
+      }
+    }
+    return result;
+  },
+
+  /** 按分类统计事件数量 */
+  countByCategory() {
+    const map = {};
+    for (const ev of this._pool) {
+      map[ev.category] = (map[ev.category] || 0) + 1;
+    }
+    return map;
+  }
+};
+
+
+// ============ ui.js ============
+/**
+ * ui.js - UI 渲染模块
+ * 负责所有 DOM 操作和界面更新
+ */
+const UI = {
+  // ---------- DOM 引用缓存 ----------
+  _cache: {},
+
+  /** 初始化 DOM 引用 */
+  init() {
+    this._cache = {
+      projectName:       document.getElementById('project-name'),
+      projectSubtitle:   document.getElementById('project-subtitle'),
+      themeText:         document.getElementById('theme-text'),
+      dayNum:            document.getElementById('day-num'),
+      statTime:          document.getElementById('stat-time'),
+      statBudget:        document.getElementById('stat-budget'),
+      statSatisfaction:  document.getElementById('stat-satisfaction'),
+      statRisk:          document.getElementById('stat-risk'),
+      timeFill:          document.getElementById('time-fill'),
+      budgetFill:        document.getElementById('budget-fill'),
+      satisfactionFill:  document.getElementById('satisfaction-fill'),
+      riskFill:          document.getElementById('risk-fill'),
+      eventCard:         document.getElementById('event-card'),
+      eventTitle:        document.getElementById('event-title'),
+      eventSpeaker:      document.getElementById('event-speaker'),
+      eventSpeakerAvatar: document.getElementById('event-speaker-avatar'),
+      eventText:         document.getElementById('event-text'),
+      choicesContainer:  document.getElementById('choices-container'),
+      feedbackArea:      document.getElementById('feedback-area'),
+      feedbackText:      document.getElementById('feedback-text'),
+      chatList:          document.getElementById('chat-list'),
+      fileEasterEgg:     document.getElementById('file-easter-egg'),
+      endingOverlay:     document.getElementById('ending-overlay'),
+      endingTitle:       document.getElementById('ending-title'),
+      endingText:        document.getElementById('ending-text'),
+      endingTag:         document.getElementById('ending-tag'),
+      endingSummary:     document.getElementById('ending-summary'),
+      btnNewGame:        document.getElementById('btn-new-game'),
+      btnContinue:       document.getElementById('btn-continue'),
+      btnStartNew:       document.getElementById('btn-start-new'),
+      btnStartContinue:  document.getElementById('btn-start-continue'),
+      startOverlay:      document.getElementById('start-overlay'),
+      saveIndicator:     document.getElementById('save-indicator'),
+    };
+  },
+
+  // ---------- 渲染数值条 ----------
+  updateStats(stats, statsMax) {
+    const items = [
+      { el: this._cache.statTime, fill: this._cache.timeFill, val: stats.time, max: statsMax.time },
+      { el: this._cache.statBudget, fill: this._cache.budgetFill, val: stats.budget, max: statsMax.budget },
+      { el: this._cache.statSatisfaction, fill: this._cache.satisfactionFill, val: stats.satisfaction, max: statsMax.satisfaction },
+      { el: this._cache.statRisk, fill: this._cache.riskFill, val: stats.risk, max: statsMax.risk, reverse: true },
+    ];
+
+    for (const item of items) {
+      const pct = Math.round((item.val / item.max) * 100);
+      if (item.el) item.el.textContent = item.val;
+      if (item.fill) {
+        item.fill.style.width = pct + '%';
+        const level = Game.getHealthLevel(item.val, item.max);
+        item.fill.className = 'bar-fill ' + level + (item.reverse ? ' reverse' : '');
+      }
+    }
+  },
+
+  // ---------- 渲染事件卡片 ----------
+  showEvent(event, characters) {
+    const card = this._cache.eventCard;
+    card.style.display = 'block';
+    this._cache.feedbackArea.style.display = 'none';
+    this._cache.eventTitle.textContent = event.title;
+
+    const speaker = characters.find(c => c.id === event.speaker) || {};
+    this._cache.eventSpeaker.textContent = speaker.name || '系统通知';
+    this._cache.eventSpeakerAvatar.textContent = speaker.avatar || '📌';
+    this._cache.eventText.textContent = event.text;
+
+    // 渲染选项按钮
+    const container = this._cache.choicesContainer;
+    container.innerHTML = '';
+    event.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = `${String.fromCharCode(65 + i)}. ${choice.text}`;
+      btn.addEventListener('click', () => {
+        if (typeof onChoiceSelected === 'function') {
+          onChoiceSelected(i);
+        }
+      });
+      container.appendChild(btn);
+    });
+  },
+
+  // ---------- 显示反馈 ----------
+  showFeedback(feedback, effects) {
+    this._cache.feedbackArea.style.display = 'block';
+    this._cache.feedbackText.textContent = feedback;
+
+    // 禁用选项按钮
+    const btns = this._cache.choicesContainer.querySelectorAll('.choice-btn');
+    btns.forEach(b => b.disabled = true);
+
+    // 显示效果标签
+    const effectsStr = [];
+    if (effects.time !== 0) effectsStr.push(`时间 ${effects.time > 0 ? '+' : ''}${effects.time}`);
+    if (effects.budget !== 0) effectsStr.push(`预算 ${effects.budget > 0 ? '+' : ''}${effects.budget}`);
+    if (effects.satisfaction !== 0) effectsStr.push(`满意度 ${effects.satisfaction > 0 ? '+' : ''}${effects.satisfaction}`);
+    if (effects.risk !== 0) effectsStr.push(`风险 ${effects.risk > 0 ? '+' : ''}${effects.risk}`);
+
+    // 短暂延迟后可以继续
+  },
+
+  // ---------- 添加群聊消息 ----------
+  addChatMessage(speaker, text) {
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg';
+    msg.innerHTML = `<span class="chat-speaker">${speaker}:</span> ${text}`;
+    this._cache.chatList.appendChild(msg);
+    this._cache.chatList.scrollTop = this._cache.chatList.scrollHeight;
+  },
+
+  // ---------- 更新彩蛋文件名 ----------
+  updateFileEasterEgg() {
+    const eggs = [
+      '最终版.pptx',
+      '最终版_修改后.pptx',
+      '最终版_真的不改了.pptx',
+      '最终版_领导已看_客户未看.pptx',
+      '最终版_改了颜色.pptx',
+      '最终版_CEO已阅.pptx',
+      '最终版_最终.pptx',
+      '最终版_死也不改了.pptx',
+    ];
+    const egg = eggs[Math.floor(Math.random() * eggs.length)];
+    this._cache.fileEasterEgg.textContent = '📎 ' + egg;
+  },
+
+  // ---------- 开始界面 ----------
+  showStartScreen(hasSavedGame) {
+    this._cache.startOverlay.style.display = 'flex';
+    this._cache.btnStartContinue.style.display = hasSavedGame ? 'inline-block' : 'none';
+  },
+
+  hideStartScreen() {
+    this._cache.startOverlay.style.display = 'none';
+  },
+
+  // ---------- 结局界面 ----------
+  showEnding(ending, state) {
+    this._cache.endingOverlay.style.display = 'flex';
+    this._cache.endingTitle.textContent = ending.title;
+    this._cache.endingText.textContent = ending.text;
+    this._cache.endingTag.textContent = ending.tag || '';
+
+    // 生成统计摘要
+    const h = state.choiceHistory;
+    const summary = [
+      `📅 历时 ${state.day} 天`,
+      `📋 处理事件 ${h.length} 件`,
+      `⏱️ 剩余时间 ${state.stats.time}`,
+      `💰 剩余预算 ${state.stats.budget}`,
+      `😊 满意度 ${state.stats.satisfaction}`,
+      `⚠️ 风险值 ${state.stats.risk}`,
+    ].join('  ·  ');
+    this._cache.endingSummary.textContent = summary;
+  },
+
+  hideEnding() {
+    this._cache.endingOverlay.style.display = 'none';
+  },
+
+  // ---------- 更新顶部信息 ----------
+  updateHeader(state) {
+    this._cache.projectName.textContent = state.project.name;
+    this._cache.projectSubtitle.textContent = state.project.subtitle;
+    this._cache.themeText.textContent = state.theme || '普通的一天';
+    this._cache.dayNum.textContent = state.day;
+  },
+
+  // ---------- 保存提示闪烁 ----------
+  flashSave() {
+    const el = this._cache.saveIndicator;
+    el.classList.add('saved');
+    setTimeout(() => el.classList.remove('saved'), 1500);
+  },
+
+  // ---------- 显示继续游戏按钮 ----------
+  showContinueButton(callback) {
+    if (this._cache.btnContinue) {
+      this._cache.btnContinue.style.display = 'inline-block';
+      this._cache.btnContinue.onclick = callback;
+    }
+  },
+
+  hideContinueButton() {
+    if (this._cache.btnContinue) {
+      this._cache.btnContinue.style.display = 'none';
+    }
+  }
+};
+
+
+// ============ main.js (with inline data) ============
+/**
+ * main.js - 游戏主入口 & 游戏循环控制
+ * 负责初始化、回合流转、存档和全局回调
+ */
+let gameState = null;
+let gameData = { projects: [], characters: [], themes: [], endings: [] };
+
+// ---------- 全局回调：选项被点击时触发 ----------
+function onChoiceSelected(choiceIndex) {
+  if (!gameState || gameState.phase !== 'playing') return;
+
+  const event = currentEvent;
+  if (!event) return;
+
+  // 执行选择
+  const record = Game.executeChoice(gameState, event, choiceIndex);
+  if (!record) return;
+
+  // 显示反馈
+  UI.showFeedback(record.feedback, record.effects);
+  UI.updateStats(gameState.stats, gameState.statsMax);
+
+  // 添加群聊
+  const speaker = gameData.characters.find(c => c.id === event.speaker);
+  if (speaker) {
+    UI.addChatMessage(speaker.name, record.choiceText);
+  }
+
+  // 自动存档
+  autoSave();
+  UI.flashSave();
+  currentEvent = null;
+
+  // 延迟后继续下一事件
+  setTimeout(() => nextTurn(), 1500);
+}
+
+let currentEvent = null;
+
+// ---------- 加载所有数据（内嵌版本）----------
+async function loadAllData() {
+  const projects = [
+  {
+    "id": "esg_report",
+    "name": "ESG 年报冲刺",
+    "subtitle": "年底前完成 ESG 报告披露",
+    "tags": ["esg_report"],
+    "description": "为上市公司完成年度 ESG 报告或申奖材料",
+    "keyEvents": ["碳数据口径", "案例缺数据", "供应商回复", "定量表述"]
+  },
+  {
+    "id": "ipo_roadshow",
+    "name": "港股 IPO 路演",
+    "subtitle": "协助企业完成招股及投资者沟通",
+    "tags": ["ipo_roadshow"],
+    "description": "协助企业开展招股及投资者沟通",
+    "keyEvents": ["招股书调整", "基石投资者", "媒体问询", "估值预期"]
+  },
+  {
+    "id": "industry_summit",
+    "name": "百人行业峰会",
+    "subtitle": "筹备大型线下行业会议",
+    "tags": ["industry_summit"],
+    "description": "筹备大型线下会议和嘉宾接待",
+    "keyEvents": ["专属签到码", "座位表", "嘉宾迟到", "会场和物料"]
+  }
+];
+  const characters = [
+  {
+    "id": "lin_zong",
+    "name": "林总",
+    "title": "高压型领导",
+    "tagline": "这个很简单，今晚能出吗？",
+    "role": "给高回报但时间紧的任务",
+    "avatar": "👔"
+  },
+  {
+    "id": "zhang_zong",
+    "name": "客户张总",
+    "title": "结果导向甲方",
+    "tagline": "过程不用讲，结果要有说服力。",
+    "role": "影响满意度",
+    "avatar": "💼"
+  },
+  {
+    "id": "caiwu_zhou",
+    "name": "财务小周",
+    "title": "预算守门人",
+    "tagline": "没有合规单据，系统过不了。",
+    "role": "触发预算与报销事件",
+    "avatar": "🧮"
+  },
+  {
+    "id": "jishu_zhe",
+    "name": "技术阿哲",
+    "title": "直率技术骨干",
+    "tagline": "能修，但别指望五分钟。",
+    "role": "用时间换低风险方案",
+    "avatar": "🔧"
+  },
+  {
+    "id": "shixi_xu",
+    "name": "实习生小许",
+    "title": "热情新人",
+    "tagline": "我已经帮你发出去了……",
+    "role": "提供随机正负反馈",
+    "avatar": "🌟"
+  },
+  {
+    "id": "gongying_wang",
+    "name": "供应商王姐",
+    "title": "已读不回专家",
+    "tagline": "我们只能按基础版本交付。",
+    "role": "触发现场、物料、制作问题",
+    "avatar": "📦"
+  },
+  {
+    "id": "hegui_chen",
+    "name": "合规陈老师",
+    "title": "证据与口径专家",
+    "tagline": "这句话的依据是什么？",
+    "role": "降低风险但消耗时间",
+    "avatar": "📋"
+  },
+  {
+    "id": "shenmi_qun",
+    "name": "神秘甲方群",
+    "title": "沉默的群聊",
+    "tagline": "【群消息】@所有人 请尽快确认…",
+    "role": "临近下班集中爆发",
+    "avatar": "💬"
+  }
+];
+  const themes = [
+  "项目启动会当天",
+  "客户突然加需求",
+  "领导查看中期版本",
+  "供应商集体掉链子",
+  "下班前突击汇报",
+  "路演前 24 小时",
+  "年报披露倒计时",
+  "活动签到当天",
+  "监管问询来函",
+  "会后舆情发酵",
+  "项目预算被砍 30%",
+  "系统上线第一天",
+  "最后一个工作日",
+  "周一早会刚结束",
+  "周五下午四点整",
+  "节前最后半天",
+  "新老板到岗第一天",
+  "季度考核截止日",
+  "甲方突然来电话"
+];
+  const endings = [
+  {
+    "id": "all_green",
+    "title": "全绿交付",
+    "condition": { "time_min": 2, "budget_min": 2, "satisfaction_min": 2, "risk_max": 2 },
+    "text": "四项指标全面健康。客户复盘会上，林总罕见地说了句\"大家辛苦了\"。项目准时交付，没有惊喜，也没有惊吓——这大概就是职场最好的结局。",
+    "tag": "全能选手"
+  },
+  {
+    "id": "sick_launch",
+    "title": "带病上线",
+    "condition": { "satisfaction_min": 3, "risk_min": 3 },
+    "text": "客户满意度很高，但你知道水面之下漂着多少技术债和合规隐患。结果漂亮，但每次邮件提示音都让你心头一紧。",
+    "tag": "表面风光"
+  },
+  {
+    "id": "budget_master",
+    "title": "成本控制大师",
+    "condition": { "budget_min": 3, "satisfaction_max": 2 },
+    "text": "项目预算控制得完美无缺，但你听到客户在背后说\"一分钱一分货\"。没有超支，也没有惊喜。",
+    "tag": "铁算盘"
+  },
+  {
+    "id": "crisis_survivor",
+    "title": "危机公关新星",
+    "condition": { "risk_min": 3, "time_min": 1 },
+    "text": "风险值一度飙到临界点，但你硬是在翻车前踩了刹车。没有解决所有问题，但至少阻止了问题变成新闻。",
+    "tag": "危机终结者"
+  },
+  {
+    "id": "overtime_champion",
+    "title": "加班冠军",
+    "condition": { "time_max": 1, "satisfaction_min": 2 },
+    "text": "不计其数的加班换来了项目成功。你工位上的绿植已经枯了，但你已经是公司传说中的\"救火队长\"。",
+    "tag": "永不下班"
+  },
+  {
+    "id": "project_delayed",
+    "title": "项目延期",
+    "condition": { "time_max": 0 },
+    "text": "时间耗尽，项目进入无人愿意提及的\"下一阶段\"。没有人责怪你，但也没有人想接手这个项目了。",
+    "tag": "来日方长"
+  },
+  {
+    "id": "client_lost",
+    "title": "客户换团队",
+    "condition": { "satisfaction_max": 0 },
+    "text": "客户满意度触底，对方发来了一封措辞礼貌的邮件，核心意思只有一句话：\"我们都觉得换一个团队会更好。\"",
+    "tag": "后会无期"
+  },
+  {
+    "id": "compliance_blocked",
+    "title": "合规拦截",
+    "condition": { "risk_min": 4 },
+    "text": "发布前两小时，合规陈老师按下了暂停键。项目被冻结，你松了一口气——至少不是因为你。",
+    "tag": "合规守夜人"
+  },
+  {
+    "id": "auto_pilot",
+    "title": "自动化救场",
+    "condition": { "flags_include": ["auto_pilot"], "time_min": 2 },
+    "text": "你的每一次\"系统自动处理\"选择最终沉淀为可复制的流程。项目结束后，这些自动化方案被推广到全公司。",
+    "tag": "流程救世主"
+  },
+  {
+    "id": "client_referral",
+    "title": "甲方内部推荐",
+    "condition": { "satisfaction_min": 4 },
+    "text": "客户满意度爆表，张总亲自介绍来一个\"更紧急\"的新项目。你看着新项目的需求文档，不知该哭还是该笑。",
+    "tag": "甲方读心术"
+  },
+  {
+    "id": "barely_made_it",
+    "title": "勉强过关",
+    "condition": { "default": true },
+    "text": "项目在你手中晃晃悠悠地走完了全程。不算完美，但在这个办公室里，'完成'本身就是一种成就。",
+    "tag": "幸存者"
+  }
+];
+
+  gameData = { projects, characters, themes, endings };
+
+  // 内嵌事件数据
+  Events._pool = [
+  {
+    "eventId": "E001",
+    "projectTags": ["esg_report"],
+    "title": "碳减排数据缺口",
+    "text": "客户张总要求今晚补充\"碳减排成效\"板块，但业务部门只给出\"效果显著\"四个字。",
+    "speaker": "zhang_zong",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "坚持追要原始数据",
+        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
+        "feedback": "你花了大量时间协调各部门，终于拿到了一手数据。"
+      },
+      {
+        "text": "用定性表述先顶上",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 1, "risk": 2 },
+        "feedback": "客户对文案很满意，但合规陈老师皱眉了。",
+        "setsFlags": ["data_missing"]
+      },
+      {
+        "text": "参考行业数据并标注测算口径",
+        "effects": { "time": -1, "budget": -1, "satisfaction": 1, "risk": 1 },
+        "feedback": "折中方案，参考了竞品披露口径并加了脚注说明。"
+      }
+    ]
+  },
+  {
+    "eventId": "E002",
+    "projectTags": ["industry_summit"],
+    "title": "嘉宾未收到签到码",
+    "text": "参会嘉宾表示未收到专属签到码，距签到开始还有2小时。",
+    "speaker": "gongying_wang",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "现场人工核验名单",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "增派两人手动核对名单，虽然慢但稳妥。"
+      },
+      {
+        "text": "重新生成专属二维码",
+        "effects": { "time": -1, "budget": -1, "satisfaction": 1, "risk": 0 },
+        "feedback": "技术阿哲火速生成新码，嘉宾顺利签到。",
+        "setsFlags": ["qr_verified"]
+      },
+      {
+        "text": "先直接进场，稍后补登",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "流程上走了捷径，但会后名单对不上会很麻烦。",
+        "setsFlags": ["qr_unverified"]
+      }
+    ]
+  },
+  {
+    "eventId": "E003",
+    "projectTags": ["*"],
+    "title": "客户口头认可无书面确认",
+    "text": "老板称\"客户已经基本认可方案\"，但你发现对方没有任何书面回复。",
+    "speaker": "lin_zong",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "邮件二次确认",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -2 },
+        "feedback": "发了一封措辞严谨的确认邮件，有据可查。"
+      },
+      {
+        "text": "默认认可并推进",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "你决定不等了，先推进再说。但愿对方不会反悔。"
+      },
+      {
+        "text": "群内礼貌 @ 客户",
+        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "feedback": "客户群内回复了\"OK\"，虽然不够正式，但聊胜于无。"
+      }
+    ]
+  },
+  {
+    "eventId": "E004",
+    "projectTags": ["*"],
+    "title": "五分钟短会通知",
+    "text": "林总在工作群里发了一条消息：\"五分钟后开个短会，讨论一下项目进度。\"",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "立刻整理进度数据参会",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "你带着最新数据进入会议，林总表示满意。"
+      },
+      {
+        "text": "推说手头有急事，让实习生小许替会",
+        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "feedback": "小许会议纪要写得还行，但林总觉得你不够重视。"
+      }
+    ]
+  },
+  {
+    "eventId": "E005",
+    "projectTags": ["*"],
+    "title": "预算报销被卡",
+    "text": "财务小周发来邮件：\"上个月的活动餐饮报销没有合规单据，系统自动拒绝了。\"",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "翻找历史邮件补交材料",
+        "effects": { "time": -2, "budget": 1, "satisfaction": 0, "risk": -1 },
+        "feedback": "在已删除邮件里翻出了当时的审批截图，小周勉强放行。"
+      },
+      {
+        "text": "自掏腰包先填坑",
+        "effects": { "time": 0, "budget": -1, "satisfaction": 0, "risk": 0 },
+        "feedback": "你默默转了一笔钱，项目预算保住了，但心在滴血。"
+      },
+      {
+        "text": "找林总特批",
+        "effects": { "time": -1, "budget": 1, "satisfaction": -1, "risk": 0 },
+        "feedback": "林总签了字，但记住了你\"不按流程办事\"。"
+      }
+    ]
+  },
+  {
+    "eventId": "E006",
+    "projectTags": ["esg_report"],
+    "title": "供应商回复延迟",
+    "text": "为ESG报告提供碳排放数据的供应商王姐已经三天没回消息了。",
+    "speaker": "gongying_wang",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "连续电话轰炸",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "打了五通电话，王姐终于接了，数据明天给。"
+      },
+      {
+        "text": "换一个备选供应商",
+        "effects": { "time": -2, "budget": -2, "satisfaction": 0, "risk": -2 },
+        "feedback": "新供应商报价更高但更靠谱，数据质量也有保障。"
+      },
+      {
+        "text": "先用去年数据估算",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "去年的数据套上今年的增长率，看起来挺像回事。",
+        "setsFlags": ["estimated_data"]
+      }
+    ]
+  },
+  {
+    "eventId": "E007",
+    "projectTags": ["*"],
+    "title": "实习生发错邮件",
+    "text": "实习生小许脸红了：\"我把给客户的内部讨论稿发出去了……\"",
+    "speaker": "shixi_xu",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "立刻邮件撤回 + 电话道歉",
+        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
+        "feedback": "客户表示理解，但以后会更仔细地审核你们的材料。"
+      },
+      {
+        "text": "将错就错，把讨论稿包装成\"超前预览版\"",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "客户觉得你们\"效率很高\"，但讨论稿上的批注让人尴尬。"
+      },
+      {
+        "text": "让小许自己去处理",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "小许学会了危机处理——虽然学费是你们团队的信用。"
+      }
+    ]
+  },
+  {
+    "eventId": "E008",
+    "projectTags": ["*"],
+    "title": "技术阿哲的坏消息",
+    "text": "技术阿哲走过来说：\"你上次让我改的那个系统功能，底层代码有问题，需要重写。\"",
+    "speaker": "jishu_zhe",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "接受重写，追加开发时间",
+        "effects": { "time": -3, "budget": -1, "satisfaction": 0, "risk": -2 },
+        "feedback": "彻底重构后系统稳定多了，阿哲难得夸你\"做了正确决定\"。"
+      },
+      {
+        "text": "要求阿哲打补丁先撑过去",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "功能暂时能用，但阿哲说\"下次再出问题别找我\"。",
+        "setsFlags": ["tech_debt"]
+      },
+      {
+        "text": "砍掉这个功能",
+        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "feedback": "客户问了功能去哪了，你说\"在升级中\"。"
+      }
+    ]
+  },
+  {
+    "eventId": "E009",
+    "projectTags": ["*"],
+    "title": "合规审查驳回",
+    "text": "合规陈老师发来邮件：\"对外发布的材料中有三处表述存在合规风险，需要修改。\"",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "逐条修改，确保合规",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -3 },
+        "feedback": "三处修改虽然耗时，但避免了潜在的监管风险。"
+      },
+      {
+        "text": "改两处，保留一处模糊表述",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "陈老师不太满意，但没有再坚持。",
+        "setsFlags": ["compliance_gap"]
+      },
+      {
+        "text": "请林总出面协调",
+        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "feedback": "林总跟陈老师沟通后，双方各退一步。"
+      }
+    ]
+  },
+  {
+    "eventId": "E010",
+    "projectTags": ["ipo_roadshow"],
+    "title": "招股书数据调整",
+    "text": "保荐人要求调整招股书中一组财务数据的呈现方式，但改动会牵连至少五个章节。",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "加班逐章修改",
+        "effects": { "time": -3, "budget": 0, "satisfaction": 1, "risk": -2 },
+        "feedback": "熬了一个通宵，招股书终于过审。"
+      },
+      {
+        "text": "只改核心章节，其余加附录说明",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "保荐人勉强接受了折中方案。"
+      },
+      {
+        "text": "请外部咨询公司加急处理",
+        "effects": { "time": -1, "budget": -3, "satisfaction": 1, "risk": -1 },
+        "feedback": "花了大价钱，但专业团队确实快。"
+      }
+    ]
+  },
+  {
+    "eventId": "E011",
+    "projectTags": ["*"],
+    "title": "神秘甲方群突然活跃",
+    "text": "沉默了两个月的神秘甲方群突然弹出消息：\"@所有人 请在今天下班前确认最终版方案，否则合同重新评估。\"",
+    "speaker": "shenmi_qun",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "立刻调集全组人员赶方案",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 1, "risk": -1 },
+        "feedback": "全组奋战两小时，方案成功发出。甲方回了一个\"收到👍\"。"
+      },
+      {
+        "text": "先回一句\"正在推进\"稳住局面",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "暂时拖住了，但明天一早必须交。"
+      },
+      {
+        "text": "打电话问对方要具体需求",
+        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "feedback": "对方说不清楚，\"你们专业的应该知道\"。白费了半小时。"
+      }
+    ]
+  },
+  {
+    "eventId": "E012",
+    "projectTags": ["*"],
+    "title": "PPT文件名混乱",
+    "text": "客户张总发来邮件：\"请发最终版PPT。\"但你的桌面上有六个版本：最终版、最终版_修改后、最终版_真的不改了、最终版_领导已看_客户未看…",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "仔细核对各版本后发送正确版本",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 2, "risk": -1 },
+        "feedback": "花了十分钟比对，确认了真正的最新版。客户很满意。"
+      },
+      {
+        "text": "凭直觉选一个最新修改时间的",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "你发了过去，但愿那就是对的。"
+      },
+      {
+        "text": "把六个版本都发给客户让他自己选",
+        "effects": { "time": 0, "budget": 0, "satisfaction": -2, "risk": 0 },
+        "feedback": "客户回了两个字：\"专业。\"——但你听出了讽刺。"
+      }
+    ]
+  },
+  {
+    "eventId": "E013",
+    "projectTags": ["*"],
+    "title": "CEO临时加需求",
+    "text": "林总传达：\"CEO看了项目方案，说'要更有感觉'。\"——没有人知道'感觉'是什么意思。",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "做三个不同风格的方案让CEO选",
+        "effects": { "time": -3, "budget": -1, "satisfaction": 2, "risk": -1 },
+        "feedback": "CEO选了第三个方案，说了句'就是这个感觉'。"
+      },
+      {
+        "text": "请林总帮忙确认CEO的偏好",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 0 },
+        "feedback": "林总问了半天，CEO说'你先做出来看看'。"
+      },
+      {
+        "text": "微调配色和字体后重新提交",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 1, "risk": 1 },
+        "feedback": "换了配色和字体，CEO说'好多了'。有时候视觉效果就是'感觉'。"
+      }
+    ]
+  },
+  {
+    "eventId": "E014",
+    "projectTags": ["*"],
+    "title": "下班前的系统崩溃",
+    "text": "下午5:47，OA系统突然崩溃。技术阿哲说修复需要两小时。而你还有一个必须在系统里提交的审批。",
+    "speaker": "jishu_zhe",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "等系统修复后提交",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "等了两个小时，系统终于恢复了。审批安全提交。"
+      },
+      {
+        "text": "写邮件说明情况，申请补签",
+        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "feedback": "邮件已发，但林总不喜欢\"因为系统原因\"这种借口。"
+      },
+      {
+        "text": "让实习生小许盯着，你先下班",
+        "effects": { "time": 1, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "你走了，小许守到系统恢复。第二天小许有了新外号：'守夜人'。"
+      }
+    ]
+  },
+  {
+    "eventId": "E015",
+    "projectTags": ["*"],
+    "title": "竞品舆情爆发",
+    "text": "合规陈老师紧急通知：友商刚刚因为数据口径问题被监管约谈，媒体正在疯狂挖同类企业的料。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "立即自检所有对外材料",
+        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -3 },
+        "feedback": "发现了两个潜在隐患并及时修正，躲过一劫。"
+      },
+      {
+        "text": "关注舆情但不主动响应",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "暂时风平浪静，但谁知道明天会怎样？"
+      },
+      {
+        "text": "提前准备一份应急预案",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "预案在手，随时应对。陈老师对你的前瞻性表示认可。"
+      }
+    ]
+  },
+  {
+    "eventId": "E016",
+    "projectTags": ["*"],
+    "title": "合规追问数据来源",
+    "text": "合规陈老师发现你之前用定性表述替代了原始数据：\"监管方来函，希望看到具体数字。\"",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "requires": ["data_missing"],
+    "choices": [
+      {
+        "text": "紧急补做数据收集，亡羊补牢",
+        "effects": { "time": -3, "budget": 0, "satisfaction": 0, "risk": -2 },
+        "feedback": "花了大半天补数据，虽然晚了点，但数据经得起推敲。"
+      },
+      {
+        "text": "提供一份测算说明争取时间",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "陈老师不情愿地接过了测算说明，但说'下次不行了'。"
+      }
+    ]
+  },
+  {
+    "eventId": "E017",
+    "projectTags": ["industry_summit"],
+    "title": "会后名单对不上",
+    "text": "供应商王姐发来核对表：\"之前补登的那些嘉宾，实际签到人数和名单差了两个人。\"",
+    "speaker": "gongying_wang",
+    "category": "risk_compliance",
+    "requires": ["qr_unverified"],
+    "choices": [
+      {
+        "text": "逐一核对监控和签到记录",
+        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
+        "feedback": "发现是一个嘉宾带了两名助理，但只登记了一人。问题解决。"
+      },
+      {
+        "text": "按实际到场人数更新名单",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "feedback": "名单更新了，但客户张总问'为什么每次都有这种问题'。"
+      }
+    ]
+  },
+  {
+    "eventId": "E018",
+    "projectTags": ["*"],
+    "title": "技术债爆发",
+    "text": "技术阿哲面色凝重：\"之前那个补丁撑不住了，系统在生产环境报了一串错误。\"",
+    "speaker": "jishu_zhe",
+    "category": "time_pressure",
+    "requires": ["tech_debt"],
+    "choices": [
+      {
+        "text": "立即停机修复，接受服务中断",
+        "effects": { "time": -3, "budget": -2, "satisfaction": -1, "risk": -2 },
+        "feedback": "系统中断了4小时，但彻底修复后性能反而提升了。"
+      },
+      {
+        "text": "继续打补丁，先恢复服务",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "阿哲翻了个白眼，但还是把服务恢复了。他说这已经是第5个补丁了。"
+      },
+      {
+        "text": "切换回旧版本系统",
+        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "feedback": "旧系统虽然慢但稳定，客户没注意到切换。"
+      }
+    ]
+  },
+  {
+    "eventId": "E019",
+    "projectTags": ["*"],
+    "title": "自动化流程解锁",
+    "text": "技术阿哲发来消息：\"你之前一直选系统自动处理，我顺便做了个核验模板，以后这类问题可以秒过。\"",
+    "speaker": "jishu_zhe",
+    "category": "time_pressure",
+    "requires": ["qr_verified"],
+    "choices": [
+      {
+        "text": "立即推广使用，感谢阿哲",
+        "effects": { "time": 1, "budget": 0, "satisfaction": 1, "risk": -2 },
+        "feedback": "新模板节省了大量重复劳动，阿哲难得被表扬了一次。",
+        "setsFlags": ["auto_pilot"]
+      },
+      {
+        "text": "先测试一下再上线",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "测试通过后，工具正式上线。慢是慢了点，但稳妥。"
+      }
+    ]
+  },
+  {
+    "eventId": "E020",
+    "projectTags": ["*"],
+    "title": "合规隐患发酵",
+    "text": "合规陈老师的预感成真了——之前被模糊处理的那处表述被竞争对手拿来做了文章。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "requires": ["compliance_gap"],
+    "choices": [
+      {
+        "text": "立即发布澄清声明",
+        "effects": { "time": -2, "budget": -1, "satisfaction": -1, "risk": -3 },
+        "feedback": "声明发出后舆情逐步平息。陈老师说'下次记得一开始就改'。"
+      },
+      {
+        "text": "私下联系对方沟通",
+        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": -1 },
+        "feedback": "对方同意撤稿，但欠了一个人情。"
+      },
+      {
+        "text": "不予回应，静待热度过去",
+        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "feedback": "你赌了一把。希望互联网的金鱼记忆定律还在生效。"
+      }
+    ]
+  }
+];
+  Events._buildChainMap();
+}
+
+// ---------- 开始新游戏 ----------
+function startNewGame() {
+  const project = gameData.projects[Math.floor(Math.random() * gameData.projects.length)];
+  const theme = gameData.themes[Math.floor(Math.random() * gameData.themes.length)];
+
+  gameState = Game.createInitialState(project);
+  gameState.theme = theme;
+
+  UI.hideStartScreen();
+  UI.hideEnding();
+  UI.updateHeader(gameState);
+  UI.updateStats(gameState.stats, gameState.statsMax);
+
+  // 随机群聊开场
+  const openers = [
+    ['系统', `项目包已分配：${project.name}`],
+    ['系统', `今日主题：${theme}`],
+    ['系统', `下班倒计时开始。祝你好运。`],
+  ];
+  openers.forEach(o => UI.addChatMessage(o[0], o[1]));
+
+  UI.updateFileEasterEgg();
+  UI.hideContinueButton();
+  currentEvent = null;
+  gameState.phase = 'playing';
+
+  autoSave();
+  nextTurn();
+}
+
+// ---------- 继续游戏 ----------
+function continueGame() {
+  const saved = Storage.load();
+  if (!saved) {
+    startNewGame();
+    return;
+  }
+
+  gameState = saved;
+  UI.hideStartScreen();
+  UI.hideEnding();
+  UI.updateHeader(gameState);
+  UI.updateStats(gameState.stats, gameState.statsMax);
+  UI.hideContinueButton();
+  UI.updateFileEasterEgg();
+
+  // 恢复群聊（最近的几条记录）
+  const recent = gameState.choiceHistory.slice(-5);
+  recent.forEach(r => {
+    UI.addChatMessage('你', r.choiceText);
+  });
+
+  currentEvent = null;
+  gameState.phase = 'playing';
+  nextTurn();
+}
+
+// ---------- 下一回合 ----------
+function nextTurn() {
+  if (!gameState || gameState.phase !== 'playing') return;
+
+  // 检查结局
+  const ending = Game.checkEnding(gameState, gameData.endings);
+  if (ending) {
+    endGame(ending);
+    return;
+  }
+
+  // 抽取事件
+  const event = Events.pickEvent(gameState);
+  if (!event) {
+    // 没有可用事件：推进天数
+    Game.advanceDay(gameState);
+    UI.updateHeader(gameState);
+    autoSave();
+
+    // 再检查结局
+    const ending2 = Game.checkEnding(gameState, gameData.endings);
+    if (ending2) {
+      endGame(ending2);
+      return;
+    }
+
+    // 继续
+    const event2 = Events.pickEvent(gameState);
+    if (!event2) {
+      // 确实没有事件了，强制结束
+      const defaultEnding = gameData.endings.find(e => e.condition?.default) || gameData.endings[0];
+      endGame(defaultEnding);
+      return;
+    }
+    currentEvent = event2;
+    UI.showEvent(currentEvent, gameData.characters);
+    return;
+  }
+
+  currentEvent = event;
+  UI.showEvent(currentEvent, gameData.characters);
+}
+
+// ---------- 游戏结束 ----------
+function endGame(ending) {
+  gameState.phase = 'ended';
+  UI.showEnding(ending, gameState);
+  UI.hideContinueButton();
+  Storage.clear();
+  UI.flashSave();
+}
+
+// ---------- 自动存档 ----------
+function autoSave() {
+  if (!gameState || gameState.phase !== 'playing') return;
+  Storage.save(gameState);
+}
+
+// ---------- 初始化 ----------
+async function init() {
+  UI.init();
+
+  // 加载数据
+  await loadAllData();
+
+  const hasSaved = Storage.hasSavedGame();
+  UI.showStartScreen(hasSaved);
+
+  // 按钮事件绑定
+  UI._cache.btnStartNew.addEventListener('click', startNewGame);
+  UI._cache.btnStartContinue.addEventListener('click', continueGame);
+  UI._cache.btnNewGame.addEventListener('click', startNewGame);
+
+  // 如果有存档，绑定继续按钮
+  if (hasSaved) {
+    UI._cache.btnContinue.addEventListener('click', continueGame);
+    UI.showContinueButton(continueGame);
+  }
+
+  console.log('🏢 项目救火办：今日不背锅 - 已就绪');
+  console.log(`  事件池: ${Events._pool.length} 条`);
+}
+
+// ---------- 启动 ----------
+document.addEventListener('DOMContentLoaded', init);
+
+  </script>
+
+  <!-- 时钟 & 倒计时 -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent =
+        now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+
+      // 距离18:00下班倒计时
+      const offWork = new Date(now);
+      offWork.setHours(18, 0, 0, 0);
+      if (now > offWork) offWork.setDate(offWork.getDate() + 1);
+      const diff = Math.max(0, Math.floor((offWork - now) / 60000));
+      const h = Math.floor(diff / 60);
+      const m = diff % 60;
+      document.getElementById('countdown').textContent =
+        (h > 0 ? h + 'h ' : '') + m + 'min';
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  </script>
+</body>
+</html>

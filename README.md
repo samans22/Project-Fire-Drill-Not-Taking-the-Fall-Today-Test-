@@ -6,18 +6,24 @@
 
 ## 🎮 立即游玩
 
-### 方式一：GitHub Pages（推荐）
+### 方式一：单文件直玩（⭐ 推荐给朋友）
 
-点击下方链接即可在浏览器中直接游玩：
+下载 **[play.html](play.html)** 这一个文件，双击用浏览器打开即可畅玩！
 
-👉 **[🎮 开始游戏](https://samans22.github.io/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-/）**
+> 无需网络、无需解压、无需安装任何东西。所有 CSS/JS/数据都内嵌在一个文件中，方便通过微信/QQ/邮件直接发送。
 
-### 方式二：直接打开
+### 方式二：GitHub Pages 在线玩
 
-1. 下载本仓库 ZIP 文件（点击仓库页面上方绿色的 **Code → Download ZIP**）
+👉 **[🎮 开始游戏](https://samans22.github.io/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-/)**
+
+> ⚠️ 如在国内访问可能较慢或无法打开（GitHub Pages 被墙），建议用方式一。
+
+### 方式三：下载 ZIP 全部文件
+
+1. 点击仓库页面上方绿色的 **Code → Download ZIP**
 2. 解压后双击 `index.html` 即可用浏览器开始游戏
 
-### 方式三：克隆到本地
+### 方式四：克隆到本地
 
 ```bash
 git clone https://github.com/samans22/Project-Fire-Drill-Not-Taking-the-Fall-Today-Test-.git
