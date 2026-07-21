@@ -28,6 +28,11 @@ const Events = {
     }
   },
 
+  /** 按ID查找事件（用于多阶段 nextEvent 解析） */
+  getEventById(eventId) {
+    return this._pool.find(ev => ev.eventId === eventId) || null;
+  },
+
   /** 构建连锁事件映射表 */
   _buildChainMap() {
     this._chainMap = {};
@@ -53,6 +58,9 @@ const Events = {
       // 本轮已用过
       if (state.usedEvents.includes(ev.eventId)) continue;
 
+      // 多阶段后续事件：只能通过 nextEvent 访问，不进入随机池
+      if (ev.isChainOnly) continue;
+
       // 项目标签匹配：* 匹配所有，否则至少一个 tag 匹配
       if (!ev.projectTags.includes('*')) {
         const projectTags = state.project.tags || [];
@@ -65,6 +73,12 @@ const Events = {
         const allMet = ev.requires.every(r => state.flags.includes(r));
         if (!allMet) continue;
       }
+
+      // 难度过滤：只出 <= 当前难度层级的事件
+      if (ev.difficulty && ev.difficulty > state.difficultyTier) continue;
+
+      // 主题独家事件：只有当前主题匹配时才可用
+      if (ev.themeExclusive && ev.themeExclusive !== state.themeId) continue;
 
       candidates.push(ev);
     }

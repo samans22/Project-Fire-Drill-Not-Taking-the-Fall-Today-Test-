@@ -19,12 +19,24 @@ function onChoiceSelected(choiceIndex) {
   // 显示反馈
   UI.showFeedback(record.feedback, record.effects);
   UI.updateStats(gameState.stats, gameState.statsMax);
+  UI.updateQuota(gameState.eventsToday, gameState.eventsPerDay);
 
   // 添加群聊
   const speaker = gameData.characters.find(c => c.id === event.speaker);
   if (speaker) {
     UI.addChatMessage(speaker.name, record.choiceText);
   }
+
+  // 群聊：NPC 对事件选择的反应
+  const reactions = ChatMessages.getEventReaction(event.eventId);
+  reactions.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
+  // 群聊：状态预警
+  const warnings = ChatMessages.getStatWarnings(gameState.stats, gameState.statsMax);
+  warnings.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
+  // 多阶段：记录下一阶段事件ID
+  gameState.pendingNextEventId = record.nextEventId || null;
 
   // 自动存档
   autoSave();
@@ -35,6 +47,26 @@ function onChoiceSelected(choiceIndex) {
 // ---------- 全局回调：点击"继续处理"后触发 ----------
 function onContinueClicked() {
   if (!gameState || gameState.phase !== 'playing') return;
+
+  // 多阶段事件：如果有待显示的下一阶段，直接展示
+  if (gameState.pendingNextEventId) {
+    const nextId = gameState.pendingNextEventId;
+    gameState.pendingNextEventId = null;
+    const nextEvent = Events.getEventById(nextId);
+    if (nextEvent) {
+      const theme = Events._getTheme(gameState);
+      const modified = Events._applyTextOverrides(nextEvent, theme);
+      currentEvent = modified;
+      UI.showEvent(currentEvent, gameData.characters);
+      autoSave();
+      return;
+    }
+  }
+
+  // 群聊：事件之间的随机氛围消息
+  const betweenMsgs = ChatMessages.getBetweenEvent();
+  betweenMsgs.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
   nextTurn();
 }
 
@@ -81,14 +113,14 @@ function startNewGame() {
   UI.hideEnding();
   UI.updateHeader(gameState);
   UI.updateStats(gameState.stats, gameState.statsMax);
+  UI.updateQuota(gameState.eventsToday, gameState.eventsPerDay);
 
-  // 随机群聊开场
-  const openers = [
-    ['系统', `项目包已分配：${project.name}`],
-    ['系统', `今日主题：${themeText}`],
-    ['系统', `下班倒计时开始。祝你好运。`],
-  ];
-  openers.forEach(o => UI.addChatMessage(o[0], o[1]));
+  // 开场群聊消息
+  UI.addChatMessage('系统', `项目包已分配：${project.name}`);
+  UI.addChatMessage('系统', `今日主题：${themeText}`);
+  const dayAmbient = ChatMessages.getDayAmbient(gameState.day);
+  dayAmbient.forEach(m => UI.addChatMessage(m.speaker, m.text));
+  UI.addChatMessage('系统', '下班倒计时开始。祝你好运。');
 
   UI.updateFileEasterEgg();
   UI.hideContinueButton();
@@ -112,6 +144,7 @@ function continueGame() {
   UI.hideEnding();
   UI.updateHeader(gameState);
   UI.updateStats(gameState.stats, gameState.statsMax);
+  UI.updateQuota(gameState.eventsToday, gameState.eventsPerDay);
   UI.hideContinueButton();
   UI.updateFileEasterEgg();
 
@@ -123,12 +156,33 @@ function continueGame() {
 
   currentEvent = null;
   gameState.phase = 'playing';
+
+  // 如果存档处于多阶段事件中途，恢复下一阶段
+  if (gameState.pendingNextEventId) {
+    const nextId = gameState.pendingNextEventId;
+    gameState.pendingNextEventId = null;
+    const nextEvent = Events.getEventById(nextId);
+    if (nextEvent) {
+      const theme = Events._getTheme(gameState);
+      const modified = Events._applyTextOverrides(nextEvent, theme);
+      currentEvent = modified;
+      UI.showEvent(currentEvent, gameData.characters);
+      return;
+    }
+  }
+
   nextTurn();
 }
 
 // ---------- 下一回合 ----------
 function nextTurn() {
   if (!gameState || gameState.phase !== 'playing') return;
+
+  // 每日配额检查：今日事件数已达上限 → 推进天数
+  if (gameState.eventsToday >= gameState.eventsPerDay) {
+    advanceDayAndContinue();
+    return;
+  }
 
   // 检查结局
   const ending = Game.checkEnding(gameState, gameData.endings);
@@ -141,30 +195,51 @@ function nextTurn() {
   const event = Events.pickEvent(gameState);
   if (!event) {
     // 没有可用事件：推进天数
-    Game.advanceDay(gameState);
-    UI.updateHeader(gameState);
-    autoSave();
-
-    // 再检查结局
-    const ending2 = Game.checkEnding(gameState, gameData.endings);
-    if (ending2) {
-      endGame(ending2);
-      return;
-    }
-
-    // 继续
-    const event2 = Events.pickEvent(gameState);
-    if (!event2) {
-      // 确实没有事件了，强制结束
-      const defaultEnding = gameData.endings.find(e => e.condition?.default) || gameData.endings[0];
-      endGame(defaultEnding);
-      return;
-    }
-    currentEvent = event2;
-    UI.showEvent(currentEvent, gameData.characters);
+    advanceDayAndContinue();
     return;
   }
 
+  currentEvent = event;
+  UI.showEvent(currentEvent, gameData.characters);
+}
+
+// ---------- 推进天数并继续 ----------
+function advanceDayAndContinue() {
+  Game.advanceDay(gameState);
+
+  // 群聊：昨日结束消息
+  const dayEndMsgs = ChatMessages.getDayEnd();
+  dayEndMsgs.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
+  UI.updateHeader(gameState);
+  UI.updateStats(gameState.stats, gameState.statsMax);
+  UI.updateQuota(gameState.eventsToday, gameState.eventsPerDay);
+
+  // 群聊：新一天开始消息
+  const dayStartMsgs = ChatMessages.getDayStart();
+  dayStartMsgs.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
+  // 群聊：每日氛围消息
+  const ambientMsgs = ChatMessages.getDayAmbient(gameState.day);
+  ambientMsgs.forEach(m => UI.addChatMessage(m.speaker, m.text));
+
+  autoSave();
+
+  // 检查结局
+  const ending = Game.checkEnding(gameState, gameData.endings);
+  if (ending) {
+    endGame(ending);
+    return;
+  }
+
+  // 尝试抽取事件
+  const event = Events.pickEvent(gameState);
+  if (!event) {
+    // 确实没有事件了，强制结束
+    const defaultEnding = gameData.endings.find(e => e.condition?.default) || gameData.endings[0];
+    endGame(defaultEnding);
+    return;
+  }
   currentEvent = event;
   UI.showEvent(currentEvent, gameData.characters);
 }

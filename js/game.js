@@ -21,7 +21,10 @@ const Game = {
       eventHistory: [],                    // 已触发的事件ID列表
       choiceHistory: [],                   // 选择记录
       usedEvents: [],                      // 本轮已用事件ID（防止重复）
-      eventsThisRound: 0,                  // 本轮已处理事件数
+      eventsToday: 0,                      // 今日已处理事件数
+      eventsPerDay: 3,                     // 每日事件配额
+      difficultyTier: 1,                   // 当前难度层级（1-4）
+      pendingNextEventId: null,            // 多阶段事件：待显示的下一阶段事件ID
       phase: 'playing',                    // 'playing' | 'ended'
     };
   },
@@ -58,11 +61,12 @@ const Game = {
       choiceText: choice.text,
       feedback: choice.feedback,
       effects: { ...choice.effects },
+      nextEventId: choice.nextEvent || null,
       newStats: { ...state.stats }
     };
     state.choiceHistory.push(record);
     state.usedEvents.push(event.eventId);
-    state.eventsThisRound++;
+    state.eventsToday++;
 
     return record;
   },
@@ -140,6 +144,12 @@ const Game = {
   // ---------- 推进天数 ----------
   advanceDay(state) {
     state.day++;
+    state.eventsToday = 0;
+    // 根据天数更新难度层级
+    if (state.day <= 3) state.difficultyTier = 1;
+    else if (state.day <= 6) state.difficultyTier = 2;
+    else if (state.day <= 9) state.difficultyTier = 3;
+    else state.difficultyTier = 4;
   },
 
   // ---------- 获取健康度颜色等级 ----------

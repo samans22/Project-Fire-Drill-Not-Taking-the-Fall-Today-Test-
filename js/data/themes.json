@@ -11,7 +11,7 @@
   {
     "id": "client_adds_requirements",
     "text": "客户突然加需求",
-    "modifier": { "time": -1, "satisfaction": -1 },
+    "modifier": { "satisfaction": -1 },
     "eventPool": {
       "boosted": ["E003", "E011", "E013", "E023", "E027", "E032"],
       "boostWeight": 3
@@ -57,7 +57,7 @@
   {
     "id": "last_minute_report",
     "text": "下班前突击汇报",
-    "modifier": { "time": -1 },
+    "modifier": {},
     "eventPool": {
       "boosted": ["E004", "E012", "E013", "E014", "E023", "E045"],
       "boostWeight": 3
@@ -66,7 +66,7 @@
   {
     "id": "roadshow_eve",
     "text": "路演前 24 小时",
-    "modifier": { "time": -1, "risk": 1 },
+    "modifier": { "risk": 1 },
     "eventPool": {
       "boosted": ["E010", "E012", "E014", "E023", "E031", "E035", "E037"],
       "boostWeight": 3
@@ -89,7 +89,7 @@
   {
     "id": "annual_report_deadline",
     "text": "年报披露倒计时",
-    "modifier": { "time": -1 },
+    "modifier": {},
     "eventPool": {
       "boosted": ["E001", "E006", "E009", "E015", "E025", "E028", "E029"],
       "boostWeight": 3
@@ -162,7 +162,7 @@
   {
     "id": "last_working_day",
     "text": "最后一个工作日",
-    "modifier": { "time": -1 },
+    "modifier": {},
     "eventPool": {
       "boosted": ["E004", "E012", "E014", "E023", "E045"],
       "boostWeight": 3
@@ -197,7 +197,7 @@
   {
     "id": "pre_holiday",
     "text": "节前最后半天",
-    "modifier": { "time": -1 },
+    "modifier": {},
     "eventPool": {
       "boosted": ["E004", "E011", "E012", "E014", "E045"],
       "boostWeight": 3

@@ -45,7 +45,8 @@
         "feedback": "折中方案，参考了竞品披露口径并加了脚注说明。",
         "hint": "各方面影响比较均衡，需要额外花点钱…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E002",
@@ -96,7 +97,8 @@
         ],
         "hint": "最省事，但总觉得哪里不太对…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E003",
@@ -141,7 +143,8 @@
         "feedback": "客户群内回复了\"OK\"，虽然不够正式，但聊胜于无。",
         "hint": "比较折中，虽然可能有点尴尬但还算稳妥…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E004",
@@ -175,7 +178,8 @@
         "feedback": "小许会议纪要写得还行，但林总觉得你不够重视。",
         "hint": "省时间，但领导可能会记住你不在场…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E005",
@@ -220,7 +224,8 @@
         "feedback": "林总签了字，但记住了你\"不按流程办事\"。",
         "hint": "找领导虽快，但他可能会不太高兴…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E006",
@@ -268,7 +273,8 @@
         ],
         "hint": "有数据总比没数据好，先用去年的吧…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E007",
@@ -313,7 +319,8 @@
         "feedback": "小许学会了危机处理——虽然学费是你们团队的信用。",
         "hint": "让小许学会成长是好事，但学费不便宜…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E008",
@@ -361,7 +368,8 @@
         "feedback": "客户问了功能去哪了，你说\"在升级中\"。",
         "hint": "少个功能能省钱，但客户可能会注意到…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E009",
@@ -409,7 +417,8 @@
         "feedback": "林总跟陈老师沟通后，双方各退一步。",
         "hint": "让领导出面协调，虽然欠人情但能折中解决…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E010",
@@ -454,7 +463,8 @@
         "feedback": "花了大价钱，但专业团队确实快。",
         "hint": "花钱买时间和质量，一分钱一分货…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E011",
@@ -499,7 +509,8 @@
         "feedback": "对方说不清楚，\"你们专业的应该知道\"。白费了半小时。",
         "hint": "想搞清楚需求，但对方也不一定说得清…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E012",
@@ -544,7 +555,8 @@
         "feedback": "客户回了两个字：\"专业。\"——但你听出了讽刺。",
         "hint": "把球踢回去最省事，但客户会觉得不专业…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E013",
@@ -589,7 +601,8 @@
         "feedback": "换了配色和字体，CEO说'好多了'。有时候视觉效果就是'感觉'。",
         "hint": "视觉上的改动见效快，但不够深入…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E014",
@@ -634,7 +647,8 @@
         "feedback": "你走了，小许守到系统恢复。第二天小许有了新外号：'守夜人'。",
         "hint": "让别人等系统恢复，你按时下班…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E015",
@@ -679,7 +693,8 @@
         "feedback": "预案在手，随时应对。陈老师对你的前瞻性表示认可。",
         "hint": "花点时间准备预案，有备无患…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E016",
@@ -716,7 +731,8 @@
         "feedback": "陈老师不情愿地接过了测算说明，但说'下次不行了'。",
         "hint": "争取时间，但下次可就没那么容易过关了…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E017",
@@ -753,7 +769,8 @@
         "feedback": "名单更新了，但客户张总问'为什么每次都有这种问题'。",
         "hint": "快速更新名单就行，虽然留下了不太好的印象…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E018",
@@ -801,7 +818,8 @@
         "feedback": "旧系统虽然慢但稳定，客户没注意到切换。",
         "hint": "退回旧版本是中策，慢但稳…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E019",
@@ -841,7 +859,8 @@
         "feedback": "测试通过后，工具正式上线。慢是慢了点，但稳妥。",
         "hint": "先测试再上线，稳妥至上…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E020",
@@ -889,7 +908,8 @@
         "feedback": "你赌了一把。希望互联网的金鱼记忆定律还在生效。",
         "hint": "什么都不做，赌一把互联网的记忆只有三秒…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E021",
@@ -937,7 +957,8 @@
         "feedback": "审计部勉强接受了这个说法，但在底稿里备注了一句\"建议下年度提供原始凭证\"。",
         "hint": "再编一个理由暂时过关，但审计部记了一笔…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E022",
@@ -982,7 +1003,8 @@
         "feedback": "林总在工作群里发了一条\"请各位以项目为重\"。两边暂时收敛了，但给你贴了个\"动不动就往上捅\"的标签。",
         "hint": "让领导出面能摆平，但会被认为缺乏协调能力…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E023",
@@ -1027,7 +1049,8 @@
         "feedback": "录屏发出后，张总回复了三个字：\"知道了。\"这三个字让你反复琢磨了一个晚上。",
         "hint": "不去现场最省时间，但客户会觉得不被重视…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E024",
@@ -1072,11 +1095,14 @@
         "feedback": "王姐勉强同意了，但挂电话前说了句\"下次不接你们项目了\"——供应商关系岌岌可危。",
         "hint": "硬气能省钱，但下次供应商可能不接你电话了…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E025",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "八部门数据收集混战",
     "text": "财务小周发来一份清单：ESG报告需要从8个部门收集碳排放数据。每个部门都有自己的Excel格式——有的按月份、有的按季度、有的干脆是一段Word文字描述。",
     "speaker": "caiwu_zhou",
@@ -1084,28 +1110,48 @@
     "choices": [
       {
         "text": "设计统一模板强制各部门填写",
-        "effects": { "time": -3, "budget": 0, "satisfaction": -1, "risk": -2 },
+        "effects": {
+          "time": -3,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -2
+        },
         "feedback": "模板发出后，六个部门回复了，两个部门装没看见。你追了三天，终于收齐了。数据质量好多了。",
         "hint": "统一标准虽然费时得罪人，但数据质量有保障…"
       },
       {
         "text": "各部门自行提交，后期统一汇总清洗",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "收上来的数据五花八门，你花了一个下午拼凑，勉强凑出了一份能看的报告。",
         "hint": "先收上来再说，后期再慢慢整理…"
       },
       {
         "text": "只收集碳排放量最大的3个核心部门",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 1, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": 1
+        },
         "feedback": "核心数据到位了，但报告里有一行小字注释：\"数据覆盖80%运营体量\"。合规陈老师欲言又止。",
-        "setsFlags": ["partial_esg_data"],
+        "setsFlags": [
+          "partial_esg_data"
+        ],
         "hint": "抓大放小省时间，但那行小字可能会被追问…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E026",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "实习生把碳排放数据填反了",
     "text": "实习生小许脸色发白地站在你工位旁边：\"我把范围一和范围二的碳排放数据填反了……已经发给打印店打样了。\"——ESG报告半小时后就要提交内部审核。",
     "speaker": "shixi_xu",
@@ -1113,29 +1159,51 @@
     "choices": [
       {
         "text": "紧急叫停打印，亲自逐行核对修正",
-        "effects": { "time": -2, "budget": -1, "satisfaction": 0, "risk": -2 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": -2
+        },
         "feedback": "及时截住了打印店的输出，数据改回来了。小许在旁边看着你改，眼眶有点红。",
         "hint": "亲自修正最稳妥，但确实耽误时间…"
       },
       {
         "text": "让小许自己去跟打印店和审核方解释",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 2
+        },
         "feedback": "小许打了三个电话，打印店同意重新出样，但内部审核时间错过了。客户张总发了个问号。",
-        "setsFlags": ["esg_data_error"],
+        "setsFlags": [
+          "esg_data_error"
+        ],
         "hint": "让小许自己收场，但审核窗口可能错过了…"
       },
       {
         "text": "标注\"数据口径调整中\"先行提交",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "报告提交了，但审核意见第一条就是：\"请确认数据口径\"。你没有正面回答。",
-        "setsFlags": ["esg_data_error"],
+        "setsFlags": [
+          "esg_data_error"
+        ],
         "hint": "先提交再补数据，能争取一点缓冲时间…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E027",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "甲方群里追加社会责任案例",
     "text": "神秘甲方群突然活跃：\"ESG报告里的社会责任板块太单薄了，能不能追加3个公益案例？\"——截止日期不变，但内容要求翻倍。",
     "speaker": "shenmi_qun",
@@ -1143,27 +1211,45 @@
     "choices": [
       {
         "text": "从公司现有项目里挖掘包装案例",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 1, "risk": -1 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": -1
+        },
         "feedback": "你翻了去年的活动记录，找到了两次社区志愿活动和一次绿色办公倡议。包装一下，看起来还挺像样的。",
         "hint": "从现有材料中挖掘，虽然花时间但不用额外成本…"
       },
       {
         "text": "请甲方明确\"公益案例\"的定义和标准",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
         "feedback": "甲方群沉默了两个小时，最后回了一句\"你们专业的应该知道\"。",
         "hint": "想先搞清楚要求再动手，但对方也说不清楚…"
       },
       {
         "text": "联系外部咨询公司快速包装案例",
-        "effects": { "time": 0, "budget": -2, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": 0,
+          "budget": -2,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "咨询公司两天出了三个\"经过第三方验证\"的案例。甲方很满意，财务小周很心疼。",
         "hint": "花钱买案例，又快又专业，就是贵…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E028",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "第三方审计提前一周入场",
     "text": "合规陈老师急匆匆走过来说：\"ESG报告的第三方审计提前了一周，明天就来现场。\"你的底稿还散落在七个文件夹里——有些甚至还没有开始整理。",
     "speaker": "hegui_chen",
@@ -1171,27 +1257,45 @@
     "choices": [
       {
         "text": "全员加班整理底稿到天亮",
-        "effects": { "time": -2, "budget": -1, "satisfaction": -1, "risk": -3 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": -3
+        },
         "feedback": "熬到凌晨三点，底稿全部整理归档。审计进场时，你们整整齐齐地摆出了十二个文件夹。陈老师点了头。",
         "hint": "加班虽然累，但底稿整齐能过审计关…"
       },
       {
         "text": "申请延迟审计，争取一周准备时间",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "审计方勉强同意延迟三天，但备注了一句\"准备不充分\"。",
         "hint": "争取时间虽然可行，但审计方会留下印象…"
       },
       {
         "text": "先提交整理好的部分，其余的\"补充中\"",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "审计员翻了一遍已有的材料，在底稿备注里写了\"资料不完整，需后续跟踪\"。",
         "hint": "先交能交的，缺的以后再补…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E029",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "供应商ESG数据缺第三方认证",
     "text": "供应商王姐发来邮件：\"碳排放数据我们有，但第三方核查认证还在排队——认证机构说要等两周。\"你的ESG报告下周就要定稿。",
     "speaker": "gongying_wang",
@@ -1199,28 +1303,48 @@
     "choices": [
       {
         "text": "要求王姐加急办理认证",
-        "effects": { "time": -1, "budget": -1, "satisfaction": 0, "risk": -2 },
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": -2
+        },
         "feedback": "加急费花出去了，认证机构承诺三天出报告。王姐说\"下不为例\"。",
         "hint": "加钱加急虽然心疼，但认证到手最安心…"
       },
       {
         "text": "换一家认证机构走绿色通道",
-        "effects": { "time": -1, "budget": -2, "satisfaction": 0, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "satisfaction": 0,
+          "risk": -1
+        },
         "feedback": "新的认证机构两天就出了报告。虽然贵了不少，但时间赶上了。",
         "hint": "换机构能抢时间，就是费用不菲…"
       },
       {
         "text": "先使用未认证数据，标注\"待核查\"",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "报告按时提交，但合规陈老师在审批意见里写了长长的一段——核心意思是\"这个风险你们自己掂量\"。",
-        "setsFlags": ["uncertified_esg_data"],
+        "setsFlags": [
+          "uncertified_esg_data"
+        ],
         "hint": "省时省钱，但未经认证的数据像定时炸弹…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E030",
-    "projectTags": ["esg_report"],
+    "projectTags": [
+      "esg_report"
+    ],
     "title": "ESG认证费超出预算",
     "text": "财务小周把一份报价单放在你桌上：\"ESG外部认证的费用比预算高了60%，这笔钱不在年度计划里。\"——但没有认证，报告的可信度大打折扣。",
     "speaker": "caiwu_zhou",
@@ -1228,27 +1352,45 @@
     "choices": [
       {
         "text": "申请林总特批追加预算",
-        "effects": { "time": -1, "budget": -1, "satisfaction": -1, "risk": -2 },
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": -2
+        },
         "feedback": "林总签了字，但说了一句\"ESG这个事，明年要提前规划\"。钱到账了，但你的面子也花出去了。",
         "hint": "找领导批钱可行，但会被记住\"预算规划不足\"…"
       },
       {
         "text": "换成简化版认证方案",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "简化版认证只覆盖了核心指标，报告封面上少了那个闪亮的认证徽标。",
         "hint": "降级认证能省钱，但报告含金量会打折扣…"
       },
       {
         "text": "用内部审核替代外部认证",
-        "effects": { "time": -1, "budget": 1, "satisfaction": -1, "risk": 2 },
+        "effects": {
+          "time": -1,
+          "budget": 1,
+          "satisfaction": -1,
+          "risk": 2
+        },
         "feedback": "合规陈老师签了内部审核意见，但她说\"内部审核和外部认证是两回事，监管不一定认\"。",
         "hint": "自己审自己最省钱，但监管不傻…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E031",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "董事会推翻路演PPT",
     "text": "客户张总在电话里的声音有点尴尬：\"董事会看了路演PPT，觉得……呃，没有故事线。\"——距离路演还有三天，你需要重新讲一个\"资本市场故事\"。",
     "speaker": "zhang_zong",
@@ -1256,27 +1398,45 @@
     "choices": [
       {
         "text": "重构PPT叙事逻辑，讲好\"增长故事\"",
-        "effects": { "time": -3, "budget": 0, "satisfaction": 2, "risk": -1 },
+        "effects": {
+          "time": -3,
+          "budget": 0,
+          "satisfaction": 2,
+          "risk": -1
+        },
         "feedback": "你花了两天时间重新梳理了公司的成长脉络，新PPT从\"行业痛点\"讲到\"我们的解法\"再讲到\"市场空间\"。董事会这次说了\"有感觉\"。",
         "hint": "彻底重构虽然耗时，但好故事能打动投资者…"
       },
       {
         "text": "调整封面和目录，内页框架不变",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "换了封面设计、改了目录结构、加了过渡页。看起来像新的一样——希望董事会只看表面。",
         "hint": "换汤不换药最快，但懂行的人能看出来…"
       },
       {
         "text": "请外部设计团队重新包装",
-        "effects": { "time": -1, "budget": -2, "satisfaction": 2, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "satisfaction": 2,
+          "risk": 0
+        },
         "feedback": "设计团队用了一天半出了一个精美的版本，董事会的反馈从\"没有感觉\"变成了\"这才像IPO的样子\"。",
         "hint": "花钱请人做，专业又省心，就是贵…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E032",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "基石投资者突然加条件",
     "text": "神秘甲方群里弹出一条长消息：基石投资者要求在招股书中额外披露\"关联交易风险\"和\"大股东质押情况\"——这两项都不在原本的披露计划里。",
     "speaker": "shenmi_qun",
@@ -1284,27 +1444,45 @@
     "choices": [
       {
         "text": "按要求补充披露，全面配合",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 1, "risk": -3 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": -3
+        },
         "feedback": "补充披露花了额外时间，但投资者表示\"信息披露充分，增强了认购信心\"。合规陈老师说这是她见过的最透明的招股书。",
         "hint": "全面配合虽然费时，但透明度能换来信任…"
       },
       {
         "text": "协商简化披露范围",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "经过两轮协商，投资者同意只披露\"关联交易风险\"部分，质押情况用\"已按监管要求披露\"一句带过。",
         "hint": "讨价还价能省事，但留下了一个未充分披露的隐患…"
       },
       {
         "text": "暗示投资者这类问题\"市场惯例不披露\"",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 2
+        },
         "feedback": "投资者没有再追问，但他们的法律顾问在尽调清单里加了三页关于\"信息披露完整性\"的问题。",
         "hint": "推回去能省时间，但对方的律师不是吃素的…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E033",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "路演预算缺口20%",
     "text": "财务小周把路演预算表摊在你面前，用荧光笔圈了一个数字：\"路演费用超了20%，但钱还没着落。\"——少了这些钱，路演的场地、物料和差旅都要降级。",
     "speaker": "caiwu_zhou",
@@ -1312,27 +1490,45 @@
     "choices": [
       {
         "text": "从其他项目预算中临时调配",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "你把峰会项目的预算挪了一部分过来。小周帮你做了账面上的\"合理调整\"——她说这不叫挪用，叫\"资源优化配置\"。",
         "hint": "拆东墙补西墙虽然快，但另一个项目会受影响…"
       },
       {
         "text": "申请林总特批追加路演预算",
-        "effects": { "time": -2, "budget": -1, "satisfaction": -1, "risk": -1 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": -1
+        },
         "feedback": "林总沉吟了一下，说\"IPO是头等大事\"，批了追加。但你的年度预算考核可能要重新谈了。",
         "hint": "特批能解决问题，但你的预算考核会受影响…"
       },
       {
         "text": "接受降级，缩小路演规模",
-        "effects": { "time": 0, "budget": 1, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 1,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "路演场地从五星级酒店换成写字楼会议室，茶歇缩水了。张总说\"没关系\"——但你听出了失望。",
         "hint": "省钱降规格最省事，但第一印象会打折扣…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E034",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "实习生把投资者名单发错了",
     "text": "实习生小许脸色煞白地跑过来：\"我把A轮投资者的沟通材料发给了B轮投资者……他们已经在看了。\"——两家投资者有可能互相认识。",
     "speaker": "shixi_xu",
@@ -1340,28 +1536,48 @@
     "choices": [
       {
         "text": "紧急撤回邮件并逐一电话道歉",
-        "effects": { "time": -2, "budget": 0, "satisfaction": -1, "risk": -2 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -2
+        },
         "feedback": "你打了六个电话，发了三封道歉邮件。对方虽然不悦但接受了道歉。小许在旁边做笔记——这次他应该不会再犯这个错了。",
         "hint": "主动道歉虽然尴尬，但能挽回信任…"
       },
       {
         "text": "将错就错，加一句\"供参考\"统一口径",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "目前还没人提出异议。但你每次看到小许的工位，都会想起这件事。",
-        "setsFlags": ["investor_mixup"],
+        "setsFlags": [
+          "investor_mixup"
+        ],
         "hint": "当作没事可能暂时没事，但纸包不住火…"
       },
       {
         "text": "让小许自己去面对投资者",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "小许打电话给投资者解释，对方说\"没事，新人嘛\"。但转头就在行业群里抱怨了你们的\"不专业\"。",
         "hint": "让小许成长是好的，但有些场景不适合练手…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E035",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "路演物料印刷延误",
     "text": "供应商王姐发来一条语气抱歉的语音：\"路演用的精装印刷品——纸张全国断货，要延迟三天。\"——三天后路演已经开始了。",
     "speaker": "gongying_wang",
@@ -1369,27 +1585,45 @@
     "choices": [
       {
         "text": "换一种纸张规格立即开印",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
         "feedback": "换了克重稍低的纸，质感差了一点但时间赶上了。张总摸了摸封面没说话——算你过关。",
         "hint": "换材料是折中方案，能用但不够精致…"
       },
       {
         "text": "加钱加急从外地调纸",
-        "effects": { "time": -1, "budget": -2, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "空运调纸花了平时三倍的价钱，但成品在路演前一天送到了。印刷品拿在手里的质感让张总说了句\"专业\"。",
         "hint": "花钱抢时间，品质不打折…"
       },
       {
         "text": "改用电子版物料替代印刷品",
-        "effects": { "time": 1, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "effects": {
+          "time": 1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
         "feedback": "你给每位投资者发了一个iPad预装了电子版材料。有人夸\"环保\"，有人私下说\"不够正式\"。",
         "hint": "纸质变电子能省事，但有人觉得不够正式…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E036",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "保荐人要求补充尽调",
     "text": "客户张总转发了一封保荐人的邮件：\"请对发行人最近三年关联交易的公允性进行补充尽调。\"——这意味着需要翻三年的合同、发票和银行流水。",
     "speaker": "zhang_zong",
@@ -1397,27 +1631,45 @@
     "choices": [
       {
         "text": "组织专项小组全面配合尽调",
-        "effects": { "time": -3, "budget": -1, "satisfaction": 0, "risk": -3 },
+        "effects": {
+          "time": -3,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": -3
+        },
         "feedback": "找了两个实习生加一个财务同事，翻了三天的档案。尽调报告出来后，保荐人说\"非常详实\"。",
         "hint": "全面配合虽然费时费力，但尽调结果最扎实…"
       },
       {
         "text": "协商缩小尽调范围",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "保荐人同意只查最近一年加\"重大\"关联交易。工作量减半，但保荐人备注了一句\"基于重要性原则\"——这是给自己留后路。",
         "hint": "缩小范围能省时间，但保荐人在给自己留后路…"
       },
       {
         "text": "申请延后尽调到路演之后",
-        "effects": { "time": 1, "budget": 0, "satisfaction": -1, "risk": 2 },
+        "effects": {
+          "time": 1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 2
+        },
         "feedback": "保荐人勉强同意了，但在招股书的风险因素章节加了一条关于\"尽调未完成\"的披露。",
         "hint": "延后能抢时间，但招股书多了一条风险提示…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E037",
-    "projectTags": ["ipo_roadshow"],
+    "projectTags": [
+      "ipo_roadshow"
+    ],
     "title": "路演现场设备全部不兼容",
     "text": "技术阿哲蹲在路演现场的讲台下面，满头大汗：\"你们的MacBook和酒店的投影系统不兼容，投屏器是VGA接口的……\"——投资者已经开始入场了。",
     "speaker": "jishu_zhe",
@@ -1425,27 +1677,45 @@
     "choices": [
       {
         "text": "紧急协调酒店IT更换兼容设备",
-        "effects": { "time": -1, "budget": -1, "satisfaction": 0, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 0,
+          "risk": -1
+        },
         "feedback": "酒店IT部送来了一台兼容的投影仪，阿哲用了十分钟调试好了。路演推迟了五分钟开始——在\"合理范围内\"。",
         "hint": "花钱调设备虽然耽误几分钟，但能正常演示…"
       },
       {
         "text": "改用iPad屏幕共享替代投影",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "阿哲临时搭了个屏幕共享，但画面延迟了两秒，翻页的时候PPT上的图表和你的解说对不上。",
         "hint": "临时方案能救场，但演示效果会打折扣…"
       },
       {
         "text": "放弃PPT，口头演讲加纸质材料",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "你拿着打印版PPT，全靠口头发挥。张总说你的口才比PPT好——你不知道这是夸还是损。",
         "hint": "不用PPT反而展示了你的口才，但不稳定因素太多…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E038",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "座位表引发的排位战争",
     "text": "神秘甲方群里吵起来了：三家参会机构都要求坐第一排。A说\"我们是钻石赞助商\"，B说\"我们确认最早\"，C说\"我们领导级别最高\"。",
     "speaker": "shenmi_qun",
@@ -1453,27 +1723,45 @@
     "choices": [
       {
         "text": "按赞助金额排序，公开发布排位规则",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
         "feedback": "规则公开后，两家闭嘴了，还有一家说\"那我们明年升级\"。主办方觉得你这个\"坏人\"当得不错。",
         "hint": "按规则办事虽然有人不高兴，但公开公平…"
       },
       {
         "text": "紧急换成圆桌制，不分主次",
-        "effects": { "time": -2, "budget": -1, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "连夜把课桌式改成了圆桌式，三家都坐在\"第一圈\"。供应商王姐抱怨临时改布局多花了不少钱。",
         "hint": "圆桌制皆大欢喜，但临时改布局费时费钱…"
       },
       {
         "text": "按确认参会的时间先后排序",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "最早确认那家很满意，另外两家在群里发了一长串\"建议\"。",
         "hint": "按时间排最省事，但总有人不满意…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E039",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "200张胸牌全部印错了",
     "text": "实习生小许推着一箱胸牌走进来，表情像是要哭了：\"200张嘉宾胸牌，公司名称全部印成了简称……正确的应该是全称。\"——峰会两小时后开始。",
     "speaker": "shixi_xu",
@@ -1481,27 +1769,45 @@
     "choices": [
       {
         "text": "紧急联系打印店加急重印",
-        "effects": { "time": -1, "budget": -2, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "打印店被你的加急费打动，一小时内出了200张新胸牌。小许在打印店蹲到了最后一分钟。",
         "hint": "加急虽然贵，但名字写对是基本尊重…"
       },
       {
         "text": "现场准备手写更正标签",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "签到处旁边摆了一张\"更正台\"，志愿者帮你手写标签贴在胸牌上。有嘉宾开玩笑说\"这是限量手写版\"。",
         "hint": "手写更正虽然寒酸，但比名字错了强…"
       },
       {
         "text": "将错就错，解释说\"行业惯例用简称\"",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -2, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -2,
+          "risk": 1
+        },
         "feedback": "有三位嘉宾当场指出公司名称不对。你说\"这是内部简称\"——你自己都不信。",
         "hint": "硬着头皮不认错最快，但嘉宾会记住的…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E040",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "签到系统在开场前崩溃",
     "text": "技术阿哲从签到处跑过来，脸色不太好：\"签到系统又崩了。早上调试的时候还好好的。\"——距离开场还有45分钟，嘉宾正在陆续到达。",
     "speaker": "jishu_zhe",
@@ -1509,28 +1815,48 @@
     "choices": [
       {
         "text": "立即切换人工签到模式",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 0, "risk": -2 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": -2
+        },
         "feedback": "你调了三个工作人员到签到处，用纸质名单逐一核对。虽然慢了十分钟，但没有人被遗漏。",
         "hint": "人工签到虽然慢，但稳妥不出错…"
       },
       {
         "text": "让阿哲在现场抢修系统",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "阿哲在后台疯狂敲代码，十五分钟后系统恢复了。但已经有十几位嘉宾在签到处排队等了半天。",
         "hint": "等系统修复也行，但排队体验不好…"
       },
       {
         "text": "先让嘉宾进场，签到后面再补",
-        "effects": { "time": 1, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": 1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "嘉宾顺利入场，峰会准时开始。但你心里清楚——会后名单能不能对上，又要看运气了。",
-        "setsFlags": ["summit_checkin_gap"],
+        "setsFlags": [
+          "summit_checkin_gap"
+        ],
         "hint": "先放行最省事，但会后名单是个雷…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E041",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "主办方临时要求加圆桌讨论",
     "text": "供应商王姐收到主办方的紧急通知：\"下午增加一个圆桌讨论环节，需要额外的话筒、沙发和茶水服务。\"——距离下午环节开始还有两小时。",
     "speaker": "gongying_wang",
@@ -1538,27 +1864,45 @@
     "choices": [
       {
         "text": "接受要求，紧急调配资源",
-        "effects": { "time": -2, "budget": -1, "satisfaction": 1, "risk": -1 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": 1,
+          "risk": -1
+        },
         "feedback": "你打了五通电话，从隔壁酒店借了沙发和话筒。圆桌环节顺利进行，主办方说\"你们的响应速度很专业\"。",
         "hint": "紧急调配虽然忙乱，但主办方会记住你的响应速度…"
       },
       {
         "text": "与主办方沟通简化环节",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 0 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
         "feedback": "你和主办方协商把圆桌改成台上沙发访谈——用现有的资源就能搞定。主办方说\"也行\"。",
         "hint": "化繁为简是聪明的折中…"
       },
       {
         "text": "说明时间不足，建议下次再安排",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
         "feedback": "主办方表示了理解，但在活动反馈表上\"灵活性\"一项打了3分（满分5）。",
         "hint": "拒绝最省事，但活动反馈会受影响…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E042",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "峰会展示物料被快递弄丢",
     "text": "供应商王姐发来一张快递追踪截图：\"峰会用的展示板和易拉宝——快递状态显示'异常，请联系客服'。\"——物料明天峰会就要用。",
     "speaker": "gongying_wang",
@@ -1566,27 +1910,45 @@
     "choices": [
       {
         "text": "紧急联系本地印刷公司连夜赶制",
-        "effects": { "time": -1, "budget": -2, "satisfaction": 0, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "satisfaction": 0,
+          "risk": -1
+        },
         "feedback": "本地印刷公司接了你这份\"加急到离谱\"的单子，凌晨四点出货。物料在峰会开始前送到了。",
         "hint": "本地重印是最靠谱的备选，就是贵…"
       },
       {
         "text": "用电子屏幕和投影替代实体物料",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "现场临时调了几块电子屏做展示。效果其实还行，但主办方说\"少了实体展示的质感\"。",
         "hint": "电子替代省时省钱，但没有实体物料的质感…"
       },
       {
         "text": "联系快递公司索赔，等物料送到",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 2
+        },
         "feedback": "你打了半小时客服电话，最后被告知\"包裹可能在路上\"。你把赌注押在了快递员的身上。",
         "hint": "等快递是最省事的，但万一没到就完了…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E043",
-    "projectTags": ["industry_summit"],
+    "projectTags": [
+      "industry_summit"
+    ],
     "title": "峰会实际支出超预算35%",
     "text": "财务小周发来最终的峰会结算单：\"临时增加的圆桌环节、加急印刷、设备租赁——各项叠加，实际支出超出预算35%。\"林总下周要看结算报告。",
     "speaker": "caiwu_zhou",
@@ -1594,57 +1956,97 @@
     "choices": [
       {
         "text": "如实向林总汇报，附详细说明",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
         "feedback": "林总看了你逐条列出的超支原因，沉默了一下说\"下不为例\"。虽然没被批评，但年底预算复盘时这会被翻出来。",
         "hint": "如实汇报虽然不太好看，但比瞒报强…"
       },
       {
         "text": "从其他项目预算调剂平账",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 2 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 2
+        },
         "feedback": "小周帮你把超支部分分摊到了三个仍在进行中的项目里。账面上平了，但如果审计抽样查到了……",
         "hint": "调账能暂时平账，但审计的达摩克利斯之剑…"
       },
       {
         "text": "用\"赞助升级\"和\"品牌曝光增量\"包装超支",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 1, "risk": 0 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": 0
+        },
         "feedback": "你写了一份漂亮的复盘报告，把超支包装成\"品牌升级投资\"，附上了媒体曝光数据和客户好评截图。林总看完说\"值\"。",
         "hint": "把超支包装成投资需要文笔和证据…"
       }
-    ]
+    ],
+    "difficulty": 1
   },
   {
     "eventId": "E044",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "ESG数据错误被监管关注",
     "text": "合规陈老师表情严肃地把你叫到会议室：\"之前ESG报告里填反的碳排放数据引起了监管注意，他们发来了问询函。\"——那个数据是实习生小许填错的，但你签了字。",
     "speaker": "hegui_chen",
     "category": "risk_compliance",
-    "requires": ["esg_data_error"],
+    "requires": [
+      "esg_data_error"
+    ],
     "choices": [
       {
         "text": "主动向监管提交更正说明",
-        "effects": { "time": -2, "budget": -1, "satisfaction": -1, "risk": -2 },
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": -2
+        },
         "feedback": "更正说明提交后，监管回复了\"已知悉\"——这三个字在合规界是好消息。陈老师说这次算你反应快。",
         "hint": "主动更正虽然丢面子，但监管更喜欢诚实…"
       },
       {
         "text": "请合规陈老师协助起草回复口径",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
         "feedback": "陈老师帮你起草了一份措辞巧妙的回复，把\"数据错误\"表述为\"统计口径调整\"。监管暂时没有追问。",
         "hint": "换个说法能过关，但陈老师记住了你的失误…"
       },
       {
         "text": "推说数据来自供应商，转嫁责任",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -2, "risk": 2 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -2,
+          "risk": 2
+        },
         "feedback": "你回复监管说\"数据由供应商提供，我方正在核实\"。供应商王姐听说后很不高兴，但暂时没跟你撕破脸。",
-        "setsFlags": ["blame_vendor"],
+        "setsFlags": [
+          "blame_vendor"
+        ],
         "hint": "甩锅给供应商能保自己，但关系会受损…"
       }
-    ]
+    ],
+    "difficulty": 3
   },
   {
     "eventId": "E045",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "甲方群深夜@所有人",
     "text": "晚上11:47，沉默了许久的甲方群弹出一条消息：\"@所有人 明天的进度汇报，我们CEO要亲自参加。请准备一个20分钟的完整项目复盘。\"——明天早上9点开会，现在是午夜。",
     "speaker": "shenmi_qun",
@@ -1652,27 +2054,45 @@
     "choices": [
       {
         "text": "爬起来打开电脑准备复盘材料",
-        "effects": { "time": -2, "budget": 0, "satisfaction": 2, "risk": -1 },
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 2,
+          "risk": -1
+        },
         "feedback": "你熬到凌晨三点做完了一份清晰的复盘。第二天CEO说\"这才是专业的项目管理\"。甲方群发了个大拇指。",
         "hint": "通宵准备虽然累，但在CEO面前展示专业度…"
       },
       {
         "text": "明早提前一小时到公司临场发挥",
-        "effects": { "time": -1, "budget": 0, "satisfaction": 0, "risk": 1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
         "feedback": "你早上匆忙拼凑了一份大纲，现场发挥还算流畅。但CEO问的一个关键数据你没准备——你说\"会后补充\"。",
         "hint": "临场发挥靠运气，关键数据可能问到你盲区…"
       },
       {
         "text": "回复说\"明天先做常规汇报，完整复盘另行安排\"",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 0 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
         "feedback": "甲方回复了一个\"好的\"——你别有用心地解读了这两个字好几分钟。",
         "hint": "推迟复盘最省事，但对方那句\"好的\"意味深长…"
       }
-    ]
+    ],
+    "difficulty": 2
   },
   {
     "eventId": "E046",
-    "projectTags": ["*"],
+    "projectTags": [
+      "*"
+    ],
     "title": "小许的自动回复闯祸了",
     "text": "实习生小许设了一个自动回复：\"您的邮件已收到，我会尽快处理。祝您生活愉快！\"——但他忘了关掉，现在客户张总收到了七封一模一样的自动回复，因为他每封邮件都抄送了小许。",
     "speaker": "shixi_xu",
@@ -1680,21 +2100,1886 @@
     "choices": [
       {
         "text": "替小许向张总解释并道歉",
-        "effects": { "time": -1, "budget": 0, "satisfaction": -1, "risk": -1 },
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": -1
+        },
         "feedback": "你打了一通电话解释，张总说\"没事，新人嘛\"——但加了一句\"下次抄送之前确认一下\"。你替小许挡了一枪。",
         "hint": "替下属扛事是领导的责任，虽然有点尴尬…"
       },
       {
         "text": "让小许自己写道歉邮件",
-        "effects": { "time": 0, "budget": 0, "satisfaction": -1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
         "feedback": "小许写了封措辞紧张的道歉邮件。张总回复了\"收到\"——小许说这是他人生中最漫长的等待。",
         "hint": "让小许自己面对能让他成长，虽然结果未知…"
       },
       {
         "text": "幽默化解，说\"这说明我们的回复效率很高\"",
-        "effects": { "time": 0, "budget": 0, "satisfaction": 1, "risk": 1 },
+        "effects": {
+          "time": 0,
+          "budget": 0,
+          "satisfaction": 1,
+          "risk": 1
+        },
         "feedback": "张总被逗笑了，回了句\"你们团队确实很热情\"。危机暂时化解了，但你担心这种幽默不是每次都管用。",
         "hint": "幽默能化解尴尬，但不是每个甲方都吃这一套…"
+      }
+    ],
+    "difficulty": 1
+  },
+  {
+    "eventId": "M001",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "title": "客户不满意初步方案",
+    "text": "张总发来消息：「方案看过了，缺少几个关键数据支撑，整体感觉不够扎实。」距离下次汇报还有两天——这个回复不能拖。",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "立刻调原始数据，重做核心逻辑",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你翻出所有底层数据，熬夜重做了方案的数据部分。第二天张总看到新版本，点了头：「这才像话。」",
+        "hint": "投入大量时间换取质量",
+        "nextEvent": "M001_S2A"
+      },
+      {
+        "text": "调整排版和表述方式，内容基本不变",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "换了字体、配色和标题措辞。张总回了两个字：「收到。」你觉得事情还没完。",
+        "hint": "表面处理可能不够",
+        "nextEvent": "M001_S2B"
+      },
+      {
+        "text": "打电话给张总逐条确认具体意见",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "张总在电话里说了半天，核心意思是「我也说不清哪里不好，但就是不够好」。你挂了电话，知道这个结暂时解不开了。",
+        "hint": "问清楚是好事，但客户也说不清"
+      }
+    ]
+  },
+  {
+    "eventId": "M001_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "方案重做后的新问题（阶段 2/2）",
+    "text": "新方案数据充足，但张总看了之后又有了新想法：「既然数据这么全，我们能不能再加一个行业对标板块？」",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "答应追加，加班做对标分析",
+        "effects": {
+          "time": -2,
+          "satisfaction": 2,
+          "risk": 0
+        },
+        "feedback": "你花了整个下午做出一份漂亮的行业对标。张总看完直接转发给了董事会——这次是真满意了。",
+        "hint": "投入时间让客户彻底满意"
+      },
+      {
+        "text": "说明时间有限，建议放到二期",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你用专业判断说服了张总。「你说的对，质量比数量重要。」——这是一个成熟的客户。",
+        "hint": "合理管理客户预期"
+      }
+    ]
+  },
+  {
+    "eventId": "M001_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "客户追问：你到底改了哪里？（阶段 2/2）",
+    "text": "两天后张总又发来消息：「我看了一下，好像没什么实质改动？上次说的那几个问题呢？」——他似乎忘了自己上次也说不清问题在哪。",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "这次认真做改动，补充所有细节",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你把前两次该做的事合在一起做了。张总最后说「好多了」，但你在心里叹了口气。早知如此，不如第一次就认真改。",
+        "hint": "亡羊补牢，代价更大"
+      },
+      {
+        "text": "整理一份修改对照表，逐条回复",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你做了个EXCEL，左边是原文，右边是修改。张总看了半天没回复。一周后他忘了这件事。",
+        "hint": "用文档应付模糊需求"
+      }
+    ]
+  },
+  {
+    "eventId": "M002",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "title": "甲方群追加紧急需求",
+    "text": "甲方群突然弹出一条@所有人的消息：「麻烦在明天中午前把下季度的预算草案也一并提交，领导临时要求的。」——现在是下午三点，你的手上还有两份今天截止的材料。",
+    "speaker": "shenmi_qun",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "停掉手头工作，全力赶预算草案",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你暂停了其他工作，加班到深夜把预算草案做出来了。甲方群回了一个大拇指。但你的其他两个截止日期已经过了。",
+        "hint": "专注但其他事会受影响",
+        "nextEvent": "M002_S2A"
+      },
+      {
+        "text": "回复说明时间紧张，请求延期到后天",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你诚恳地说明了当前的工作量。甲方群沉默了一个小时后说：「那后天早上。」——语气不太高兴。",
+        "hint": "谈判延期，但可能有代价",
+        "nextEvent": "M002_S2B"
+      },
+      {
+        "text": "找同事帮忙分出一部分工作",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 0
+        },
+        "feedback": "你请技术阿哲帮忙整理了数据部分，自己专注做预算框架。总算是赶上了——不过欠了阿哲一个人情。",
+        "hint": "找帮手分担负成本更可控",
+        "nextEvent": "M002_S2C"
+      }
+    ]
+  },
+  {
+    "eventId": "M002_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "其他工作的连锁反应（阶段 2/2）",
+    "text": "预算草案交了，但你搁置的两份材料今天截止。林总在群里@了你：「这两份材料呢？」",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "熬夜把两份材料赶出来",
+        "effects": {
+          "time": -2,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你在办公室待到凌晨两点。材料交了，但质量你自己都不太满意。林总说了句「下次注意优先级」——你苦笑了一下。",
+        "hint": "透支时间硬撑"
+      },
+      {
+        "text": "诚实地向林总说明情况",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你解释了甲方群临时需求的情况。林总沉默了几秒：「下次这种事提前说，我可以帮你协调。」——不算好结局，但也不算坏。",
+        "hint": "坦诚沟通争取理解"
+      }
+    ]
+  },
+  {
+    "eventId": "M002_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "甲方群的不满发酵（阶段 2/2）",
+    "text": "甲方群虽然同意了延期，但他们的领导在另一个群里问「为什么我们的需求总是排到最后」。这句话被转发到了你这边。",
+    "speaker": "shenmi_qun",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "亲自打电话给甲方解释并道歉",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "电话里你态度诚恳，甲方对接人最后说「理解理解，你们也不容易」。虽然花了时间，但关系修复了。",
+        "hint": "花时间修复关系"
+      },
+      {
+        "text": "把已完成的预算草案先发过去，承诺后续完善",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "你发了份半成品过去。对方说「好的」，但你知道这种敷衍迟早会有代价。",
+        "hint": "应付了事可能留下隐患"
+      }
+    ]
+  },
+  {
+    "eventId": "M002_S2C",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "人情的代价（阶段 2/2）",
+    "text": "阿哲帮你做完了数据，但他说：「下次周五下午别找我，我有Code Review。」——他嘴上这么说，但你知道下次开口没那么容易了。",
+    "speaker": "jishu_zhe",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "请阿哲喝杯奶茶，口头感谢",
+        "effects": {
+          "budget": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "一杯奶茶换一份数据整理，你觉得自己赚了。阿哲喝着奶茶说「下次请星巴克」——你知道这是朋友间的玩笑。",
+        "hint": "小恩小惠维护关系"
+      },
+      {
+        "text": "下次主动帮阿哲分担工作",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你记下了这个人情。在职场里，互相帮衬比什么都重要。下次阿哲需要帮忙的时候，你会第一个站出来。",
+        "hint": "建立长期互助关系"
+      }
+    ]
+  },
+  {
+    "eventId": "M003",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 3,
+    "title": "OA系统大面积崩溃",
+    "text": "技术阿哲在工作群里发了一条消息：「OA系统数据库异常，过去一周的审批记录可能丢失。正在抢修，预计两小时内恢复——但不保证数据完整。」你昨天刚提交了一份关键审批。",
+    "speaker": "jishu_zhe",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "立刻重新整理审批材料，做好最坏打算",
+        "effects": {
+          "time": -2,
+          "risk": -1
+        },
+        "feedback": "你翻出邮件备份和本地草稿，开始重做审批材料。半小时后阿哲说数据恢复了——但你的重做版比原版更完整。",
+        "hint": "未雨绸缪，多花时间但更安全",
+        "nextEvent": "M003_S2A"
+      },
+      {
+        "text": "等待阿哲的抢修结果",
+        "effects": {
+          "time": 0,
+          "risk": 1
+        },
+        "feedback": "你选择了等待。两个小时后阿哲说「大部分数据保住了，但有零星的丢失」。你的那份审批——恰好在丢失的那批里。",
+        "hint": "等待可能让事情更糟",
+        "nextEvent": "M003_S2B"
+      },
+      {
+        "text": "请阿哲优先检查你的审批记录",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "阿哲帮你查了——你的审批记录完好。但他也说了：「下次别插队，我按优先级处理的。」",
+        "hint": "插队检查可以理解但不推荐",
+        "nextEvent": "M003_S2C"
+      }
+    ]
+  },
+  {
+    "eventId": "M003_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "数据恢复后的发现（阶段 2/3）",
+    "text": "数据恢复了，但阿哲在恢复过程中发现了一个更严重的问题：数据库日志显示上周有异常写入模式，可能是一个权限漏洞。",
+    "speaker": "jishu_zhe",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "支持阿哲上报并修复漏洞",
+        "effects": {
+          "time": -1,
+          "risk": -2,
+          "satisfaction": 0
+        },
+        "feedback": "漏洞被修复了，合规部发了全员表扬邮件。虽然花了时间，但避免了一个潜在的灾难。",
+        "hint": "安全第一，长远收益",
+        "nextEvent": "M003_S3A"
+      },
+      {
+        "text": "建议阿哲静默修复，不要声张",
+        "effects": {
+          "time": 0,
+          "risk": 1,
+          "satisfaction": -1
+        },
+        "feedback": "阿哲修了漏洞但没上报。你知道这种事情如果以后被发现，后果会更严重。",
+        "hint": "息事宁人可能留后患",
+        "nextEvent": "M003_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M003_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "审批数据丢失之后（阶段 2/3）",
+    "text": "你的审批记录确实丢了。你需要找各部门重新签字。三个部门的负责人分布在不同的楼层。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "逐个部门拜访重新签字",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1
+        },
+        "feedback": "你跑了三趟，每个人都给你签了。虽然累，但你顺便和各部门聊了聊——信息就是权力。",
+        "hint": "亲力亲为可以顺便收集信息",
+        "nextEvent": "M003_S3A"
+      },
+      {
+        "text": "发邮件请求电子签",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1
+        },
+        "feedback": "邮件发出去了。两个部门当天回了，一个部门三天后才回。效率参差不齐。",
+        "hint": "电子流程效果参差",
+        "nextEvent": "M003_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M003_S2C",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "阿哲的额外请求（阶段 2/3）",
+    "text": "阿哲帮你查了数据之后说：「对了，你能帮我看一下这份技术文档的措辞吗？要发给客户的，我怕写得太技术了。」",
+    "speaker": "jishu_zhe",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "花时间帮他润色文档",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你把技术术语翻译成了人话。阿哲说「太强了」，客户看了也觉得清晰。你又多了一个在技术部欠你人情的人。",
+        "hint": "帮助别人也是投资自己",
+        "nextEvent": "M003_S3A"
+      },
+      {
+        "text": "简单看一下给几条建议",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你扫了一眼，给了两条建议。阿哲说「够了，谢谢」。你没有欠什么，也没有得到什么。",
+        "hint": "点到为止的帮忙",
+        "nextEvent": "M003_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M003_S3A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "系统的教训（最终阶段）",
+    "text": "这次系统崩溃事件总算告一段落。林总在复盘会上说了一句话让你印象深刻。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "总结一份故障应对SOP分享给团队",
+        "effects": {
+          "time": -1,
+          "satisfaction": 2,
+          "risk": -1
+        },
+        "feedback": "你写了一份《系统故障应对SOP》，林总转发给了全公司。你在复盘会上被点名表扬——「这就是专业素质。」",
+        "hint": "把教训变成团队资产"
+      },
+      {
+        "text": "私下归档，经验自己留着",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你把经验教训记在了自己的文档里。下次类似情况你会处理得更快，但团队没有任何成长。",
+        "hint": "经验不分享，团队没进步"
+      }
+    ]
+  },
+  {
+    "eventId": "M003_S3B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "系统的教训（最终阶段）",
+    "text": "这次系统崩溃总算过去了。你回头想想，有些选择可以做得更好——但谁不是边做边学呢。",
+    "speaker": "jishu_zhe",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "和阿哲一起推动自动化备份",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "risk": -2
+        },
+        "feedback": "你们花了一个下午配置了自动备份脚本。阿哲说「这下以后少一个背锅的理由了」——你笑了。",
+        "hint": "投入资源消除根本原因"
+      },
+      {
+        "text": "接受风险，继续手头工作",
+        "effects": {
+          "time": 0,
+          "risk": 1
+        },
+        "feedback": "你决定不在这件事上再花时间。下次系统会不会再崩？不知道。但你还有更紧急的事要处理。",
+        "hint": "接受风险，赌下次不会出事"
+      }
+    ]
+  },
+  {
+    "eventId": "M004",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "title": "大屏演示前的致命故障",
+    "text": "距重要客户演示还有30分钟，会议室的投影系统检测不到任何信号。IT部门说「重启试试」——你已经重启三次了。客户代表已经在路上了。",
+    "speaker": "jishu_zhe",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "立刻换会议室，重新布置",
+        "effects": {
+          "time": -2,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "你带团队在15分钟内把隔壁会议室布置好了。客户到的时候一切就绪——他们甚至不知道刚才发生了什么。",
+        "hint": "快速切换备份方案",
+        "nextEvent": "M004_S2A"
+      },
+      {
+        "text": "用笔记本电脑+投屏器应急",
+        "effects": {
+          "time": -1,
+          "risk": 1
+        },
+        "feedback": "阿哲从他的包里掏出一个投屏器。画面是小了点，但能看。客户没说什么，但你注意到他们皱眉了。",
+        "hint": "临时方案能用但不够专业",
+        "nextEvent": "M004_S2B"
+      },
+      {
+        "text": "向客户坦诚说明并推迟15分钟",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你在门口迎接客户时坦诚了情况。客户说「没关系，我们也经常遇到」——但你知道他们心里记了一笔。",
+        "hint": "诚实但可能影响信任"
+      }
+    ]
+  },
+  {
+    "eventId": "M004_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "演示成功之后（阶段 2/2）",
+    "text": "演示非常顺利。客户离开后，林总拍了拍你的肩膀：「听说你们紧急换了会议室？干得漂亮。」但原来的会议室设备问题需要有人跟进。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "主动写故障报告并推动设备更新",
+        "effects": {
+          "time": -1,
+          "satisfaction": 2,
+          "risk": -1
+        },
+        "feedback": "你写的故障报告被IT部采纳了，会议室设备下个月全部更新。你成了「设备更新推动者」——一个意想不到的标签。",
+        "hint": "把问题变成改进机会"
+      },
+      {
+        "text": "让IT部门自己排查，你继续工作",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你给IT发了封邮件说明了情况。他们回复「已记录」——然后就没有然后了。下次演示可能还会遇到同样的问题。",
+        "hint": "交给别人处理可能不了了之"
+      }
+    ]
+  },
+  {
+    "eventId": "M004_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "演示效果打折扣（阶段 2/2）",
+    "text": "演示结束了。虽然内容不错，但小屏幕让一些图表细节看不清。客户说「回去在电脑上再看看」——这句话你可能听过无数次了。",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "连夜优化所有图表尺寸并发送高清版",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你加班调整了所有图表的字号和对比度，发了一份高清PDF。张总回复「收到，很清楚」——虽然你怀疑他根本没打开。",
+        "hint": "事后补救，亡羊补牢"
+      },
+      {
+        "text": "发邮件总结要点，附上原始数据",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你写了份详细的邮件，把演示要点和底层数据都附上了。虽然没有挽回演示的瑕疵，但至少留下了专业的印象。",
+        "hint": "用文档弥补演示的不足"
+      }
+    ]
+  },
+  {
+    "eventId": "M005",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 3,
+    "title": "监管突击检查通知",
+    "text": "合规陈老师面色凝重地走进来：「刚接到通知，监管下周要来现场检查。需要准备近三年的项目底稿——包括已经归档的。」你的工位旁边堆着半年的未归档文件。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "组建突击小组，系统整理所有底稿",
+        "effects": {
+          "time": -3,
+          "risk": -2
+        },
+        "feedback": "你找了实习生小许和阿哲帮忙，三个人花了两天整理出了完整底稿。陈老师抽查后说「比我想象的整齐」——这是一句极高的评价。",
+        "hint": "全力准备，系统应对",
+        "nextEvent": "M005_S2A"
+      },
+      {
+        "text": "优先整理高风险项目底稿",
+        "effects": {
+          "time": -2,
+          "risk": 0
+        },
+        "feedback": "你凭经验挑出了最容易被查的几个项目，重点整理了它们的底稿。其他的——到时候再说吧。",
+        "hint": "抓住重点但可能遗漏",
+        "nextEvent": "M005_S2B"
+      },
+      {
+        "text": "先把能找的归档，其他的到时解释",
+        "effects": {
+          "time": -1,
+          "risk": 1
+        },
+        "feedback": "你把现成的文件整齐地码好了。陈老师看了看说「这些肯定不够」，但时间确实来不及了。",
+        "hint": "匆忙准备，风险较高",
+        "nextEvent": "M005_S2C"
+      }
+    ]
+  },
+  {
+    "eventId": "M005_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "团队协作中的冲突（阶段 2/3）",
+    "text": "整理底稿的过程中，实习生小许和一个部门对接人吵起来了——对方说「这份材料去年就归档了」，小许说系统里找不到。",
+    "speaker": "shixi_xu",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "亲自介入调解，找到折中方案",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你翻了邮件记录，发现这份材料去年是通过邮件发送的，没有进系统。你让双方都松了一口气。",
+        "hint": "调查根本原因而不是指责",
+        "nextEvent": "M005_S3A"
+      },
+      {
+        "text": "让小许继续找，你继续整其他材料",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "小许继续翻了两个小时终于找到了——在一个共享文件夹里。但这两个小时本可以用来做更重要的事。",
+        "hint": "让下属独自解决可能浪费时间",
+        "nextEvent": "M005_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M005_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "遗漏的底稿被发现（阶段 2/3）",
+    "text": "检查前一天，合规陈老师抽查发现一个项目缺少关键审批签字——这正是你决定「到时候再说」的那批。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "临时联系审批人补签",
+        "effects": {
+          "time": -2,
+          "satisfaction": -1,
+          "risk": -1
+        },
+        "feedback": "你花了半天找审批人补签——其中一个人已经在休假了，你打了三个电话才找到他。签是补上了，但每个人都觉得你很烦。",
+        "hint": "临时补救但审批人未必配合",
+        "nextEvent": "M005_S3A"
+      },
+      {
+        "text": "准备书面说明材料替代签字",
+        "effects": {
+          "time": -1,
+          "risk": 1
+        },
+        "feedback": "你准备了一份详细的情况说明。陈老师说「检查的时候可以试试」——但她也说了「试试」而不是「没问题」。",
+        "hint": "用说明替代签字但风险仍在",
+        "nextEvent": "M005_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M005_S2C",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "检查当天（阶段 2/3）",
+    "text": "检查人员来了。他们第一个问题就指向了你没有准备好的部分：「这个项目的底稿在哪？」陈老师看了你一眼。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "坦诚说明情况并提供替代证据",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你如实说明底稿不完整但提供了相关邮件和会议记录作为替代。检查人员记了一笔，但没有深究。",
+        "hint": "坦诚但检查记录上会有痕迹",
+        "nextEvent": "M005_S3A"
+      },
+      {
+        "text": "现场翻找——能找多少是多少",
+        "effects": {
+          "time": -2,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你在检查人员面前翻箱倒柜——最后找到了一些材料。但这个过程本身就不太专业。",
+        "hint": "现场慌乱影响形象",
+        "nextEvent": "M005_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M005_S3A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "检查结果出炉（最终阶段）",
+    "text": "检查结束了。整体结果比预期好——陈老师说「有惊无险」。但下次如果再检查呢？",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "推动建立底稿标准化流程",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "risk": -2
+        },
+        "feedback": "你写了份《底稿归档标准化SOP》，说服林总批准了。下次检查的时候，所有人都只需要按流程做——不用再突击了。",
+        "hint": "制度化解决根本问题"
+      },
+      {
+        "text": "记住教训但暂不推动流程变更",
+        "effects": {
+          "time": 0,
+          "risk": 1
+        },
+        "feedback": "你在自己的日历上设了个提醒「每季度归档一次」。但这只是你一个人的好习惯——团队其他人下次还会手忙脚乱。",
+        "hint": "个人习惯不等于团队进步"
+      }
+    ]
+  },
+  {
+    "eventId": "M005_S3B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "检查结果出炉（最终阶段）",
+    "text": "检查总算结束了。虽然有几个观察项，但没有严重的合规问题。陈老师说「这次运气好，下次不要再赌了。」",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "吸取教训，主动建立归档规范",
+        "effects": {
+          "time": -1,
+          "risk": -1
+        },
+        "feedback": "虽然检查结果一般，但你因此建立了一套归档规范。下次会好很多。",
+        "hint": "把教训转化为经验"
+      },
+      {
+        "text": "松了一口气，恢复正常工作",
+        "effects": {
+          "time": 0,
+          "risk": 1
+        },
+        "feedback": "你松了一口气，回到了日常节奏。至于底稿问题——下次检查还早呢，到时候再说。",
+        "hint": "好了伤疤忘了疼"
+      }
+    ]
+  },
+  {
+    "eventId": "M006",
+    "projectTags": [
+      "esg_report"
+    ],
+    "difficulty": 2,
+    "title": "ESG数据被第三方机构质疑",
+    "text": "一份第三方ESG评级报告发布后，一家投资机构公开质疑你们碳排放数据的口径不一致。合规陈老师把这份报告转发给了你：「需要回应。」",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "逐条核实数据，发布正式澄清公告",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -2
+        },
+        "feedback": "你花了三天逐条验证数据、核对口径。发布的澄清公告引用了原始数据和审计报告——质疑声很快平息了。",
+        "hint": "专业回应是最有力的武器",
+        "nextEvent": "M006_S2A"
+      },
+      {
+        "text": "请第三方审计机构出具确认函",
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "risk": -1
+        },
+        "feedback": "审计机构收了加急费，出了份确认函。问题暂时压下去了，但这笔额外的审计费财务小周很不高兴。",
+        "hint": "花钱买第三方背书",
+        "nextEvent": "M006_S2B"
+      },
+      {
+        "text": "发声明说数据在审查中，暂不回应",
+        "effects": {
+          "time": 0,
+          "risk": 2
+        },
+        "feedback": "你发了份模糊的声明。投资机构不买账，在社交媒体上继续追问——合规陈老师说这变成了一个公关问题。",
+        "hint": "模糊回应只会激化质疑",
+        "nextEvent": "M006_S2C"
+      }
+    ]
+  },
+  {
+    "eventId": "M006_S2A",
+    "projectTags": [
+      "esg_report"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "澄清之后的机会（阶段 2/2）",
+    "text": "你的专业回应不仅平息了质疑，还吸引了另一家评级机构的注意——他们想邀请你们参加一个ESG最佳实践论坛。",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "接受邀请，准备主题分享",
+        "effects": {
+          "time": -2,
+          "satisfaction": 2,
+          "risk": 0
+        },
+        "feedback": "你在论坛上分享了公司的ESG数据管理体系。会后三家投资机构来交换名片。张总说「这次危机变成了机会」。",
+        "hint": "把危机公关变成品牌建设"
+      },
+      {
+        "text": "婉拒邀请，保持低调",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你说目前精力有限。对方表示理解。但那个论坛上的品牌曝光机会——你不会再有了。",
+        "hint": "保守选择，安全但失去机会"
+      }
+    ]
+  },
+  {
+    "eventId": "M006_S2B",
+    "projectTags": [
+      "esg_report"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "审计费用的连锁反应（阶段 2/2）",
+    "text": "审计确认函拿到了，但财务小周发来邮件：「ESG项目的预算已经超过审批限额了，需要写超预算说明。」",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "写一份详尽的超预算说明，强调必要性",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你写了份情真意切的说明——监管压力、市场反应、远期品牌价值。财务小周批了，但备注了「下不为例」。",
+        "hint": "用书面论证争取预算空间"
+      },
+      {
+        "text": "从其他项目预算中临时调剂",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "你动了别的项目的预算——那个项目的负责人后来发现了，非常不满。但至少眼下这个问题解决了。",
+        "hint": "拆东墙补西墙会得罪人"
+      }
+    ]
+  },
+  {
+    "eventId": "M006_S2C",
+    "projectTags": [
+      "esg_report"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "舆情扩散（阶段 2/2）",
+    "text": "因为你的模糊回应，质疑声在社交媒体上持续发酵。市场部发来邮件：「负面舆情已经影响了品牌关键词搜索排名。」",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "紧急召开沟通会，当面回答所有质疑",
+        "effects": {
+          "time": -2,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你开了一场线上沟通会，回答了投资机构的每一个问题。虽然花了大量时间，但公开透明的态度挽回了信任。",
+        "hint": "亡羊补牢，用坦诚挽回信任"
+      },
+      {
+        "text": "发第二份声明，这次详细一些",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "你发了第二份声明——但舆论已经形成了「这家公司不透明」的印象。一份声明改变不了什么。",
+        "hint": "声誉一旦受损，修复代价更大"
+      }
+    ]
+  },
+  {
+    "eventId": "M007",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "title": "跨部门责任推诿大赛",
+    "text": "一个项目出了岔子——交付物和客户预期有重大偏差。市场部说是产品部给了错误的需求，产品部说是市场部传达有误。两边都抄送了你——因为你是「项目协调人」。",
+    "speaker": "lin_zong",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "组织三方会议，当面理清责任",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你把市场部、产品部和客户都拉到同一个群里。经过两小时的讨论，问题源头被定位到了——是原始需求文档的一句歧义表述。",
+        "hint": "面对面对质比邮件战更有效",
+        "nextEvent": "M007_S2A"
+      },
+      {
+        "text": "基于现有证据做判断，自己承担责任",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你梳理了邮件记录，做了一个折中判断——然后自己扛下了协调责任。事情暂时解决了，但两个部门都觉得你「偏袒了对方」。",
+        "hint": "自己扛锅可能两面不讨好",
+        "nextEvent": "M007_S2B"
+      },
+      {
+        "text": "上报林总，请他仲裁",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你写了份邮件给林总说明了情况。林总回复「你们自己协调」——但抄送了两个部门的负责人。气氛更诡异了。",
+        "hint": "告状不是解决问题的好办法"
+      }
+    ]
+  },
+  {
+    "eventId": "M007_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "根源解决之后（阶段 2/2）",
+    "text": "问题根源找到了——那份需求文档的一句歧义。现在需要防止类似问题再次发生。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "推动建立需求确认标准化流程",
+        "effects": {
+          "time": -1,
+          "satisfaction": 2,
+          "risk": -1
+        },
+        "feedback": "你设计了一份《需求确认清单》，要求所有跨部门需求必须走确认流程。林总批了——「终于有人做了这件事。」",
+        "hint": "把问题变成流程改进"
+      },
+      {
+        "text": "在部门之间建立定期同步机制",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你设立了双周同步会。虽然多了一个会，但信息壁垒明显减少了。",
+        "hint": "制度建设比单次解决更重要"
+      }
+    ]
+  },
+  {
+    "eventId": "M007_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "两边都不讨好的后果（阶段 2/2）",
+    "text": "你扛下了责任但得罪了所有人。市场部觉得你在替产品部说话，产品部觉得你在替市场部说话。",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "分别约两边负责人喝咖啡，修复关系",
+        "effects": {
+          "time": -2,
+          "budget": -1,
+          "satisfaction": 1
+        },
+        "feedback": "两杯咖啡的工夫，你把事情解释清楚了——你并没有偏袒任何一方，你只是在解决一个系统性问题。两边的关系慢慢修复了。",
+        "hint": "关系修复需要一对一沟通"
+      },
+      {
+        "text": "专注于交付质量——用结果说话",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你专注做好了后续的交付。客户很满意——这确实压制了一些不满。但内部的隐形成本仍在累积。",
+        "hint": "好结果能压制但不会消除隔阂"
+      }
+    ]
+  },
+  {
+    "eventId": "M008",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 3,
+    "title": "供应商坐地起价+预算超限",
+    "text": "供应商王姐发来邮件：「原材料涨价，下批物料价格上浮40%。」与此同时，财务小周提醒你项目预算已经使用了85%。距离项目结束还有一个月。",
+    "speaker": "gongying_wang",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "货比三家，紧急寻找替代供应商",
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "risk": 0
+        },
+        "feedback": "你联系了五家供应商，拿到了三家报价——其中一家的价格比王姐涨价后还低15%。不是所有供应商都会坐地起价。",
+        "hint": "市场调研是压价的最好手段",
+        "nextEvent": "M008_S2A"
+      },
+      {
+        "text": "跟王姐谈判，要求部分降价",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 0
+        },
+        "feedback": "你跟王姐磨了半天，她松口了——「给你打九折，但下次别这么磨我了」。省了一点，但预算还是超了。",
+        "hint": "谈判可以省一点但不是根本解法",
+        "nextEvent": "M008_S2B"
+      },
+      {
+        "text": "认了涨价，向林总申请追加预算",
+        "effects": {
+          "time": 0,
+          "budget": -2,
+          "satisfaction": -1
+        },
+        "feedback": "你向林总申请预算追加。林总批了——但他加了一句「下次采购要多比价」。你感觉自己亏了。",
+        "hint": "认栽是最省时间也最贵的方案",
+        "nextEvent": "M008_S2C"
+      }
+    ]
+  },
+  {
+    "eventId": "M008_S2A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "切换供应商的阵痛（阶段 2/3）",
+    "text": "你找到了新供应商，价格合理。但他们不熟悉你的项目流程——对接磨合需要时间。王姐听说你要换供应商，发来消息：「老客户我可以再给你降5%」。",
+    "speaker": "gongying_wang",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "坚持换供应商，花时间磨合",
+        "effects": {
+          "time": -1,
+          "budget": 1,
+          "risk": 0
+        },
+        "feedback": "你坚持切换到新供应商。首单有些磕碰，但从长远来看你省了钱，也多了一个备选渠道。王姐那边以后再说。",
+        "hint": "坚持选择长期最优解",
+        "nextEvent": "M008_S3A"
+      },
+      {
+        "text": "接受王姐的回头价",
+        "effects": {
+          "time": 0,
+          "budget": -1,
+          "satisfaction": 0
+        },
+        "feedback": "你接受了王姐的回头价——比最初便宜了些但比新供应商贵。王姐说「下次合作愉快」——她赢了。",
+        "hint": "妥协有时候是最现实的选择",
+        "nextEvent": "M008_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M008_S2B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "预算缺口的填补（阶段 2/3）",
+    "text": "王姐打了九折，但预算仍然有缺口。你需要从项目其他部分省出这笔钱。",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "削减非核心物料的开支",
+        "effects": {
+          "budget": 1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你砍掉了一些「锦上添花」的物料——印刷品少了些，礼品档次降了。整体效果勉强维持，但懂的人看得出缩水了。",
+        "hint": "削减边缘开支但影响质感",
+        "nextEvent": "M008_S3A"
+      },
+      {
+        "text": "推迟部分不紧急的采购到下期",
+        "effects": {
+          "time": 0,
+          "budget": 1,
+          "risk": 1
+        },
+        "feedback": "你把部分采购推迟了——下期预算能不能覆盖？到时候再说。财务小周提醒你「延期采购不能超过一个季度」。",
+        "hint": "拖延支付只是推迟了问题",
+        "nextEvent": "M008_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M008_S2C",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "预算追加后的审查（阶段 2/3）",
+    "text": "林总批准了预算追加，但财务部发来了一个详细审查要求——每笔超出预算的开支都要附说明。这意味着更多的文书工作。",
+    "speaker": "caiwu_zhou",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "认真写每份说明，建立清晰的预算轨迹",
+        "effects": {
+          "time": -2,
+          "risk": -1
+        },
+        "feedback": "你花时间写了详细的支出说明。财务部很满意——「终于有人认真写说明了」。虽然花了时间但建立了信任。",
+        "hint": "书面工作虽烦但能建立信用",
+        "nextEvent": "M008_S3A"
+      },
+      {
+        "text": "写简化版说明，能过审就行",
+        "effects": {
+          "time": -1,
+          "risk": 1
+        },
+        "feedback": "你写了几份模板化的说明交上去了。财务部没说什么——但也没说满意。下次审查可能会更严。",
+        "hint": "应付审查可能触发更严的审查",
+        "nextEvent": "M008_S3B"
+      }
+    ]
+  },
+  {
+    "eventId": "M008_S3A",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "预算危机之后（最终阶段）",
+    "text": "这场供应商+预算的双重危机总算过去。你在复盘时意识到——项目预算管理能力比你想象的重要得多。",
+    "speaker": "lin_zong",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "建立供应商备选库和预算预警机制",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": -2
+        },
+        "feedback": "你做了一份供应商备选清单和一套预算预警机制。林总看了说「以后所有项目都按这个标准来」——你的个人实践变成了团队标准。",
+        "hint": "个人经验变成团队资产"
+      },
+      {
+        "text": "记录经验教训在自己笔记本里",
+        "effects": {
+          "time": 0,
+          "risk": 0
+        },
+        "feedback": "你把这套方法记在了自己的笔记本里。下次类似情况你会有预案，但只有你一个人有。",
+        "hint": "经验不分享等于没有复用"
+      }
+    ]
+  },
+  {
+    "eventId": "M008_S3B",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "isChainOnly": true,
+    "title": "预算危机之后（最终阶段）",
+    "text": "这场危机勉强过去了。但你知道下个项目还会遇到同样的问题——供应商涨价和预算超限是职场常态。",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "申请参加预算管理培训课程",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "satisfaction": 1
+        },
+        "feedback": "你报了个预算管理线上课。财务小周听说后给你发了份内部资料——「你是第一个主动学这个的PM」。",
+        "hint": "主动学习是职业投资"
+      },
+      {
+        "text": "下次提前预留应急预算",
+        "effects": {
+          "time": 0,
+          "risk": -1
+        },
+        "feedback": "你学会了在项目预算里留10%的应急金。下次供应商涨价的时候，你就不会这么被动了。",
+        "hint": "经验转化为预防措施"
+      }
+    ]
+  },
+  {
+    "eventId": "T001",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "roadshow_eve",
+    "title": "路演前投资人突然要求换行业对标",
+    "text": "路演前夜，张总转发了投资人的邮件：「你们用的对标公司和我们的赛道不完全匹配，能换几个吗？」路演PPT里的对标分析需要全部重做。",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "连夜重做对标分析，选三家最匹配的公司",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你熬夜选了三家最精准的对标公司，重新做了对比图表。第二天路演时，投资人看了对标页说「这个选得很好」——值了。",
+        "hint": "精准工作值得投入时间"
+      },
+      {
+        "text": "修改少量表述但不换对标公司",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "你调整了对标页的措辞但保留了原来的公司。投资人在Q&A环节当面质疑了对标选择——场面有些尴尬。",
+        "hint": "临时应付可能被当面质疑"
+      },
+      {
+        "text": "请团队分工——你写文案，阿哲做图表",
+        "effects": {
+          "time": -2,
+          "budget": 0,
+          "satisfaction": 1
+        },
+        "feedback": "你和阿哲分头行动，你写分析逻辑，他做视觉呈现。凌晨三点完工——一份漂亮的对标分析诞生了。团队协作的效率比单打独斗高得多。",
+        "hint": "团队协作可以同时保质量和速度"
+      }
+    ]
+  },
+  {
+    "eventId": "T002",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "roadshow_eve",
+    "title": "演讲者腹泻——你需要替补",
+    "text": "路演前90分钟，原定演讲者——你们的CEO——因为昨晚的海鲜自助正在酒店房间里「休养」。张总看着你：「你对项目最熟，你能上吗？」",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "接下任务，紧急排练核心要点",
+        "effects": {
+          "time": -1,
+          "satisfaction": 2,
+          "risk": 0
+        },
+        "feedback": "你花了45分钟排练了核心五张幻灯片。演讲时声音有些抖，但内容扎实。投资人给了不错的反馈——「接地气，不像CEO那么官方」。",
+        "hint": "临危受命，机会与风险并存"
+      },
+      {
+        "text": "推荐阿哲上——他的表达比你流畅",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "阿哲上台讲得很流畅，但有几个业务细节他没说清楚。投资人问了几个问题他答不上来，你在台下小声提示。总算是混过去了。",
+        "hint": "推荐别人可能影响质量"
+      },
+      {
+        "text": "坚持找CEO——给他送药",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 2
+        },
+        "feedback": "你跑到药店买了肠胃药送到CEO房间。他勉强上了台——但声音虚弱，状态明显不好。路演效果打了折扣。",
+        "hint": "坚持原计划未必是最优解"
+      }
+    ]
+  },
+  {
+    "eventId": "T003",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "client_adds_requirements",
+    "title": "客户追加完需求后的连锁变化",
+    "text": "客户加了需求之后，他们的内部团队也换了对接人。新来的对接人「李经理」重新看了项目方案，提出了完全不同方向的修改意见——和之前确认的方向几乎相反。",
+    "speaker": "shenmi_qun",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "约李经理开视频会，对齐新方向",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": 0
+        },
+        "feedback": "你和李经理聊了半小时，发现他只是想展示「新官上任三把火」。你巧妙地保留核心方向，表面做了些调整——他满意了，你也没有推倒重来。",
+        "hint": "理解新对接人的动机比服从修改更重要"
+      },
+      {
+        "text": "按李经理的新方向推倒重来",
+        "effects": {
+          "time": -3,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你推翻了三周的成果，按新方向重新做。李经理很满意——但林总看到工时成本后表情不太好看。",
+        "hint": "全盘重来代价太大"
+      },
+      {
+        "text": "委婉拒绝，说明前期确认的方向不可逆",
+        "effects": {
+          "time": 0,
+          "satisfaction": -2,
+          "risk": 1
+        },
+        "feedback": "你礼貌但坚定地拒绝了方向变更。李经理说「我需要再考虑一下是否继续这个项目」。空气凝固了。",
+        "hint": "直接拒绝可能让项目陷入僵局"
+      }
+    ]
+  },
+  {
+    "eventId": "T004",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "budget_cut",
+    "title": "财务要求所有外部采购重新竞标",
+    "text": "预算被砍30%之后，财务小周发来新规定：「所有超过5000元的外部采购需要三家比价。」你手头有三笔采购——加起来才两万，但每笔都要走三家比价的流程。",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "老老实实走三家比价",
+        "effects": {
+          "time": -2,
+          "risk": -1
+        },
+        "feedback": "你花了一天完成了三份比价表。财务小周审核通过了——「流程完整，没问题」。虽然累但合规。",
+        "hint": "遵守流程虽然慢但最安全"
+      },
+      {
+        "text": "把三笔采购合并成一笔，只走一次比价",
+        "effects": {
+          "time": -1,
+          "risk": 1
+        },
+        "feedback": "你找了个理由把三笔采购合并了——省了两轮比价流程。财务小周说「下次不要这样」——她默许了这次但记下了风险。",
+        "hint": "打擦边球可以省时间但有风险"
+      },
+      {
+        "text": "找已经签了长期框架协议的供应商",
+        "effects": {
+          "time": -1,
+          "budget": 0,
+          "risk": 0
+        },
+        "feedback": "你翻出了之前签的框架协议——上面有固定价格条款，不需要重新比价。好在你之前有先见之明签了这些协议。",
+        "hint": "提前准备的框架协议是省时利器"
+      }
+    ]
+  },
+  {
+    "eventId": "T005",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "budget_cut",
+    "title": "林总要求的\"创造性节流\"",
+    "text": "林总在全员会上说：「预算紧张的时候，我们要学会创造性节流。不是少做事，是聪明地做。」你看着手里的项目清单——每件事看起来都是必须做的。",
+    "speaker": "lin_zong",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "在团队内部做一次需求优先级排序",
+        "effects": {
+          "time": -1,
+          "budget": 2,
+          "risk": 0
+        },
+        "feedback": "你把所有需求按影响力和紧迫度排序，砍掉了排名最后的两项。林总看了你的排序逻辑说「这就是创造性节流」——你省了预算还得到了表扬。",
+        "hint": "优先级排序既是节流也是向上管理"
+      },
+      {
+        "text": "寻找免费的替代方案",
+        "effects": {
+          "time": -2,
+          "budget": 1,
+          "risk": 0
+        },
+        "feedback": "你找了开源工具替代付费软件，用了免费模板替代定制设计。省了一些钱——但功能上打了不少折扣。",
+        "hint": "免费方案能省钱但功能有限"
+      },
+      {
+        "text": "坦诚告诉林总：核心项目不能\"创造性节流\"",
+        "effects": {
+          "time": 0,
+          "budget": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你列了一份清单说明每项支出的必要性。林总沉默了一会说「理解」——但他看你的眼神里多了一丝失望。",
+        "hint": "坦诚但可能被视为缺乏创造力"
+      }
+    ]
+  },
+  {
+    "eventId": "T006",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "regulatory_inquiry",
+    "title": "监管要求补充三年前的底稿",
+    "text": "监管问询函里加了一个意想不到的要求：请提供三年前一个已归档项目的完整底稿。那个项目的PM已经离职了，档案室里只有一个布满灰尘的纸箱。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "翻箱倒柜找出原始底稿并重新整理",
+        "effects": {
+          "time": -3,
+          "risk": -2
+        },
+        "feedback": "你花了整整一天在档案室翻找，终于找到了那个纸箱。底稿不完整但关键文件都在。你重新整理成册交给了监管——合规陈老师说「好在你找到了」。",
+        "hint": "最辛苦的方案但最彻底"
+      },
+      {
+        "text": "找之前和那个PM合作过的同事拼凑信息",
+        "effects": {
+          "time": -2,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你联系了三位前同事，从他们的邮件和本地文件里拼凑出了部分底稿。虽然不完整但可以解释——「文档在交接中有部分遗失」。",
+        "hint": "依靠同事记忆拼凑信息"
+      },
+      {
+        "text": "向监管说明底稿因人员离职存在缺失",
+        "effects": {
+          "time": 0,
+          "risk": 2
+        },
+        "feedback": "你写了一封解释信。监管回了：「请尽最大努力补全，否则将视为合规缺陷。」——这条路走不通。",
+        "hint": "解释不能替代证据"
+      }
+    ]
+  },
+  {
+    "eventId": "T007",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "vendor_failure",
+    "title": "供应商跑路前推荐的\"替代方案\"",
+    "text": "供应商王姐失联后，她的「朋友」主动联系了你——说可以接手这批物料，价格只贵20%。你知道这不是巧合——这是王姐的另一个生意。",
+    "speaker": "gongying_wang",
+    "category": "budget_conflict",
+    "choices": [
+      {
+        "text": "拒绝这个\"朋友\"，自己找新供应商",
+        "effects": {
+          "time": -2,
+          "budget": 1
+        },
+        "feedback": "你不相信这个巧合。花了两天找到了完全不相关的新供应商——价格合理，质量有保障。王姐的「朋友」后来没再联系你。",
+        "hint": "拒绝可疑的\"替代方案\"，宁可自己找"
+      },
+      {
+        "text": "接受但签署正式合同，加上违约条款",
+        "effects": {
+          "time": -1,
+          "budget": -1,
+          "risk": -1
+        },
+        "feedback": "你接受了但加了严格的法律条款——延期交货罚款、质量不达标退款。对方犹豫了一下还是签了。你感觉这个合同以后可能真的会用到。",
+        "hint": "即使接受也要用合同保护自己"
+      },
+      {
+        "text": "因为时间紧迫，直接下单",
+        "effects": {
+          "time": 0,
+          "budget": -2,
+          "risk": 1
+        },
+        "feedback": "你认了这笔加价。物料按时到了——但质量比王姐的差了一截。你觉得被坑了但来不及追究了。",
+        "hint": "急中出错是最贵的"
+      }
+    ]
+  },
+  {
+    "eventId": "T008",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 1,
+    "themeExclusive": "friday_afternoon",
+    "title": "周五下班前老板的\"五分钟小事\"",
+    "text": "周五17:55，距离下班还有五分钟。林总走到你工位旁：「有个小事情——五分钟就好。帮我看一下这份合同，周一早上要。」——合同有40页。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "坐下来认真看——这明显不是\"五分钟\"",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你花了两个小时认真审了合同，发现了两处关键条款有问题。林总周一早上拿到你的标注版合同后说「幸好叫你看了」——这两个问题如果没发现，损失会很大。",
+        "hint": "\"五分钟\"通常意味着很重要"
+      },
+      {
+        "text": "快速浏览，标注最明显的问题",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你花半小时扫了一遍，标注了一处明显的数字错误。周一林总问「其他部分呢？」——你只能说「看了一遍应该没问题」。你应该说「应该」的时候自己也很心虚。",
+        "hint": "快速扫描可能漏掉关键问题"
+      },
+      {
+        "text": "提议下周一早上第一时间处理",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你说「周一早上第一件事就看」。林总说「行」——但你从他的语气里听出了不满意。你周末一直在想那份合同。",
+        "hint": "推迟任务可能影响信任"
+      }
+    ]
+  },
+  {
+    "eventId": "T009",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 1,
+    "themeExclusive": "pre_holiday",
+    "title": "节前最后两小时——全公司只有你在",
+    "text": "节前最后半天，办公室几乎空了。你正准备收拾东西——OA系统弹出提醒：有三份审批必须在节前完成，否则假期后系统会自动驳回。全公司只有你看到了这个提醒。",
+    "speaker": "caiwu_zhou",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "留下来把三份审批全部处理完",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你花了两个小时处理了所有审批。假期结束后所有人正常开工——没有人知道你在背后救了他们的流程。但你心里很踏实。",
+        "hint": "默默付出，但流程不会断"
+      },
+      {
+        "text": "处理最紧急的一份，另外两份申请延期",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 1
+        },
+        "feedback": "你处理了最紧急的那份——另外两份你发了延期申请。假期后审批人不太高兴，但还是补签了。——「下次早点」。",
+        "hint": "紧急的优先，其他的可以解释"
+      },
+      {
+        "text": "关掉OA——假期后再处理",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 2
+        },
+        "feedback": "你关掉了OA回家了。假期后三份审批都被系统自动驳回——重新走流程又花了一周。相关同事很生气。",
+        "hint": "忽略系统提醒会引发连锁反应"
+      }
+    ]
+  },
+  {
+    "eventId": "T010",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "new_boss_day",
+    "title": "新老板要求重做所有PPT风格",
+    "text": "新来的林总看了你的PPT后说：「公司现在用新的品牌色了——主色从蓝色换成紫色。你手头的PPT都换一下吧。」你手头有四份不同的PPT——每份都是不同客户的。",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "花时间做一套新模板，批量应用",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1
+        },
+        "feedback": "你做了一个新的模板文件，把核心页面全部重做——配色、字体、图表风格都统一了。林总看了说「这个模板以后就是部门标准了」——你省了未来所有人的时间。",
+        "hint": "一次性投资模板是最优方案"
+      },
+      {
+        "text": "只换最紧急那份，其他的等更新时再说",
+        "effects": {
+          "time": -1,
+          "satisfaction": -1,
+          "risk": 0
+        },
+        "feedback": "你只换了本周要用的那份。林总后来看到其他PPT还是蓝色时皱了眉——「我不是说都换吗？」——「正在逐步替换中」你说。",
+        "hint": "分批替换可能被追问进度"
+      },
+      {
+        "text": "建议林总先确认新风格在客户端的反馈再全面换",
+        "effects": {
+          "time": 0,
+          "satisfaction": 0,
+          "risk": -1
+        },
+        "feedback": "你建议先换一份试一试客户反应。林总想了想说「有道理」——你用一个理性的建议省了三份PPT的返工。",
+        "hint": "理性建议有时能省下无谓的工作"
+      }
+    ]
+  },
+  {
+    "eventId": "T011",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 3,
+    "themeExclusive": "quarterly_review",
+    "title": "季度考核当天——你的指标全红了",
+    "text": "季度考核当天，系统自动抓取了项目数据：你的时间、预算和满意度三项指标全部飘红。林总发来会议邀请：「我们聊一下这个季度的项目表现。」",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [
+      {
+        "text": "准备一份详尽的数据说明，解释每个指标背后的原因",
+        "effects": {
+          "time": -2,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你准备了一份分析报告——时间延迟是因为客户追加需求，预算超支是因为外部原材料涨价，满意度低是因为一次不可控的供应商失误。林总看完说「有数据支撑，我理解」。",
+        "hint": "数据是最有力的辩护"
+      },
+      {
+        "text": "坦诚承认问题，提出下季度改进计划",
+        "effects": {
+          "time": -1,
+          "satisfaction": 0,
+          "risk": 0
+        },
+        "feedback": "你没有找借口，直接甩出了下季度的改进计划——详细的、可量化的、有时间节点的。林总说「至少你有方向」——不算表扬，但你保住了信任。",
+        "hint": "承认问题+改进计划是可信赖的表现"
+      },
+      {
+        "text": "强调外部不可控因素，弱化自身责任",
+        "effects": {
+          "time": 0,
+          "satisfaction": -2,
+          "risk": 2
+        },
+        "feedback": "你说了很多「不可控」——客户变、供应商坑、市场涨。林总打断你：「我听到的都是别人。你自己的问题呢？」——你的季度评级降了一档。",
+        "hint": "甩锅是最差的选择"
+      }
+    ]
+  },
+  {
+    "eventId": "T012",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 2,
+    "themeExclusive": "last_working_day",
+    "title": "交接文档还没写",
+    "text": "最后一个工作日——你下周开始休年假。但你发现项目的交接文档还是空的——十几个子任务的进度、联系人、注意事项全在你的脑子里。而你的backup是实习生小许。",
+    "speaker": "shixi_xu",
+    "category": "time_pressure",
+    "choices": [
+      {
+        "text": "花完整时间写一份详尽的交接文档",
+        "effects": {
+          "time": -2,
+          "satisfaction": 2,
+          "risk": -2
+        },
+        "feedback": "你花了一整天写了份面面俱到的交接文档——每个任务的进展、联系人、历史坑点都写清楚了。小许看了一遍说「我大概懂了」。你知道「大概」远远不够——但你做了你能做的。",
+        "hint": "好交接文档是救别人也是救自己"
+      },
+      {
+        "text": "列个要点清单，和小许当面逐条过一遍",
+        "effects": {
+          "time": -1,
+          "satisfaction": 1,
+          "risk": -1
+        },
+        "feedback": "你和小许坐下来，逐条讲了两个小时。她记了很多笔记。你问她懂了没——她说「懂了」。但愿如此。",
+        "hint": "口头+笔记比纯文档更有效"
+      },
+      {
+        "text": "留个联系方式——有问题电话联系",
+        "effects": {
+          "time": 0,
+          "satisfaction": -1,
+          "risk": 1
+        },
+        "feedback": "你在白板上写了个手机号。休假的第二天，小许打了三个电话。第三天，打了两个。第四天——你干脆远程加班了。",
+        "hint": "不写交接文档等于没休假"
+      }
+    ]
+  },
+  {
+    "eventId": "T013",
+    "projectTags": [
+      "*"
+    ],
+    "difficulty": 3,
+    "themeExclusive": "annual_report_deadline",
+    "title": "年报发布前夜——发现关键数据矛盾",
+    "text": "年报发布前夜，你最后一次校对数据——发现碳排放量和去年披露的基准年数据差了17%。如果去年的基准是错的，今年的数据也全错了。年报明天必须发布。",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [
+      {
+        "text": "逐份原始数据回溯，找到错误源头",
+        "effects": {
+          "time": -3,
+          "satisfaction": 0,
+          "risk": -2
+        },
+        "feedback": "你和团队回溯了18个月的原始数据——凌晨四点找到了错误：去年一份季度报告的小数点错位了。修正后一切吻合。你松了一口气——年报按时发了，数据是对的。",
+        "hint": "通宵回溯是唯一的确保正确的方式"
+      },
+      {
+        "text": "修正今年的数据，对去年的差异加脚注说明",
+        "effects": {
+          "time": -2,
+          "risk": 1
+        },
+        "feedback": "你修正了今年的数据，对17%的差异加了一段脚注——「基准年数据经复核存在微小口径差异」。外人看不懂，专业人士会追问——但年报按时发了。",
+        "hint": "脚注可以解释但不能消除质疑"
+      },
+      {
+        "text": "联系审计师紧急复核",
+        "effects": {
+          "time": -1,
+          "budget": -2,
+          "risk": -1
+        },
+        "feedback": "你打了审计师的紧急电话——他们收了三倍加急费，花了四小时确认了错误源头在你这边。钱花了，结论有了，但你为此付出了远超必要的代价。",
+        "hint": "外部验证最快但最贵"
       }
     ]
   }

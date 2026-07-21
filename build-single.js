@@ -12,6 +12,7 @@ const css = fs.readFileSync(path.join(BASE, 'css', 'style.css'), 'utf-8');
 const storage = fs.readFileSync(path.join(BASE, 'js', 'storage.js'), 'utf-8');
 const game = fs.readFileSync(path.join(BASE, 'js', 'game.js'), 'utf-8');
 const eventsJs = fs.readFileSync(path.join(BASE, 'js', 'events.js'), 'utf-8');
+const chatJs = fs.readFileSync(path.join(BASE, 'js', 'chat.js'), 'utf-8');
 const ui = fs.readFileSync(path.join(BASE, 'js', 'ui.js'), 'utf-8');
 let mainJs = fs.readFileSync(path.join(BASE, 'js', 'main.js'), 'utf-8');
 
@@ -225,6 +226,9 @@ ${game}
 
 // ============ events.js ============
 ${eventsJs}
+
+// ============ chat.js ============
+${chatJs}
 
 // ============ ui.js ============
 ${ui}

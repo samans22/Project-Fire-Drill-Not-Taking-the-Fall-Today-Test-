@@ -17,6 +17,8 @@ const UI = {
       statBudget:        document.getElementById('stat-budget'),
       statSatisfaction:  document.getElementById('stat-satisfaction'),
       statRisk:          document.getElementById('stat-risk'),
+      quotaFill:         document.getElementById('quota-fill'),
+      statQuota:         document.getElementById('stat-quota'),
       timeFill:          document.getElementById('time-fill'),
       budgetFill:        document.getElementById('budget-fill'),
       satisfactionFill:  document.getElementById('satisfaction-fill'),
@@ -63,6 +65,16 @@ const UI = {
         const level = Game.getHealthLevel(item.val, item.max);
         item.fill.className = 'bar-fill ' + level + (item.reverse ? ' reverse' : '');
       }
+    }
+  },
+
+  // ---------- 渲染今日配额 ----------
+  updateQuota(used, max) {
+    if (this._cache.statQuota) {
+      this._cache.statQuota.textContent = used + '/' + max;
+    }
+    if (this._cache.quotaFill) {
+      this._cache.quotaFill.style.width = Math.round((used / max) * 100) + '%';
     }
   },
 

@@ -296,6 +296,7 @@ body {
 .bar-fill.green { background: var(--green); }
 .bar-fill.yellow { background: var(--yellow); }
 .bar-fill.red { background: var(--red); }
+.bar-fill.blue { background: var(--blue); }
 .bar-fill.reverse.green { background: var(--red); }
 .bar-fill.reverse.yellow { background: var(--yellow); }
 .bar-fill.reverse.red { background: var(--green); }
