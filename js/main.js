@@ -12,9 +12,19 @@ function onChoiceSelected(choiceIndex) {
   const event = currentEvent;
   if (!event) return;
 
+  // 将解析后的变体注入 event（供 executeChoice 读取）
+  const choice = event.choices[choiceIndex];
+  if (choice && choice._resolved) {
+    event.choices[choiceIndex] = Object.assign({}, choice, choice._resolved);
+  }
+
   // 执行选择
   const record = Game.executeChoice(gameState, event, choiceIndex);
   if (!record) return;
+
+  // 记录 composite 用于动态难度
+  const composite = Balancer.computeComposite(record.effects);
+  Balancer.recordSelection(composite);
 
   // 显示反馈
   UI.showFeedback(record.feedback, record.effects);
@@ -57,7 +67,7 @@ function onContinueClicked() {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
       currentEvent = modified;
-      UI.showEvent(currentEvent, gameData.characters);
+      UI.showEvent(currentEvent, gameData.characters, gameState);
       autoSave();
       return;
     }
@@ -88,6 +98,7 @@ async function loadAllData() {
 
   gameData = { projects, characters, themes, endings };
   await Events.load();
+  Balancer.initEvents(Events._pool);
   Events.loadThemes(themes);
 }
 
@@ -108,6 +119,8 @@ function startNewGame() {
   if (themeMod) {
     Game.applyEffects(gameState, themeMod);
   }
+
+  Balancer.reset();
 
   UI.hideStartScreen();
   UI.hideEnding();
@@ -166,7 +179,7 @@ function continueGame() {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
       currentEvent = modified;
-      UI.showEvent(currentEvent, gameData.characters);
+      UI.showEvent(currentEvent, gameData.characters, gameState);
       return;
     }
   }
@@ -200,7 +213,7 @@ function nextTurn() {
   }
 
   currentEvent = event;
-  UI.showEvent(currentEvent, gameData.characters);
+  UI.showEvent(currentEvent, gameData.characters, gameState);
 }
 
 // ---------- 推进天数并继续 ----------
@@ -241,7 +254,7 @@ function advanceDayAndContinue() {
     return;
   }
   currentEvent = event;
-  UI.showEvent(currentEvent, gameData.characters);
+  UI.showEvent(currentEvent, gameData.characters, gameState);
 }
 
 // ---------- 游戏结束 ----------

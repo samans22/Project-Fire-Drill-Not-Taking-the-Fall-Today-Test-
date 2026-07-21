@@ -18,7 +18,59 @@
           "risk": -2
         },
         "feedback": "你花了大量时间协调各部门，终于拿到了一手数据。",
-        "hint": "需要投入大量时间，但能彻底解决问题…"
+        "hint": "需要投入大量时间，但能彻底解决问题…",
+        "pool": [
+          {
+            "text": "温和跟进，先要部分数据",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "你发了邮件温和地请求数据，对方说\"这两天给\"。"
+          },
+          {
+            "text": "坚持追要原始数据",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -2
+            },
+            "feedback": "你花了大量时间协调各部门，终于拿到了一手数据。"
+          },
+          {
+            "text": "召开数据对接短会",
+            "effects": {
+              "time": -1,
+              "budget": -1,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "半小时短会锁定数据缺口，各部门承诺明天前补齐。"
+          },
+          {
+            "text": "施压要求立刻提供",
+            "effects": {
+              "time": -3,
+              "budget": 0,
+              "satisfaction": -2,
+              "risk": -3
+            },
+            "feedback": "连打三个电话施压，数据拿到了但关系紧张。"
+          },
+          {
+            "text": "先用行业数据，争取缓冲时间",
+            "effects": {
+              "time": 0,
+              "budget": -1,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "你用行业基准数据先顶上，客户满意，给了你三天宽限。"
+          }
+        ]
       },
       {
         "text": "用定性表述先顶上",
@@ -32,7 +84,59 @@
         "setsFlags": [
           "data_missing"
         ],
-        "hint": "客户会很满意，但可能为以后埋下隐患…"
+        "hint": "客户会很满意，但可能为以后埋下隐患…",
+        "pool": [
+          {
+            "text": "用定性表述填补",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 2
+            },
+            "feedback": "客户对文案很满意，但合规陈老师皱眉了。"
+          },
+          {
+            "text": "精简措辞，只写确定的部分",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "你保守地只写了有把握的内容。报告虽然短，但没有漏洞。"
+          },
+          {
+            "text": "套用上季度模板",
+            "effects": {
+              "time": 1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 3
+            },
+            "feedback": "模板很方便，但数据完全不匹配。没人发现——暂时。"
+          },
+          {
+            "text": "让实习生先起草",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 2
+            },
+            "feedback": "实习生写得不错，你稍微润色就发了。不过署名是你的。"
+          },
+          {
+            "text": "请合规同事先预审",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -1
+            },
+            "feedback": "陈老师圈了七处问题。改完再发，心里踏实多了。"
+          }
+        ]
       },
       {
         "text": "参考行业数据并标注测算口径",
@@ -43,7 +147,59 @@
           "risk": 1
         },
         "feedback": "折中方案，参考了竞品披露口径并加了脚注说明。",
-        "hint": "各方面影响比较均衡，需要额外花点钱…"
+        "hint": "各方面影响比较均衡，需要额外花点钱…",
+        "pool": [
+          {
+            "text": "参考行业数据并标注测算口径",
+            "effects": {
+              "time": -1,
+              "budget": -1,
+              "satisfaction": 1,
+              "risk": 1
+            },
+            "feedback": "折中方案，参考了竞品披露口径并加了脚注。"
+          },
+          {
+            "text": "直接引用行业协会报告",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 2
+            },
+            "feedback": "引用权威来源，客户挑不出毛病——除非他们细看日期。"
+          },
+          {
+            "text": "委托第三方快速出报告",
+            "effects": {
+              "time": 0,
+              "budget": -2,
+              "satisfaction": 2,
+              "risk": 0
+            },
+            "feedback": "外包团队效率惊人。贵是贵了点，但客户非常满意。"
+          },
+          {
+            "text": "标注\"初步数据，最终版待更新\"",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "你加了一行免责声明。合规过了，客户也没说什么。"
+          },
+          {
+            "text": "亲自动手做数据测算",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -2
+            },
+            "feedback": "你在Excel里泡了一下午，出来的数据经得起推敲。"
+          }
+        ]
       }
     ],
     "difficulty": 3
@@ -119,7 +275,59 @@
           "risk": -2
         },
         "feedback": "发了一封措辞严谨的确认邮件，有据可查。",
-        "hint": "花点时间留个书面证据，更安心…"
+        "hint": "花点时间留个书面证据，更安心…",
+        "pool": [
+          {
+            "text": "邮件二次确认，留下书面记录",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -2
+            },
+            "feedback": "你发了措辞考究的确认邮件。现在有据可查了。"
+          },
+          {
+            "text": "发一封简短确认邮件",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "三行字的邮件。对方回了\"确认\"。不正式，但够用。"
+          },
+          {
+            "text": "附上会议纪要和下一步计划",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -2
+            },
+            "feedback": "详细的会议纪要加时间线。不光确认了，还显得很专业。"
+          },
+          {
+            "text": "让领导出面确认",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "林总打了个电话。对方口头确认了——这次是跟领导说的，应该算数。"
+          },
+          {
+            "text": "发邮件并抄送双方领导",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -3
+            },
+            "feedback": "抄送了一串人。对方有点不爽，但以后赖不了账。"
+          }
+        ]
       },
       {
         "text": "默认认可并推进",
@@ -130,7 +338,59 @@
           "risk": 2
         },
         "feedback": "你决定不等了，先推进再说。但愿对方不会反悔。",
-        "hint": "最省时间，但万一对方不认账就麻烦了…"
+        "hint": "最省时间，但万一对方不认账就麻烦了…",
+        "pool": [
+          {
+            "text": "默认确认，继续推进",
+            "effects": {
+              "time": 1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 2
+            },
+            "feedback": "你决定不等了。希望对方不会反悔。"
+          },
+          {
+            "text": "先推进内部工作，外部等确认",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "内部先动起来，外部暂缓。进度没耽误太多，风险也可控。"
+          },
+          {
+            "text": "\"林总说没问题，我们就当确认了\"",
+            "effects": {
+              "time": 2,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 3
+            },
+            "feedback": "你选择相信老板的判断。但如果出问题，锅是你的。"
+          },
+          {
+            "text": "跳过确认直接启动",
+            "effects": {
+              "time": 2,
+              "budget": -1,
+              "satisfaction": -1,
+              "risk": 3
+            },
+            "feedback": "全速前进！可惜方向可能不对。"
+          },
+          {
+            "text": "再等一天",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 0
+            },
+            "feedback": "你决定再等24小时。耐心有时候是最好的策略。"
+          }
+        ]
       },
       {
         "text": "群内礼貌 @ 客户",
@@ -141,7 +401,59 @@
           "risk": -1
         },
         "feedback": "客户群内回复了\"OK\"，虽然不够正式，但聊胜于无。",
-        "hint": "比较折中，虽然可能有点尴尬但还算稳妥…"
+        "hint": "比较折中，虽然可能有点尴尬但还算稳妥…",
+        "pool": [
+          {
+            "text": "群里@客户礼貌确认",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -1
+            },
+            "feedback": "客户在群里回了\"OK\"。不正式，但聊胜于无。"
+          },
+          {
+            "text": "私聊客户委婉确认",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "私下沟通避免了尴尬。客户说\"基本没问题\"。"
+          },
+          {
+            "text": "发一条带emoji的轻松消息",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "一个笑脸加一句\"那就按这个方向走啦~\"。客户回了个👍。"
+          },
+          {
+            "text": "群里发会议纪要让所有人确认",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -2
+            },
+            "feedback": "你在群里发了详细的会议纪要。沉默就是默认，对吧？"
+          },
+          {
+            "text": "打电话直接确认",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "五分钟电话，客户亲口说没问题。比文字靠谱。"
+          }
+        ]
       }
     ],
     "difficulty": 1
@@ -295,7 +607,59 @@
           "risk": -2
         },
         "feedback": "客户表示理解，但以后会更仔细地审核你们的材料。",
-        "hint": "花时间善后，虽然对方会有点不满但能化解危机…"
+        "hint": "花时间善后，虽然对方会有点不满但能化解危机…",
+        "pool": [
+          {
+            "text": "紧急撤回，亲自重发",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -1
+            },
+            "feedback": "你花了一小时重写并逐一核对收件人。虽然费时但稳妥。"
+          },
+          {
+            "text": "撤回后追加更正邮件",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 0
+            },
+            "feedback": "你在原邮件上追加了勘误。收到的人觉得你挺负责。"
+          },
+          {
+            "text": "不撤回，追加提醒说明",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "你在群里发了条\"请以最新版为准\"。有些人已经看了旧版。"
+          },
+          {
+            "text": "让实习生自己发更正",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 2
+            },
+            "feedback": "小许战战兢兢地发了更正邮件。学到教训了，但客户可能已经看到了。"
+          },
+          {
+            "text": "撤回后电话跟进每位收件人",
+            "effects": {
+              "time": -3,
+              "budget": 0,
+              "satisfaction": 2,
+              "risk": -2
+            },
+            "feedback": "你逐一打电话道歉。虽然花了半天时间，但客户都表示理解。"
+          }
+        ]
       },
       {
         "text": "将错就错，把讨论稿包装成\"超前预览版\"",
@@ -306,7 +670,59 @@
           "risk": 1
         },
         "feedback": "客户觉得你们\"效率很高\"，但讨论稿上的批注让人尴尬。",
-        "hint": "包装得巧妙，但讨论稿上的批注不太好解释…"
+        "hint": "包装得巧妙，但讨论稿上的批注不太好解释…",
+        "pool": [
+          {
+            "text": "起草标准致歉邮件",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "措辞专业又诚恳的致歉信。客户回复\"下次注意就好\"。"
+          },
+          {
+            "text": "打电话道歉",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 2,
+              "risk": -2
+            },
+            "feedback": "电话里客户笑着说\"谁还没犯过错\"。关系更好了。"
+          },
+          {
+            "text": "送一份小礼物陪不是",
+            "effects": {
+              "time": 0,
+              "budget": -2,
+              "satisfaction": 2,
+              "risk": -1
+            },
+            "feedback": "一份下午茶外卖送到客户办公室。对方发朋友圈说\"被乙方暖到了\"。"
+          },
+          {
+            "text": "直接忽略，等对方提起再说",
+            "effects": {
+              "time": 1,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 2
+            },
+            "feedback": "你决定不主动提。也许对方没注意到？"
+          },
+          {
+            "text": "群里道歉并承诺改进流程",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "坦诚的态度赢得了尊重。张总说\"这态度不错\"。"
+          }
+        ]
       },
       {
         "text": "让小许自己去处理",
@@ -317,7 +733,59 @@
           "risk": 2
         },
         "feedback": "小许学会了危机处理——虽然学费是你们团队的信用。",
-        "hint": "让小许学会成长是好事，但学费不便宜…"
+        "hint": "让小许学会成长是好事，但学费不便宜…",
+        "pool": [
+          {
+            "text": "制定邮件发送检查清单",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -2
+            },
+            "feedback": "一份简洁的checklist贴在了团队看板上。从此再无类似事故。"
+          },
+          {
+            "text": "设置邮件延迟发送规则",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "所有外发邮件延迟5分钟。简单有效的防护。"
+          },
+          {
+            "text": "加强培训，非惩罚性改进",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "你组织了分享会。小许红着眼睛说谢谢。团队凝聚力提升了。"
+          },
+          {
+            "text": "把锅推给系统故障",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 2
+            },
+            "feedback": "你说\"系统自动填充了错误的联系人组\"。IT部门很不高兴。"
+          },
+          {
+            "text": "实行双人复核制度",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -2
+            },
+            "feedback": "邮件发出前必须第二人过目。慢了一点，但再也没出过事故。"
+          }
+        ]
       }
     ],
     "difficulty": 2
@@ -531,7 +999,59 @@
           "risk": -1
         },
         "feedback": "花了十分钟比对，确认了真正的最新版。客户很满意。",
-        "hint": "多花点时间仔细核对，体现专业度…"
+        "hint": "多花点时间仔细核对，体现专业度…",
+        "pool": [
+          {
+            "text": "找财务周姐私下沟通",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "周姐解释是系统自动触发。一杯咖啡的功夫就解冻了。"
+          },
+          {
+            "text": "提交正式解冻申请",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": -1
+            },
+            "feedback": "填了三张表格。流程走了两天，但合规审计无话可说。"
+          },
+          {
+            "text": "找林总特批紧急经费",
+            "effects": {
+              "time": -1,
+              "budget": 1,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "林总大笔一挥批了特别经费。但周姐的脸色不太好看。"
+          },
+          {
+            "text": "先用部门备用金垫付",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 2
+            },
+            "feedback": "备用金解了燃眉之急。但被审计查到会很麻烦。"
+          },
+          {
+            "text": "暂停支出，等自动解冻",
+            "effects": {
+              "time": 1,
+              "budget": 1,
+              "satisfaction": -1,
+              "risk": 0
+            },
+            "feedback": "你决定等。项目进度暂停了，但省下来的钱让预算表好看多了。"
+          }
+        ]
       },
       {
         "text": "凭直觉选一个最新修改时间的",
@@ -542,7 +1062,59 @@
           "risk": 1
         },
         "feedback": "你发了过去，但愿那就是对的。",
-        "hint": "赌一把，但愿最新的那个真的是最终版…"
+        "hint": "赌一把，但愿最新的那个真的是最终版…",
+        "pool": [
+          {
+            "text": "优化现有资源，减少不必要开支",
+            "effects": {
+              "time": 0,
+              "budget": 2,
+              "satisfaction": 0,
+              "risk": 0
+            },
+            "feedback": "你砍掉了几个外包项。质量没降，成本却下来了。"
+          },
+          {
+            "text": "和供应商谈延期付款",
+            "effects": {
+              "time": 0,
+              "budget": 1,
+              "satisfaction": -1,
+              "risk": 1
+            },
+            "feedback": "供应商勉强同意了。但以后的合作可能会受影响。"
+          },
+          {
+            "text": "向客户申请预付款",
+            "effects": {
+              "time": -1,
+              "budget": 2,
+              "satisfaction": -1,
+              "risk": 0
+            },
+            "feedback": "客户不太高兴但还是批了。现金流回来了，面子没了。"
+          },
+          {
+            "text": "内部众筹，先顶过这段",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 2
+            },
+            "feedback": "团队成员各自垫了一点。士气受损，但项目没停。"
+          },
+          {
+            "text": "砍预算但要保证关键项",
+            "effects": {
+              "time": -1,
+              "budget": 2,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "精确的外科手术式削减。核心交付不变，边缘项目暂停。"
+          }
+        ]
       },
       {
         "text": "把六个版本都发给客户让他自己选",
@@ -553,7 +1125,59 @@
           "risk": 0
         },
         "feedback": "客户回了两个字：\"专业。\"——但你听出了讽刺。",
-        "hint": "把球踢回去最省事，但客户会觉得不专业…"
+        "hint": "把球踢回去最省事，但客户会觉得不专业…",
+        "pool": [
+          {
+            "text": "和财务一起梳理预算明细",
+            "effects": {
+              "time": -2,
+              "budget": 1,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "梳理后发现有30%的预算被错误归类。修正后宽裕多了。"
+          },
+          {
+            "text": "做一份详细的预算使用报告",
+            "effects": {
+              "time": -3,
+              "budget": 0,
+              "satisfaction": 2,
+              "risk": -2
+            },
+            "feedback": "报告写得漂亮。领导看了说\"这预算用得值\"。"
+          },
+          {
+            "text": "和客户协商调整项目范围",
+            "effects": {
+              "time": -1,
+              "budget": 1,
+              "satisfaction": 0,
+              "risk": 0
+            },
+            "feedback": "范围调整后预算刚好够。双方都觉得合理。"
+          },
+          {
+            "text": "加速交付，提前收款",
+            "effects": {
+              "time": -2,
+              "budget": 2,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "加班赶出阶段性成果，客户提前付了下一笔款。"
+          },
+          {
+            "text": "搁置非核心需求",
+            "effects": {
+              "time": 1,
+              "budget": 2,
+              "satisfaction": -1,
+              "risk": 0
+            },
+            "feedback": "你把最重要的三件事做了。其他的以后再说——如果真的还有以后的话。"
+          }
+        ]
       }
     ],
     "difficulty": 2
@@ -3437,7 +4061,59 @@
           "risk": -1
         },
         "feedback": "你熬夜选了三家最精准的对标公司，重新做了对比图表。第二天路演时，投资人看了对标页说「这个选得很好」——值了。",
-        "hint": "精准工作值得投入时间"
+        "hint": "精准工作值得投入时间",
+        "pool": [
+          {
+            "text": "连夜换，尽量赶上明早路演",
+            "effects": {
+              "time": -3,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": -1
+            },
+            "feedback": "你熬到凌晨三点更新了对标数据。投资人没看出任何异常。"
+          },
+          {
+            "text": "用现有材料，口头补充新对标",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 1
+            },
+            "feedback": "你在Q&A环节口头引用了新数据。投资人觉得你准备充分。"
+          },
+          {
+            "text": "只改关键那几页",
+            "effects": {
+              "time": -2,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 0
+            },
+            "feedback": "只改了投资人对标那几页。PPT前后风格略有不同，但核心信息到位了。"
+          },
+          {
+            "text": "找行业研究团队帮忙",
+            "effects": {
+              "time": -1,
+              "budget": -1,
+              "satisfaction": 2,
+              "risk": -1
+            },
+            "feedback": "你动用了行业研究团队的关系网，拿到了最新的对标数据。"
+          },
+          {
+            "text": "和投资人坦诚沟通时间不够",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 1
+            },
+            "feedback": "你坦诚地说需要更多时间。投资人反而觉得你很靠谱。"
+          }
+        ]
       },
       {
         "text": "修改少量表述但不换对标公司",
@@ -3447,7 +4123,59 @@
           "risk": 1
         },
         "feedback": "你调整了对标页的措辞但保留了原来的公司。投资人在Q&A环节当面质疑了对标选择——场面有些尴尬。",
-        "hint": "临时应付可能被当面质疑"
+        "hint": "临时应付可能被当面质疑",
+        "pool": [
+          {
+            "text": "用旧数据，标注\"待更新\"",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 2
+            },
+            "feedback": "脚注写着待更新。有经验的投资者一眼就能看出来。"
+          },
+          {
+            "text": "用AI工具快速生成新数据",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 3
+            },
+            "feedback": "数据看起来合理——但AI编的。祈祷没人核实。"
+          },
+          {
+            "text": "只更新最核心的三个指标",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "你更新了ROI、市场份额和增长率。这三个数字决定了投资人的兴趣。"
+          },
+          {
+            "text": "引用公开财报的行业数据",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 0,
+              "risk": 1
+            },
+            "feedback": "公开数据虽然不如定制数据精准，但来源可靠，投资人不会质疑。"
+          },
+          {
+            "text": "承认数据需要更新，会后补充",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "投资人欣赏你的诚实。会后你发来了完整的更新数据。"
+          }
+        ]
       },
       {
         "text": "请团队分工——你写文案，阿哲做图表",
@@ -3457,7 +4185,59 @@
           "satisfaction": 1
         },
         "feedback": "你和阿哲分头行动，你写分析逻辑，他做视觉呈现。凌晨三点完工——一份漂亮的对标分析诞生了。团队协作的效率比单打独斗高得多。",
-        "hint": "团队协作可以同时保质量和速度"
+        "hint": "团队协作可以同时保质量和速度",
+        "pool": [
+          {
+            "text": "全盘接受，重新做",
+            "effects": {
+              "time": -3,
+              "budget": -1,
+              "satisfaction": 1,
+              "risk": -1
+            },
+            "feedback": "你选择相信投资人的判断。从零重建虽然痛苦，但方向对了。"
+          },
+          {
+            "text": "部分接受，协商折中方案",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 0
+            },
+            "feedback": "双方各退一步。投资人觉得你既尊重建议又有主见。"
+          },
+          {
+            "text": "礼貌地坚持原方案",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": -1,
+              "risk": 2
+            },
+            "feedback": "你坚持己见。投资人没再说什么——但他们的表情说明了一切。"
+          },
+          {
+            "text": "邀请投资人参与讨论",
+            "effects": {
+              "time": -1,
+              "budget": 0,
+              "satisfaction": 2,
+              "risk": -1
+            },
+            "feedback": "把投资人拉进讨论群。对方觉得被重视，甚至主动提供了数据支持。"
+          },
+          {
+            "text": "先答应，路演完了再说",
+            "effects": {
+              "time": 0,
+              "budget": 0,
+              "satisfaction": 1,
+              "risk": 2
+            },
+            "feedback": "你满口答应。路演成功了——但承诺还没兑现。"
+          }
+        ]
       }
     ]
   },

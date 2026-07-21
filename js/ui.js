@@ -79,7 +79,7 @@ const UI = {
   },
 
   // ---------- 渲染事件卡片 ----------
-  showEvent(event, characters) {
+  showEvent(event, characters, state) {
     const card = this._cache.eventCard;
     card.style.display = 'block';
     this._cache.feedbackArea.style.display = 'none';
@@ -94,12 +94,38 @@ const UI = {
     const container = this._cache.choicesContainer;
     container.innerHTML = '';
     event.choices.forEach((choice, i) => {
+      // 动态选择变体
+      let resolved = choice;
+      if (choice.pool && choice.pool.length > 0 && state) {
+        const picked = Balancer.selectFromPool(
+          choice.pool,
+          state.stats,
+          state.day
+        );
+        if (picked) {
+          resolved = picked;
+          // 保留原始 choice 上的结构性字段
+          resolved.setsFlags = choice.setsFlags;
+          resolved.nextEvent = choice.nextEvent;
+          resolved._originalHint = choice.hint;
+        }
+      }
+
+      // 存储解析后的变体引用（供 onChoiceSelected 使用）
+      choice._resolved = resolved;
+
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
-      btn.textContent = `${String.fromCharCode(65 + i)}. ${choice.text}`;
-      if (choice.hint) {
-        btn.setAttribute('data-hint', choice.hint);
-      }
+      btn.textContent = `${String.fromCharCode(65 + i)}. ${resolved.text}`;
+
+      // 增强 tooltip：数值 + 叙事
+      const effectsHint = Balancer.formatEffectsHint(resolved.effects || {});
+      const narrativeHint = resolved._originalHint || choice.hint || '';
+      const fullHint = narrativeHint
+        ? effectsHint + '\n' + narrativeHint
+        : effectsHint;
+      btn.setAttribute('data-hint', fullHint);
+
       btn.addEventListener('click', () => {
         if (typeof onChoiceSelected === 'function') {
           onChoiceSelected(i);
