@@ -1,21 +1,241 @@
 [
-  { "text": "项目启动会当天",         "modifier": { "satisfaction": 1 } },
-  { "text": "客户突然加需求",         "modifier": { "time": -1, "satisfaction": -1 } },
-  { "text": "领导查看中期版本",       "modifier": { "satisfaction": 1, "risk": 1 } },
-  { "text": "供应商集体掉链子",       "modifier": { "budget": -1 } },
-  { "text": "下班前突击汇报",         "modifier": { "time": -1 } },
-  { "text": "路演前 24 小时",          "modifier": { "time": -1, "risk": 1 } },
-  { "text": "年报披露倒计时",         "modifier": { "time": -1 } },
-  { "text": "活动签到当天",           "modifier": { "risk": 1 } },
-  { "text": "监管问询来函",           "modifier": { "risk": 1, "satisfaction": -1 } },
-  { "text": "会后舆情发酵",           "modifier": { "risk": 1 } },
-  { "text": "项目预算被砍 30%",       "modifier": { "budget": -2 } },
-  { "text": "系统上线第一天",         "modifier": { "risk": 1 } },
-  { "text": "最后一个工作日",         "modifier": { "time": -1 } },
-  { "text": "周一早会刚结束",         "modifier": { "satisfaction": 1 } },
-  { "text": "周五下午四点整",         "modifier": { "satisfaction": -1 } },
-  { "text": "节前最后半天",           "modifier": { "time": -1 } },
-  { "text": "新老板到岗第一天",       "modifier": { "satisfaction": 1, "risk": 1 } },
-  { "text": "季度考核截止日",         "modifier": { "risk": 1 } },
-  { "text": "甲方突然来电话",         "modifier": { "satisfaction": 1 } }
+  {
+    "id": "project_kickoff",
+    "text": "项目启动会当天",
+    "modifier": { "satisfaction": 1 },
+    "eventPool": {
+      "boosted": ["E003", "E004", "E011", "E013"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "client_adds_requirements",
+    "text": "客户突然加需求",
+    "modifier": { "time": -1, "satisfaction": -1 },
+    "eventPool": {
+      "boosted": ["E003", "E011", "E013", "E023", "E027", "E032"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E011": {
+        "text": "客户刚加了需求，沉默两个月的神秘甲方群又弹出消息：\"@所有人 请在今天下班前确认最终版方案。\"——你怀疑这两件事不是巧合。"
+      },
+      "E003": {
+        "text": "老板称\"客户已经基本认可方案\"——在刚加了需求之后，这个说法让你格外警惕。"
+      },
+      "E027": {
+        "text": "客户刚加了需求还嫌不够——甲方群又在ESG报告里追加了三个公益案例的要求。截止日期纹丝不动。"
+      }
+    }
+  },
+  {
+    "id": "leadership_review",
+    "text": "领导查看中期版本",
+    "modifier": { "satisfaction": 1, "risk": 1 },
+    "eventPool": {
+      "boosted": ["E004", "E012", "E013", "E022"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "vendor_failure",
+    "text": "供应商集体掉链子",
+    "modifier": { "budget": -1 },
+    "eventPool": {
+      "boosted": ["E002", "E005", "E006", "E024", "E029", "E035", "E042"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E005": {
+        "text": "财务小周又发来邮件——供应商集体掉链子的连锁反应来了：\"上个月的活动餐饮报销没有合规单据，系统自动拒绝了。\""
+      },
+      "E029": {
+        "text": "供应商集体掉链子的效应还在扩散——王姐发来邮件说ESG数据的第三方认证也卡住了。你开始怀疑是不是所有供应商串通好了。"
+      }
+    }
+  },
+  {
+    "id": "last_minute_report",
+    "text": "下班前突击汇报",
+    "modifier": { "time": -1 },
+    "eventPool": {
+      "boosted": ["E004", "E012", "E013", "E014", "E023", "E045"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "roadshow_eve",
+    "text": "路演前 24 小时",
+    "modifier": { "time": -1, "risk": 1 },
+    "eventPool": {
+      "boosted": ["E010", "E012", "E014", "E023", "E031", "E035", "E037"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E012": {
+        "text": "明天就是路演。客户张总发来邮件：\"请发最终版PPT。\"你的桌面上有六个版本——每一个都写着\"路演定稿\"，但修改时间各不相同。"
+      },
+      "E014": {
+        "text": "路演前24小时，下午5:47，OA系统崩溃了。技术阿哲说修复需要两小时——而你有一个必须在路演前提交的审批。"
+      },
+      "E031": {
+        "text": "路演前三天，张总的声音从电话里传来：\"董事会看了路演PPT，觉得……没有故事线。\"你看了看桌上的倒计时——72小时。"
+      },
+      "E037": {
+        "text": "路演开场前30分钟，阿哲蹲在讲台下面，举着一根VGA线：\"他们的投影系统是五年前的型号。\"投资者已经开始入场了。"
+      }
+    }
+  },
+  {
+    "id": "annual_report_deadline",
+    "text": "年报披露倒计时",
+    "modifier": { "time": -1 },
+    "eventPool": {
+      "boosted": ["E001", "E006", "E009", "E015", "E025", "E028", "E029"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "event_checkin_day",
+    "text": "活动签到当天",
+    "modifier": { "risk": 1 },
+    "eventPool": {
+      "boosted": ["E002", "E014", "E017", "E024", "E039", "E040"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "regulatory_inquiry",
+    "text": "监管问询来函",
+    "modifier": { "risk": 1, "satisfaction": -1 },
+    "eventPool": {
+      "boosted": ["E009", "E015", "E016", "E020", "E021", "E028", "E044"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E009": {
+        "text": "监管问询函刚到，合规陈老师紧跟着发来邮件：\"对外发布的材料中有三处表述存在合规风险，在监管面前必须滴水不漏。\""
+      },
+      "E028": {
+        "text": "监管问询函还没回复完，合规陈老师又带来一个消息：第三方审计提前了一周——明天就到。你的底稿还散落在七个文件夹里。"
+      }
+    }
+  },
+  {
+    "id": "post_event_turbulence",
+    "text": "会后舆情发酵",
+    "modifier": { "risk": 1 },
+    "eventPool": {
+      "boosted": ["E015", "E020", "E021", "E022", "E044"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "budget_cut",
+    "text": "项目预算被砍 30%",
+    "modifier": { "budget": -2 },
+    "eventPool": {
+      "boosted": ["E005", "E008", "E010", "E024", "E030", "E033", "E043"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E005": {
+        "text": "预算刚被砍了30%，财务小周的邮件来得正是时候：\"上个月的活动餐饮报销没有合规单据，系统自动拒绝了。\"——每一分钱现在都至关重要。"
+      },
+      "E010": {
+        "text": "保荐人要求调整招股书中一组财务数据的呈现方式。放在平时你会直接请外部咨询——但预算刚被砍了30%，这条路已经走不通了。"
+      },
+      "E030": {
+        "text": "财务小周把ESG认证报价单放在你桌上。你看着那个数字——在预算被砍30%之后，每一个额外支出都像是在割肉。"
+      }
+    }
+  },
+  {
+    "id": "system_launch_day",
+    "text": "系统上线第一天",
+    "modifier": { "risk": 1 },
+    "eventPool": {
+      "boosted": ["E008", "E014", "E018", "E019", "E037", "E040"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "last_working_day",
+    "text": "最后一个工作日",
+    "modifier": { "time": -1 },
+    "eventPool": {
+      "boosted": ["E004", "E012", "E014", "E023", "E045"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "monday_morning",
+    "text": "周一早会刚结束",
+    "modifier": { "satisfaction": 1 },
+    "eventPool": {
+      "boosted": ["E003", "E004", "E011", "E013", "E022"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "friday_afternoon",
+    "text": "周五下午四点整",
+    "modifier": { "satisfaction": -1 },
+    "eventPool": {
+      "boosted": ["E004", "E011", "E012", "E014", "E023", "E045"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E011": {
+        "text": "周五下午4:47，沉默了两个月的甲方群突然弹出消息：\"@所有人 请在今天下班前确认最终版方案。\"距离下班还有73分钟——他们是算好时间的。"
+      },
+      "E045": {
+        "text": "周五晚上11:47，你正准备关灯睡觉。甲方群的一条消息让你的周末计划瞬间化为泡影。"
+      }
+    }
+  },
+  {
+    "id": "pre_holiday",
+    "text": "节前最后半天",
+    "modifier": { "time": -1 },
+    "eventPool": {
+      "boosted": ["E004", "E011", "E012", "E014", "E045"],
+      "boostWeight": 3
+    },
+    "textOverrides": {
+      "E011": {
+        "text": "放假前3小时，甲方群像是约好了一样集体上线。\"@所有人 请在节前确认最终版方案。\"——你知道节后他们会说自己放假前没收到。"
+      },
+      "E045": {
+        "text": "放假前夜11:47。甲方群的消息让你从\"假期模式预加载\"中瞬间清醒。节前最后半天——他们连假期的最后几小时都不放过。"
+      }
+    }
+  },
+  {
+    "id": "new_boss_day",
+    "text": "新老板到岗第一天",
+    "modifier": { "satisfaction": 1, "risk": 1 },
+    "eventPool": {
+      "boosted": ["E003", "E004", "E013", "E022", "E031"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "quarterly_review",
+    "text": "季度考核截止日",
+    "modifier": { "risk": 1 },
+    "eventPool": {
+      "boosted": ["E009", "E012", "E015", "E021", "E028", "E044"],
+      "boostWeight": 3
+    }
+  },
+  {
+    "id": "client_calls",
+    "text": "甲方突然来电话",
+    "modifier": { "satisfaction": 1 },
+    "eventPool": {
+      "boosted": ["E003", "E011", "E013", "E023", "E027", "E045"],
+      "boostWeight": 3
+    }
+  }
 ]

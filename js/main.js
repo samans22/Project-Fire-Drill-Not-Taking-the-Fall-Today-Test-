@@ -56,6 +56,7 @@ async function loadAllData() {
 
   gameData = { projects, characters, themes, endings };
   await Events.load();
+  Events.loadThemes(themes);
 }
 
 // ---------- 开始新游戏 ----------
@@ -69,6 +70,7 @@ function startNewGame() {
 
   gameState = Game.createInitialState(project);
   gameState.theme = themeText;
+  gameState.themeId = (typeof themeObj === 'object' && themeObj.id) ? themeObj.id : null;
 
   // 应用主题修正（如\"预算被砍30%\"开局-2预算）
   if (themeMod) {

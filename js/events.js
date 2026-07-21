@@ -4,7 +4,8 @@
  */
 const Events = {
   _pool: [],
-  _chainMap: {},   // flag → 后续事件列表
+  _chainMap: {},     // flag → 后续事件列表
+  _themeMap: {},     // themeId → theme 对象（用于加权和覆写）
 
   /** 加载事件 JSON */
   async load() {
@@ -16,6 +17,14 @@ const Events = {
     } catch (e) {
       console.error('事件数据加载失败:', e);
       return 0;
+    }
+  },
+
+  /** 加载主题数据（用于加权抽取和文本覆写） */
+  loadThemes(themes) {
+    this._themeMap = {};
+    for (const t of themes) {
+      if (t.id) this._themeMap[t.id] = t;
     }
   },
 
@@ -64,25 +73,122 @@ const Events = {
   },
 
   /**
-   * 优先抽取连锁事件，否则随机抽取普通事件
+   * 获取当前主题对象
    * @param {object} state
-   * @returns {object|null} 事件对象
+   * @returns {object|null} 主题对象
+   */
+  _getTheme(state) {
+    if (!state.themeId) return null;
+    return this._themeMap[state.themeId] || null;
+  },
+
+  /**
+   * 应用主题文本覆写
+   * 如果当前主题对该事件有自定义文本，覆写 title/text
+   * @param {object} event - 事件对象
+   * @param {object} theme - 主题对象
+   * @returns {object} 覆写后的事件对象（浅拷贝）
+   */
+  _applyTextOverrides(event, theme) {
+    if (!theme || !theme.textOverrides) return event;
+    const overrides = theme.textOverrides[event.eventId];
+    if (!overrides) return event;
+
+    // 浅拷贝事件，覆写指定字段
+    const modified = Object.assign({}, event);
+    if (overrides.title) modified.title = overrides.title;
+    if (overrides.text) modified.text = overrides.text;
+    // 也可以覆写单个选项的 feedback
+    if (overrides.choices) {
+      modified.choices = event.choices.map((ch, i) => {
+        if (overrides.choices[i]) {
+          return Object.assign({}, ch, overrides.choices[i]);
+        }
+        return ch;
+      });
+    }
+    return modified;
+  },
+
+  /**
+   * 优先抽取连锁事件，其次按主题加权抽取普通事件
+   * @param {object} state
+   * @returns {object|null} 事件对象（已应用文本覆写）
    */
   pickEvent(state) {
     // 优先：检查是否有可用的连锁事件
     const chainEvents = this._getChainEvents(state);
     if (chainEvents.length > 0) {
-      return chainEvents[Math.floor(Math.random() * chainEvents.length)];
+      const picked = chainEvents[Math.floor(Math.random() * chainEvents.length)];
+      const theme = this._getTheme(state);
+      return this._applyTextOverrides(picked, theme);
     }
 
     // 其次：普通可用事件
     const available = this.getAvailable(state);
     if (available.length === 0) return null;
 
-    // 按 followUpWeight 加权随机
+    // 主题加权抽取
+    const theme = this._getTheme(state);
+    const picked = this._themeWeightedPick(available, theme);
+
+    // 应用文本覆写
+    if (theme) {
+      return this._applyTextOverrides(picked, theme);
+    }
+    return picked;
+  },
+
+  /**
+   * 主题加权随机抽取
+   * 70% 概率从主题 boosted 事件中抽取，30% 从通用池抽取
+   * @param {array} available - 所有可用事件
+   * @param {object|null} theme - 当前主题对象
+   * @returns {object} 事件对象
+   */
+  _themeWeightedPick(available, theme) {
+    // 无主题或主题无事件池 → 纯加权随机
+    if (!theme || !theme.eventPool || !theme.eventPool.boosted) {
+      return this._weightedRandom(available);
+    }
+
+    const boostedIds = theme.eventPool.boosted || [];
+    const boostWeight = theme.eventPool.boostWeight || 3;
+
+    // 分离 boosted 和 general 池
+    const boostedPool = available.filter(ev => boostedIds.includes(ev.eventId));
+    const generalPool = available.filter(ev => !boostedIds.includes(ev.eventId));
+
+    // boosted 为空 → 全部从 general 抽取
+    if (boostedPool.length === 0) {
+      return this._weightedRandom(generalPool.length > 0 ? generalPool : available);
+    }
+
+    // general 为空 → 全部从 boosted 抽取
+    if (generalPool.length === 0) {
+      return this._weightedRandom(boostedPool);
+    }
+
+    // 70% 概率从 boosted 池抽取，30% 从 general 池抽取
+    const roll = Math.random();
+    if (roll < 0.7) {
+      return this._weightedRandom(boostedPool, boostWeight);
+    } else {
+      return this._weightedRandom(generalPool);
+    }
+  },
+
+  /**
+   * 按权重加权随机抽取
+   * @param {array} pool - 候选事件列表
+   * @param {number} extraWeight - 额外权重倍数（用于 boosted 事件）
+   * @returns {object} 事件对象
+   */
+  _weightedRandom(pool, extraWeight) {
     const weighted = [];
-    for (const ev of available) {
-      const weight = ev.followUpWeight || 1;
+    for (const ev of pool) {
+      const baseWeight = ev.followUpWeight || 1;
+      const weight = extraWeight ? baseWeight * extraWeight : baseWeight;
       for (let i = 0; i < weight; i++) weighted.push(ev);
     }
     return weighted[Math.floor(Math.random() * weighted.length)];
