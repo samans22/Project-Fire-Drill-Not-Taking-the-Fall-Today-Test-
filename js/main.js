@@ -61,10 +61,19 @@ async function loadAllData() {
 // ---------- 开始新游戏 ----------
 function startNewGame() {
   const project = gameData.projects[Math.floor(Math.random() * gameData.projects.length)];
-  const theme = gameData.themes[Math.floor(Math.random() * gameData.themes.length)];
+  const themeObj = gameData.themes[Math.floor(Math.random() * gameData.themes.length)];
+
+  // 兼容旧格式（纯字符串）和新格式（对象带 modifier）
+  const themeText = typeof themeObj === 'string' ? themeObj : themeObj.text;
+  const themeMod = (typeof themeObj === 'object' && themeObj.modifier) ? themeObj.modifier : null;
 
   gameState = Game.createInitialState(project);
-  gameState.theme = theme;
+  gameState.theme = themeText;
+
+  // 应用主题修正（如\"预算被砍30%\"开局-2预算）
+  if (themeMod) {
+    Game.applyEffects(gameState, themeMod);
+  }
 
   UI.hideStartScreen();
   UI.hideEnding();
@@ -74,7 +83,7 @@ function startNewGame() {
   // 随机群聊开场
   const openers = [
     ['系统', `项目包已分配：${project.name}`],
-    ['系统', `今日主题：${theme}`],
+    ['系统', `今日主题：${themeText}`],
     ['系统', `下班倒计时开始。祝你好运。`],
   ];
   openers.forEach(o => UI.addChatMessage(o[0], o[1]));

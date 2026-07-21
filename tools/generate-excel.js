@@ -68,8 +68,12 @@ projects.forEach(p => s2_proj.push([p.id, p.name, p.subtitle, p.tags.join(', '),
 const s2_char = [['角色ID', '名称', '头衔', '口头禅', '角色定位']];
 characters.forEach(c => s2_char.push([c.id, c.name, c.title, c.tagline, c.role]));
 
-const s2_theme = [['序号', '每日主题']];
-themes.forEach((t, i) => s2_theme.push([i + 1, t]));
+const s2_theme = [['序号', '每日主题', '开局修正']];
+themes.forEach((t, i) => {
+  const text = typeof t === 'string' ? t : t.text;
+  const mod = (typeof t === 'object' && t.modifier) ? effectStr(t.modifier) : '无';
+  s2_theme.push([i + 1, text, mod]);
+});
 
 const s2 = XLSX.utils.aoa_to_sheet([
   ['二-A、项目包'],
@@ -78,7 +82,7 @@ const s2 = XLSX.utils.aoa_to_sheet([
   ['二-B、角色列表'],
   ...s2_char,
   [],
-  ['二-C、每日主题（每局随机选1个，仅渲染氛围）'],
+  ['二-C、每日主题（每局随机选1个，带开局数值修正）'],
   ...s2_theme,
 ]);
 s2['!cols'] = [{ wch: 18 }, { wch: 20 }, { wch: 28 }, { wch: 30 }, { wch: 40 }];
@@ -183,7 +187,7 @@ const chainDefs = [
   ['🟢 正面连锁', 'E002-B', '重新生成专属二维码', 'qr_verified', 'E019', '自动化流程解锁', '时间+1 风险-2，还可触发特殊结局'],
   ['🔴 负面连锁', 'E008-B', '要求阿哲打补丁先撑过去', 'tech_debt', 'E018', '技术债爆发', '全游戏最重惩罚(-3/-2/-1)，或继续打补丁'],
   ['🔴 负面连锁', 'E009-B', '改两处，保留一处模糊表述', 'compliance_gap', 'E020', '合规隐患发酵', '风险-3 但代价高，或私下沟通欠人情'],
-  ['⚠️ 孤立标记', 'E006-C', '先用去年数据估算', 'estimated_data', '—', '(暂无连锁)', '该 flag 目前没有后续事件'],
+  ['🔴 负面连锁', 'E006-C', '先用去年数据估算', 'estimated_data', 'E021', '审计抽查数据溯源', '需花 3 时间补数据，或坦白承认降低满意度'],
 ];
 
 chainDefs.forEach(d => s5.push(d));
@@ -253,25 +257,24 @@ const s7 = XLSX.utils.aoa_to_sheet([
   ['5. 无可用事件', '推进天数 day++，重新抽取；仍无 → 强制结局'],
   [],
   ['事件分类统计', '数量'],
-  ['risk_compliance (风险合规)', 8],
-  ['time_pressure (时间压力)', 7],
-  ['budget_conflict (预算冲突)', 2],
+  ['risk_compliance (风险合规)', 10],
+  ['time_pressure (时间压力)', 8],
+  ['budget_conflict (预算冲突)', 3],
   ['satisfaction_mgmt (满意度管理)', 2],
-  ['缺少 category 字段', 1],
-  ['总计', 20],
+  ['总计', 24],
   [],
   ['选项统计', '数量'],
-  ['总选项数', 56],
+  ['总选项数', 68],
   ['2 选项事件', '4 (E004, E016, E017, E019)'],
-  ['3 选项事件', '16'],
+  ['3 选项事件', '20'],
   ['平均选项数/事件', '2.8'],
   [],
   ['设计统计', '数量'],
   ['全局标记总数', 7],
-  ['连锁路径', '5 (4负面 + 1正面)'],
-  ['结局总数', 11],
+  ['连锁路径', '6 (4负面 + 1正面 + 1数据)'],
+  ['结局总数', 12],
   ['致命结局', 3],
-  ['条件结局', 7],
+  ['条件结局', 8],
   ['默认结局', 1],
 ]);
 s7['!cols'] = [{ wch: 36 }, { wch: 60 }];

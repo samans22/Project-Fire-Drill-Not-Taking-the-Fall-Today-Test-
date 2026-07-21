@@ -70,6 +70,13 @@
     "tag": "甲方读心术"
   },
   {
+    "id": "data_magician",
+    "title": "数据魔术师",
+    "condition": { "flags_include": ["estimated_data"], "satisfaction_min": 3 },
+    "text": "你去年那份用\"管理层最佳估计\"填出来的报告，最终被监管认定为\"行业通用做法\"。运气也好，手段也罢——在这个行业里，有时候混过去本身就是一种能力。合规陈老师至今没想明白你是怎么过关的。",
+    "tag": "数字炼金术"
+  },
+  {
     "id": "barely_made_it",
     "title": "勉强过关",
     "condition": { "default": true },
