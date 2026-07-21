@@ -41,11 +41,14 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 body {
   font-family: var(--font-sans);
   background: var(--bg-primary);
   color: var(--text-primary);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -93,7 +96,7 @@ body {
   flex-direction: column;
   gap: 12px;
   flex-shrink: 0;
-  overflow-y: auto;
+  overflow: hidden;
 }
 .sidebar-section-title {
   font-size: 11px;
@@ -126,7 +129,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
+  overflow: hidden;
 }
 .event-card {
   background: var(--bg-card);
@@ -269,7 +272,7 @@ body {
   flex-direction: column;
   gap: 16px;
   flex-shrink: 0;
-  overflow-y: auto;
+  overflow: hidden;
 }
 /* 健康度仪表板 */
 .health-panel { }
@@ -325,6 +328,7 @@ body {
 }
 .chat-list {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   font-size: 12px;
   display: flex;
