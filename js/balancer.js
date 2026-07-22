@@ -26,8 +26,28 @@ const Balancer = {
    */
   setTheme(themeId, textPoolData) {
     this._themeId = themeId;
-    if (textPoolData && textPoolData.byTheme && textPoolData.byTheme[themeId]) {
-      this._activePool = textPoolData.byTheme[themeId];
+    if (textPoolData && textPoolData.byTheme) {
+      // 精确匹配
+      if (textPoolData.byTheme[themeId]) {
+        this._activePool = textPoolData.byTheme[themeId];
+      } else {
+        // P2: 模糊匹配回退 — 尝试找包含相同关键词的 theme key
+        const candidates = Object.keys(textPoolData.byTheme).filter(key => {
+          const short = key.replace(/_/g, '');
+          const target = themeId.replace(/_/g, '');
+          return short.includes(target) || target.includes(short);
+        });
+        if (candidates.length === 1) {
+          this._activePool = textPoolData.byTheme[candidates[0]];
+          console.warn('Balancer: fuzzy-matched theme "' + themeId + '" → "' + candidates[0] + '" (' + this._activePool.length + ' texts)');
+        } else if (candidates.length > 1) {
+          console.warn('Balancer: multiple fuzzy matches for "' + themeId + '": ' + candidates.join(', '));
+          this._activePool = textPoolData.byTheme[candidates[0]] || [];
+        } else {
+          console.error('Balancer: no text pool found for theme "' + themeId + '" — text pool system disabled for this session');
+          this._activePool = [];
+        }
+      }
     } else {
       this._activePool = [];
     }
@@ -295,11 +315,62 @@ const Balancer = {
     });
   },
 
+  /**
+   * 从旧格式 choice.pool 中动态选择 1 条文本（兼容层）
+   * 供 ui.js 旧 pool 处理路径使用
+   * @param {array} pool - choice.pool 数组
+   * @param {object} stats - 玩家当前 stats
+   * @param {number} day - 当前天数
+   * @returns {object|null} 选中的文本对象，或 null
+   */
+  selectFromPool(pool, stats, day) {
+    if (!pool || pool.length === 0) return null;
+    const results = this.selectTexts(pool, stats, day, 1);
+    return results.length > 0 ? results[0] : pool[0];
+  },
+
   /** 重置历史（新游戏开始时调用） */
   reset() {
     this._recentComposites = [];
     this._streakHigh = 0;
     this._streakLow = 0;
     this._activePool = [];
+  },
+};
+
+// ========== P2: 开发者调试面板 ==========
+// 在浏览器 console 中使用: __debugBalancer.status()
+window.__debugBalancer = {
+  status() {
+    console.log('Theme:', Balancer._themeId);
+    console.log('Active pool size:', Balancer._activePool.length);
+    console.log('Recent composites:', Balancer.getRecentHistory());
+    console.log('Streak high/low:', Balancer._streakHigh, Balancer._streakLow);
+    if (Balancer._activePool.length > 0) {
+      const eventIds = [...new Set(Balancer._activePool.map(t => t.eventId))].filter(Boolean).sort();
+      console.log('Covered eventIds (' + eventIds.length + '):', eventIds.join(', '));
+    }
+  },
+  eventCoverage(eventId) {
+    const texts = Balancer.getTextsForEvent(eventId);
+    console.log('Event ' + eventId + ': ' + texts.length + ' texts in active pool');
+    texts.forEach(t => {
+      const c = t.compositeScore;
+      const sign = c > 0 ? '+' : '';
+      console.log('  [' + sign + c + '] ' + t.textId + ': ' + t.text.substring(0, 50) + '...');
+    });
+  },
+  listOrphans() {
+    const events = Events._pool;
+    const realIds = new Set(events.map(e => e.eventId));
+    let count = 0;
+    for (const t of Balancer._activePool) {
+      const ids = (t.eventId || '').split(',').map(s => s.trim()).filter(Boolean);
+      if (ids.length === 0 || ids.every(id => !realIds.has(id))) {
+        console.log('ORPHAN: ' + t.textId + ' → "' + t.eventId + '"');
+        count++;
+      }
+    }
+    console.log('Total orphans in active pool: ' + count);
   },
 };

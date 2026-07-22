@@ -334,6 +334,9 @@ async function init() {
   // 加载数据
   await loadAllData();
 
+  // P2: 运行时数据健康检查
+  _runHealthCheck();
+
   const hasSaved = Storage.hasSavedGame();
   UI.showStartScreen(hasSaved);
 
@@ -348,8 +351,34 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 - 已就绪');
-  console.log(`  事件池: ${Events._pool.length} 条`);
+  console.log('🏢 项目救火办：今日不背锅 v0.9.1.1 — 已就绪 (P2: 文本焕新)');
+  console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条');
+}
+
+// ---------- P2: 运行时数据健康检查 ----------
+function _runHealthCheck() {
+  const tp = Events.getTextPoolData();
+  if (!tp || !tp.byTheme) {
+    console.warn('⚠️ text-pool.json 未加载或格式异常');
+    return;
+  }
+
+  let matchCount = 0;
+  let totalTexts = 0;
+
+  for (const theme of gameData.themes) {
+    if (tp.byTheme[theme.id]) {
+      matchCount++;
+      totalTexts += tp.byTheme[theme.id].length;
+    }
+  }
+
+  const totalThemes = gameData.themes.length;
+  if (matchCount < totalThemes) {
+    console.error('❌ 文本池主题匹配: ' + matchCount + '/' + totalThemes + ' — ' + (totalThemes - matchCount) + ' 个主题无文本池');
+  } else {
+    console.log('✅ 文本池健康检查通过: ' + matchCount + ' 主题, ' + totalTexts + ' 条文本');
+  }
 }
 
 // ---------- 启动 ----------
