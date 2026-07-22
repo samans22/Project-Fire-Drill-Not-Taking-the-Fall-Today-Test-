@@ -109,16 +109,8 @@ function _injectTextPoolChoices(event) {
   // 查找匹配的文本池候选
   const candidates = Balancer.getTextsForEvent(event.eventId);
   if (candidates.length < 3) {
-    // 文本池不够3条 → 保留原有选项，但增强 tooltip 显示效果数值
-    const enhanced = Object.assign({}, event);
-    enhanced.choices = event.choices.map(ch => {
-      const effectsHint = Balancer.formatEffectsHint(ch.effects || {});
-      const newHint = ch.hint
-        ? effectsHint + '\n' + ch.hint
-        : effectsHint;
-      return Object.assign({}, ch, { hint: newHint });
-    });
-    return enhanced;
+    // 文本池不够3条 → 保留原有选项，hint 保持原样（ui.js 统一格式化 tooltip）
+    return event;
   }
 
   // 动态选择3条文本
@@ -133,7 +125,6 @@ function _injectTextPoolChoices(event) {
     effects: t.effects,
     feedback: t.feedback,
     setsFlags: t.setsFlags || undefined,
-    hint: Balancer.formatEffectsHint(t.effects),
     composite: t.compositeScore,
     _fromPool: true,
   }));
