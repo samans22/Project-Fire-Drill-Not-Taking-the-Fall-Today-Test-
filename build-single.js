@@ -23,6 +23,7 @@ const characters = fs.readFileSync(path.join(BASE, 'js', 'data', 'characters.jso
 const themes = fs.readFileSync(path.join(BASE, 'js', 'data', 'themes.json'), 'utf-8');
 const endings = fs.readFileSync(path.join(BASE, 'js', 'data', 'endings.json'), 'utf-8');
 const eventsData = fs.readFileSync(path.join(BASE, 'js', 'data', 'events.json'), 'utf-8');
+const textPoolData = fs.readFileSync(path.join(BASE, 'js', 'data', 'text-pool.json'), 'utf-8');
 
 // 修改 main.js: 将 fetch 调用替换为内嵌数据
 // 替换 loadAllData 函数，直接使用内嵌的 JSON
@@ -39,7 +40,8 @@ async function loadAllData() {
   // 内嵌事件数据
   Events._pool = ${eventsData.trim()};
   Events._buildChainMap();
-  Balancer.initEvents(Events._pool);
+  // 内嵌文本池数据
+  Events._textPoolData = ${textPoolData.trim()};
   Events.loadThemes(themes);
 }
 `;
@@ -50,10 +52,9 @@ mainJs = mainJs.replace(
   inlineDataLoader.trim()
 );
 
-// 移除 Events.load() 调用（数据已内嵌）
+// 移除 fetch 调用（数据已内嵌）
 mainJs = mainJs.replace(/await Events\.load\(\);?\n?/, '');
-// 但 init 中 await loadAllData() 之后应该就是 init 绑定
-// 实际上 main.js 中 Events.load() 是在 loadAllData 函数里被调用的，我们已经替换掉了
+mainJs = mainJs.replace(/await Events\.loadTextPool\(\);?\n?/, '');
 
 // 组合 HTML
 const singleHtml = `<!DOCTYPE html>

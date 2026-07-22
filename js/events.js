@@ -6,6 +6,7 @@ const Events = {
   _pool: [],
   _chainMap: {},     // flag → 后续事件列表
   _themeMap: {},     // themeId → theme 对象（用于加权和覆写）
+  _textPoolData: null, // 文本池数据（按 themeId 索引）
 
   /** 加载事件 JSON */
   async load() {
@@ -18,6 +19,24 @@ const Events = {
       console.error('事件数据加载失败:', e);
       return 0;
     }
+  },
+
+  /** 加载文本池 JSON（供 balancer.js 使用） */
+  async loadTextPool() {
+    try {
+      const res = await fetch('js/data/text-pool.json');
+      this._textPoolData = await res.json();
+      return this._textPoolData._total || 0;
+    } catch (e) {
+      console.error('文本池加载失败:', e);
+      this._textPoolData = null;
+      return 0;
+    }
+  },
+
+  /** 获取当前主题的文本池数据 */
+  getTextPoolData() {
+    return this._textPoolData;
   },
 
   /** 加载主题数据（用于加权抽取和文本覆写） */

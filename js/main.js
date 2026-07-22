@@ -66,7 +66,7 @@ function onContinueClicked() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
-      currentEvent = modified;
+      currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       autoSave();
       return;
@@ -98,8 +98,48 @@ async function loadAllData() {
 
   gameData = { projects, characters, themes, endings };
   await Events.load();
-  Balancer.initEvents(Events._pool);
+  await Events.loadTextPool();
   Events.loadThemes(themes);
+}
+
+// ---------- 文本池注入：用主题文本池替换事件的固定选项 ----------
+function _injectTextPoolChoices(event) {
+  if (!event || event.isChainOnly) return event;
+
+  // 查找匹配的文本池候选
+  const candidates = Balancer.getTextsForEvent(event.eventId);
+  if (candidates.length < 3) {
+    // 文本池不够3条 → 保留原有选项，但增强 tooltip 显示效果数值
+    const enhanced = Object.assign({}, event);
+    enhanced.choices = event.choices.map(ch => {
+      const effectsHint = Balancer.formatEffectsHint(ch.effects || {});
+      const newHint = ch.hint
+        ? effectsHint + '\n' + ch.hint
+        : effectsHint;
+      return Object.assign({}, ch, { hint: newHint });
+    });
+    return enhanced;
+  }
+
+  // 动态选择3条文本
+  const selected = Balancer.selectTexts(
+    candidates, gameState.stats, gameState.day, 3, gameState.statsMax
+  );
+  if (!selected || selected.length < 3) return event;
+
+  // 转换为 choice 格式
+  const newChoices = selected.map(t => ({
+    text: t.text,
+    effects: t.effects,
+    feedback: t.feedback,
+    setsFlags: t.setsFlags || undefined,
+    hint: Balancer.formatEffectsHint(t.effects),
+    composite: t.compositeScore,
+    _fromPool: true,
+  }));
+
+  // 浅拷贝事件，替换 choices
+  return Object.assign({}, event, { choices: newChoices });
 }
 
 // ---------- 开始新游戏 ----------
@@ -121,6 +161,7 @@ function startNewGame() {
   }
 
   Balancer.reset();
+  Balancer.setTheme(gameState.themeId, Events.getTextPoolData());
 
   UI.hideStartScreen();
   UI.hideEnding();
@@ -153,6 +194,13 @@ function continueGame() {
   }
 
   gameState = saved;
+
+  // 恢复 Balancer 主题和文本池
+  Balancer.reset();
+  if (gameState.themeId) {
+    Balancer.setTheme(gameState.themeId, Events.getTextPoolData());
+  }
+
   UI.hideStartScreen();
   UI.hideEnding();
   UI.updateHeader(gameState);
@@ -178,7 +226,7 @@ function continueGame() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
-      currentEvent = modified;
+      currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       return;
     }
@@ -205,12 +253,15 @@ function nextTurn() {
   }
 
   // 抽取事件
-  const event = Events.pickEvent(gameState);
+  let event = Events.pickEvent(gameState);
   if (!event) {
     // 没有可用事件：推进天数
     advanceDayAndContinue();
     return;
   }
+
+  // 注入文本池选项
+  event = _injectTextPoolChoices(event);
 
   currentEvent = event;
   UI.showEvent(currentEvent, gameData.characters, gameState);
@@ -246,13 +297,17 @@ function advanceDayAndContinue() {
   }
 
   // 尝试抽取事件
-  const event = Events.pickEvent(gameState);
+  let event = Events.pickEvent(gameState);
   if (!event) {
     // 确实没有事件了，强制结束
     const defaultEnding = gameData.endings.find(e => e.condition?.default) || gameData.endings[0];
     endGame(defaultEnding);
     return;
   }
+
+  // 注入文本池选项
+  event = _injectTextPoolChoices(event);
+
   currentEvent = event;
   UI.showEvent(currentEvent, gameData.characters, gameState);
 }
