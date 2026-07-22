@@ -1087,9 +1087,8 @@ const Events = {
  * 文本池选择、综合评分、动态难度调节、震荡上升曲线
  *
  * 核心公式:
- *   compositeScore = time + budget + satisfaction + risk
- *   不反转 risk — 降风险(负值)拉低 composite，升风险(正值)拉高
- *   保守选项消耗资源(composite负)，冒险选项节省资源(composite正)
+ *   compositeScore = time + budget + satisfaction - risk
+ *   风险上升(正值)降低综合评分，风险下降(负值)提升综合评分
  */
 const Balancer = {
   /** 当前激活的主题文本池 */
@@ -1142,14 +1141,14 @@ const Balancer = {
 
   /**
    * 计算效果的综合收益评分
-   * time + budget + satisfaction + risk（不反转risk）
-   * 正值 = 整体有利（通常含风险上升），负值 = 整体不利（通常以资源换安全）
+   * time + budget + satisfaction - risk
+   * 正值 = 整体有利，负值 = 整体不利
    */
   computeComposite(effects) {
     return (
       (effects.time || 0) +
       (effects.budget || 0) +
-      (effects.satisfaction || 0) +
+      (effects.satisfaction || 0) -
       (effects.risk || 0)
     );
   },
@@ -7171,7 +7170,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7194,7 +7193,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -7216,7 +7215,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -7238,7 +7237,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": -3
         },
-        "compositeScore": -8,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "satisfaction_hit",
@@ -7262,7 +7261,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -7284,7 +7283,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "risk_taker"
         ],
@@ -7308,7 +7307,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "risk_taker"
         ],
@@ -7330,7 +7329,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -7352,7 +7351,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": [
           "time_save",
           "budget_gain",
@@ -7376,7 +7375,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -7399,7 +7398,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -7421,7 +7420,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -7443,7 +7442,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -7466,7 +7465,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_drain",
           "satisfaction_boost"
@@ -7489,7 +7488,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -7511,7 +7510,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7534,7 +7533,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7557,7 +7556,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -7579,7 +7578,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -7603,7 +7602,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7626,7 +7625,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -7651,7 +7650,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -7675,7 +7674,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -7697,7 +7696,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -7719,7 +7718,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_drain"
         ],
@@ -7741,7 +7740,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7764,7 +7763,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "budget_drain"
         ],
@@ -7786,7 +7785,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -7808,7 +7807,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -7831,7 +7830,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -7853,7 +7852,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -7875,7 +7874,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -7897,7 +7896,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -7919,7 +7918,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -7941,7 +7940,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -7964,7 +7963,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "time_heavy"
         ],
@@ -7986,7 +7985,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "budget_drain"
         ],
@@ -8010,7 +8009,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -8032,7 +8031,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -8056,7 +8055,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -8082,7 +8081,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -8107,7 +8106,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -8131,7 +8130,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -8153,7 +8152,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -8175,7 +8174,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -8197,7 +8196,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "budget_drain"
         ],
@@ -8219,7 +8218,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -8241,7 +8240,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "satisfaction_hit"
@@ -8264,7 +8263,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -8287,7 +8286,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -8309,7 +8308,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -8335,7 +8334,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -8357,7 +8356,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -8379,7 +8378,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -8403,7 +8402,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "risk_reducer"
         ],
@@ -8425,7 +8424,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "risk_reducer"
         ],
@@ -8447,7 +8446,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -8469,7 +8468,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -8492,7 +8491,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -8514,7 +8513,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -6,
+        "compositeScore": 0,
         "tags": [
           "risk_reducer"
         ],
@@ -8536,7 +8535,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -8560,7 +8559,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -8584,7 +8583,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -8606,7 +8605,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 3
         },
-        "compositeScore": 7,
+        "compositeScore": 1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -8630,7 +8629,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": [
           "time_save",
           "risk_taker"
@@ -8653,7 +8652,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -8675,7 +8674,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -8697,7 +8696,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -8719,7 +8718,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -8741,7 +8740,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -8763,7 +8762,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": [
           "risk_reducer"
         ],
@@ -8785,7 +8784,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -8807,7 +8806,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -8830,7 +8829,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -8852,7 +8851,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": [
           "time_heavy"
         ],
@@ -8874,7 +8873,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -8896,7 +8895,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -8919,7 +8918,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "time_save",
           "budget_gain"
@@ -8942,7 +8941,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "time_save",
           "budget_gain"
@@ -8965,7 +8964,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": [
           "budget_gain"
         ],
@@ -8987,7 +8986,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9009,7 +9008,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -9031,7 +9030,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -9054,7 +9053,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -9076,7 +9075,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -9100,7 +9099,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -9123,7 +9122,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost",
@@ -9147,7 +9146,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "budget_gain"
         ],
@@ -9169,7 +9168,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -9192,7 +9191,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": [
           "time_save",
           "budget_gain"
@@ -9215,7 +9214,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -9238,7 +9237,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -9260,7 +9259,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "satisfaction_hit"
@@ -9283,7 +9282,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -9306,7 +9305,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -9328,7 +9327,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9352,7 +9351,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -9374,7 +9373,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9440,7 +9439,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9462,7 +9461,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -9484,7 +9483,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9506,7 +9505,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -9528,7 +9527,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -9572,7 +9571,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -9594,7 +9593,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -9616,7 +9615,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9638,7 +9637,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9660,7 +9659,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9682,7 +9681,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9704,7 +9703,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9726,7 +9725,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -9748,7 +9747,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9770,7 +9769,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -9792,7 +9791,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -9815,7 +9814,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -9837,7 +9836,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -9861,7 +9860,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -9884,7 +9883,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -9906,7 +9905,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "budget_gain"
         ],
@@ -9928,7 +9927,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": [
           "risk_reducer"
         ],
@@ -9950,7 +9949,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -9972,7 +9971,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -9995,7 +9994,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -10017,7 +10016,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": [
           "time_heavy"
         ],
@@ -10039,7 +10038,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -10061,7 +10060,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -10083,7 +10082,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": [
           "risk_taker"
         ],
@@ -10105,7 +10104,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -10127,7 +10126,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -10149,7 +10148,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -10171,7 +10170,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -10193,7 +10192,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "budget_gain"
         ],
@@ -10215,7 +10214,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -10238,7 +10237,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -10262,7 +10261,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -10284,7 +10283,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": [
           "time_heavy",
           "budget_drain",
@@ -10308,7 +10307,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -10334,7 +10333,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "budget_drain"
         ],
@@ -10356,7 +10355,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -10378,7 +10377,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": [
           "risk_taker"
         ],
@@ -10400,7 +10399,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "risk_reducer"
         ],
@@ -10422,7 +10421,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "budget_drain"
         ],
@@ -10444,7 +10443,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -10469,7 +10468,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -10491,7 +10490,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "budget_drain"
         ],
@@ -10513,7 +10512,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "time_save",
           "budget_gain"
@@ -10536,7 +10535,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "budget_drain"
         ],
@@ -10558,7 +10557,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -10580,7 +10579,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -10603,7 +10602,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -10669,7 +10668,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -10713,7 +10712,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -10735,7 +10734,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "budget_gain"
         ],
@@ -10757,7 +10756,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -10779,7 +10778,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -10801,7 +10800,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "risk_reducer"
         ],
@@ -10823,7 +10822,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -10867,7 +10866,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -10912,7 +10911,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -10934,7 +10933,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "budget_drain"
         ],
@@ -10958,7 +10957,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -10981,7 +10980,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": [
           "time_heavy"
         ],
@@ -11003,7 +11002,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -11025,7 +11024,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -11047,7 +11046,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -11070,7 +11069,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost",
@@ -11094,7 +11093,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -11116,7 +11115,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -11138,7 +11137,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost",
           "risk_reducer"
@@ -11161,7 +11160,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "budget_drain",
           "satisfaction_boost"
@@ -11184,7 +11183,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -11208,7 +11207,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -11230,7 +11229,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -11254,7 +11253,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "risk_reducer"
         ],
@@ -11276,7 +11275,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -11298,7 +11297,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -11320,7 +11319,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -11343,7 +11342,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "risk_reducer"
         ],
@@ -11365,7 +11364,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -11388,7 +11387,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -11410,7 +11409,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -11432,7 +11431,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -11454,7 +11453,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -11476,7 +11475,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -11498,7 +11497,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -11520,7 +11519,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -11542,7 +11541,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -11564,7 +11563,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -11586,7 +11585,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -11630,7 +11629,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -11654,7 +11653,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -11677,7 +11676,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -11701,7 +11700,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -11723,7 +11722,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -7,
+        "compositeScore": -3,
         "tags": [
           "time_heavy",
           "budget_drain",
@@ -11749,7 +11748,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": [
           "risk_taker"
         ],
@@ -11773,7 +11772,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -3,
+        "compositeScore": -5,
         "tags": [
           "time_heavy"
         ],
@@ -11797,7 +11796,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": 1,
+        "compositeScore": 5,
         "tags": [
           "time_save",
           "budget_gain",
@@ -11825,7 +11824,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -11849,7 +11848,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -11871,7 +11870,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -11893,7 +11892,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -11915,7 +11914,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -11937,7 +11936,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -11959,7 +11958,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -11981,7 +11980,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "risk_reducer"
         ],
@@ -12003,7 +12002,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12069,7 +12068,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -12091,7 +12090,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -12113,7 +12112,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -12135,7 +12134,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -12157,7 +12156,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "risk_reducer"
         ],
@@ -12179,7 +12178,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -12203,7 +12202,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12226,7 +12225,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -12250,7 +12249,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12272,7 +12271,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12297,7 +12296,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -12321,7 +12320,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12346,7 +12345,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -12370,7 +12369,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -12396,7 +12395,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": [
           "satisfaction_hit"
         ],
@@ -12420,7 +12419,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12445,7 +12444,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": [
           "risk_taker"
         ],
@@ -12469,7 +12468,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12492,7 +12491,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -12514,7 +12513,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -12536,7 +12535,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12559,7 +12558,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -12581,7 +12580,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -12605,7 +12604,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12630,7 +12629,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12654,7 +12653,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "budget_gain",
           "satisfaction_hit",
@@ -12682,7 +12681,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12705,7 +12704,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -12727,7 +12726,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12749,7 +12748,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -12771,7 +12770,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12793,7 +12792,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -12815,7 +12814,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -12837,7 +12836,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -12859,7 +12858,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "time_heavy"
         ],
@@ -12881,7 +12880,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "risk_reducer"
         ],
@@ -12903,7 +12902,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -12925,7 +12924,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -12947,7 +12946,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -12969,7 +12968,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -12992,7 +12991,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -13014,7 +13013,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -13038,7 +13037,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -13061,7 +13060,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -13083,7 +13082,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "budget_drain"
         ],
@@ -13105,7 +13104,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -13128,7 +13127,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -13150,7 +13149,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "budget_drain",
           "satisfaction_boost"
@@ -13173,7 +13172,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -13196,7 +13195,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -13218,7 +13217,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13241,7 +13240,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -13264,7 +13263,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13289,7 +13288,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -13311,7 +13310,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -13334,7 +13333,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -13356,7 +13355,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -13378,7 +13377,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -13400,7 +13399,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -13422,7 +13421,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -13444,7 +13443,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -13466,7 +13465,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -13488,7 +13487,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -13510,7 +13509,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -13532,7 +13531,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -13554,7 +13553,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "satisfaction_boost"
         ],
@@ -13576,7 +13575,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -13598,7 +13597,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -13620,7 +13619,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13643,7 +13642,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13666,7 +13665,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -13688,7 +13687,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -13710,7 +13709,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": [
           "budget_gain"
         ],
@@ -13754,7 +13753,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -13776,7 +13775,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -13798,7 +13797,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13821,7 +13820,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "satisfaction_boost"
         ],
@@ -13843,7 +13842,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -13866,7 +13865,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -13888,7 +13887,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -13910,7 +13909,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": [
           "risk_taker"
         ],
@@ -13934,7 +13933,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -13956,7 +13955,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "time_save",
           "budget_gain"
@@ -13979,7 +13978,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -14045,7 +14044,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -14156,7 +14155,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14178,7 +14177,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -14201,7 +14200,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -14245,7 +14244,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -14267,7 +14266,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -14289,7 +14288,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14333,7 +14332,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -14355,7 +14354,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "budget_gain"
         ],
@@ -14377,7 +14376,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -14421,7 +14420,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14443,7 +14442,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -14467,7 +14466,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -14490,7 +14489,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -14512,7 +14511,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -14534,7 +14533,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -14556,7 +14555,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -14578,7 +14577,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -14600,7 +14599,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -14623,7 +14622,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -14645,7 +14644,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -14667,7 +14666,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -14689,7 +14688,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -14711,7 +14710,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -14755,7 +14754,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "time_heavy"
         ],
@@ -14777,7 +14776,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -14799,7 +14798,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14821,7 +14820,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -14843,7 +14842,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14865,7 +14864,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -14887,7 +14886,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -14909,7 +14908,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -14931,7 +14930,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "satisfaction_hit"
         ],
@@ -14955,7 +14954,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -14977,7 +14976,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "neutral"
         ],
@@ -14999,7 +14998,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": [
           "time_save",
           "budget_gain",
@@ -15023,7 +15022,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -15045,7 +15044,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -15067,7 +15066,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -15089,7 +15088,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -15155,7 +15154,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "risk_reducer"
         ],
@@ -15177,7 +15176,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -15199,7 +15198,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15221,7 +15220,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -15243,7 +15242,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -15265,7 +15264,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15287,7 +15286,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -15309,7 +15308,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -15353,7 +15352,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -15375,7 +15374,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -15397,7 +15396,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15419,7 +15418,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -15441,7 +15440,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -15463,7 +15462,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15485,7 +15484,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -15508,7 +15507,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -15554,7 +15553,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -15577,7 +15576,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -15599,7 +15598,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -15643,7 +15642,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -15687,7 +15686,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -15731,7 +15730,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15753,7 +15752,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -15775,7 +15774,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -15797,7 +15796,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -15841,7 +15840,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -15863,7 +15862,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -15886,7 +15885,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -15908,7 +15907,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "satisfaction_boost"
         ],
@@ -15930,7 +15929,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "budget_gain",
           "risk_taker"
@@ -15953,7 +15952,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -15997,7 +15996,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -16041,7 +16040,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -16063,7 +16062,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -16087,7 +16086,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -16109,7 +16108,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -16131,7 +16130,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": [
           "risk_taker"
         ],
@@ -16175,7 +16174,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -16285,7 +16284,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -16307,7 +16306,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -16329,7 +16328,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -3,
+        "compositeScore": -5,
         "tags": [
           "time_heavy",
           "satisfaction_hit"
@@ -16352,7 +16351,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -16374,7 +16373,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 2,
+        "compositeScore": 4,
         "tags": [
           "budget_gain",
           "satisfaction_boost"
@@ -16397,7 +16396,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -16441,7 +16440,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "budget_gain"
         ],
@@ -16463,7 +16462,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -16486,7 +16485,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -16530,7 +16529,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -16574,7 +16573,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -16596,7 +16595,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -16642,7 +16641,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "neutral"
         ],
@@ -16664,7 +16663,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -16686,7 +16685,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -16708,7 +16707,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -16730,7 +16729,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -16796,7 +16795,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": [
           "time_heavy",
           "budget_gain",
@@ -16820,7 +16819,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -16842,7 +16841,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -16864,7 +16863,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -16908,7 +16907,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -16930,7 +16929,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "time_heavy",
           "budget_gain"
@@ -16953,7 +16952,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "time_heavy",
           "satisfaction_boost",
@@ -16977,7 +16976,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -16999,7 +16998,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -17021,7 +17020,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy",
           "budget_drain"
@@ -17044,7 +17043,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -17066,7 +17065,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -17088,7 +17087,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -17110,7 +17109,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17132,7 +17131,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -17156,7 +17155,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -17178,7 +17177,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17200,7 +17199,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": [
           "satisfaction_hit",
           "risk_taker"
@@ -17223,7 +17222,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -17245,7 +17244,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -17267,7 +17266,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "neutral"
         ],
@@ -17289,7 +17288,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -3,
+        "compositeScore": 3,
         "tags": [
           "risk_reducer"
         ],
@@ -17311,7 +17310,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "satisfaction_boost"
         ],
@@ -17333,7 +17332,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -3,
+        "compositeScore": -5,
         "tags": [
           "time_heavy",
           "satisfaction_hit"
@@ -17378,7 +17377,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17400,7 +17399,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -17422,7 +17421,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "time_heavy",
           "satisfaction_boost",
@@ -17446,7 +17445,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17468,7 +17467,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -17490,7 +17489,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -17513,7 +17512,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "neutral"
         ],
@@ -17535,7 +17534,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -17557,7 +17556,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -17580,7 +17579,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17602,7 +17601,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": [
           "time_heavy",
           "budget_gain",
@@ -17626,7 +17625,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -17648,7 +17647,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17670,7 +17669,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": [
           "satisfaction_hit",
           "risk_taker"
@@ -17695,7 +17694,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": [
           "time_heavy",
           "satisfaction_boost",
@@ -17719,7 +17718,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17741,7 +17740,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "neutral"
         ],
@@ -17763,7 +17762,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -17808,7 +17807,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -17830,7 +17829,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -17852,7 +17851,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17874,7 +17873,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -17918,7 +17917,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -17940,7 +17939,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -17962,7 +17961,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -17984,7 +17983,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -18028,7 +18027,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -18051,7 +18050,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": [
           "budget_gain"
         ],
@@ -18140,7 +18139,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -18162,7 +18161,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": [
           "time_heavy"
         ],
@@ -18184,7 +18183,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": [
           "neutral"
         ],
@@ -18230,7 +18229,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -18252,7 +18251,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -18296,7 +18295,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "satisfaction_boost"
@@ -18319,7 +18318,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": [
           "time_heavy"
         ],
@@ -18341,7 +18340,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": [
           "budget_gain",
           "satisfaction_hit"
@@ -18386,7 +18385,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -18408,7 +18407,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": [
           "budget_gain"
         ],
@@ -18430,7 +18429,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": [
           "time_heavy"
         ],
@@ -18452,7 +18451,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": [
           "neutral"
         ],
@@ -18474,7 +18473,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -18496,7 +18495,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -18586,7 +18585,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": 0,
+        "compositeScore": 4,
         "tags": [
           "budget_gain",
           "satisfaction_boost",
@@ -18610,7 +18609,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": [
           "budget_gain"
         ],
@@ -18632,7 +18631,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": [
           "time_heavy",
           "risk_reducer"
@@ -18655,7 +18654,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
@@ -18677,7 +18676,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": [
           "risk_taker"
         ],
