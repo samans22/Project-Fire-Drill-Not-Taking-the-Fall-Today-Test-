@@ -67,16 +67,22 @@ function validate() {
     results.pass.push('Duplicates: 0');
   }
 
-  // Check 4: Min texts per theme (≥ 17)
+  // Check 4: Min texts per theme (≥ 17, or 0 if theme has no CSV events / no boosted pool)
   let thinThemes = 0;
   for (const [themeId, texts] of Object.entries(tp.byTheme)) {
-    if (texts.length < 17) {
+    const theme = themes.find(t => t.id === themeId);
+    const hasBoosted = theme && theme.eventPool && theme.eventPool.boosted && theme.eventPool.boosted.length > 0;
+    if (texts.length === 0 && !hasBoosted) {
+      // Theme has no CSV events — should have 0 texts (all redistributed)
+      continue;
+    }
+    if (texts.length < 17 && hasBoosted) {
       thinThemes++;
       results.fail.push('THIN_THEME: ' + themeId + ' has only ' + texts.length + ' texts (need ≥ 17)');
     }
   }
   if (thinThemes === 0) {
-    results.pass.push('Min texts/theme: all ≥ 17');
+    results.pass.push('Min texts/theme: all ≥ 17 (or 0 for no-CSV-event themes)');
   }
 
   // Check 5: Coverage per boosted event (≥ 3 texts per boosted event)

@@ -2,18 +2,32 @@
   {
     "id": "project_kickoff",
     "text": "项目启动会当天",
-    "modifier": { "satisfaction": 1 },
+    "modifier": {
+      "satisfaction": 1
+    },
     "eventPool": {
-      "boosted": ["E003", "E004", "E011", "E013"],
+      "boosted": [],
       "boostWeight": 3
     }
   },
   {
     "id": "client_adds_requirements",
     "text": "客户突然加需求",
-    "modifier": { "satisfaction": -1 },
+    "modifier": {
+      "satisfaction": -1
+    },
     "eventPool": {
-      "boosted": ["E003", "E011", "E013", "E023", "E027", "E032"],
+      "boosted": [
+        "E013",
+        "M001",
+        "M001_S2A",
+        "M001_S2B",
+        "M002",
+        "M002_S2A",
+        "M002_S2B",
+        "M002_S2C",
+        "T003"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -31,18 +45,43 @@
   {
     "id": "leadership_review",
     "text": "领导查看中期版本",
-    "modifier": { "satisfaction": 1, "risk": 1 },
+    "modifier": {
+      "satisfaction": 1,
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E004", "E012", "E013", "E022"],
+      "boosted": [
+        "E007",
+        "E022",
+        "E046",
+        "M007",
+        "M007_S2A",
+        "M007_S2B"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "vendor_failure",
     "text": "供应商集体掉链子",
-    "modifier": { "budget": -1 },
+    "modifier": {
+      "budget": -1
+    },
     "eventPool": {
-      "boosted": ["E002", "E005", "E006", "E024", "E029", "E035", "E042"],
+      "boosted": [
+        "E006",
+        "E024",
+        "E029",
+        "E035",
+        "E042",
+        "M008",
+        "M008_S2A",
+        "M008_S2B",
+        "M008_S2C",
+        "M008_S3A",
+        "M008_S3B",
+        "T007"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -59,16 +98,30 @@
     "text": "下班前突击汇报",
     "modifier": {},
     "eventPool": {
-      "boosted": ["E004", "E012", "E013", "E014", "E023", "E045"],
+      "boosted": [
+        "E011"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "roadshow_eve",
     "text": "路演前 24 小时",
-    "modifier": { "risk": 1 },
+    "modifier": {
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E010", "E012", "E014", "E023", "E031", "E035", "E037"],
+      "boosted": [
+        "E010",
+        "E031",
+        "E032",
+        "E034",
+        "M004",
+        "M004_S2A",
+        "M004_S2B",
+        "T001",
+        "T002"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -91,25 +144,62 @@
     "text": "年报披露倒计时",
     "modifier": {},
     "eventPool": {
-      "boosted": ["E001", "E006", "E009", "E015", "E025", "E028", "E029"],
+      "boosted": [
+        "E001",
+        "E025",
+        "E026",
+        "E027",
+        "M006",
+        "M006_S2A",
+        "M006_S2B",
+        "M006_S2C",
+        "T013"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "event_checkin_day",
     "text": "活动签到当天",
-    "modifier": { "risk": 1 },
+    "modifier": {
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E002", "E014", "E017", "E024", "E039", "E040"],
+      "boosted": [
+        "E002",
+        "E017",
+        "E038",
+        "E039",
+        "E040",
+        "E041"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "regulatory_inquiry",
     "text": "监管问询来函",
-    "modifier": { "risk": 1, "satisfaction": -1 },
+    "modifier": {
+      "risk": 1,
+      "satisfaction": -1
+    },
     "eventPool": {
-      "boosted": ["E009", "E015", "E016", "E020", "E021", "E028", "E044"],
+      "boosted": [
+        "E009",
+        "E016",
+        "E020",
+        "E021",
+        "E028",
+        "E036",
+        "E044",
+        "M005",
+        "M005_S2A",
+        "M005_S2B",
+        "M005_S2C",
+        "M005_S3A",
+        "M005_S3B",
+        "T006"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -124,18 +214,31 @@
   {
     "id": "post_event_turbulence",
     "text": "会后舆情发酵",
-    "modifier": { "risk": 1 },
+    "modifier": {
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E015", "E020", "E021", "E022", "E044"],
+      "boosted": [
+        "E015"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "budget_cut",
     "text": "项目预算被砍 30%",
-    "modifier": { "budget": -2 },
+    "modifier": {
+      "budget": -2
+    },
     "eventPool": {
-      "boosted": ["E005", "E008", "E010", "E024", "E030", "E033", "E043"],
+      "boosted": [
+        "E005",
+        "E030",
+        "E033",
+        "E043",
+        "T004",
+        "T005"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -153,9 +256,22 @@
   {
     "id": "system_launch_day",
     "text": "系统上线第一天",
-    "modifier": { "risk": 1 },
+    "modifier": {
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E008", "E014", "E018", "E019", "E037", "E040"],
+      "boosted": [
+        "E008",
+        "E018",
+        "E019",
+        "E037",
+        "M003",
+        "M003_S2A",
+        "M003_S2B",
+        "M003_S2C",
+        "M003_S3A",
+        "M003_S3B"
+      ],
       "boostWeight": 3
     }
   },
@@ -164,25 +280,36 @@
     "text": "最后一个工作日",
     "modifier": {},
     "eventPool": {
-      "boosted": ["E004", "E012", "E014", "E023", "E045"],
+      "boosted": [
+        "T012"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "monday_morning",
     "text": "周一早会刚结束",
-    "modifier": { "satisfaction": 1 },
+    "modifier": {
+      "satisfaction": 1
+    },
     "eventPool": {
-      "boosted": ["E003", "E004", "E011", "E013", "E022"],
+      "boosted": [
+        "E004"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "friday_afternoon",
     "text": "周五下午四点整",
-    "modifier": { "satisfaction": -1 },
+    "modifier": {
+      "satisfaction": -1
+    },
     "eventPool": {
-      "boosted": ["E004", "E011", "E012", "E014", "E023", "E045"],
+      "boosted": [
+        "E014",
+        "T008"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -199,7 +326,9 @@
     "text": "节前最后半天",
     "modifier": {},
     "eventPool": {
-      "boosted": ["E004", "E011", "E012", "E014", "E045"],
+      "boosted": [
+        "T009"
+      ],
       "boostWeight": 3
     },
     "textOverrides": {
@@ -214,27 +343,43 @@
   {
     "id": "new_boss_day",
     "text": "新老板到岗第一天",
-    "modifier": { "satisfaction": 1, "risk": 1 },
+    "modifier": {
+      "satisfaction": 1,
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E003", "E004", "E013", "E022", "E031"],
+      "boosted": [
+        "T010"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "quarterly_review",
     "text": "季度考核截止日",
-    "modifier": { "risk": 1 },
+    "modifier": {
+      "risk": 1
+    },
     "eventPool": {
-      "boosted": ["E009", "E012", "E015", "E021", "E028", "E044"],
+      "boosted": [
+        "T011"
+      ],
       "boostWeight": 3
     }
   },
   {
     "id": "client_calls",
     "text": "甲方突然来电话",
-    "modifier": { "satisfaction": 1 },
+    "modifier": {
+      "satisfaction": 1
+    },
     "eventPool": {
-      "boosted": ["E003", "E011", "E013", "E023", "E027", "E045"],
+      "boosted": [
+        "E003",
+        "E012",
+        "E023",
+        "E045"
+      ],
       "boostWeight": 3
     }
   }

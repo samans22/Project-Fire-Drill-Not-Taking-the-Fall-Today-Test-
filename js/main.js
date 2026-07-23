@@ -113,9 +113,19 @@ function _injectTextPoolChoices(event) {
     return event;
   }
 
+  // v0.9.1.3: 运行时安全校验 — 确保候选文本 themeId 与当前主题一致
+  const currentThemeId = gameState.themeId;
+  const validCandidates = currentThemeId
+    ? candidates.filter(t => !t.themeId || t.themeId === currentThemeId)
+    : candidates;
+  if (validCandidates.length < 3) {
+    console.warn('⚠ _injectTextPoolChoices: ' + event.eventId + ' 候选不足 (有效=' + validCandidates.length + ', 总共=' + candidates.length + ', theme=' + currentThemeId + ') — 回退到原始事件选项');
+    return event;
+  }
+
   // 动态选择3条文本
   const selected = Balancer.selectTexts(
-    candidates, gameState.stats, gameState.day, 3, gameState.statsMax
+    validCandidates, gameState.stats, gameState.day, 3, gameState.statsMax
   );
   if (!selected || selected.length < 3) return event;
 
@@ -342,8 +352,8 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 v0.9.1.2 — 已就绪 (P2: 文本池严格主题映射)');
-  console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条');
+  console.log('🏢 项目救火办：今日不背锅 v0.9.1.3 — 已就绪 (P2: 文本池严格主题映射 v2)');
+  console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条 | themes.json boosted 已对齐 CSV');
 }
 
 // ---------- P2: 运行时数据健康检查 ----------
@@ -363,13 +373,33 @@ function _runHealthCheck() {
       matchCount++;
       const texts = tp.byTheme[theme.id];
       totalTexts += texts.length;
-      // P2 v0.9.1.2: 检查每条文本的 themeId 是否与所在 pool 一致
+      // P2 v0.9.1.3: 检查每条文本的 themeId 是否与所在 pool 一致
       for (const t of texts) {
         if (t.themeId && t.themeId !== theme.id) {
           crossContaminated++;
-          if (crossContaminated <= 3) {
+          if (crossContaminated <= 5) {
             console.warn('⚠ 跨主题污染: ' + t.textId + ' themeId=' + t.themeId + ' 但位于 ' + theme.id + ' 池中');
           }
+        }
+      }
+    }
+  }
+
+  // v0.9.1.3: 检查 themes.json boosted 事件是否有文本池覆盖
+  let boostMismatch = 0;
+  for (const theme of gameData.themes) {
+    const boosted = theme.eventPool?.boosted || [];
+    const pool = tp.byTheme[theme.id];
+    if (!pool) continue;
+    for (const evId of boosted) {
+      const coverage = pool.filter(t => {
+        const ids = (t.eventId || '').split(',').map(s => s.trim());
+        return ids.includes(evId);
+      }).length;
+      if (coverage < 3) {
+        boostMismatch++;
+        if (boostMismatch <= 5) {
+          console.warn('⚠ 主题 ' + theme.id + ' boosted ' + evId + ' 仅有 ' + coverage + ' 条文本池覆盖');
         }
       }
     }
@@ -379,10 +409,15 @@ function _runHealthCheck() {
   if (crossContaminated > 0) {
     console.error('❌ 文本池跨主题污染: ' + crossContaminated + ' 条文本 themeId 与所在池不匹配');
   }
+  if (boostMismatch > 0) {
+    console.warn('⚠️ Boosted 事件覆盖不足: ' + boostMismatch + ' 个 boosted 事件 < 3 条文本 (将回退到原始事件选项)');
+  }
   if (matchCount < totalThemes) {
     console.error('❌ 文本池主题匹配: ' + matchCount + '/' + totalThemes + ' — ' + (totalThemes - matchCount) + ' 个主题无文本池');
   } else {
-    console.log('✅ 文本池健康检查通过: ' + matchCount + ' 主题, ' + totalTexts + ' 条文本' + (crossContaminated > 0 ? ' (' + crossContaminated + ' 污染!)' : ''));
+    console.log('✅ 文本池健康检查通过: ' + matchCount + ' 主题, ' + totalTexts + ' 条文本'
+      + (crossContaminated > 0 ? ' (' + crossContaminated + ' 污染!)' : '')
+      + (boostMismatch > 0 ? ' (' + boostMismatch + ' 低覆盖 boosted)' : ''));
   }
 }
 

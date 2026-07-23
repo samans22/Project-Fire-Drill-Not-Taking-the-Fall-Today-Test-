@@ -175,6 +175,7 @@ const Events = {
   /**
    * 主题加权随机抽取
    * 70% 概率从主题 boosted 事件中抽取，30% 从通用池抽取
+   * v0.9.1.3: general 池优先选择有文本池覆盖的事件
    * @param {array} available - 所有可用事件
    * @param {object|null} theme - 当前主题对象
    * @returns {object} 事件对象
@@ -192,9 +193,29 @@ const Events = {
     const boostedPool = available.filter(ev => boostedIds.includes(ev.eventId));
     const generalPool = available.filter(ev => !boostedIds.includes(ev.eventId));
 
-    // boosted 为空 → 全部从 general 抽取
+    // v0.9.1.3: general 池按文本池覆盖分级
+    // 优先选择有文本池覆盖的事件（避免显示不相关文本）
+    let generalWithCoverage = generalPool;
+    let generalWithoutCoverage = [];
+    if (this._textPoolData && this._textPoolData.byTheme && theme.id) {
+      const themePool = this._textPoolData.byTheme[theme.id];
+      if (themePool) {
+        generalWithCoverage = generalPool.filter(ev => {
+          const count = themePool.filter(t => {
+            const ids = (t.eventId || '').split(',').map(s => s.trim());
+            return ids.includes(ev.eventId);
+          }).length;
+          return count >= 3;
+        });
+        generalWithoutCoverage = generalPool.filter(ev => !generalWithCoverage.includes(ev));
+      }
+    }
+
+    // boosted 为空 → 优先从有覆盖的 general 抽取
     if (boostedPool.length === 0) {
-      return this._weightedRandom(generalPool.length > 0 ? generalPool : available);
+      const pickPool = generalWithCoverage.length > 0 ? generalWithCoverage :
+                       (generalWithoutCoverage.length > 0 ? generalWithoutCoverage : available);
+      return this._weightedRandom(pickPool);
     }
 
     // general 为空 → 全部从 boosted 抽取
@@ -207,7 +228,9 @@ const Events = {
     if (roll < 0.7) {
       return this._weightedRandom(boostedPool, boostWeight);
     } else {
-      return this._weightedRandom(generalPool);
+      // v0.9.1.3: 30% general 路径 — 优先有文本池覆盖的事件
+      const pickPool = generalWithCoverage.length > 0 ? generalWithCoverage : generalWithoutCoverage;
+      return this._weightedRandom(pickPool.length > 0 ? pickPool : generalPool);
     }
   },
 
