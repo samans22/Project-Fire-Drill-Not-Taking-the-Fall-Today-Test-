@@ -342,7 +342,7 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 v0.9.1.1 — 已就绪 (P2: 文本焕新)');
+  console.log('🏢 项目救火办：今日不背锅 v0.9.1.2 — 已就绪 (P2: 文本池严格主题映射)');
   console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条');
 }
 
@@ -356,19 +356,33 @@ function _runHealthCheck() {
 
   let matchCount = 0;
   let totalTexts = 0;
+  let crossContaminated = 0;
 
   for (const theme of gameData.themes) {
     if (tp.byTheme[theme.id]) {
       matchCount++;
-      totalTexts += tp.byTheme[theme.id].length;
+      const texts = tp.byTheme[theme.id];
+      totalTexts += texts.length;
+      // P2 v0.9.1.2: 检查每条文本的 themeId 是否与所在 pool 一致
+      for (const t of texts) {
+        if (t.themeId && t.themeId !== theme.id) {
+          crossContaminated++;
+          if (crossContaminated <= 3) {
+            console.warn('⚠ 跨主题污染: ' + t.textId + ' themeId=' + t.themeId + ' 但位于 ' + theme.id + ' 池中');
+          }
+        }
+      }
     }
   }
 
   const totalThemes = gameData.themes.length;
+  if (crossContaminated > 0) {
+    console.error('❌ 文本池跨主题污染: ' + crossContaminated + ' 条文本 themeId 与所在池不匹配');
+  }
   if (matchCount < totalThemes) {
     console.error('❌ 文本池主题匹配: ' + matchCount + '/' + totalThemes + ' — ' + (totalThemes - matchCount) + ' 个主题无文本池');
   } else {
-    console.log('✅ 文本池健康检查通过: ' + matchCount + ' 主题, ' + totalTexts + ' 条文本');
+    console.log('✅ 文本池健康检查通过: ' + matchCount + ' 主题, ' + totalTexts + ' 条文本' + (crossContaminated > 0 ? ' (' + crossContaminated + ' 污染!)' : ''));
   }
 }
 
