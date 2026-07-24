@@ -14,7 +14,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -30,7 +30,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -46,7 +46,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -62,7 +62,7 @@
           "satisfaction": -2,
           "risk": -3
         },
-        "compositeScore": -8,
+        "compositeScore": -2,
         "tags": "time_heavy;satisfaction_hit;risk_reducer",
         "tone": "formal"
       },
@@ -78,7 +78,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -94,7 +94,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky",
         "setsFlags": "data_missing"
@@ -111,7 +111,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -127,7 +127,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -143,7 +143,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -159,7 +159,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -175,7 +175,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -191,7 +191,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -207,7 +207,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -223,7 +223,7 @@
           "satisfaction": 2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -239,7 +239,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -255,7 +255,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -271,7 +271,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -287,7 +287,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -303,7 +303,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "partial_esg_data"
@@ -320,7 +320,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -336,7 +336,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "esg_data_error"
@@ -353,7 +353,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe",
         "setsFlags": "esg_data_error"
@@ -370,7 +370,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -386,7 +386,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -402,7 +402,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -418,7 +418,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -434,7 +434,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -450,7 +450,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -466,7 +466,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -482,7 +482,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -498,7 +498,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -514,7 +514,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -530,7 +530,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -546,7 +546,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -562,7 +562,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -578,7 +578,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -594,7 +594,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -610,7 +610,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -626,7 +626,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -642,7 +642,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -658,7 +658,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -674,7 +674,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -690,7 +690,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -706,7 +706,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -722,7 +722,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -738,7 +738,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -756,7 +756,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -772,7 +772,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -788,7 +788,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -804,7 +804,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -820,7 +820,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -836,7 +836,7 @@
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -6,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -852,7 +852,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -868,7 +868,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -884,7 +884,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -900,7 +900,7 @@
           "satisfaction": 1,
           "risk": 3
         },
-        "compositeScore": 7,
+        "compositeScore": 1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -916,7 +916,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": "time_save;risk_taker",
         "tone": "risky"
       },
@@ -932,7 +932,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -948,7 +948,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -964,7 +964,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -980,7 +980,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -996,7 +996,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -1012,7 +1012,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -1028,7 +1028,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -1044,7 +1044,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -1060,7 +1060,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1076,7 +1076,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -1092,7 +1092,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -1108,7 +1108,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -1124,7 +1124,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -1140,7 +1140,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -1156,7 +1156,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -1172,7 +1172,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -1188,7 +1188,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -1204,7 +1204,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -1220,7 +1220,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -1236,7 +1236,7 @@
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;satisfaction_hit",
         "tone": "professional"
       },
@@ -1252,7 +1252,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -1268,7 +1268,7 @@
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -1284,7 +1284,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -1300,7 +1300,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -1316,7 +1316,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -1332,7 +1332,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -1348,7 +1348,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1364,7 +1364,7 @@
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain;satisfaction_hit",
         "tone": "safe"
       },
@@ -1380,7 +1380,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -1396,7 +1396,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1412,7 +1412,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -1428,7 +1428,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1444,7 +1444,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1460,7 +1460,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1476,7 +1476,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1508,7 +1508,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1524,7 +1524,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1556,7 +1556,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1572,7 +1572,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1588,7 +1588,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1604,7 +1604,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1620,7 +1620,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1652,7 +1652,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1668,7 +1668,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1700,7 +1700,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1716,7 +1716,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1732,7 +1732,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1748,7 +1748,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -1764,7 +1764,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -1780,7 +1780,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1796,7 +1796,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -1814,7 +1814,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -1830,7 +1830,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "qr_verified"
@@ -1847,7 +1847,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "qr_unverified"
@@ -1864,7 +1864,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "qr_unverified"
@@ -1881,7 +1881,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "qr_unverified"
@@ -1898,7 +1898,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1914,7 +1914,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -1930,7 +1930,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -1946,7 +1946,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -1962,7 +1962,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -1978,7 +1978,7 @@
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain;satisfaction_hit",
         "tone": "safe"
       },
@@ -1994,7 +1994,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2010,7 +2010,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2026,7 +2026,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "summit_checkin_gap"
@@ -2043,7 +2043,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -2059,7 +2059,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2075,7 +2075,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2091,7 +2091,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2123,7 +2123,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2139,7 +2139,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2155,7 +2155,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2171,7 +2171,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2187,7 +2187,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2203,7 +2203,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2219,7 +2219,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2235,7 +2235,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2251,7 +2251,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2267,7 +2267,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2283,7 +2283,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2299,7 +2299,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2315,7 +2315,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2331,7 +2331,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2363,7 +2363,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -2381,7 +2381,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2397,7 +2397,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -2413,7 +2413,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2429,7 +2429,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2445,7 +2445,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -2461,7 +2461,7 @@
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -2477,7 +2477,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2493,7 +2493,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2509,7 +2509,7 @@
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -2525,7 +2525,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -2541,7 +2541,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -2557,7 +2557,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2573,7 +2573,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -2589,7 +2589,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -2605,7 +2605,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2621,7 +2621,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -2637,7 +2637,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -2653,7 +2653,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -2669,7 +2669,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2685,7 +2685,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2701,7 +2701,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "diplomatic"
       },
@@ -2717,7 +2717,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2733,7 +2733,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2749,7 +2749,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -2765,7 +2765,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -2781,7 +2781,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -2797,7 +2797,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -2813,7 +2813,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -2829,7 +2829,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -2861,7 +2861,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -2877,7 +2877,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2909,7 +2909,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2925,7 +2925,7 @@
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -2941,7 +2941,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -2957,7 +2957,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -2973,7 +2973,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3005,7 +3005,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3021,7 +3021,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3053,7 +3053,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3069,7 +3069,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3085,7 +3085,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3101,7 +3101,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3117,7 +3117,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3133,7 +3133,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3149,7 +3149,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -3167,7 +3167,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3183,7 +3183,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3199,7 +3199,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3215,7 +3215,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3231,7 +3231,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3247,7 +3247,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3263,7 +3263,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3295,7 +3295,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3311,7 +3311,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3327,7 +3327,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3343,7 +3343,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3359,7 +3359,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3375,7 +3375,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3391,7 +3391,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3407,7 +3407,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3423,7 +3423,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3439,7 +3439,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3455,7 +3455,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3487,7 +3487,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3503,7 +3503,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3519,7 +3519,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3535,7 +3535,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3551,7 +3551,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3583,7 +3583,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3599,7 +3599,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3631,7 +3631,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3647,7 +3647,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3663,7 +3663,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3679,7 +3679,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3695,7 +3695,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3711,7 +3711,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3727,7 +3727,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -3745,7 +3745,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -3761,7 +3761,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -3777,7 +3777,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3793,7 +3793,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3809,7 +3809,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3825,7 +3825,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3841,7 +3841,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3857,7 +3857,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -3873,7 +3873,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3889,7 +3889,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3921,7 +3921,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3937,7 +3937,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -3969,7 +3969,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -3985,7 +3985,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4001,7 +4001,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4017,7 +4017,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4033,7 +4033,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4065,7 +4065,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4081,7 +4081,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4113,7 +4113,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4129,7 +4129,7 @@
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4145,7 +4145,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4161,7 +4161,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4177,7 +4177,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4209,7 +4209,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4225,7 +4225,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4241,7 +4241,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4257,7 +4257,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4273,7 +4273,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4289,7 +4289,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4305,7 +4305,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -4323,7 +4323,7 @@
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -4339,7 +4339,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -4355,7 +4355,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -4371,7 +4371,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4403,7 +4403,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4419,7 +4419,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4451,7 +4451,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4467,7 +4467,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4483,7 +4483,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4499,7 +4499,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4515,7 +4515,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4547,7 +4547,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4563,7 +4563,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4595,7 +4595,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4611,7 +4611,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4627,7 +4627,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4643,7 +4643,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4659,7 +4659,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4691,7 +4691,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4707,7 +4707,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4739,7 +4739,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4755,7 +4755,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4771,7 +4771,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4787,7 +4787,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4803,7 +4803,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4835,7 +4835,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4851,7 +4851,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4883,7 +4883,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -4917,7 +4917,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -4933,7 +4933,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -4949,7 +4949,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -4965,7 +4965,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -4981,7 +4981,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -4997,7 +4997,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5029,7 +5029,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5045,7 +5045,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5077,7 +5077,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5093,7 +5093,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5109,7 +5109,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5125,7 +5125,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5141,7 +5141,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5173,7 +5173,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5189,7 +5189,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5221,7 +5221,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5237,7 +5237,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5253,7 +5253,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5269,7 +5269,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5285,7 +5285,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5317,7 +5317,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5333,7 +5333,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5349,7 +5349,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5365,7 +5365,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5381,7 +5381,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5397,7 +5397,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5413,7 +5413,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5429,7 +5429,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5461,7 +5461,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -5479,7 +5479,7 @@
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5495,7 +5495,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -5511,7 +5511,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5527,7 +5527,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5559,7 +5559,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5575,7 +5575,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5591,7 +5591,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5607,7 +5607,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5623,7 +5623,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5639,7 +5639,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5655,7 +5655,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5671,7 +5671,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5703,7 +5703,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5719,7 +5719,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5735,7 +5735,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5751,7 +5751,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5767,7 +5767,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5783,7 +5783,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5799,7 +5799,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5815,7 +5815,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5847,7 +5847,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5863,7 +5863,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5879,7 +5879,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -5895,7 +5895,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5911,7 +5911,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5943,7 +5943,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -5959,7 +5959,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -5991,7 +5991,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -6007,7 +6007,7 @@
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6023,7 +6023,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6039,7 +6039,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -6057,7 +6057,7 @@
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6073,7 +6073,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "compliance_gap"
@@ -6090,7 +6090,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "diplomatic"
       },
@@ -6106,7 +6106,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "data_missing"
@@ -6123,7 +6123,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "data_missing"
@@ -6140,7 +6140,7 @@
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "compliance_gap"
@@ -6157,7 +6157,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "compliance_gap"
@@ -6174,7 +6174,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "requiresFlags": "compliance_gap"
@@ -6191,7 +6191,7 @@
           "satisfaction": -2,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "satisfaction_hit",
         "tone": "professional",
         "requiresFlags": "estimated_data"
@@ -6208,7 +6208,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "estimated_data"
@@ -6225,7 +6225,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky",
         "requiresFlags": "estimated_data"
@@ -6242,7 +6242,7 @@
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6258,7 +6258,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -6274,7 +6274,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6290,7 +6290,7 @@
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6306,7 +6306,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6322,7 +6322,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -6338,7 +6338,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "esg_data_error"
@@ -6355,7 +6355,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "esg_data_error"
@@ -6372,7 +6372,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "budget_gain;satisfaction_hit;risk_taker",
         "tone": "risky",
         "setsFlags": "blame_vendor",
@@ -6390,7 +6390,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6406,7 +6406,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6422,7 +6422,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6438,7 +6438,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6454,7 +6454,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6470,7 +6470,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6486,7 +6486,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6502,7 +6502,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6518,7 +6518,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6534,7 +6534,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -6550,7 +6550,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6566,7 +6566,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6582,7 +6582,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6598,7 +6598,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6614,7 +6614,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6630,7 +6630,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "risk_taker",
         "tone": "risky"
       }
@@ -6648,7 +6648,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6664,7 +6664,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6680,7 +6680,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -6696,7 +6696,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -6712,7 +6712,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6728,7 +6728,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -6744,7 +6744,7 @@
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6760,7 +6760,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -6776,7 +6776,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -6792,7 +6792,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6808,7 +6808,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "investor_mixup"
@@ -6825,7 +6825,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -6841,7 +6841,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -6857,7 +6857,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6873,7 +6873,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6889,7 +6889,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -6905,7 +6905,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6921,7 +6921,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6937,7 +6937,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -6953,7 +6953,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6969,7 +6969,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -6985,7 +6985,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7001,7 +7001,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7017,7 +7017,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "satisfaction_boost",
         "tone": "professional"
       },
@@ -7033,7 +7033,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -7049,7 +7049,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7065,7 +7065,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -7081,7 +7081,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -7097,7 +7097,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7113,7 +7113,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -7129,7 +7129,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -7161,7 +7161,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7177,7 +7177,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7193,7 +7193,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -7209,7 +7209,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "satisfaction_boost",
         "tone": "professional"
       },
@@ -7225,7 +7225,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -7241,7 +7241,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -7257,7 +7257,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7273,7 +7273,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -7289,7 +7289,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7321,7 +7321,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -7337,7 +7337,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7353,7 +7353,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7369,7 +7369,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -7385,7 +7385,7 @@
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7401,7 +7401,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7417,7 +7417,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -7435,7 +7435,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -7451,7 +7451,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7467,7 +7467,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7483,7 +7483,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7499,7 +7499,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7515,7 +7515,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7531,7 +7531,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -7547,7 +7547,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7563,7 +7563,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7579,7 +7579,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7595,7 +7595,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7611,7 +7611,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7643,7 +7643,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7659,7 +7659,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7675,7 +7675,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7691,7 +7691,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7707,7 +7707,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7723,7 +7723,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7739,7 +7739,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -7755,7 +7755,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -7771,7 +7771,7 @@
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "satisfaction_hit",
         "tone": "safe"
       },
@@ -7787,7 +7787,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7819,7 +7819,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -7835,7 +7835,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7867,7 +7867,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -7883,7 +7883,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -7899,7 +7899,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7915,7 +7915,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -7933,7 +7933,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -7949,7 +7949,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "time_heavy;budget_drain;risk_reducer",
         "tone": "formal"
       },
@@ -7965,7 +7965,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "estimated_data"
@@ -7982,7 +7982,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -7998,7 +7998,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -8014,7 +8014,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -8030,7 +8030,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -8046,7 +8046,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -8062,7 +8062,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "uncertified_esg_data"
@@ -8079,7 +8079,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8095,7 +8095,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -8111,7 +8111,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -8127,7 +8127,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -8143,7 +8143,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8159,7 +8159,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -8175,7 +8175,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -8223,7 +8223,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -8255,7 +8255,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8271,7 +8271,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8287,7 +8287,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -8303,7 +8303,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8319,7 +8319,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -8335,7 +8335,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8367,7 +8367,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8399,7 +8399,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8415,7 +8415,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "budget_drain",
         "tone": "professional"
       }
@@ -8433,7 +8433,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -8449,7 +8449,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "tech_debt"
@@ -8466,7 +8466,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8482,7 +8482,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -7,
+        "compositeScore": -3,
         "tags": "time_heavy;budget_drain;risk_reducer",
         "tone": "formal",
         "requiresFlags": "tech_debt"
@@ -8499,7 +8499,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky",
         "requiresFlags": "tech_debt"
@@ -8516,7 +8516,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -3,
+        "compositeScore": -5,
         "tags": "time_heavy",
         "tone": "professional",
         "requiresFlags": "tech_debt"
@@ -8533,7 +8533,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": 1,
+        "compositeScore": 5,
         "tags": "time_save;budget_gain;risk_reducer",
         "tone": "formal",
         "setsFlags": "auto_pilot",
@@ -8551,7 +8551,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "qr_verified"
@@ -8568,7 +8568,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8584,7 +8584,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8600,7 +8600,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8616,7 +8616,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -8632,7 +8632,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8648,7 +8648,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8664,7 +8664,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -8680,7 +8680,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8728,7 +8728,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8744,7 +8744,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8760,7 +8760,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -8776,7 +8776,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8792,7 +8792,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -8808,7 +8808,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -8824,7 +8824,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -8856,7 +8856,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -8872,7 +8872,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -8904,7 +8904,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -8922,7 +8922,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8938,7 +8938,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -8954,7 +8954,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -8970,7 +8970,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -8986,7 +8986,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9002,7 +9002,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9034,7 +9034,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9050,7 +9050,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9066,7 +9066,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9082,7 +9082,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9098,7 +9098,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9114,7 +9114,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9130,7 +9130,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9146,7 +9146,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9178,7 +9178,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9194,7 +9194,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9226,7 +9226,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9242,7 +9242,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9258,7 +9258,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9274,7 +9274,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9290,7 +9290,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9322,7 +9322,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9338,7 +9338,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9370,7 +9370,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9386,7 +9386,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9402,7 +9402,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9418,7 +9418,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9434,7 +9434,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9450,7 +9450,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9466,7 +9466,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -9484,7 +9484,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -9500,7 +9500,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9516,7 +9516,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -9532,7 +9532,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -9548,7 +9548,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -9564,7 +9564,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -9580,7 +9580,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9596,7 +9596,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9612,7 +9612,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -9628,7 +9628,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9644,7 +9644,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -9660,7 +9660,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9676,7 +9676,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9692,7 +9692,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9708,7 +9708,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9724,7 +9724,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -9740,7 +9740,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -9756,7 +9756,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9772,7 +9772,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9804,7 +9804,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9820,7 +9820,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9836,7 +9836,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9852,7 +9852,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9868,7 +9868,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9884,7 +9884,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9900,7 +9900,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9916,7 +9916,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9932,7 +9932,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9948,7 +9948,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9964,7 +9964,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9980,7 +9980,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9996,7 +9996,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10012,7 +10012,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10044,7 +10044,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -10062,7 +10062,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -10078,7 +10078,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10094,7 +10094,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10110,7 +10110,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -10126,7 +10126,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -10142,7 +10142,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -10158,7 +10158,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10174,7 +10174,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10190,7 +10190,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10206,7 +10206,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10222,7 +10222,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10238,7 +10238,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10254,7 +10254,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10286,7 +10286,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10302,7 +10302,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10318,7 +10318,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10334,7 +10334,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10350,7 +10350,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10366,7 +10366,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10382,7 +10382,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10398,7 +10398,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10430,7 +10430,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10446,7 +10446,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10462,7 +10462,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10478,7 +10478,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10494,7 +10494,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10510,7 +10510,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10526,7 +10526,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10542,7 +10542,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10574,7 +10574,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10590,7 +10590,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10622,7 +10622,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -10640,7 +10640,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "formal"
       },
@@ -10656,7 +10656,7 @@
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -10672,7 +10672,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -10688,7 +10688,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10704,7 +10704,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10720,7 +10720,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10736,7 +10736,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10752,7 +10752,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10768,7 +10768,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10784,7 +10784,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10800,7 +10800,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10816,7 +10816,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10832,7 +10832,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10848,7 +10848,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10864,7 +10864,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10880,7 +10880,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10912,7 +10912,7 @@
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10928,7 +10928,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10944,7 +10944,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10960,7 +10960,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10976,7 +10976,7 @@
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10992,7 +10992,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11008,7 +11008,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11024,7 +11024,7 @@
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11056,7 +11056,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11072,7 +11072,7 @@
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11088,7 +11088,7 @@
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11104,7 +11104,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11120,7 +11120,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11136,7 +11136,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11152,7 +11152,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11168,7 +11168,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11200,7 +11200,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -11218,7 +11218,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11234,7 +11234,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -11250,7 +11250,7 @@
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": "satisfaction_hit;risk_taker",
         "tone": "risky"
       },
@@ -11266,7 +11266,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11298,7 +11298,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11314,7 +11314,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11330,7 +11330,7 @@
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11346,7 +11346,7 @@
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11362,7 +11362,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11394,7 +11394,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11410,7 +11410,7 @@
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11442,7 +11442,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11458,7 +11458,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11474,7 +11474,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11490,7 +11490,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11506,7 +11506,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11538,7 +11538,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11554,7 +11554,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11586,7 +11586,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11602,7 +11602,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11618,7 +11618,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11634,7 +11634,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11650,7 +11650,7 @@
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11682,7 +11682,7 @@
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11698,7 +11698,7 @@
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11730,7 +11730,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11746,7 +11746,7 @@
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11762,7 +11762,7 @@
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11778,7 +11778,7 @@
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }

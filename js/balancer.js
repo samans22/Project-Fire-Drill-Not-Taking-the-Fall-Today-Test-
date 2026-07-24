@@ -3,8 +3,8 @@
  * 文本池选择、综合评分、动态难度调节、震荡上升曲线
  *
  * 核心公式:
- *   compositeScore = time + budget + satisfaction + risk
- *   四个维度直接相加，与 CSV ground truth 一致
+ *   compositeScore = time + budget + satisfaction - risk
+ *   时间/预算/满意度上升=有利(+), 风险上升=不利(-)
  */
 const Balancer = {
   /** 当前激活的主题文本池 */
@@ -65,7 +65,7 @@ const Balancer = {
     return (
       (effects.time || 0) +
       (effects.budget || 0) +
-      (effects.satisfaction || 0) +
+      (effects.satisfaction || 0) -
       (effects.risk || 0)
     );
   },

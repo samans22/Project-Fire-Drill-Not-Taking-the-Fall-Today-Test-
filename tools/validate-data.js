@@ -127,7 +127,7 @@ function validate() {
   for (const [themeId, texts] of Object.entries(tp.byTheme)) {
     for (const t of texts) {
       const e = t.effects;
-      const calc = (e.time || 0) + (e.budget || 0) + (e.satisfaction || 0) + (e.risk || 0);
+      const calc = (e.time || 0) + (e.budget || 0) + (e.satisfaction || 0) - (e.risk || 0);
       if (calc !== t.compositeScore) {
         compositeErrors++;
         results.fail.push('COMPOSITE_MISMATCH: ' + t.textId + ' stored=' + t.compositeScore + ' calculated=' + calc);

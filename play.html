@@ -1110,8 +1110,8 @@ const Events = {
  * 文本池选择、综合评分、动态难度调节、震荡上升曲线
  *
  * 核心公式:
- *   compositeScore = time + budget + satisfaction + risk
- *   四个维度直接相加，与 CSV ground truth 一致
+ *   compositeScore = time + budget + satisfaction - risk
+ *   时间/预算/满意度上升=有利(+), 风险上升=不利(-)
  */
 const Balancer = {
   /** 当前激活的主题文本池 */
@@ -1172,7 +1172,7 @@ const Balancer = {
     return (
       (effects.time || 0) +
       (effects.budget || 0) +
-      (effects.satisfaction || 0) +
+      (effects.satisfaction || 0) -
       (effects.risk || 0)
     );
   },
@@ -9188,7 +9188,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9204,7 +9204,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9220,7 +9220,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9236,7 +9236,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": -3
         },
-        "compositeScore": -8,
+        "compositeScore": -2,
         "tags": "time_heavy;satisfaction_hit;risk_reducer",
         "tone": "formal"
       },
@@ -9252,7 +9252,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9268,7 +9268,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky",
         "setsFlags": "data_missing"
@@ -9285,7 +9285,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -9301,7 +9301,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -9317,7 +9317,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -9333,7 +9333,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -9349,7 +9349,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9365,7 +9365,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9381,7 +9381,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -9397,7 +9397,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -9413,7 +9413,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -9429,7 +9429,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9445,7 +9445,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9461,7 +9461,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9477,7 +9477,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "partial_esg_data"
@@ -9494,7 +9494,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9510,7 +9510,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "esg_data_error"
@@ -9527,7 +9527,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe",
         "setsFlags": "esg_data_error"
@@ -9544,7 +9544,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9560,7 +9560,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9576,7 +9576,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -9592,7 +9592,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9608,7 +9608,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -9624,7 +9624,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -9640,7 +9640,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -9656,7 +9656,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9672,7 +9672,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9688,7 +9688,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9704,7 +9704,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9720,7 +9720,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -9736,7 +9736,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9752,7 +9752,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -9768,7 +9768,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -9784,7 +9784,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9800,7 +9800,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9816,7 +9816,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9832,7 +9832,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9848,7 +9848,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9864,7 +9864,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -9880,7 +9880,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9896,7 +9896,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -9912,7 +9912,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -9930,7 +9930,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -9946,7 +9946,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -9962,7 +9962,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -9978,7 +9978,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -9994,7 +9994,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -10010,7 +10010,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -6,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -10026,7 +10026,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10042,7 +10042,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10058,7 +10058,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10074,7 +10074,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 3
         },
-        "compositeScore": 7,
+        "compositeScore": 1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10090,7 +10090,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": "time_save;risk_taker",
         "tone": "risky"
       },
@@ -10106,7 +10106,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10122,7 +10122,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10138,7 +10138,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10154,7 +10154,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10170,7 +10170,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10186,7 +10186,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -10202,7 +10202,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10218,7 +10218,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -10234,7 +10234,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10250,7 +10250,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -10266,7 +10266,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -10282,7 +10282,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10298,7 +10298,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -10314,7 +10314,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -10330,7 +10330,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -10346,7 +10346,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10362,7 +10362,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -10378,7 +10378,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -10394,7 +10394,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -10410,7 +10410,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;satisfaction_hit",
         "tone": "professional"
       },
@@ -10426,7 +10426,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -10442,7 +10442,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -10458,7 +10458,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -10474,7 +10474,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -10490,7 +10490,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -10506,7 +10506,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -10522,7 +10522,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10538,7 +10538,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain;satisfaction_hit",
         "tone": "safe"
       },
@@ -10554,7 +10554,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -10570,7 +10570,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10586,7 +10586,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -10602,7 +10602,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10618,7 +10618,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10634,7 +10634,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10650,7 +10650,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10682,7 +10682,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10698,7 +10698,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10730,7 +10730,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10746,7 +10746,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10762,7 +10762,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10778,7 +10778,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10794,7 +10794,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10826,7 +10826,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10842,7 +10842,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10874,7 +10874,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10890,7 +10890,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10906,7 +10906,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10922,7 +10922,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -10938,7 +10938,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -10954,7 +10954,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -10970,7 +10970,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -10988,7 +10988,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11004,7 +11004,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "qr_verified"
@@ -11021,7 +11021,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "qr_unverified"
@@ -11038,7 +11038,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "qr_unverified"
@@ -11055,7 +11055,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "qr_unverified"
@@ -11072,7 +11072,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11088,7 +11088,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11104,7 +11104,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11120,7 +11120,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -11136,7 +11136,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11152,7 +11152,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "budget_gain;satisfaction_hit",
         "tone": "safe"
       },
@@ -11168,7 +11168,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11184,7 +11184,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11200,7 +11200,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "summit_checkin_gap"
@@ -11217,7 +11217,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11233,7 +11233,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11249,7 +11249,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11265,7 +11265,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11297,7 +11297,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11313,7 +11313,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11329,7 +11329,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11345,7 +11345,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11361,7 +11361,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11377,7 +11377,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11393,7 +11393,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11409,7 +11409,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11425,7 +11425,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11441,7 +11441,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11457,7 +11457,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11473,7 +11473,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11489,7 +11489,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -11505,7 +11505,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11537,7 +11537,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -11555,7 +11555,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11571,7 +11571,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11587,7 +11587,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11603,7 +11603,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11619,7 +11619,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -11635,7 +11635,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -11651,7 +11651,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11667,7 +11667,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11683,7 +11683,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -11699,7 +11699,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -11715,7 +11715,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -11731,7 +11731,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11747,7 +11747,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -11763,7 +11763,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -11779,7 +11779,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 1,
+        "compositeScore": 3,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11795,7 +11795,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11811,7 +11811,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -11827,7 +11827,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -11843,7 +11843,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -11859,7 +11859,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11875,7 +11875,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "diplomatic"
       },
@@ -11891,7 +11891,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -11907,7 +11907,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11923,7 +11923,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -11939,7 +11939,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -11955,7 +11955,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -11971,7 +11971,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -11987,7 +11987,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -12003,7 +12003,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -12035,7 +12035,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -12051,7 +12051,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12083,7 +12083,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12099,7 +12099,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12115,7 +12115,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12131,7 +12131,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12147,7 +12147,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12179,7 +12179,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12195,7 +12195,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12227,7 +12227,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12243,7 +12243,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12259,7 +12259,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12275,7 +12275,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12291,7 +12291,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12307,7 +12307,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12323,7 +12323,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -12341,7 +12341,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12357,7 +12357,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12373,7 +12373,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12389,7 +12389,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12405,7 +12405,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12421,7 +12421,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12437,7 +12437,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12469,7 +12469,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12485,7 +12485,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12501,7 +12501,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12517,7 +12517,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12533,7 +12533,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12549,7 +12549,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12565,7 +12565,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12581,7 +12581,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12597,7 +12597,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12613,7 +12613,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12629,7 +12629,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12661,7 +12661,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12677,7 +12677,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12693,7 +12693,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12709,7 +12709,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12725,7 +12725,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12757,7 +12757,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12773,7 +12773,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12805,7 +12805,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12821,7 +12821,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12837,7 +12837,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12853,7 +12853,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -12869,7 +12869,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12885,7 +12885,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12901,7 +12901,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -12919,7 +12919,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -12935,7 +12935,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -12951,7 +12951,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12967,7 +12967,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -12983,7 +12983,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -12999,7 +12999,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13015,7 +13015,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13031,7 +13031,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13047,7 +13047,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13063,7 +13063,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13095,7 +13095,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13111,7 +13111,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13143,7 +13143,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13159,7 +13159,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13175,7 +13175,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13191,7 +13191,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13207,7 +13207,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13239,7 +13239,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13255,7 +13255,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13287,7 +13287,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13303,7 +13303,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13319,7 +13319,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13335,7 +13335,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13351,7 +13351,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13383,7 +13383,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13399,7 +13399,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13415,7 +13415,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13431,7 +13431,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13447,7 +13447,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13463,7 +13463,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13479,7 +13479,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -13497,7 +13497,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "time_heavy;satisfaction_boost;risk_reducer",
         "tone": "formal"
       },
@@ -13513,7 +13513,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -13529,7 +13529,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -13545,7 +13545,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13577,7 +13577,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13593,7 +13593,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13625,7 +13625,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13641,7 +13641,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13657,7 +13657,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13673,7 +13673,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13689,7 +13689,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13721,7 +13721,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13737,7 +13737,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13769,7 +13769,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13785,7 +13785,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13801,7 +13801,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13817,7 +13817,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13833,7 +13833,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13865,7 +13865,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13881,7 +13881,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13913,7 +13913,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13929,7 +13929,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -13945,7 +13945,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -13961,7 +13961,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -13977,7 +13977,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14009,7 +14009,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14025,7 +14025,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14057,7 +14057,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -14091,7 +14091,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -14107,7 +14107,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -14123,7 +14123,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14139,7 +14139,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14155,7 +14155,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14171,7 +14171,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14203,7 +14203,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14219,7 +14219,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14251,7 +14251,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14267,7 +14267,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14283,7 +14283,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14299,7 +14299,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14315,7 +14315,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14347,7 +14347,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14363,7 +14363,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14395,7 +14395,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14411,7 +14411,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14427,7 +14427,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14443,7 +14443,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14459,7 +14459,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14491,7 +14491,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14507,7 +14507,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14523,7 +14523,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14539,7 +14539,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14555,7 +14555,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14571,7 +14571,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14587,7 +14587,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14603,7 +14603,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14635,7 +14635,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -14653,7 +14653,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14669,7 +14669,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -14685,7 +14685,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14701,7 +14701,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14733,7 +14733,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14749,7 +14749,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14765,7 +14765,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14781,7 +14781,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14797,7 +14797,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14813,7 +14813,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14829,7 +14829,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14845,7 +14845,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14877,7 +14877,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14893,7 +14893,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14909,7 +14909,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14925,7 +14925,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14941,7 +14941,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -14957,7 +14957,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -14973,7 +14973,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -14989,7 +14989,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15021,7 +15021,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -15037,7 +15037,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15053,7 +15053,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15069,7 +15069,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -15085,7 +15085,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15117,7 +15117,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -15133,7 +15133,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15165,7 +15165,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -15181,7 +15181,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15197,7 +15197,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15213,7 +15213,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -15231,7 +15231,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15247,7 +15247,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "compliance_gap"
@@ -15264,7 +15264,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "diplomatic"
       },
@@ -15280,7 +15280,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "data_missing"
@@ -15297,7 +15297,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "data_missing"
@@ -15314,7 +15314,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "compliance_gap"
@@ -15331,7 +15331,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "compliance_gap"
@@ -15348,7 +15348,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "requiresFlags": "compliance_gap"
@@ -15365,7 +15365,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "satisfaction_hit",
         "tone": "professional",
         "requiresFlags": "estimated_data"
@@ -15382,7 +15382,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "estimated_data"
@@ -15399,7 +15399,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky",
         "requiresFlags": "estimated_data"
@@ -15416,7 +15416,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -3
         },
-        "compositeScore": -7,
+        "compositeScore": -1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15432,7 +15432,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -15448,7 +15448,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15464,7 +15464,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15480,7 +15480,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15496,7 +15496,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -15512,7 +15512,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal",
         "requiresFlags": "esg_data_error"
@@ -15529,7 +15529,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "esg_data_error"
@@ -15546,7 +15546,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "budget_gain;satisfaction_hit;risk_taker",
         "tone": "risky",
         "setsFlags": "blame_vendor",
@@ -15564,7 +15564,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15580,7 +15580,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -15596,7 +15596,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15612,7 +15612,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15628,7 +15628,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15644,7 +15644,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -15660,7 +15660,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15676,7 +15676,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15692,7 +15692,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -15708,7 +15708,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -15724,7 +15724,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15740,7 +15740,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15756,7 +15756,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -15772,7 +15772,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15788,7 +15788,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -15804,7 +15804,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "risk_taker",
         "tone": "risky"
       }
@@ -15822,7 +15822,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15838,7 +15838,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15854,7 +15854,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -15870,7 +15870,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -15886,7 +15886,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15902,7 +15902,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_drain;satisfaction_boost",
         "tone": "professional"
       },
@@ -15918,7 +15918,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15934,7 +15934,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -15950,7 +15950,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -15966,7 +15966,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -15982,7 +15982,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "investor_mixup"
@@ -15999,7 +15999,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -16015,7 +16015,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -16031,7 +16031,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16047,7 +16047,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16063,7 +16063,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -16079,7 +16079,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16095,7 +16095,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16111,7 +16111,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16127,7 +16127,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16143,7 +16143,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16159,7 +16159,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16175,7 +16175,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16191,7 +16191,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "satisfaction_boost",
         "tone": "professional"
       },
@@ -16207,7 +16207,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -16223,7 +16223,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16239,7 +16239,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -16255,7 +16255,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 3,
+        "compositeScore": -3,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -16271,7 +16271,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16287,7 +16287,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -16303,7 +16303,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 3,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -16335,7 +16335,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16351,7 +16351,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16367,7 +16367,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -16383,7 +16383,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "satisfaction_boost",
         "tone": "professional"
       },
@@ -16399,7 +16399,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -16415,7 +16415,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -16431,7 +16431,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16447,7 +16447,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -16463,7 +16463,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -16495,7 +16495,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -16511,7 +16511,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -16527,7 +16527,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16543,7 +16543,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -16559,7 +16559,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -16575,7 +16575,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16591,7 +16591,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -16609,7 +16609,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -16625,7 +16625,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16641,7 +16641,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -16657,7 +16657,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16673,7 +16673,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16689,7 +16689,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16705,7 +16705,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
         "tone": "professional"
       },
@@ -16721,7 +16721,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16737,7 +16737,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16753,7 +16753,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16769,7 +16769,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16785,7 +16785,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16817,7 +16817,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16833,7 +16833,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16849,7 +16849,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16865,7 +16865,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16881,7 +16881,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16897,7 +16897,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16913,7 +16913,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -16929,7 +16929,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -16945,7 +16945,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "satisfaction_hit",
         "tone": "safe"
       },
@@ -16961,7 +16961,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -16993,7 +16993,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -17009,7 +17009,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -17041,7 +17041,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -17057,7 +17057,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -17073,7 +17073,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17089,7 +17089,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -17107,7 +17107,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17123,7 +17123,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "time_heavy;budget_drain;risk_reducer",
         "tone": "formal"
       },
@@ -17139,7 +17139,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "estimated_data"
@@ -17156,7 +17156,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -17172,7 +17172,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -17188,7 +17188,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -17204,7 +17204,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -17220,7 +17220,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -17236,7 +17236,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
         "setsFlags": "uncertified_esg_data"
@@ -17253,7 +17253,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17269,7 +17269,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -17285,7 +17285,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "time_save;budget_gain",
         "tone": "professional"
       },
@@ -17301,7 +17301,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "budget_drain",
         "tone": "professional"
       },
@@ -17317,7 +17317,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17333,7 +17333,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 2,
+        "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -17349,7 +17349,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -17397,7 +17397,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -17429,7 +17429,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -17445,7 +17445,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -17461,7 +17461,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -17477,7 +17477,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17493,7 +17493,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -17509,7 +17509,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17541,7 +17541,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17573,7 +17573,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17589,7 +17589,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "budget_drain",
         "tone": "professional"
       }
@@ -17607,7 +17607,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -17623,7 +17623,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional",
         "setsFlags": "tech_debt"
@@ -17640,7 +17640,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -17656,7 +17656,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -7,
+        "compositeScore": -3,
         "tags": "time_heavy;budget_drain;risk_reducer",
         "tone": "formal",
         "requiresFlags": "tech_debt"
@@ -17673,7 +17673,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky",
         "requiresFlags": "tech_debt"
@@ -17690,7 +17690,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -3,
+        "compositeScore": -5,
         "tags": "time_heavy",
         "tone": "professional",
         "requiresFlags": "tech_debt"
@@ -17707,7 +17707,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": 1,
+        "compositeScore": 5,
         "tags": "time_save;budget_gain;risk_reducer",
         "tone": "formal",
         "setsFlags": "auto_pilot",
@@ -17725,7 +17725,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional",
         "requiresFlags": "qr_verified"
@@ -17742,7 +17742,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -17758,7 +17758,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -17774,7 +17774,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -17790,7 +17790,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -17806,7 +17806,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17822,7 +17822,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17838,7 +17838,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -2,
+        "compositeScore": 2,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -17854,7 +17854,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17902,7 +17902,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17918,7 +17918,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17934,7 +17934,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "satisfaction_boost",
         "tone": "safe"
       },
@@ -17950,7 +17950,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17966,7 +17966,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -4,
+        "compositeScore": 0,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -17982,7 +17982,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -17998,7 +17998,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18030,7 +18030,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18046,7 +18046,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18078,7 +18078,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -18096,7 +18096,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18112,7 +18112,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -18128,7 +18128,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18144,7 +18144,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18160,7 +18160,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18176,7 +18176,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18208,7 +18208,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18224,7 +18224,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18240,7 +18240,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18256,7 +18256,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18272,7 +18272,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18288,7 +18288,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18304,7 +18304,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18320,7 +18320,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18352,7 +18352,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18368,7 +18368,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18400,7 +18400,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18416,7 +18416,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18432,7 +18432,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18448,7 +18448,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18464,7 +18464,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18496,7 +18496,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18512,7 +18512,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18544,7 +18544,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18560,7 +18560,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18576,7 +18576,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18592,7 +18592,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18608,7 +18608,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18624,7 +18624,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18640,7 +18640,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -18658,7 +18658,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -18674,7 +18674,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -18690,7 +18690,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "budget_gain",
         "tone": "diplomatic"
       },
@@ -18706,7 +18706,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -5,
+        "compositeScore": -1,
         "tags": "risk_reducer",
         "tone": "formal"
       },
@@ -18722,7 +18722,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -18738,7 +18738,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -18754,7 +18754,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18770,7 +18770,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -18786,7 +18786,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe"
       },
@@ -18802,7 +18802,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -4,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18818,7 +18818,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": -1,
+        "compositeScore": -5,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -18834,7 +18834,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -18850,7 +18850,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -18866,7 +18866,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -18882,7 +18882,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -18898,7 +18898,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "budget_gain",
         "tone": "professional"
       },
@@ -18914,7 +18914,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;budget_gain",
         "tone": "professional"
       },
@@ -18930,7 +18930,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -18946,7 +18946,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -18978,7 +18978,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -18994,7 +18994,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19010,7 +19010,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19026,7 +19026,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19042,7 +19042,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19058,7 +19058,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19074,7 +19074,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19090,7 +19090,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19106,7 +19106,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19122,7 +19122,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19138,7 +19138,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19154,7 +19154,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19170,7 +19170,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19186,7 +19186,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19218,7 +19218,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -19236,7 +19236,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -3,
+        "compositeScore": -1,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -19252,7 +19252,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -2,
+        "compositeScore": -4,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19268,7 +19268,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "time_save;budget_gain;risk_taker",
         "tone": "risky"
       },
@@ -19284,7 +19284,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -19300,7 +19300,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -19316,7 +19316,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": 0,
+        "compositeScore": -2,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -19332,7 +19332,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19348,7 +19348,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19364,7 +19364,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19380,7 +19380,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19396,7 +19396,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19412,7 +19412,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19428,7 +19428,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19460,7 +19460,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19476,7 +19476,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19492,7 +19492,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19508,7 +19508,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19524,7 +19524,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19540,7 +19540,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19556,7 +19556,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19572,7 +19572,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19604,7 +19604,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19620,7 +19620,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19636,7 +19636,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19652,7 +19652,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19668,7 +19668,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19684,7 +19684,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19700,7 +19700,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19716,7 +19716,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19748,7 +19748,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19764,7 +19764,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19796,7 +19796,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -19814,7 +19814,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "formal"
       },
@@ -19830,7 +19830,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 1
         },
-        "compositeScore": -1,
+        "compositeScore": -3,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -19846,7 +19846,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 1,
+        "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky"
       },
@@ -19862,7 +19862,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19878,7 +19878,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19894,7 +19894,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19910,7 +19910,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19926,7 +19926,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19942,7 +19942,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 4,
+        "compositeScore": -2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -19958,7 +19958,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -19974,7 +19974,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -19990,7 +19990,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20006,7 +20006,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20022,7 +20022,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20038,7 +20038,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20054,7 +20054,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20086,7 +20086,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 3
         },
-        "compositeScore": 5,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20102,7 +20102,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20118,7 +20118,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20134,7 +20134,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20150,7 +20150,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -3
         },
-        "compositeScore": -5,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20166,7 +20166,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20182,7 +20182,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20198,7 +20198,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -2
         },
-        "compositeScore": -3,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20230,7 +20230,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 4,
+        "compositeScore": 2,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20246,7 +20246,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20262,7 +20262,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20278,7 +20278,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 2,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20294,7 +20294,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20310,7 +20310,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20326,7 +20326,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20342,7 +20342,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20374,7 +20374,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
@@ -20392,7 +20392,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy",
         "tone": "professional"
       },
@@ -20408,7 +20408,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "neutral",
         "tone": "safe"
       },
@@ -20424,7 +20424,7 @@ async function loadAllData() {
           "satisfaction": -2,
           "risk": 2
         },
-        "compositeScore": 0,
+        "compositeScore": -4,
         "tags": "satisfaction_hit;risk_taker",
         "tone": "risky"
       },
@@ -20440,7 +20440,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20472,7 +20472,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20488,7 +20488,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20504,7 +20504,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": -1
         },
-        "compositeScore": 0,
+        "compositeScore": 2,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20520,7 +20520,7 @@ async function loadAllData() {
           "satisfaction": 1,
           "risk": 2
         },
-        "compositeScore": 4,
+        "compositeScore": 0,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20536,7 +20536,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20568,7 +20568,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20584,7 +20584,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": -1
         },
-        "compositeScore": -2,
+        "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20616,7 +20616,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20632,7 +20632,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20648,7 +20648,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20664,7 +20664,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20680,7 +20680,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20712,7 +20712,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20728,7 +20728,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20760,7 +20760,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20776,7 +20776,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20792,7 +20792,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20808,7 +20808,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20824,7 +20824,7 @@ async function loadAllData() {
           "satisfaction": 2,
           "risk": -1
         },
-        "compositeScore": -1,
+        "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20856,7 +20856,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20872,7 +20872,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -2
         },
-        "compositeScore": -6,
+        "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20904,7 +20904,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       },
@@ -20920,7 +20920,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": -1
         },
-        "compositeScore": -5,
+        "compositeScore": -3,
         "tags": "time_heavy;risk_reducer",
         "tone": "formal"
       },
@@ -20936,7 +20936,7 @@ async function loadAllData() {
           "satisfaction": 0,
           "risk": 1
         },
-        "compositeScore": 1,
+        "compositeScore": -1,
         "tags": "neutral",
         "tone": "professional"
       },
@@ -20952,7 +20952,7 @@ async function loadAllData() {
           "satisfaction": -1,
           "risk": 2
         },
-        "compositeScore": 3,
+        "compositeScore": -1,
         "tags": "risk_taker;time_saver",
         "tone": "casual"
       }
