@@ -202,7 +202,8 @@
         ]
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "E002",
@@ -254,7 +255,8 @@
         "hint": "最省事，但总觉得哪里不太对…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E003",
@@ -456,7 +458,8 @@
         ]
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "client_calls"
   },
   {
     "eventId": "E004",
@@ -491,7 +494,8 @@
         "hint": "省时间，但领导可能会记住你不在场…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "monday_morning"
   },
   {
     "eventId": "E005",
@@ -537,7 +541,8 @@
         "hint": "找领导虽快，但他可能会不太高兴…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "budget_cut"
   },
   {
     "eventId": "E006",
@@ -586,7 +591,8 @@
         "hint": "有数据总比没数据好，先用去年的吧…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "E007",
@@ -788,7 +794,8 @@
         ]
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "E008",
@@ -837,7 +844,8 @@
         "hint": "少个功能能省钱，但客户可能会注意到…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "E009",
@@ -886,7 +894,8 @@
         "hint": "让领导出面协调，虽然欠人情但能折中解决…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E010",
@@ -932,7 +941,8 @@
         "hint": "花钱买时间和质量，一分钱一分货…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "E011",
@@ -978,7 +988,8 @@
         "hint": "想搞清楚需求，但对方也不一定说得清…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "last_minute_report"
   },
   {
     "eventId": "E012",
@@ -1180,7 +1191,8 @@
         ]
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "client_calls"
   },
   {
     "eventId": "E013",
@@ -1226,7 +1238,8 @@
         "hint": "视觉上的改动见效快，但不够深入…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "E014",
@@ -1272,7 +1285,8 @@
         "hint": "让别人等系统恢复，你按时下班…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "friday_afternoon"
   },
   {
     "eventId": "E015",
@@ -1318,7 +1332,8 @@
         "hint": "花点时间准备预案，有备无患…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "post_event_turbulence"
   },
   {
     "eventId": "E016",
@@ -1356,7 +1371,8 @@
         "hint": "争取时间，但下次可就没那么容易过关了…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E017",
@@ -1394,7 +1410,8 @@
         "hint": "快速更新名单就行，虽然留下了不太好的印象…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E018",
@@ -1443,7 +1460,8 @@
         "hint": "退回旧版本是中策，慢但稳…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "E019",
@@ -1484,7 +1502,8 @@
         "hint": "先测试再上线，稳妥至上…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "E020",
@@ -1533,7 +1552,8 @@
         "hint": "什么都不做，赌一把互联网的记忆只有三秒…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E021",
@@ -1582,7 +1602,8 @@
         "hint": "再编一个理由暂时过关，但审计部记了一笔…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E022",
@@ -1628,7 +1649,8 @@
         "hint": "让领导出面能摆平，但会被认为缺乏协调能力…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "E023",
@@ -1674,7 +1696,8 @@
         "hint": "不去现场最省时间，但客户会觉得不被重视…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "client_calls"
   },
   {
     "eventId": "E024",
@@ -1720,7 +1743,8 @@
         "hint": "硬气能省钱，但下次供应商可能不接你电话了…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "E025",
@@ -1769,7 +1793,8 @@
         "hint": "抓大放小省时间，但那行小字可能会被追问…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "E026",
@@ -1821,7 +1846,8 @@
         "hint": "先提交再补数据，能争取一点缓冲时间…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "E027",
@@ -1867,7 +1893,8 @@
         "hint": "花钱买案例，又快又专业，就是贵…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "E028",
@@ -1913,7 +1940,8 @@
         "hint": "先交能交的，缺的以后再补…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E029",
@@ -1962,7 +1990,8 @@
         "hint": "省时省钱，但未经认证的数据像定时炸弹…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "E030",
@@ -2008,7 +2037,8 @@
         "hint": "自己审自己最省钱，但监管不傻…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "budget_cut"
   },
   {
     "eventId": "E031",
@@ -2054,7 +2084,8 @@
         "hint": "花钱请人做，专业又省心，就是贵…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "E032",
@@ -2100,7 +2131,8 @@
         "hint": "推回去能省时间，但对方的律师不是吃素的…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "E033",
@@ -2146,7 +2178,8 @@
         "hint": "省钱降规格最省事，但第一印象会打折扣…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "budget_cut"
   },
   {
     "eventId": "E034",
@@ -2195,7 +2228,8 @@
         "hint": "让小许成长是好的，但有些场景不适合练手…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "E035",
@@ -2241,7 +2275,8 @@
         "hint": "纸质变电子能省事，但有人觉得不够正式…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "E036",
@@ -2287,7 +2322,8 @@
         "hint": "延后能抢时间，但招股书多了一条风险提示…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E037",
@@ -2333,7 +2369,8 @@
         "hint": "不用PPT反而展示了你的口才，但不稳定因素太多…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "E038",
@@ -2379,7 +2416,8 @@
         "hint": "按时间排最省事，但总有人不满意…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E039",
@@ -2425,7 +2463,8 @@
         "hint": "硬着头皮不认错最快，但嘉宾会记住的…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E040",
@@ -2474,7 +2513,8 @@
         "hint": "先放行最省事，但会后名单是个雷…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E041",
@@ -2520,7 +2560,8 @@
         "hint": "拒绝最省事，但活动反馈会受影响…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "event_checkin_day"
   },
   {
     "eventId": "E042",
@@ -2566,7 +2607,8 @@
         "hint": "等快递是最省事的，但万一没到就完了…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "E043",
@@ -2612,7 +2654,8 @@
         "hint": "把超支包装成投资需要文笔和证据…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "budget_cut"
   },
   {
     "eventId": "E044",
@@ -2664,7 +2707,8 @@
         "hint": "甩锅给供应商能保自己，但关系会受损…"
       }
     ],
-    "difficulty": 3
+    "difficulty": 3,
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "E045",
@@ -2710,7 +2754,8 @@
         "hint": "推迟复盘最省事，但对方那句\"好的\"意味深长…"
       }
     ],
-    "difficulty": 2
+    "difficulty": 2,
+    "themeExclusive": "client_calls"
   },
   {
     "eventId": "E046",
@@ -2756,7 +2801,8 @@
         "hint": "幽默能化解尴尬，但不是每个甲方都吃这一套…"
       }
     ],
-    "difficulty": 1
+    "difficulty": 1,
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "M001",
@@ -2801,7 +2847,8 @@
         "feedback": "张总在电话里说了半天，核心意思是「我也说不清哪里不好，但就是不够好」。你挂了电话，知道这个结暂时解不开了。",
         "hint": "问清楚是好事，但客户也说不清"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M001_S2A",
@@ -2835,7 +2882,8 @@
         "feedback": "你用专业判断说服了张总。「你说的对，质量比数量重要。」——这是一个成熟的客户。",
         "hint": "合理管理客户预期"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M001_S2B",
@@ -2869,7 +2917,8 @@
         "feedback": "你做了个EXCEL，左边是原文，右边是修改。张总看了半天没回复。一周后他忘了这件事。",
         "hint": "用文档应付模糊需求"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M002",
@@ -2915,7 +2964,8 @@
         "hint": "找帮手分担负成本更可控",
         "nextEvent": "M002_S2C"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M002_S2A",
@@ -2949,7 +2999,8 @@
         "feedback": "你解释了甲方群临时需求的情况。林总沉默了几秒：「下次这种事提前说，我可以帮你协调。」——不算好结局，但也不算坏。",
         "hint": "坦诚沟通争取理解"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M002_S2B",
@@ -2983,7 +3034,8 @@
         "feedback": "你发了份半成品过去。对方说「好的」，但你知道这种敷衍迟早会有代价。",
         "hint": "应付了事可能留下隐患"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M002_S2C",
@@ -3017,7 +3069,8 @@
         "feedback": "你记下了这个人情。在职场里，互相帮衬比什么都重要。下次阿哲需要帮忙的时候，你会第一个站出来。",
         "hint": "建立长期互助关系"
       }
-    ]
+    ],
+    "themeExclusive": "client_adds_requirements"
   },
   {
     "eventId": "M003",
@@ -3061,7 +3114,8 @@
         "hint": "插队检查可以理解但不推荐",
         "nextEvent": "M003_S2C"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M003_S2A",
@@ -3097,7 +3151,8 @@
         "hint": "息事宁人可能留后患",
         "nextEvent": "M003_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M003_S2B",
@@ -3131,7 +3186,8 @@
         "hint": "电子流程效果参差",
         "nextEvent": "M003_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M003_S2C",
@@ -3167,7 +3223,8 @@
         "hint": "点到为止的帮忙",
         "nextEvent": "M003_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M003_S3A",
@@ -3201,7 +3258,8 @@
         "feedback": "你把经验教训记在了自己的文档里。下次类似情况你会处理得更快，但团队没有任何成长。",
         "hint": "经验不分享，团队没进步"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M003_S3B",
@@ -3234,7 +3292,8 @@
         "feedback": "你决定不在这件事上再花时间。下次系统会不会再崩？不知道。但你还有更紧急的事要处理。",
         "hint": "接受风险，赌下次不会出事"
       }
-    ]
+    ],
+    "themeExclusive": "system_launch_day"
   },
   {
     "eventId": "M004",
@@ -3278,7 +3337,8 @@
         "feedback": "你在门口迎接客户时坦诚了情况。客户说「没关系，我们也经常遇到」——但你知道他们心里记了一笔。",
         "hint": "诚实但可能影响信任"
       }
-    ]
+    ],
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "M004_S2A",
@@ -3312,7 +3372,8 @@
         "feedback": "你给IT发了封邮件说明了情况。他们回复「已记录」——然后就没有然后了。下次演示可能还会遇到同样的问题。",
         "hint": "交给别人处理可能不了了之"
       }
-    ]
+    ],
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "M004_S2B",
@@ -3346,7 +3407,8 @@
         "feedback": "你写了份详细的邮件，把演示要点和底层数据都附上了。虽然没有挽回演示的瑕疵，但至少留下了专业的印象。",
         "hint": "用文档弥补演示的不足"
       }
-    ]
+    ],
+    "themeExclusive": "roadshow_eve"
   },
   {
     "eventId": "M005",
@@ -3389,7 +3451,8 @@
         "hint": "匆忙准备，风险较高",
         "nextEvent": "M005_S2C"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M005_S2A",
@@ -3425,7 +3488,8 @@
         "hint": "让下属独自解决可能浪费时间",
         "nextEvent": "M005_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M005_S2B",
@@ -3460,7 +3524,8 @@
         "hint": "用说明替代签字但风险仍在",
         "nextEvent": "M005_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M005_S2C",
@@ -3496,7 +3561,8 @@
         "hint": "现场慌乱影响形象",
         "nextEvent": "M005_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M005_S3A",
@@ -3529,7 +3595,8 @@
         "feedback": "你在自己的日历上设了个提醒「每季度归档一次」。但这只是你一个人的好习惯——团队其他人下次还会手忙脚乱。",
         "hint": "个人习惯不等于团队进步"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M005_S3B",
@@ -3561,7 +3628,8 @@
         "feedback": "你松了一口气，回到了日常节奏。至于底稿问题——下次检查还早呢，到时候再说。",
         "hint": "好了伤疤忘了疼"
       }
-    ]
+    ],
+    "themeExclusive": "regulatory_inquiry"
   },
   {
     "eventId": "M006",
@@ -3606,7 +3674,8 @@
         "hint": "模糊回应只会激化质疑",
         "nextEvent": "M006_S2C"
       }
-    ]
+    ],
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "M006_S2A",
@@ -3640,7 +3709,8 @@
         "feedback": "你说目前精力有限。对方表示理解。但那个论坛上的品牌曝光机会——你不会再有了。",
         "hint": "保守选择，安全但失去机会"
       }
-    ]
+    ],
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "M006_S2B",
@@ -3674,7 +3744,8 @@
         "feedback": "你动了别的项目的预算——那个项目的负责人后来发现了，非常不满。但至少眼下这个问题解决了。",
         "hint": "拆东墙补西墙会得罪人"
       }
-    ]
+    ],
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "M006_S2C",
@@ -3708,7 +3779,8 @@
         "feedback": "你发了第二份声明——但舆论已经形成了「这家公司不透明」的印象。一份声明改变不了什么。",
         "hint": "声誉一旦受损，修复代价更大"
       }
-    ]
+    ],
+    "themeExclusive": "annual_report_deadline"
   },
   {
     "eventId": "M007",
@@ -3753,7 +3825,8 @@
         "feedback": "你写了份邮件给林总说明了情况。林总回复「你们自己协调」——但抄送了两个部门的负责人。气氛更诡异了。",
         "hint": "告状不是解决问题的好办法"
       }
-    ]
+    ],
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "M007_S2A",
@@ -3787,7 +3860,8 @@
         "feedback": "你设立了双周同步会。虽然多了一个会，但信息壁垒明显减少了。",
         "hint": "制度建设比单次解决更重要"
       }
-    ]
+    ],
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "M007_S2B",
@@ -3821,7 +3895,8 @@
         "feedback": "你专注做好了后续的交付。客户很满意——这确实压制了一些不满。但内部的隐形成本仍在累积。",
         "hint": "好结果能压制但不会消除隔阂"
       }
-    ]
+    ],
+    "themeExclusive": "leadership_review"
   },
   {
     "eventId": "M008",
@@ -3867,7 +3942,8 @@
         "hint": "认栽是最省时间也最贵的方案",
         "nextEvent": "M008_S2C"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "M008_S2A",
@@ -3903,7 +3979,8 @@
         "hint": "妥协有时候是最现实的选择",
         "nextEvent": "M008_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "M008_S2B",
@@ -3939,7 +4016,8 @@
         "hint": "拖延支付只是推迟了问题",
         "nextEvent": "M008_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "M008_S2C",
@@ -3973,7 +4051,8 @@
         "hint": "应付审查可能触发更严的审查",
         "nextEvent": "M008_S3B"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "M008_S3A",
@@ -4006,7 +4085,8 @@
         "feedback": "你把这套方法记在了自己的笔记本里。下次类似情况你会有预案，但只有你一个人有。",
         "hint": "经验不分享等于没有复用"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "M008_S3B",
@@ -4039,7 +4119,8 @@
         "feedback": "你学会了在项目预算里留10%的应急金。下次供应商涨价的时候，你就不会这么被动了。",
         "hint": "经验转化为预防措施"
       }
-    ]
+    ],
+    "themeExclusive": "vendor_failure"
   },
   {
     "eventId": "T001",
@@ -4762,5 +4843,1637 @@
         "hint": "外部验证最快但最贵"
       }
     ]
+  },
+  {
+    "eventId": "X001",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年报中的管理层讨论部分被退回重写",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "annual_report_deadline"
+  },
+  {
+    "eventId": "X002",
+    "projectTags": [
+      "*"
+    ],
+    "title": "审计师要求补充关联交易细节",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "annual_report_deadline"
+  },
+  {
+    "eventId": "X003",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年报设计排版在截止日前出错",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "annual_report_deadline"
+  },
+  {
+    "eventId": "X004",
+    "projectTags": [
+      "*"
+    ],
+    "title": "甲方电话中说「有个小调整」",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X005",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户打电话投诉项目进度太慢",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X006",
+    "projectTags": [
+      "*"
+    ],
+    "title": "甲方换了一个新的对接人",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X007",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户在电话里暗示要换供应商",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X008",
+    "projectTags": [
+      "*"
+    ],
+    "title": "甲方打电话要求解释费用明细",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X009",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户电话中说CEO对项目不满意",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X010",
+    "projectTags": [
+      "*"
+    ],
+    "title": "甲方来电要求派人驻场办公",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X011",
+    "projectTags": [
+      "*"
+    ],
+    "title": "电话中客户提出了合同外的要求",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "client_calls"
+  },
+  {
+    "eventId": "X012",
+    "projectTags": [
+      "*"
+    ],
+    "title": "临时增加的VIP需要特殊接待",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X013",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动流程中的茶歇供应商迟到",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X014",
+    "projectTags": [
+      "*"
+    ],
+    "title": "会场消防检查突然加严",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X015",
+    "projectTags": [
+      "*"
+    ],
+    "title": "签到处的人流引导方案失效",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X016",
+    "projectTags": [
+      "*"
+    ],
+    "title": "媒体采访区的背景板印错",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X017",
+    "projectTags": [
+      "*"
+    ],
+    "title": "参会嘉宾的接送车辆安排冲突",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "event_checkin_day"
+  },
+  {
+    "eventId": "X018",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导对方案结构提出根本性质疑",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X019",
+    "projectTags": [
+      "*"
+    ],
+    "title": "中期汇报中的数据不一致问题",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X020",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导要求加入新部门的工作成果",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X021",
+    "projectTags": [
+      "*"
+    ],
+    "title": "审查会上暴露的团队沟通断层",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X022",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导要求压缩交付周期",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X023",
+    "projectTags": [
+      "*"
+    ],
+    "title": "审查发现关键假设未经验证",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "leadership_review"
+  },
+  {
+    "eventId": "X024",
+    "projectTags": [
+      "*"
+    ],
+    "title": "项目范围界定不清",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X025",
+    "projectTags": [
+      "*"
+    ],
+    "title": "全员kickoff时间难统一",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X026",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户对项目目标有不同理解",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X027",
+    "projectTags": [
+      "*"
+    ],
+    "title": "技术评估还没完成就要排期",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X028",
+    "projectTags": [
+      "*"
+    ],
+    "title": "启动会的关键人员临时缺席",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X029",
+    "projectTags": [
+      "*"
+    ],
+    "title": "项目章程被质疑流程不合规",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X030",
+    "projectTags": [
+      "*"
+    ],
+    "title": "资源分配方案遭到部门反对",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X031",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户要求启动会前看到详细计划",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X032",
+    "projectTags": [
+      "*"
+    ],
+    "title": "项目代号引发跨部门误会",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X033",
+    "projectTags": [
+      "*"
+    ],
+    "title": "启动会上CEO突然提了新方向",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X034",
+    "projectTags": [
+      "*"
+    ],
+    "title": "项目预算在启动前被冻结审查",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X035",
+    "projectTags": [
+      "*"
+    ],
+    "title": "启动会材料被合规要求大改",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "project_kickoff"
+  },
+  {
+    "eventId": "X036",
+    "projectTags": [
+      "*"
+    ],
+    "title": "下班前的数据更新请求",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X037",
+    "projectTags": [
+      "*"
+    ],
+    "title": "汇报PPT的格式突然要大改",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X038",
+    "projectTags": [
+      "*"
+    ],
+    "title": "关键数据源在下班后关闭",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X039",
+    "projectTags": [
+      "*"
+    ],
+    "title": "汇报对象临时增加了大领导",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X040",
+    "projectTags": [
+      "*"
+    ],
+    "title": "打印店已经关门但需要纸质版",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X041",
+    "projectTags": [
+      "*"
+    ],
+    "title": "下班前收到的竞品动态需要纳入汇报",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X042",
+    "projectTags": [
+      "*"
+    ],
+    "title": "汇报前的预演暴露了逻辑漏洞",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X043",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导要求在汇报中加入敏感数据",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X044",
+    "projectTags": [
+      "*"
+    ],
+    "title": "汇报用的系统在下班时维护",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X045",
+    "projectTags": [
+      "*"
+    ],
+    "title": "协作部门下班前才给反馈意见",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X046",
+    "projectTags": [
+      "*"
+    ],
+    "title": "汇报结束后需要立即提供补充材料",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_minute_report"
+  },
+  {
+    "eventId": "X047",
+    "projectTags": [
+      "*"
+    ],
+    "title": "最后一个工作日的紧急客户投诉",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X048",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年底关账前的最后一笔报销被卡",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X049",
+    "projectTags": [
+      "*"
+    ],
+    "title": "未回复的邮件超过了三位数",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X050",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年度总结报告还差三页没写",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X051",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导要求年前完成所有绩效考核面谈",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X052",
+    "projectTags": [
+      "*"
+    ],
+    "title": "最后一个工作日OA系统计划维护",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X053",
+    "projectTags": [
+      "*"
+    ],
+    "title": "供应商要求在年前结清所有款项",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X054",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年终奖的分配方案引发不满",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X055",
+    "projectTags": [
+      "*"
+    ],
+    "title": "明年的预算模板今天下班前要提交",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X056",
+    "projectTags": [
+      "*"
+    ],
+    "title": "最后一天还有新人入职需要安排",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X057",
+    "projectTags": [
+      "*"
+    ],
+    "title": "年终礼品清单还没确认",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "last_working_day"
+  },
+  {
+    "eventId": "X058",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要求重新审查所有在途项目",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X059",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板的汇报风格完全不同",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X060",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板带了旧部下来接管关键岗位",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X061",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要求每天站会汇报进度",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X062",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板对供应商名单提出质疑",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X063",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要重新评估团队人员配置",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X064",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板推翻了之前领导批准的方案",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X065",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要求所有流程重新走审批",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X066",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板第一天就遇到了系统故障",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X067",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要见所有合作方负责人",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X068",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新老板要求用新的项目管理工具",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "new_boss_day"
+  },
+  {
+    "eventId": "X069",
+    "projectTags": [
+      "*"
+    ],
+    "title": "舆情监测系统报警后的应对",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X070",
+    "projectTags": [
+      "*"
+    ],
+    "title": "媒体要求对活动中的争议做出回应",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X071",
+    "projectTags": [
+      "*"
+    ],
+    "title": "内部员工在社交媒体上的不当发言",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X072",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动后有匿名信举报流程违规",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X073",
+    "projectTags": [
+      "*"
+    ],
+    "title": "合作方对活动效果表示不满",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X074",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动现场照片被恶意解读传播",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X075",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动数据被质疑造假",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X076",
+    "projectTags": [
+      "*"
+    ],
+    "title": "领导要求对舆情进行书面回应",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X077",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动后的复盘会议暴露组织问题",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X078",
+    "projectTags": [
+      "*"
+    ],
+    "title": "活动赞助商因舆情要求退款",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X079",
+    "projectTags": [
+      "*"
+    ],
+    "title": "行业协会发函询问活动合规性",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "post_event_turbulence"
+  },
+  {
+    "eventId": "X080",
+    "projectTags": [
+      "*"
+    ],
+    "title": "路演场地的网络带宽不达标",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "roadshow_eve"
+  },
+  {
+    "eventId": "X081",
+    "projectTags": [
+      "*"
+    ],
+    "title": "演示设备的备用方案未测试",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "roadshow_eve"
+  },
+  {
+    "eventId": "X082",
+    "projectTags": [
+      "*"
+    ],
+    "title": "路演前的媒体预览出现误读",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "roadshow_eve"
+  },
+  {
+    "eventId": "X083",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新需求涉及未评估的技术栈",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "client_adds_requirements"
+  },
+  {
+    "eventId": "X084",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户追加需求后的合同修订",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "client_adds_requirements"
+  },
+  {
+    "eventId": "X085",
+    "projectTags": [
+      "*"
+    ],
+    "title": "新增需求导致的预算重算",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "client_adds_requirements"
+  },
+  {
+    "eventId": "X086",
+    "projectTags": [
+      "*"
+    ],
+    "title": "上线后的数据库连接池耗尽",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "system_launch_day"
+  },
+  {
+    "eventId": "X087",
+    "projectTags": [
+      "*"
+    ],
+    "title": "运营团队对新系统操作不熟练",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "system_launch_day"
+  },
+  {
+    "eventId": "X088",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周末堆积的邮件超过五十封",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X089",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周一早会发现周末出了线上事故",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X090",
+    "projectTags": [
+      "*"
+    ],
+    "title": "本周五的截止日期在早会上被提前",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X091",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周报系统在周一早上崩溃",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X092",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周一早上的全员大会临时改议程",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X093",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周末客户发的需求变更没人看到",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X094",
+    "projectTags": [
+      "*"
+    ],
+    "title": "上周五的会议纪要被质疑不准确",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X095",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周一早上发现办公区空调坏了",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X096",
+    "projectTags": [
+      "*"
+    ],
+    "title": "早会上被分配到不属于自己的任务",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X097",
+    "projectTags": [
+      "*"
+    ],
+    "title": "本周的排期在周一就被塞满了",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X098",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周一早上的合规培训不能请假",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "monday_morning"
+  },
+  {
+    "eventId": "X099",
+    "projectTags": [
+      "*"
+    ],
+    "title": "被砍预算后的团队士气危机",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X100",
+    "projectTags": [
+      "*"
+    ],
+    "title": "预算削减导致的关键岗位离职风险",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X101",
+    "projectTags": [
+      "*"
+    ],
+    "title": "被迫使用低成本方案的质量风险",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X102",
+    "projectTags": [
+      "*"
+    ],
+    "title": "预算砍了但交付标准没降",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X103",
+    "projectTags": [
+      "*"
+    ],
+    "title": "砍预算后供应商拒绝继续合作",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X104",
+    "projectTags": [
+      "*"
+    ],
+    "title": "预算缩减下的加班费争议",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "budget_cut"
+  },
+  {
+    "eventId": "X105",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五下午的代码部署禁令被无视",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X106",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户约了周五下班前电话沟通",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X107",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五团建活动与项目截止日撞车",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X108",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五下午收到周一的汇报通知",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X109",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五下班前供应商发来涨价通知",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X110",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五的审批流卡在最后一个节点",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X111",
+    "projectTags": [
+      "*"
+    ],
+    "title": "同事请假把未完成的工作甩给了你",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X112",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五下午系统突然变慢影响效率",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X113",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五例会上被点名下周汇报进度",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X114",
+    "projectTags": [
+      "*"
+    ],
+    "title": "周五下班前财务要求补签所有单据",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "friday_afternoon"
+  },
+  {
+    "eventId": "X115",
+    "projectTags": [
+      "*"
+    ],
+    "title": "节前最后一天收到加急需求",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X116",
+    "projectTags": [
+      "*"
+    ],
+    "title": "放假前必须完成的系统安全检查",
+    "text": "",
+    "speaker": "jishu_azhe",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X117",
+    "projectTags": [
+      "*"
+    ],
+    "title": "假期值班表还没排好",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X118",
+    "projectTags": [
+      "*"
+    ],
+    "title": "节前客户要求确认假期联系人",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X119",
+    "projectTags": [
+      "*"
+    ],
+    "title": "放假前领导要求完成下季度规划",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X120",
+    "projectTags": [
+      "*"
+    ],
+    "title": "节前最后半天的全员大扫除通知",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X121",
+    "projectTags": [
+      "*"
+    ],
+    "title": "假期期间的应急预案还没写",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X122",
+    "projectTags": [
+      "*"
+    ],
+    "title": "节前聚餐的预算被财务驳回",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X123",
+    "projectTags": [
+      "*"
+    ],
+    "title": "放假前供应商发来的合同需要节前签",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X124",
+    "projectTags": [
+      "*"
+    ],
+    "title": "客户想在假期期间安排项目讨论",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X125",
+    "projectTags": [
+      "*"
+    ],
+    "title": "节前最后几个小时的全员邮件",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "pre_holiday"
+  },
+  {
+    "eventId": "X126",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度KPI数据被人质疑统计口径",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X127",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度考核中的360评估出现恶意差评",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X128",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度报告中的项目成果被其他部门认领",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X129",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度末的预算执行率不达标",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "budget_conflict",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X130",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度考核面谈时间与项目截止日冲突",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X131",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度考核结果被用来决定裁员名单",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X132",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度指标的统计口径突然被更改",
+    "text": "",
+    "speaker": "hegui_chen",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X133",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度末发现全年目标还差一大截",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X134",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度考核中发现跨部门协作数据缺失",
+    "text": "",
+    "speaker": "zhang_zong",
+    "category": "satisfaction_mgmt",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X135",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度末的财务数据与实际有偏差",
+    "text": "",
+    "speaker": "caiwu_zhou",
+    "category": "risk_compliance",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
+  },
+  {
+    "eventId": "X136",
+    "projectTags": [
+      "*"
+    ],
+    "title": "季度考核后被要求制定改进计划",
+    "text": "",
+    "speaker": "lin_zong",
+    "category": "time_pressure",
+    "choices": [],
+    "themeExclusive": "quarterly_review"
   }
 ]

@@ -95,7 +95,7 @@ for (let i = 1; i < lines.length; i++) {
   const budget = parseInt(cols[13]) || 0;
   const satisfaction = parseInt(cols[14]) || 0;
   const risk = parseInt(cols[15]) || 0;
-  const compositeScore = (time + budget + satisfaction) - risk;
+  const compositeScore = (time + budget + satisfaction) + risk;
   const tags = cols[17] || '';
   const tone = cols[18] || '';
   const setsFlags = cols[19] || '';
@@ -358,7 +358,36 @@ for (const theme of themes) {
 
 fs.writeFileSync(path.join(DATA_DIR, 'themes.json'), JSON.stringify(themes, null, 2), 'utf-8');
 
-// ========== Step 7: Validation ==========
+// ========== Step 7: Update events.json themeExclusive ==========
+// v0.9.1.4: 根据 CSV ground truth 设置 themeExclusive
+const csvEventThemeMap = {};
+for (const [themeId, evIds] of Object.entries(CSV_THEME_EVENTS)) {
+  for (const evId of evIds) {
+    csvEventThemeMap[evId] = themeId;
+  }
+}
+
+let exclusiveAdded = 0;
+let exclusiveCorrected = 0;
+for (const ev of events) {
+  const csvTheme = csvEventThemeMap[ev.eventId];
+  if (csvTheme) {
+    if (!ev.themeExclusive) {
+      ev.themeExclusive = csvTheme;
+      exclusiveAdded++;
+    } else if (ev.themeExclusive !== csvTheme) {
+      console.log('  ⚠ CORRECTED: ' + ev.eventId + ' themeExclusive ' + ev.themeExclusive + ' → ' + csvTheme);
+      ev.themeExclusive = csvTheme;
+      exclusiveCorrected++;
+    }
+  }
+}
+
+fs.writeFileSync(path.join(DATA_DIR, 'events.json'), JSON.stringify(events, null, 2), 'utf-8');
+console.log('');
+console.log('events.json themeExclusive: ' + exclusiveAdded + ' added, ' + exclusiveCorrected + ' corrected');
+
+// ========== Step 8: Validation ==========
 console.log('');
 console.log('========================================');
 console.log('  v0.9.1.3 Rebuild Summary');

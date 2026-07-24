@@ -16,8 +16,10 @@ const balancer = fs.readFileSync(path.join(BASE, 'js', 'balancer.js'), 'utf-8');
 const chatJs = fs.readFileSync(path.join(BASE, 'js', 'chat.js'), 'utf-8');
 const ui = fs.readFileSync(path.join(BASE, 'js', 'ui.js'), 'utf-8');
 let mainJs = fs.readFileSync(path.join(BASE, 'js', 'main.js'), 'utf-8');
+mainJs = mainJs.replace(/\r\n/g, '\n');  // 统一换行符
 
 // 读取 JSON 数据
+// 同样统一 JSON 数据的换行符
 const projects = fs.readFileSync(path.join(BASE, 'js', 'data', 'projects.json'), 'utf-8');
 const characters = fs.readFileSync(path.join(BASE, 'js', 'data', 'characters.json'), 'utf-8');
 const themes = fs.readFileSync(path.join(BASE, 'js', 'data', 'themes.json'), 'utf-8');

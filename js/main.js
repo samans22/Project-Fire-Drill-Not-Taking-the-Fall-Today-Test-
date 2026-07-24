@@ -352,8 +352,8 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 v0.9.1.3 — 已就绪 (P2: 文本池严格主题映射 v2)');
-  console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条 | themes.json boosted 已对齐 CSV');
+  console.log('🏢 项目救火办：今日不背锅 v0.9.2 — 已就绪 (P2: 文本池扩充 515→732 + 136 X事件 + themeExclusive)');
+  console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条 | 主题: ' + gameData.themes.length);
 }
 
 // ---------- P2: 运行时数据健康检查 ----------

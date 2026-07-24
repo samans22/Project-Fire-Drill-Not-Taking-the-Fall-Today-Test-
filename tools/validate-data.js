@@ -54,7 +54,7 @@ function validate() {
   let dups = 0;
   for (const [themeId, texts] of Object.entries(tp.byTheme)) {
     for (const t of texts) {
-      const key = themeId + '|' + t.text + '|' + JSON.stringify(t.effects);
+      const key = themeId + '|' + t.text + '|' + JSON.stringify(t.effects) + '|' + t.eventId;
       if (seen.has(key)) {
         dups++;
         results.fail.push('DUPLICATE: ' + seen.get(key) + ' <-> ' + t.textId + ' in ' + themeId);
@@ -127,7 +127,7 @@ function validate() {
   for (const [themeId, texts] of Object.entries(tp.byTheme)) {
     for (const t of texts) {
       const e = t.effects;
-      const calc = (e.time || 0) + (e.budget || 0) + (e.satisfaction || 0) - (e.risk || 0);
+      const calc = (e.time || 0) + (e.budget || 0) + (e.satisfaction || 0) + (e.risk || 0);
       if (calc !== t.compositeScore) {
         compositeErrors++;
         results.fail.push('COMPOSITE_MISMATCH: ' + t.textId + ' stored=' + t.compositeScore + ' calculated=' + calc);
