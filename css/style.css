@@ -189,6 +189,37 @@ body {
   cursor: default;
 }
 
+/* ----- P3: 概率选项按钮 ----- */
+.choice-btn--probability {
+  border-style: dashed;
+  border-color: var(--accent);
+  border-width: 2px;
+}
+.choice-btn--probability:hover:not(:disabled) {
+  border-style: dashed;
+  background: #f5f3ff;
+}
+
+/* ----- P3: 随机事件修饰标签 ----- */
+.event-modifier-label {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 8px 0 12px 0;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #92400e;
+  animation: modifierPulse 0.8s ease-in-out;
+}
+
+@keyframes modifierPulse {
+  0%   { transform: scale(0.9); opacity: 0.5; }
+  50%  { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
 /* ----- 选项悬浮提示 ----- */
 .choice-btn[data-hint]:hover::after {
   content: attr(data-hint);

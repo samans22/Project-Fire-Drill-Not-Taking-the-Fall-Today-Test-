@@ -51,16 +51,33 @@ const Game = {
     const choice = event.choices[choiceIndex];
     if (!choice) return null;
 
-    this.applyEffects(state, choice.effects);
+    // P3: 使用预解析的效果（概率 + 隐藏已合并），回退到原始 effects
+    let effects = choice._resolvedEffects
+      ? { ...choice._resolvedEffects }
+      : { ...choice.effects };
+
+    // P3: 应用随机事件修饰
+    if (event._modifier) {
+      effects = Balancer.applyModifierToEffects(effects, event._modifier);
+    }
+
+    this.applyEffects(state, effects);
     this.setFlags(state, choice.setsFlags);
+
+    // P3: 概率失败时使用 failureFeedback
+    let feedback = choice.feedback;
+    const probResult = choice._resolvedEffects?._probResult || null;
+    if (probResult === 'failure' && choice.failureFeedback) {
+      feedback = choice.failureFeedback;
+    }
 
     const record = {
       eventId: event.eventId,
       eventTitle: event.title,
       choiceIndex,
       choiceText: choice.text,
-      feedback: choice.feedback,
-      effects: { ...choice.effects },
+      feedback: feedback,
+      effects: effects,
       nextEventId: choice.nextEvent || null,
       newStats: { ...state.stats }
     };

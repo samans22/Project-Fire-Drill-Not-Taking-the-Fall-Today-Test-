@@ -116,14 +116,28 @@ const UI = {
 
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
+
+      // P3: 概率选项使用虚线边框
+      if (resolved.probability) {
+        btn.classList.add('choice-btn--probability');
+      }
+
       btn.textContent = `${String.fromCharCode(65 + i)}. ${resolved.text}`;
 
-      // 增强 tooltip：数值 + 叙事
-      const effectsHint = Balancer.formatEffectsHint(resolved.effects || {});
+      // P3: 增强 tooltip — 过滤隐藏效果 + 显示成功率
+      const hiddenForHint = resolved.hiddenEffects || undefined;
+      const effectsHint = Balancer.formatEffectsHint(resolved.effects || {}, hiddenForHint);
       const narrativeHint = resolved._originalHint || choice.hint || '';
-      const fullHint = narrativeHint
-        ? effectsHint + '\n' + narrativeHint
-        : effectsHint;
+
+      // P3: 概率提示
+      const probHint = Balancer.formatProbabilityHint(resolved.probability);
+
+      // P3: 隐藏后果叙事提示
+      const hiddenNarrative = resolved.hiddenHint || '';
+
+      const fullHint = [effectsHint, probHint, narrativeHint, hiddenNarrative]
+        .filter(Boolean)
+        .join('\n');
       btn.setAttribute('data-hint', fullHint);
 
       btn.addEventListener('click', () => {
@@ -133,6 +147,21 @@ const UI = {
       });
       container.appendChild(btn);
     });
+
+    // P3: 随机事件修饰标签
+    const existingLabel = document.getElementById('event-modifier-label');
+    if (existingLabel) existingLabel.remove();
+
+    if (event._modifier) {
+      const label = document.createElement('div');
+      label.id = 'event-modifier-label';
+      label.className = 'event-modifier-label';
+      label.textContent = event._modifier.label;
+      const eventTextEl = this._cache.eventText;
+      if (eventTextEl && eventTextEl.parentNode) {
+        eventTextEl.insertAdjacentElement('afterend', label);
+      }
+    }
   },
 
   // ---------- 显示反馈 ----------

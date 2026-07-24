@@ -18,6 +18,29 @@ function onChoiceSelected(choiceIndex) {
     event.choices[choiceIndex] = Object.assign({}, choice, choice._resolved);
   }
 
+  // P3: 解析概率效果 + 合并隐藏效果
+  const resolvedChoice = event.choices[choiceIndex];
+  if (resolvedChoice) {
+    let resolvedEffects = { ...(resolvedChoice.effects || {}) };
+
+    // Step A: 掷概率骰子
+    if (resolvedChoice.probability) {
+      resolvedEffects = Balancer.resolveProbabilityEffects(
+        resolvedEffects, resolvedChoice.probability
+      );
+    }
+
+    // Step B: 合并隐藏效果
+    if (resolvedChoice.hiddenEffects) {
+      resolvedEffects = Balancer.mergeHiddenEffects(
+        resolvedEffects, resolvedChoice.hiddenEffects
+      );
+    }
+
+    // 存入 choice 供 executeChoice 读取
+    resolvedChoice._resolvedEffects = resolvedEffects;
+  }
+
   // 执行选择
   const record = Game.executeChoice(gameState, event, choiceIndex);
   if (!record) return;
@@ -66,6 +89,8 @@ function onContinueClicked() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
+      // P3: 链式事件也掷随机修饰
+      modified._modifier = Balancer.rollRandomModifier();
       currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       autoSave();
@@ -134,9 +159,13 @@ function _injectTextPoolChoices(event) {
     text: t.text,
     effects: t.effects,
     feedback: t.feedback,
+    failureFeedback: t.failureFeedback || undefined,      // P3: 概率失败反馈
     setsFlags: t.setsFlags || undefined,
     composite: t.compositeScore,
     _fromPool: true,
+    probability: t.probability || undefined,                // P3: 概率配置
+    hiddenEffects: t.hiddenEffects || undefined,            // P3: 隐藏效果
+    hiddenHint: t.hiddenHint || undefined,                  // P3: 隐藏提示
   }));
 
   // 浅拷贝事件，替换 choices
@@ -227,6 +256,8 @@ function continueGame() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
+      // P3: 继续游戏时链式事件也掷随机修饰
+      modified._modifier = Balancer.rollRandomModifier();
       currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       return;
@@ -260,6 +291,9 @@ function nextTurn() {
     advanceDayAndContinue();
     return;
   }
+
+  // P3: 掷随机事件修饰
+  event._modifier = Balancer.rollRandomModifier();
 
   // 注入文本池选项
   event = _injectTextPoolChoices(event);
@@ -305,6 +339,9 @@ function advanceDayAndContinue() {
     endGame(defaultEnding);
     return;
   }
+
+  // P3: 掷随机事件修饰
+  event._modifier = Balancer.rollRandomModifier();
 
   // 注入文本池选项
   event = _injectTextPoolChoices(event);
@@ -352,7 +389,7 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 v0.9.2 — 已就绪 (P2: 文本池扩充 515→732 + 136 X事件 + themeExclusive)');
+  console.log('🏢 项目救火办：今日不背锅 v0.10 — 已就绪 (P3: 概率效果 + 隐藏后果 + 随机修饰)');
   console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条 | 主题: ' + gameData.themes.length);
 }
 

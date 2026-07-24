@@ -197,6 +197,37 @@ body {
   cursor: default;
 }
 
+/* ----- P3: 概率选项按钮 ----- */
+.choice-btn--probability {
+  border-style: dashed;
+  border-color: var(--accent);
+  border-width: 2px;
+}
+.choice-btn--probability:hover:not(:disabled) {
+  border-style: dashed;
+  background: #f5f3ff;
+}
+
+/* ----- P3: 随机事件修饰标签 ----- */
+.event-modifier-label {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 8px 0 12px 0;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #92400e;
+  animation: modifierPulse 0.8s ease-in-out;
+}
+
+@keyframes modifierPulse {
+  0%   { transform: scale(0.9); opacity: 0.5; }
+  50%  { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
 /* ----- 选项悬浮提示 ----- */
 .choice-btn[data-hint]:hover::after {
   content: attr(data-hint);
@@ -713,16 +744,33 @@ const Game = {
     const choice = event.choices[choiceIndex];
     if (!choice) return null;
 
-    this.applyEffects(state, choice.effects);
+    // P3: 使用预解析的效果（概率 + 隐藏已合并），回退到原始 effects
+    let effects = choice._resolvedEffects
+      ? { ...choice._resolvedEffects }
+      : { ...choice.effects };
+
+    // P3: 应用随机事件修饰
+    if (event._modifier) {
+      effects = Balancer.applyModifierToEffects(effects, event._modifier);
+    }
+
+    this.applyEffects(state, effects);
     this.setFlags(state, choice.setsFlags);
+
+    // P3: 概率失败时使用 failureFeedback
+    let feedback = choice.feedback;
+    const probResult = choice._resolvedEffects?._probResult || null;
+    if (probResult === 'failure' && choice.failureFeedback) {
+      feedback = choice.failureFeedback;
+    }
 
     const record = {
       eventId: event.eventId,
       eventTitle: event.title,
       choiceIndex,
       choiceText: choice.text,
-      feedback: choice.feedback,
-      effects: { ...choice.effects },
+      feedback: feedback,
+      effects: effects,
       nextEventId: choice.nextEvent || null,
       newStats: { ...state.stats }
     };
@@ -1177,6 +1225,52 @@ const Balancer = {
     );
   },
 
+  // ========== P3: 概率效果解析 ==========
+
+  /**
+   * 解析概率效果：掷骰子，合并 bonus 或 penalty
+   * @param {object} effects - 基础效果
+   * @param {object|null} probability - 概率配置 { chance, bonusEffects, penaltyEffects }
+   * @returns {object} 解析后的效果（含 _probResult: 'success'|'failure'）
+   */
+  resolveProbabilityEffects(effects, probability) {
+    if (!probability) return effects;
+    const roll = Math.random();
+    const resolved = { ...effects };
+    if (roll < probability.chance) {
+      if (probability.bonusEffects) {
+        for (const [k, v] of Object.entries(probability.bonusEffects)) {
+          resolved[k] = (resolved[k] || 0) + v;
+        }
+      }
+      resolved._probResult = 'success';
+    } else {
+      if (probability.penaltyEffects) {
+        for (const [k, v] of Object.entries(probability.penaltyEffects)) {
+          resolved[k] = (resolved[k] || 0) + v;
+        }
+      }
+      resolved._probResult = 'failure';
+    }
+    return resolved;
+  },
+
+  /**
+   * 合并隐藏效果：将 hiddenEffects 叠加到 effects 上
+   * @param {object} effects - 可见效果
+   * @param {object|null} hiddenEffects - 隐藏效果
+   * @returns {object} 合并后的效果
+   */
+  mergeHiddenEffects(effects, hiddenEffects) {
+    const merged = { ...effects };
+    if (hiddenEffects) {
+      for (const [k, v] of Object.entries(hiddenEffects)) {
+        merged[k] = (merged[k] || 0) + v;
+      }
+    }
+    return merged;
+  },
+
   // ========== 玩家健康指数 ==========
 
   /**
@@ -1343,15 +1437,87 @@ const Balancer = {
     risk: '⚠',
   },
 
+  // ========== P3: 随机事件修饰 ==========
+
+  /** 随机修饰表 */
+  _modifiers: [
+    { id: 'leadership_focus',    chance: 0.10, label: '🔍 领导特别关注',  effects: { satisfactionMultiplier: 1.5 } },
+    { id: 'system_failure',      chance: 0.08, label: '⚠️ 系统突发故障',  effects: { timePenalty: -1 } },
+    { id: 'vendor_cooperation',  chance: 0.08, label: '🤝 供应商意外配合', effects: { budgetMultiplier: 0.5 } },
+    { id: 'intern_inspiration',  chance: 0.05, label: '🌟 小许灵光一现',  effects: { randomBonus: 1 } },
+    { id: 'compliance_fast_track', chance: 0.05, label: '📋 合规绿色通道', effects: { riskMultiplier: 1.5 } },
+  ],
+
+  /**
+   * 掷随机事件修饰
+   * @returns {object|null} 修饰对象或 null
+   */
+  rollRandomModifier() {
+    const roll = Math.random();
+    let cumulative = 0;
+    for (const mod of this._modifiers) {
+      cumulative += mod.chance;
+      if (roll < cumulative) return mod;
+    }
+    return null;
+  },
+
+  /**
+   * 将修饰效果应用到已解析的效果上
+   * @param {object} effects - 效果对象
+   * @param {object|null} modifier - 修饰对象
+   * @returns {object} 修改后的效果
+   */
+  applyModifierToEffects(effects, modifier) {
+    if (!modifier || !modifier.effects) return effects;
+    const result = { ...effects };
+    const me = modifier.effects;
+
+    if (me.satisfactionMultiplier) {
+      result.satisfaction = Math.trunc((result.satisfaction || 0) * me.satisfactionMultiplier);
+    }
+    if (me.timePenalty) {
+      result.time = (result.time || 0) + me.timePenalty;
+    }
+    if (me.budgetMultiplier && (result.budget || 0) < 0) {
+      result.budget = Math.trunc((result.budget || 0) * me.budgetMultiplier);
+    }
+    if (me.riskMultiplier && (result.risk || 0) < 0) {
+      result.risk = Math.trunc((result.risk || 0) * me.riskMultiplier);
+    }
+    if (me.randomBonus) {
+      const bonuses = [
+        { time: 1 }, { budget: 1 }, { satisfaction: 1 }, { risk: -1 }
+      ];
+      const pick = bonuses[Math.floor(Math.random() * bonuses.length)];
+      for (const [k, v] of Object.entries(pick)) {
+        result[k] = (result[k] || 0) + v;
+      }
+    }
+    return result;
+  },
+
   /**
    * 格式化效果为悬浮提示数值行
    * 例如: "⏱-2  😊-1  ⚠-2  |  净收益: -1"
+   * @param {object} effects - 效果对象
+   * @param {object|null} hiddenEffects - P3: 隐藏效果（负面惩罚不显示，正面效果永远显示）
    */
-  formatEffectsHint(effects) {
+  formatEffectsHint(effects, hiddenEffects) {
+    // P3: 构建应过滤的隐藏惩罚维度集合
+    const hiddenPenaltyKeys = new Set();
+    if (hiddenEffects) {
+      for (const [stat, val] of Object.entries(hiddenEffects)) {
+        // 只隐藏负面后果：risk>0=坏事, time/budget/satisfaction<0=坏事
+        if (stat === 'risk' && val > 0) hiddenPenaltyKeys.add(stat);
+        else if (stat !== 'risk' && val < 0) hiddenPenaltyKeys.add(stat);
+      }
+    }
+
     const parts = [];
     for (const [stat, icon] of Object.entries(this._icons)) {
       const val = effects[stat] || 0;
-      if (val !== 0) {
+      if (val !== 0 && !hiddenPenaltyKeys.has(stat)) {
         parts.push(icon + (val > 0 ? '+' : '') + val);
       }
     }
@@ -1364,16 +1530,39 @@ const Balancer = {
   /**
    * 生成 data-effects 属性值（用于 CSS tooltip）
    * 紧凑格式，一行显示所有effect变化
+   * @param {object} effects - 效果对象
+   * @param {object|null} hiddenEffects - P3: 隐藏效果（负面惩罚不显示）
    */
-  getEffectsData(effects) {
+  getEffectsData(effects, hiddenEffects) {
+    const hiddenPenaltyKeys = new Set();
+    if (hiddenEffects) {
+      for (const [stat, val] of Object.entries(hiddenEffects)) {
+        if (stat === 'risk' && val > 0) hiddenPenaltyKeys.add(stat);
+        else if (stat !== 'risk' && val < 0) hiddenPenaltyKeys.add(stat);
+      }
+    }
     const parts = [];
     for (const [stat, icon] of Object.entries(this._icons)) {
       const val = effects[stat] || 0;
-      if (val !== 0) {
+      if (val !== 0 && !hiddenPenaltyKeys.has(stat)) {
         parts.push(icon + (val > 0 ? '+' : '') + val);
       }
     }
     return parts.join('  ') || '无影响';
+  },
+
+  /**
+   * P3: 格式化概率提示文本
+   * @param {object|null} probability - 概率配置
+   * @returns {string} 格式化的概率提示
+   */
+  formatProbabilityHint(probability) {
+    if (!probability) return '';
+    let hint = '🎲 成功率: ' + Math.round(probability.chance * 100) + '%';
+    if (probability.narrativeHint) {
+      hint += '\n' + probability.narrativeHint;
+    }
+    return hint;
   },
 
   // ========== 历史追踪 ==========
@@ -1764,14 +1953,28 @@ const UI = {
 
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
+
+      // P3: 概率选项使用虚线边框
+      if (resolved.probability) {
+        btn.classList.add('choice-btn--probability');
+      }
+
       btn.textContent = `${String.fromCharCode(65 + i)}. ${resolved.text}`;
 
-      // 增强 tooltip：数值 + 叙事
-      const effectsHint = Balancer.formatEffectsHint(resolved.effects || {});
+      // P3: 增强 tooltip — 过滤隐藏效果 + 显示成功率
+      const hiddenForHint = resolved.hiddenEffects || undefined;
+      const effectsHint = Balancer.formatEffectsHint(resolved.effects || {}, hiddenForHint);
       const narrativeHint = resolved._originalHint || choice.hint || '';
-      const fullHint = narrativeHint
-        ? effectsHint + '\n' + narrativeHint
-        : effectsHint;
+
+      // P3: 概率提示
+      const probHint = Balancer.formatProbabilityHint(resolved.probability);
+
+      // P3: 隐藏后果叙事提示
+      const hiddenNarrative = resolved.hiddenHint || '';
+
+      const fullHint = [effectsHint, probHint, narrativeHint, hiddenNarrative]
+        .filter(Boolean)
+        .join('\n');
       btn.setAttribute('data-hint', fullHint);
 
       btn.addEventListener('click', () => {
@@ -1781,6 +1984,21 @@ const UI = {
       });
       container.appendChild(btn);
     });
+
+    // P3: 随机事件修饰标签
+    const existingLabel = document.getElementById('event-modifier-label');
+    if (existingLabel) existingLabel.remove();
+
+    if (event._modifier) {
+      const label = document.createElement('div');
+      label.id = 'event-modifier-label';
+      label.className = 'event-modifier-label';
+      label.textContent = event._modifier.label;
+      const eventTextEl = this._cache.eventText;
+      if (eventTextEl && eventTextEl.parentNode) {
+        eventTextEl.insertAdjacentElement('afterend', label);
+      }
+    }
   },
 
   // ---------- 显示反馈 ----------
@@ -1920,6 +2138,29 @@ function onChoiceSelected(choiceIndex) {
     event.choices[choiceIndex] = Object.assign({}, choice, choice._resolved);
   }
 
+  // P3: 解析概率效果 + 合并隐藏效果
+  const resolvedChoice = event.choices[choiceIndex];
+  if (resolvedChoice) {
+    let resolvedEffects = { ...(resolvedChoice.effects || {}) };
+
+    // Step A: 掷概率骰子
+    if (resolvedChoice.probability) {
+      resolvedEffects = Balancer.resolveProbabilityEffects(
+        resolvedEffects, resolvedChoice.probability
+      );
+    }
+
+    // Step B: 合并隐藏效果
+    if (resolvedChoice.hiddenEffects) {
+      resolvedEffects = Balancer.mergeHiddenEffects(
+        resolvedEffects, resolvedChoice.hiddenEffects
+      );
+    }
+
+    // 存入 choice 供 executeChoice 读取
+    resolvedChoice._resolvedEffects = resolvedEffects;
+  }
+
   // 执行选择
   const record = Game.executeChoice(gameState, event, choiceIndex);
   if (!record) return;
@@ -1968,6 +2209,8 @@ function onContinueClicked() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
+      // P3: 链式事件也掷随机修饰
+      modified._modifier = Balancer.rollRandomModifier();
       currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       autoSave();
@@ -9190,7 +9433,20 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "time": 1,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -1,
+            "risk": 1
+          },
+          "narrativeHint": "有70%概率能按时拿到全部数据"
+        },
+        "failureFeedback": "对方说数据还在整理中，今天给不了。你得自己想办法填补缺口。"
       },
       {
         "textId": "T0002",
@@ -9222,7 +9478,19 @@ async function loadAllData() {
         },
         "compositeScore": 0,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "time": 1,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2
+          },
+          "narrativeHint": "以你的经验，这种短会80%有效"
+        },
+        "failureFeedback": "各部门在会上互相推诿，什么也没定下来。"
       },
       {
         "textId": "T0005",
@@ -9238,7 +9506,20 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "time_heavy;satisfaction_hit;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 3,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "satisfaction": -3,
+            "risk": 2
+          },
+          "narrativeHint": "40%概率集压策略奏效"
+        },
+        "failureFeedback": "对方直接投诉你态度强硬，连甲方都知道了。"
       },
       {
         "textId": "T0006",
@@ -9254,7 +9535,18 @@ async function loadAllData() {
         },
         "compositeScore": -1,
         "tags": "neutral",
-        "tone": "safe"
+        "tone": "safe",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -1
+          },
+          "narrativeHint": "80%概率甲方接受行业数据替代"
+        },
+        "failureFeedback": "甲方说不接受非本公司原始数据，要你重新提交。"
       },
       {
         "textId": "T0007",
@@ -9271,7 +9563,11 @@ async function loadAllData() {
         "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky",
-        "setsFlags": "data_missing"
+        "setsFlags": "data_missing",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "这份定性表述可能会在审计时被重点关照"
       },
       {
         "textId": "T0008",
@@ -9287,7 +9583,11 @@ async function loadAllData() {
         },
         "compositeScore": -3,
         "tags": "risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "用定性表述总有风险——审计老师不是那么好糊弄的"
       },
       {
         "textId": "T0009",
@@ -9303,7 +9603,11 @@ async function loadAllData() {
         },
         "compositeScore": -1,
         "tags": "budget_gain",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "risk": 1
+        },
+        "hiddenHint": "精简措辞可能漏掉关键信息"
       },
       {
         "textId": "T0010",
@@ -9319,7 +9623,21 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "time_save;budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -2,
+            "risk": 2
+          },
+          "narrativeHint": "40%概率模板能蒙混过关"
+        },
+        "failureFeedback": "甲方一眼就看出是套的旧模板，要求全部重做。"
       },
       {
         "textId": "T0011",
@@ -9335,7 +9653,20 @@ async function loadAllData() {
         },
         "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "risk": 1
+          },
+          "narrativeHint": "小许说他已经学会了——70%概率能独立完成"
+        },
+        "failureFeedback": "小许交上来的东西完全不能用。你只好自己从头做。"
       },
       {
         "textId": "T0012",
@@ -9367,7 +9698,18 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.85,
+          "bonusEffects": {
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -1
+          },
+          "narrativeHint": "85%概率测算口径被甲方接受"
+        },
+        "failureFeedback": "甲方要求按另一种口径重新测算，你得多花时间。"
       },
       {
         "textId": "T0015",
@@ -9383,7 +9725,23 @@ async function loadAllData() {
         },
         "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1
+          },
+          "penaltyEffects": {
+            "risk": 2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "40%概率引用的数据不被质疑"
+        },
+        "failureFeedback": "数据来源被甲方质疑，现在连之前的数据都要重新核实。"
       },
       {
         "textId": "T0016",
@@ -9399,7 +9757,19 @@ async function loadAllData() {
         },
         "compositeScore": -1,
         "tags": "budget_drain;satisfaction_boost",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "time": 1
+          },
+          "penaltyEffects": {
+            "budget": -1,
+            "risk": 1
+          },
+          "narrativeHint": "80%概率第三方按时交付"
+        },
+        "failureFeedback": "第三方说项目太多要排期，最快也要下周。"
       },
       {
         "textId": "T0017",
@@ -9415,7 +9785,12 @@ async function loadAllData() {
         },
         "compositeScore": -1,
         "tags": "budget_gain",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "risk": 1,
+          "satisfaction": -1
+        },
+        "hiddenHint": "待更新三个字能挡多久？"
       },
       {
         "textId": "T0018",
@@ -9431,7 +9806,21 @@ async function loadAllData() {
         },
         "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.6,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "risk": 1
+          },
+          "narrativeHint": "60%概率数据模型能跑通"
+        },
+        "failureFeedback": "模型报错了，你还得从头手动处理数据。"
       },
       {
         "textId": "T0129",
@@ -9447,7 +9836,20 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.5,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "50%概率各部门按要求填模板"
+        },
+        "failureFeedback": "一半的部门根本没填，你只好逐一电话沟通。"
       },
       {
         "textId": "T0130",
@@ -9463,7 +9865,12 @@ async function loadAllData() {
         },
         "compositeScore": -4,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "hiddenEffects": {
+          "risk": 2,
+          "time": -1
+        },
+        "hiddenHint": "后期统一汇总时大概率会出问题"
       },
       {
         "textId": "T0131",
@@ -9480,7 +9887,12 @@ async function loadAllData() {
         "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
-        "setsFlags": "partial_esg_data"
+        "setsFlags": "partial_esg_data",
+        "hiddenEffects": {
+          "risk": 1,
+          "satisfaction": -1
+        },
+        "hiddenHint": "被遗漏的部门可能在年终评优时爆发不满"
       },
       {
         "textId": "T0132",
@@ -9496,7 +9908,22 @@ async function loadAllData() {
         },
         "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.45,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1,
+            "risk": -2
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "budget": -1,
+            "risk": 1
+          },
+          "narrativeHint": "45%概率赶在打印前修完所有错误"
+        },
+        "failureFeedback": "时间太紧了，最后还是有三处错误没改到。"
       },
       {
         "textId": "T0133",
@@ -9513,7 +9940,12 @@ async function loadAllData() {
         "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
-        "setsFlags": "esg_data_error"
+        "setsFlags": "esg_data_error",
+        "hiddenEffects": {
+          "risk": 2,
+          "satisfaction": -1
+        },
+        "hiddenHint": "小许去解释的结果可能比你想的更糟"
       },
       {
         "textId": "T0134",
@@ -9530,7 +9962,11 @@ async function loadAllData() {
         "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe",
-        "setsFlags": "esg_data_error"
+        "setsFlags": "esg_data_error",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "先行提交意味着后面被发现有问题要背锅"
       },
       {
         "textId": "T0135",
@@ -9546,7 +9982,19 @@ async function loadAllData() {
         },
         "compositeScore": -1,
         "tags": "time_heavy",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "satisfaction": 1,
+            "time": 1
+          },
+          "penaltyEffects": {
+            "satisfaction": -2
+          },
+          "narrativeHint": "70%概率甲方认可这些包装案例"
+        },
+        "failureFeedback": "甲方看完直说\"这也能叫公益案例？\"你尴尬了。"
       },
       {
         "textId": "T0136",
@@ -9562,7 +10010,12 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "hiddenEffects": {
+          "time": -1,
+          "budget": -1
+        },
+        "hiddenHint": "甲方可能趁机要你做更多额外工作"
       },
       {
         "textId": "T0137",
@@ -9578,7 +10031,20 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "budget_drain",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.65,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "budget": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "65%概率咨询公司能快速交付"
+        },
+        "failureFeedback": "咨询公司报价翻倍，你的预算不够了。"
       },
       {
         "textId": "T0244",
@@ -9594,7 +10060,20 @@ async function loadAllData() {
         },
         "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "satisfaction": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "80%概率澄清公告能平息质疑"
+        },
+        "failureFeedback": "媒体继续追问细节，澄清效果有限。"
       },
       {
         "textId": "T0245",
@@ -9610,7 +10089,20 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "budget_drain",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.75,
+          "bonusEffects": {
+            "risk": -2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "budget": -1
+          },
+          "narrativeHint": "75%概率审计师认可数据"
+        },
+        "failureFeedback": "审计师发现了三个需要补充说明的地方，还要再花时间。"
       },
       {
         "textId": "T0246",
@@ -9626,7 +10118,23 @@ async function loadAllData() {
         },
         "compositeScore": -2,
         "tags": "risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 1
+        },
+        "probability": {
+          "chance": 0.55,
+          "bonusEffects": {
+            "time": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "risk": 2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "55%概率拖延策略不被追问"
+        },
+        "failureFeedback": "投资者注意到了\"审查中\"的措辞，开始质疑公司透明度。"
       },
       {
         "textId": "T0247",
@@ -9642,7 +10150,20 @@ async function loadAllData() {
         },
         "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "satisfaction": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "70%概率分享获得正面反响"
+        },
+        "failureFeedback": "分享反响平平，你觉得准备时间都白费了。"
       },
       {
         "textId": "T0248",
@@ -9658,7 +10179,11 @@ async function loadAllData() {
         },
         "compositeScore": 2,
         "tags": "neutral",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "satisfaction": -1
+        },
+        "hiddenHint": "保持低调可能被领导认为缺乏主动性"
       },
       {
         "textId": "T0249",
@@ -20994,9 +21519,13 @@ function _injectTextPoolChoices(event) {
     text: t.text,
     effects: t.effects,
     feedback: t.feedback,
+    failureFeedback: t.failureFeedback || undefined,      // P3: 概率失败反馈
     setsFlags: t.setsFlags || undefined,
     composite: t.compositeScore,
     _fromPool: true,
+    probability: t.probability || undefined,                // P3: 概率配置
+    hiddenEffects: t.hiddenEffects || undefined,            // P3: 隐藏效果
+    hiddenHint: t.hiddenHint || undefined,                  // P3: 隐藏提示
   }));
 
   // 浅拷贝事件，替换 choices
@@ -21087,6 +21616,8 @@ function continueGame() {
     if (nextEvent) {
       const theme = Events._getTheme(gameState);
       const modified = Events._applyTextOverrides(nextEvent, theme);
+      // P3: 继续游戏时链式事件也掷随机修饰
+      modified._modifier = Balancer.rollRandomModifier();
       currentEvent = _injectTextPoolChoices(modified);
       UI.showEvent(currentEvent, gameData.characters, gameState);
       return;
@@ -21120,6 +21651,9 @@ function nextTurn() {
     advanceDayAndContinue();
     return;
   }
+
+  // P3: 掷随机事件修饰
+  event._modifier = Balancer.rollRandomModifier();
 
   // 注入文本池选项
   event = _injectTextPoolChoices(event);
@@ -21165,6 +21699,9 @@ function advanceDayAndContinue() {
     endGame(defaultEnding);
     return;
   }
+
+  // P3: 掷随机事件修饰
+  event._modifier = Balancer.rollRandomModifier();
 
   // 注入文本池选项
   event = _injectTextPoolChoices(event);
@@ -21212,7 +21749,7 @@ async function init() {
     UI.showContinueButton(continueGame);
   }
 
-  console.log('🏢 项目救火办：今日不背锅 v0.9.2 — 已就绪 (P2: 文本池扩充 515→732 + 136 X事件 + themeExclusive)');
+  console.log('🏢 项目救火办：今日不背锅 v0.10 — 已就绪 (P3: 概率效果 + 隐藏后果 + 随机修饰)');
   console.log('  事件池: ' + Events._pool.length + ' 条 | 文本池: ' + (Events.getTextPoolData()?._total || '?') + ' 条 | 主题: ' + gameData.themes.length);
 }
 

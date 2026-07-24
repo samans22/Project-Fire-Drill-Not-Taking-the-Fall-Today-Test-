@@ -70,6 +70,52 @@ const Balancer = {
     );
   },
 
+  // ========== P3: 概率效果解析 ==========
+
+  /**
+   * 解析概率效果：掷骰子，合并 bonus 或 penalty
+   * @param {object} effects - 基础效果
+   * @param {object|null} probability - 概率配置 { chance, bonusEffects, penaltyEffects }
+   * @returns {object} 解析后的效果（含 _probResult: 'success'|'failure'）
+   */
+  resolveProbabilityEffects(effects, probability) {
+    if (!probability) return effects;
+    const roll = Math.random();
+    const resolved = { ...effects };
+    if (roll < probability.chance) {
+      if (probability.bonusEffects) {
+        for (const [k, v] of Object.entries(probability.bonusEffects)) {
+          resolved[k] = (resolved[k] || 0) + v;
+        }
+      }
+      resolved._probResult = 'success';
+    } else {
+      if (probability.penaltyEffects) {
+        for (const [k, v] of Object.entries(probability.penaltyEffects)) {
+          resolved[k] = (resolved[k] || 0) + v;
+        }
+      }
+      resolved._probResult = 'failure';
+    }
+    return resolved;
+  },
+
+  /**
+   * 合并隐藏效果：将 hiddenEffects 叠加到 effects 上
+   * @param {object} effects - 可见效果
+   * @param {object|null} hiddenEffects - 隐藏效果
+   * @returns {object} 合并后的效果
+   */
+  mergeHiddenEffects(effects, hiddenEffects) {
+    const merged = { ...effects };
+    if (hiddenEffects) {
+      for (const [k, v] of Object.entries(hiddenEffects)) {
+        merged[k] = (merged[k] || 0) + v;
+      }
+    }
+    return merged;
+  },
+
   // ========== 玩家健康指数 ==========
 
   /**
@@ -236,15 +282,87 @@ const Balancer = {
     risk: '⚠',
   },
 
+  // ========== P3: 随机事件修饰 ==========
+
+  /** 随机修饰表 */
+  _modifiers: [
+    { id: 'leadership_focus',    chance: 0.10, label: '🔍 领导特别关注',  effects: { satisfactionMultiplier: 1.5 } },
+    { id: 'system_failure',      chance: 0.08, label: '⚠️ 系统突发故障',  effects: { timePenalty: -1 } },
+    { id: 'vendor_cooperation',  chance: 0.08, label: '🤝 供应商意外配合', effects: { budgetMultiplier: 0.5 } },
+    { id: 'intern_inspiration',  chance: 0.05, label: '🌟 小许灵光一现',  effects: { randomBonus: 1 } },
+    { id: 'compliance_fast_track', chance: 0.05, label: '📋 合规绿色通道', effects: { riskMultiplier: 1.5 } },
+  ],
+
+  /**
+   * 掷随机事件修饰
+   * @returns {object|null} 修饰对象或 null
+   */
+  rollRandomModifier() {
+    const roll = Math.random();
+    let cumulative = 0;
+    for (const mod of this._modifiers) {
+      cumulative += mod.chance;
+      if (roll < cumulative) return mod;
+    }
+    return null;
+  },
+
+  /**
+   * 将修饰效果应用到已解析的效果上
+   * @param {object} effects - 效果对象
+   * @param {object|null} modifier - 修饰对象
+   * @returns {object} 修改后的效果
+   */
+  applyModifierToEffects(effects, modifier) {
+    if (!modifier || !modifier.effects) return effects;
+    const result = { ...effects };
+    const me = modifier.effects;
+
+    if (me.satisfactionMultiplier) {
+      result.satisfaction = Math.trunc((result.satisfaction || 0) * me.satisfactionMultiplier);
+    }
+    if (me.timePenalty) {
+      result.time = (result.time || 0) + me.timePenalty;
+    }
+    if (me.budgetMultiplier && (result.budget || 0) < 0) {
+      result.budget = Math.trunc((result.budget || 0) * me.budgetMultiplier);
+    }
+    if (me.riskMultiplier && (result.risk || 0) < 0) {
+      result.risk = Math.trunc((result.risk || 0) * me.riskMultiplier);
+    }
+    if (me.randomBonus) {
+      const bonuses = [
+        { time: 1 }, { budget: 1 }, { satisfaction: 1 }, { risk: -1 }
+      ];
+      const pick = bonuses[Math.floor(Math.random() * bonuses.length)];
+      for (const [k, v] of Object.entries(pick)) {
+        result[k] = (result[k] || 0) + v;
+      }
+    }
+    return result;
+  },
+
   /**
    * 格式化效果为悬浮提示数值行
    * 例如: "⏱-2  😊-1  ⚠-2  |  净收益: -1"
+   * @param {object} effects - 效果对象
+   * @param {object|null} hiddenEffects - P3: 隐藏效果（负面惩罚不显示，正面效果永远显示）
    */
-  formatEffectsHint(effects) {
+  formatEffectsHint(effects, hiddenEffects) {
+    // P3: 构建应过滤的隐藏惩罚维度集合
+    const hiddenPenaltyKeys = new Set();
+    if (hiddenEffects) {
+      for (const [stat, val] of Object.entries(hiddenEffects)) {
+        // 只隐藏负面后果：risk>0=坏事, time/budget/satisfaction<0=坏事
+        if (stat === 'risk' && val > 0) hiddenPenaltyKeys.add(stat);
+        else if (stat !== 'risk' && val < 0) hiddenPenaltyKeys.add(stat);
+      }
+    }
+
     const parts = [];
     for (const [stat, icon] of Object.entries(this._icons)) {
       const val = effects[stat] || 0;
-      if (val !== 0) {
+      if (val !== 0 && !hiddenPenaltyKeys.has(stat)) {
         parts.push(icon + (val > 0 ? '+' : '') + val);
       }
     }
@@ -257,16 +375,39 @@ const Balancer = {
   /**
    * 生成 data-effects 属性值（用于 CSS tooltip）
    * 紧凑格式，一行显示所有effect变化
+   * @param {object} effects - 效果对象
+   * @param {object|null} hiddenEffects - P3: 隐藏效果（负面惩罚不显示）
    */
-  getEffectsData(effects) {
+  getEffectsData(effects, hiddenEffects) {
+    const hiddenPenaltyKeys = new Set();
+    if (hiddenEffects) {
+      for (const [stat, val] of Object.entries(hiddenEffects)) {
+        if (stat === 'risk' && val > 0) hiddenPenaltyKeys.add(stat);
+        else if (stat !== 'risk' && val < 0) hiddenPenaltyKeys.add(stat);
+      }
+    }
     const parts = [];
     for (const [stat, icon] of Object.entries(this._icons)) {
       const val = effects[stat] || 0;
-      if (val !== 0) {
+      if (val !== 0 && !hiddenPenaltyKeys.has(stat)) {
         parts.push(icon + (val > 0 ? '+' : '') + val);
       }
     }
     return parts.join('  ') || '无影响';
+  },
+
+  /**
+   * P3: 格式化概率提示文本
+   * @param {object|null} probability - 概率配置
+   * @returns {string} 格式化的概率提示
+   */
+  formatProbabilityHint(probability) {
+    if (!probability) return '';
+    let hint = '🎲 成功率: ' + Math.round(probability.chance * 100) + '%';
+    if (probability.narrativeHint) {
+      hint += '\n' + probability.narrativeHint;
+    }
+    return hint;
   },
 
   // ========== 历史追踪 ==========

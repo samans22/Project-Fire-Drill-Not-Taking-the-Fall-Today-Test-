@@ -16,7 +16,20 @@
         },
         "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "time": 1,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -1,
+            "risk": 1
+          },
+          "narrativeHint": "有70%概率能按时拿到全部数据"
+        },
+        "failureFeedback": "对方说数据还在整理中，今天给不了。你得自己想办法填补缺口。"
       },
       {
         "textId": "T0002",
@@ -48,7 +61,19 @@
         },
         "compositeScore": 0,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "time": 1,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2
+          },
+          "narrativeHint": "以你的经验，这种短会80%有效"
+        },
+        "failureFeedback": "各部门在会上互相推诿，什么也没定下来。"
       },
       {
         "textId": "T0005",
@@ -64,7 +89,20 @@
         },
         "compositeScore": -2,
         "tags": "time_heavy;satisfaction_hit;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 3,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "satisfaction": -3,
+            "risk": 2
+          },
+          "narrativeHint": "40%概率集压策略奏效"
+        },
+        "failureFeedback": "对方直接投诉你态度强硬，连甲方都知道了。"
       },
       {
         "textId": "T0006",
@@ -80,7 +118,18 @@
         },
         "compositeScore": -1,
         "tags": "neutral",
-        "tone": "safe"
+        "tone": "safe",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -1
+          },
+          "narrativeHint": "80%概率甲方接受行业数据替代"
+        },
+        "failureFeedback": "甲方说不接受非本公司原始数据，要你重新提交。"
       },
       {
         "textId": "T0007",
@@ -97,7 +146,11 @@
         "compositeScore": -3,
         "tags": "risk_taker",
         "tone": "risky",
-        "setsFlags": "data_missing"
+        "setsFlags": "data_missing",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "这份定性表述可能会在审计时被重点关照"
       },
       {
         "textId": "T0008",
@@ -113,7 +166,11 @@
         },
         "compositeScore": -3,
         "tags": "risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "用定性表述总有风险——审计老师不是那么好糊弄的"
       },
       {
         "textId": "T0009",
@@ -129,7 +186,11 @@
         },
         "compositeScore": -1,
         "tags": "budget_gain",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "risk": 1
+        },
+        "hiddenHint": "精简措辞可能漏掉关键信息"
       },
       {
         "textId": "T0010",
@@ -145,7 +206,21 @@
         },
         "compositeScore": -2,
         "tags": "time_save;budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -2,
+            "risk": 2
+          },
+          "narrativeHint": "40%概率模板能蒙混过关"
+        },
+        "failureFeedback": "甲方一眼就看出是套的旧模板，要求全部重做。"
       },
       {
         "textId": "T0011",
@@ -161,7 +236,20 @@
         },
         "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "risk": 1
+          },
+          "narrativeHint": "小许说他已经学会了——70%概率能独立完成"
+        },
+        "failureFeedback": "小许交上来的东西完全不能用。你只好自己从头做。"
       },
       {
         "textId": "T0012",
@@ -193,7 +281,18 @@
         },
         "compositeScore": -2,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.85,
+          "bonusEffects": {
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -1
+          },
+          "narrativeHint": "85%概率测算口径被甲方接受"
+        },
+        "failureFeedback": "甲方要求按另一种口径重新测算，你得多花时间。"
       },
       {
         "textId": "T0015",
@@ -209,7 +308,23 @@
         },
         "compositeScore": 0,
         "tags": "budget_gain;risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "probability": {
+          "chance": 0.4,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1
+          },
+          "penaltyEffects": {
+            "risk": 2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "40%概率引用的数据不被质疑"
+        },
+        "failureFeedback": "数据来源被甲方质疑，现在连之前的数据都要重新核实。"
       },
       {
         "textId": "T0016",
@@ -225,7 +340,19 @@
         },
         "compositeScore": -1,
         "tags": "budget_drain;satisfaction_boost",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "time": 1
+          },
+          "penaltyEffects": {
+            "budget": -1,
+            "risk": 1
+          },
+          "narrativeHint": "80%概率第三方按时交付"
+        },
+        "failureFeedback": "第三方说项目太多要排期，最快也要下周。"
       },
       {
         "textId": "T0017",
@@ -241,7 +368,12 @@
         },
         "compositeScore": -1,
         "tags": "budget_gain",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "risk": 1,
+          "satisfaction": -1
+        },
+        "hiddenHint": "待更新三个字能挡多久？"
       },
       {
         "textId": "T0018",
@@ -257,7 +389,21 @@
         },
         "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.6,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "risk": 1
+          },
+          "narrativeHint": "60%概率数据模型能跑通"
+        },
+        "failureFeedback": "模型报错了，你还得从头手动处理数据。"
       },
       {
         "textId": "T0129",
@@ -273,7 +419,20 @@
         },
         "compositeScore": -2,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.5,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "50%概率各部门按要求填模板"
+        },
+        "failureFeedback": "一半的部门根本没填，你只好逐一电话沟通。"
       },
       {
         "textId": "T0130",
@@ -289,7 +448,12 @@
         },
         "compositeScore": -4,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "hiddenEffects": {
+          "risk": 2,
+          "time": -1
+        },
+        "hiddenHint": "后期统一汇总时大概率会出问题"
       },
       {
         "textId": "T0131",
@@ -306,7 +470,12 @@
         "compositeScore": -2,
         "tags": "neutral",
         "tone": "professional",
-        "setsFlags": "partial_esg_data"
+        "setsFlags": "partial_esg_data",
+        "hiddenEffects": {
+          "risk": 1,
+          "satisfaction": -1
+        },
+        "hiddenHint": "被遗漏的部门可能在年终评优时爆发不满"
       },
       {
         "textId": "T0132",
@@ -322,7 +491,22 @@
         },
         "compositeScore": 0,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.45,
+          "bonusEffects": {
+            "time": 2,
+            "budget": 1,
+            "risk": -2
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "budget": -1,
+            "risk": 1
+          },
+          "narrativeHint": "45%概率赶在打印前修完所有错误"
+        },
+        "failureFeedback": "时间太紧了，最后还是有三处错误没改到。"
       },
       {
         "textId": "T0133",
@@ -339,7 +523,12 @@
         "compositeScore": -2,
         "tags": "budget_gain;risk_taker",
         "tone": "risky",
-        "setsFlags": "esg_data_error"
+        "setsFlags": "esg_data_error",
+        "hiddenEffects": {
+          "risk": 2,
+          "satisfaction": -1
+        },
+        "hiddenHint": "小许去解释的结果可能比你想的更糟"
       },
       {
         "textId": "T0134",
@@ -356,7 +545,11 @@
         "compositeScore": -1,
         "tags": "budget_gain",
         "tone": "safe",
-        "setsFlags": "esg_data_error"
+        "setsFlags": "esg_data_error",
+        "hiddenEffects": {
+          "risk": 2
+        },
+        "hiddenHint": "先行提交意味着后面被发现有问题要背锅"
       },
       {
         "textId": "T0135",
@@ -372,7 +565,19 @@
         },
         "compositeScore": -1,
         "tags": "time_heavy",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "satisfaction": 1,
+            "time": 1
+          },
+          "penaltyEffects": {
+            "satisfaction": -2
+          },
+          "narrativeHint": "70%概率甲方认可这些包装案例"
+        },
+        "failureFeedback": "甲方看完直说\"这也能叫公益案例？\"你尴尬了。"
       },
       {
         "textId": "T0136",
@@ -388,7 +593,12 @@
         },
         "compositeScore": -2,
         "tags": "neutral",
-        "tone": "professional"
+        "tone": "professional",
+        "hiddenEffects": {
+          "time": -1,
+          "budget": -1
+        },
+        "hiddenHint": "甲方可能趁机要你做更多额外工作"
       },
       {
         "textId": "T0137",
@@ -404,7 +614,20 @@
         },
         "compositeScore": -2,
         "tags": "budget_drain",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.65,
+          "bonusEffects": {
+            "time": 2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "budget": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "65%概率咨询公司能快速交付"
+        },
+        "failureFeedback": "咨询公司报价翻倍，你的预算不够了。"
       },
       {
         "textId": "T0244",
@@ -420,7 +643,20 @@
         },
         "compositeScore": 1,
         "tags": "time_heavy;risk_reducer",
-        "tone": "formal"
+        "tone": "formal",
+        "probability": {
+          "chance": 0.8,
+          "bonusEffects": {
+            "satisfaction": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "80%概率澄清公告能平息质疑"
+        },
+        "failureFeedback": "媒体继续追问细节，澄清效果有限。"
       },
       {
         "textId": "T0245",
@@ -436,7 +672,20 @@
         },
         "compositeScore": -2,
         "tags": "budget_drain",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.75,
+          "bonusEffects": {
+            "risk": -2,
+            "satisfaction": 1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "budget": -1
+          },
+          "narrativeHint": "75%概率审计师认可数据"
+        },
+        "failureFeedback": "审计师发现了三个需要补充说明的地方，还要再花时间。"
       },
       {
         "textId": "T0246",
@@ -452,7 +701,23 @@
         },
         "compositeScore": -2,
         "tags": "risk_taker",
-        "tone": "risky"
+        "tone": "risky",
+        "hiddenEffects": {
+          "risk": 1
+        },
+        "probability": {
+          "chance": 0.55,
+          "bonusEffects": {
+            "time": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "risk": 2,
+            "satisfaction": -2
+          },
+          "narrativeHint": "55%概率拖延策略不被追问"
+        },
+        "failureFeedback": "投资者注意到了\"审查中\"的措辞，开始质疑公司透明度。"
       },
       {
         "textId": "T0247",
@@ -468,7 +733,20 @@
         },
         "compositeScore": 1,
         "tags": "time_heavy;satisfaction_boost",
-        "tone": "professional"
+        "tone": "professional",
+        "probability": {
+          "chance": 0.7,
+          "bonusEffects": {
+            "satisfaction": 2,
+            "risk": -1
+          },
+          "penaltyEffects": {
+            "time": -2,
+            "satisfaction": -1
+          },
+          "narrativeHint": "70%概率分享获得正面反响"
+        },
+        "failureFeedback": "分享反响平平，你觉得准备时间都白费了。"
       },
       {
         "textId": "T0248",
@@ -484,7 +762,11 @@
         },
         "compositeScore": 2,
         "tags": "neutral",
-        "tone": "safe"
+        "tone": "safe",
+        "hiddenEffects": {
+          "satisfaction": -1
+        },
+        "hiddenHint": "保持低调可能被领导认为缺乏主动性"
       },
       {
         "textId": "T0249",
